@@ -21,7 +21,9 @@
 #  and value is a single-quote delimited value.
 # For example:
 *.gif -k 'b'
+*.GIF -k 'b'
 *.jpg -k 'b'
+*.JPG -k 'b'
 *.jpeg -k 'b'
 *.png -k 'b'
 *.iff -k 'b'
