@@ -5,51 +5,53 @@
  Copyright (C) 2004      by NewsRog Open Source Team
 
  This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
+ it under the terms of the GNU Lesser General Public License as published
+ by the Free Software Foundation; either version 2.1 of the License, or
  (at your option) any later version.
 
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
+ GNU Lesser General Public License for more details.
 
- You should have received a copy of the GNU General Public License
+ You should have received a copy of the GNU Lesser General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
- NewsRog OpenSource project:  http://sourceforge.net/projects/newsrog/
+ NewsRog Open Source project:  http://sourceforge.net/projects/newsrog/
 
  $Id$
 
 ***************************************************************************/
 
-NewsRog 1.8+ is hereby released as free software under the GNU General Public
-License. Please read this license (COPYING) and make sure you understand
-the terms and conditions of this license which defines under with conditions
-you are allowed to use and/or modify the sources of NewsRog.
+NewsRog 1.8+ is hereby released as free software under the GNU Lesser
+General Public License. Please read this license (COPYING) and make sure
+you understand the terms and conditions of this license which defines
+under which conditions you are allowed to use and/or modify the sources
+of NewsRog.
 
-NewsRog has been previously compiled with SAS/C 6.58. However, the current set
-of sources and includes does *not* compile out-of-the-box with either SAS/C or
-any other C compiler. Therefore some initial work is required to port the
-source properly to be compilable with gcc - which is considered as the
-future compiler for any further version of NewsRog. That's why the old
-"smakefile" files are still provided with the current CVS checkin.
+NewsRog has been previously compiled with SAS/C 6.58. However, the current
+set of sources and includes does *NOT* compile out-of-the-box, neither
+with SAS/C or any other C compiler. Therefore, some initial effort is
+required to port the source properly to be compilable with gcc, which is
+considered as the future compiler for any further version of NewsRog.
+That's why the old SAS/C makefiles were provided as part of the initial
+CVS checkin.
 
-So please, if you are willing to volunteer in porting the sources to gcc,
-drop the current NewsRog Open Source Team a short mail and we will add you
-to the main developer list of NewsRog and grant you write access to the CVS
-repository. However, please make yourself familiar with the current sources
-and also with the included SDI_#? headers which should be probably used during
-the process of porting the sources to gcc and also to other platforms like
-AmigaOS4 and/or MorphOS.
+If you want to help in porting the sources to gcc or contribute to the
+project in any way, please drop us a mail. Programmers should first
+familiarise themselves with the current sources and also with the
+included SDI_#? headers, which should probably be used while porting
+the sources to gcc and eventually to other platforms like AmigaOS 4
+and/or MorphOS.
 
-If you want to develop this program further, please register with SourceForge.net
-and notify one of the project admins. Until a real homepage is created, please
-consider http://sourceforge.net/projects/newsrog/ as our homepage.
+Becoming a NR developer also requires that you first register with
+SourceForge.net to get an username.
 
 
 NewsRog Open Source Team
 in accordance with the original NewsRog author
 Steve Koren.
+
 October, 2004
+
