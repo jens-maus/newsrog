@@ -1,0 +1,435 @@
+~~ OLD CHANGELOG INCLUDED IN COMMERCIAL VERSION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Version 1.8b:
+  o uudecoder doesn't skip blank lines
+  o fix docs for pctcaps filter - matches more than %, not less
+  o followup no longer crashes if window pos is not snapshot.
+  o post SET commands broken - now fixed
+  o add post INSFILE command
+  o arbitrary header display order
+  o arg string too short (128 chars) in multimedia action - increase
+  o No longer crash on long URLs over 200 chars
+  o URLs that contain substrings that look like emails are displayed correctly
+  o display newsgroups/etc lines with line breaks
+  o option to ask before overwriting when writing MIME/etc data file
+  o buttons left justified
+  o make list cursor start pos configurable: top, buttom, last, last
+  o option to skip read articles when paging
+
+  - handle Sv: instead of Re: 
+  - turn on/off line wrap on individual posts
+  - save on CtrlC exit?
+  - make use all headers the default
+  - MIME/decode filter doesn't handle continuation lines
+  - display filter to change article font?
+  - future articles have bad "age" field
+  - fold long references etc header lines before posting
+  - look for "test" in subject only if it's a word by itself
+  ? look at stargate post in c.s.a.misc - MIME filter prob, no body!
+  - add # of lines limit in Empheader for fold lines option
+  - action filter applied to other open groups?
+  - separate error reporting - don't use mui_request
+  - cursor place not kept in some thread modes
+  - "catch up" command
+  - add xor to var lang
+  - make multiselect qualifier prefix configurable
+    thread
+  - allow = in msgid
+  - skip subthread (all replies to current article)
+  - option to pop up sort window separately
+  - non-wildcard interpretation of wildcard strings in searches
+  - log file for errors
+  - clone path when launching workbench apps (see Holger's email)
+  - rerun highlight filters each time thread mode changes?
+  - code display in fixed font
+  - don't rewrap quoted sigs either
+  - ability of filters to find other filters, use settings
+  - window for jumping to a Message-ID
+  - view ANY article by msg-id, even from a different group
+!!! crash in reading article in c.s.a.reviews!!!!!!
+  - use list group for main config window, not register group
+  - check why notify on textselcnt doesn't always work (sci.astro)
+  - feature for pics groups to display which pics are saved somewhere
+    - pic path
+  - history list for multmedia actions - store some nice human-readable string
+  - pay attention to use full headers in batch D/L
+  - add ${mkvar VAR=whatever TYPE=whatever DEF=whatever expltext}
+  - allow closing artview separately from artlist
+  - group post hotlist - mark & jump to mark commands
+  - text viewer that uses NewsRog filters?
+  - ability to set address used in msg-id
+  - button in email filter for replying
+  - new query doesn't work too well with explicit expire menu
+  - special case rewrap for IMHO:, others
+  - match whole word in headermatch filter?
+  - multiple sigs
+  - use fetchallheaders by default?
+  - absolute thread article count
+  - two mime filters cause bad decoding
+  - if you exit the program while the group list is waiting for network IO
+    for an update, there's an enf hit
+  - trimspace should handle quoted blank lines
+  - add filter to match threads where % of posts match another condition
+  - add filter to use a display filter when a given selection filter
+    matches
+  - look at server change crash!
+  - batch D/L doesn't work if groups have different servers
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version 1.8:
+  o JumpToMsgID in group is now redundant - nuke it!
+  o arexx DISPART now accepts Message-ID
+  o newsrog now starts up on last read art if present
+  o handle news:message_id with no <>
+  o clickable message IDs in email filter - heuristic to tell from email addrs
+  o group method to view post by method-ID (and move to thread, etc)
+  o list object is wonky when entering some groups!!
+  o add error or beep if msgid clicked on is not found
+  o autoclip broken
+  o auto save on group close
+  o detect test posts to discussion groups
+  o require several pixel mousemove
+  o ${getenv DEF=} varlist command
+  o alt-select won't autoclip, allows multiselection
+  o select multiple words at once?
+  o add ${concat SEP="" words...}
+  o add ${default VAR=var defval}
+  o remove variable name length restriction
+  o add functions to var lookup
+  o auto send words to search engines?
+  o add ${replace old=str NEW=str text...}
+  o change default mm insert/save pattern to MMAction.*
+  o option to action filters to mark as read
+  o auto-remove spaces from newsgroup name before posting
+  o fix kill if no active article
+  o fix help text for Max Articles in group window
+  o new filter location for inside artview toolbar
+  o hilight filter is broken in offline mode
+  o handle message/rfc822 in MIME filter
+  o allow 8 bit posting instead of QP! (separate ctrl for body/headers)
+  o broken arts don't redisplay
+  o fix crash on nested local filters
+  o table display in fixed font
+  o Fix infinite loop on very long words with breaks before them
+  o fix dragging after click with no move
+  o test with quoted tables
+  o handle URL's in parens
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version 1.7b:
+
+  o change max cache setting in group to bigger number
+  o art body search from memory
+  o better status display in listsearch while searching
+  o give error if not enough RAM to load all articles.
+  o deletion marker for mime/uudecode should have var for filename
+  o allow ports over 1024
+  o Fix PoolWatch hit in CText.mcc
+  o look into why harv's post is getting so mangled (ca.driving)
+  o add LISTHDRS
+  o add SEARCH + other options to command line
+  o base64 decoding of headers
+  o Fix fetch if another comes in immediately
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version 1.7a:
+  o Fix quoting with quoted printable strings
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Version 1.7:
+  o Fix crash in toggling usefont/usecol 2nd time group opened
+  o don't highlight html tags as a quote level
+  o The rewrap algorithm works better on both hanging and standard indents
+  o handle alternate chars in space filter (like f*o*o*b*a*r)
+  o random taglines
+  o sort by perm, read was broken
+  o rate of posting filter (count / day span) w/ min
+  o add filter toolbars
+  o add bubble help for Any/All gadgets
+  o make pirated keyfile act like demo version
+  o when closing new post window, ask whether to del or go to queue
+  o auto read 1st article when entering thread
+  o delete filter toolbar icon when filter is deleted
+  o keyboard shortcut for batch D/L
+  o Arexx post single/post all commands
+  o add print menu to copy things to prt
+  o support spoiler (formfeed, 0x0c) character
+  o add select menus read/unread/cached/etc
+  o add sendpost to docs
+  o fix abbrev algorithm for single names
+  o document select menus read/unread/cached/etc
+  o add any/all to docs
+  o option to put filter toolbar on left/bottom/top
+  o add formating to varlist class: %0nld, etc
+  o fix PRI bug in exec variable fn
+  o test spoiler filter with others (email/sig/etc)
+  o filters can operate for reply/save/print
+  o set reasonable defaults for text modifications in dsp filters
+  o add docs for postrate filter, and add files to MakeDistrib/etc
+  o add spoiler filter to docs, MakeDistrib/etc
+  o allow startproj without needing parameter
+  o fix artsize >  cachesize problem
+  o tutorial 5 screenshot has screwed up dimensions
+  o add group option to temp remove articles without killing them (z/Z?)
+  o update subject filter UI example in docs
+  o protection against 0 lines returned with valid body/head result
+  o add new group menus to docs
+  o document new display filter stuff 
+  o add prompt option if # to fetch is less than # available
+    policy: fetch all, fetch # in MaxArticles, or prompt
+  o update config screenshot/docs to add fetchpolicy
+  o separate Max articles to keep when closing group
+  o finish config docs for groups window
+  o document remove functions
+  o option to ignore certain types in MIME filter
+  o - fix MIME filtering if no headers present
+  o - update MIME docs
+  o finish text mod filter for MIME
+  o fix references header split over multiple lines?
+  o handle filename in content-disposition header
+  o change default for hlquotes to scrolling blocks, not toggling
+  o post in quoted printable if article contains non-ASCII chars
+  o fix encoding of header lines with latin-1 if it's a different setting
+  o new preview mode for with/without quoted-printable
+  o fix mem leak with author notes
+  o charset translation display filter
+  o group help text is off by one!
+  o document charmap display filter
+  o update screenshot for nnews charset in nnews
+  o don't put () chars in user name abbrev
+  o add moderated flag to group list
+  o Limit to sel with no articles selected hangs
+  o fix keep on exit to default to max article count
+  o test enter thread action in offline mode with no cached arts
+  o add filter function toolbar info to group docs
+  o create some nice filter toolbar icons
+  o test toolbar button for highlight filters
+  o compare local libs to libs after install
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version 1.6:
+  o settable update interval for server groups
+  o pattern for server groups
+  o fix 2000 leapyear computation
+  o left and right keypad keys
+  o add path for user graphics
+  o start texteditor at top of buffer
+  o Fix timezone offset direction
+  o Add port # to server
+  o copy TextEditor .mcp in NewsRog install
+  o run rexx scripts from NewsRog multimedia actions
+  o add cyclechain to sliders in multimedia actions
+  o fix enforcer hits with email popmenus
+  o status (# killed cached etc)
+  o hotkey for moving article view/list to back/front
+  o Add ArtPartNum/ArtPartTot variables
+  o menu opt to select all multipart posts
+  o info on missing multiparts
+  o improve prefix heuristic
+  o option to save sent posts
+  o test multipost archive
+  o test "browse group" if it's in the main group list
+
+for V1.4
+  o Fix kill problem - artlist is updated afterwords
+  o Read Button from group list updates artlist if open
+  o Fix kill files for batch download stuff
+  o Fix "Re:" comparision in headermatch filter
+  o Fix date if time zone adjustment makes it >= 24 hrs
+  o add insert/quoted mode in post editor
+  o Add new servergroups button
+  o Continue if article not found during header download
+  o crash when exit if d/l queue arts?
+  o Fix scroll height bug (see a.f.letterman)
+  o Explicitly ask for Bytes: header.
+  o nosave option broken in ARexx CLOSEGROUP command?
+  o line wrapping prob in post editor if blank quoted line
+  o better tracking when all arts in thread have been read
+  o kill filter UI in grp should be able to kill globally
+  o parse non-ASCII from/header lines
+  o objects in header cause other filters not to recognize hdr
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version 1.5c:
+  o Double click in ctext select by word, triple by line
+  o horizontal ctexts don't insert newline in clip string
+  o Fix clone buttons in multimedia lists
+  o fixed text going away for partial parsing
+  o add Decode action filter
+  o handle zero lines - no text next to toggle for quote blocks
+  o fix group font in email/url ctexts
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version 1.5b:
+  o add hotkey for "Se_lect All" in groups list.
+  o add kbd shortcuts for artlist search window header fields etc
+  o Set AppBase, MemPool in NArticleView/StartEndMatch, so take it
+    out from the dsp filters themselves.
+  o add pooled allocs to display filters
+  o merge allocations in headermatch filter
+  o change HideHeader to not need scratch buffer
+  o performance tweaks to redisplay code
+  o make email GenAddObj changes to URL too
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Patch 1.5A:
+
+  o Fix enf hit in NNews.mcc if cancel when in view modes in post editor?
+  o make posted From: header comply with the RFC
+  o cancel save requestor causes enf hit
+  o fix PendingDisp in artview & update archives
+  o restore ami+W key in group save
+  o Fix XOVER bug with crossposted articles
+  o add @default-dest in update scripts
+  o add NNTPSERVER if trying to connect and no server declared
+  o Crash on some systems when editing filters?
+  o increase def pool size in L-Support
+  o add regexp to substitute filter
+  o test update script with all old appbases
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+for 1.5:
+  o insert check for two @ signs, or space in User Email addr
+  o optional XOVER method of getting headers
+  o add setting for article display increment
+  o add max simultaneous commands
+  o in all arts mode, thread movement should not change mode
+  o option to separate artview win from artlist win
+  o cache-when-read in online mode
+  o optional doubleclick for email/url plugins
+  o run variables in HeaderMatch filter
+  o URL pattern doesn't match some URL's
+  o empty description problem
+  o new artdate vars to allow "On Date, xyz said..."
+  o report post errors from server
+  o auto launch of editor
+  o heuristic for things like "So: ", "And:", vs real quotes.
+  o immediately load memcached arts, instead of putting in queue
+  o execute cmd in variables (and increase max var namelen to 255)
+  o vars expanded in optional headers
+  o fix ISO header bug in 1st word.
+  o Browse group from servergrp list without subscribing to it.
+  o update variable docs for ${exec}
+  o add popup menus for URL's and email addrs:
+  o text->gfx substitution filter for smileys
+  o add Substitute filter to docs
+  o add mask ability to DTImg class
+  o add edit button to popup filter boxes
+  o add rewrap break if no ASCII chars on line
+  o make badwrap pay attention to break pattern
+  o add more than one filter from list at once
+  o add predefined smiley graphics
+  o create Filters directory
+  o ability to save & load filters
+  o "Update" is broken now in dsp filter list
+  o add batch mode to NewsRog
+  o add nice icon of some sort to startup/shutdown windows.
+  o add editor callback method/obj for new contents
+  o load and display AuthInfo from filters
+  o option to matchthread to only fn in threadbase mode
+  o popup article context menu
+  o after running 1.5 update, check all libs, HTML, and GIFs
+  o and/or setting broken w/ new filter scheme in ngroup
+    (WORKAROUND)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+for V1.4b lib patch 1:
+
+  o new article marker label is wrong
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+for V1.4b:
+  o Fix uudecode to handle 4 digit mode in begin line
+  o Fix kill bug in NGroup!
+  o display width & height of inline images
+  o Fix lines display in MIME plugin
+  o turn off incremental art loading on per-group basis
+  o menu to reset art read point in groups
+  o crash if cancel before batch d/l starts?
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+for V1.3
+  o Fix stack problem in S5697_NArticleView.mcc
+  o lockup when searching through bodies - endless returns from GetEntry/ctext
+  o scollable header block
+  o add mode to batch d/l only new articles
+  o add mode for viewing all headers+.sig in post editor
+  o make rewrap in post editor
+  o add NNTP AUTHINFO
+  o longer length for headers
+  o auto retrieve FAQ
+  o path header wrapping in ScrollHdrs is bad
+  o don't go into AppBusy when displaying articles unless images
+  o remove AcceptID in socket - just overwrite SockID
+  o store server name with post
+  o make doubleclick on groups list subscribe
+  o highlight things in article list
+  o add cached marker for FAQ list
+  o add FAQList to docs
+  o add server passwd/user to docs
+  o sometimes the scrolltext height is computed wrong
+  o prefetch count is off by one
+  o uncache when killing articles
+  o arexx port
+  o arexx docs
+  o arexx SHUTDOWN command
+  o arexx note about quoting group names (u/l case)!
+  o auto copy to clipboard on text select
+  o patch file for AppBase
+  o cancel button broken for batch art d/l
+  o fix enforcer hit in DTImg if bad image
+  o add docs section for batch D/L filter
+  o add new D/L windows to docs
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+for V1.2
+  o Add history in documentation for both 1.1 and 1.2
+  o Move MUI/NEWSROG.1.PREFS to MUI/NEWSROG.PREFS in installer script?
+  o retain article size in Kb during "Full Headers" xfer
+  o hide extra headers in default artlistcol
+  o fix expire - it kills all articles? (if 1st is missing)
+  o group status (fetching...) not reset if article was cached
+  o set default button in server list is broken
+  o Fix uudencode/MIME display from broken windoze apps
+      o pop up requestor asking whether to save with basename
+  o handle newline in article headers
+  o handle newline in MIME headers
+  o !! global listcol is screwed up on new projects!!!!!!
+  o add pattern gadget to headers - make new header class, or use Attrval5?
+  o finish group patt support in custom hdrs - loop through groups
+  o make post editor documentation
+  o add gadget to turn off custom header inclusion
+  o add header list to documentation
+  o buttons for next article/thread/etc (keypad +/-)
+  o make insert really insert in post editor instead of replace
+  o show only arts matching a pattern
+  o search through message bodies (cached)
+    o show found article
+  o add caching in DTObjs
+  o use DTObj for other image buttons
+  o Fix bug if typing too fast for dynamic search
+  o control for updating display when searching bodies
+  o Fix newline tromping in rewrap filter
+  o don't search through headers if not in header mode (body search)
+  o wildcard searching through bodies doesn't work
+  o in body search, scroll quoted regions to show what we found
+  o don't sleep during isearch of bodies
+  o Fix to listsearch - handle editing string in middle
+  o sometimes update doesn't work right
+  o limit artlist to selected articles
+  o add doc section for headers
+  o add doc section for body searching
+  o add doc section for new toolbar icons
+  o make new GIF's for updated group window buttons
+  o Add maximum .sig size for HideSig
+  o update docs section for keypad bindings
+  o ACK - 1.2 doesn't load 1.1 projfiles
+  o make offline mode close the NW library
+  o set color as well as default font
+  o set def color/font per group, or inherit
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
