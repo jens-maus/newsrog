@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Command Line</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Command Line <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Reference.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-ARexx.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Prev">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+      <TD ROWSPAN=3 VALIGN=Top><B>Contents:</B></TD>
+      <TD><A HREF="#Info">     Command Line Info</A></TD>
+      <TD><A HREF="#Proj">     Project Options</A></TD>
+    </TR><TR>
+      <TD><A HREF="#Task">     Task Options</A></TD>
+      <TD><A HREF="#Batch">    Batch NNTP Operations</A></TD>
+    </TR><TR>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+NewsRog CmdLine Info
+<FONT SIZE=+0> </TD>
+<TD>
+
+The NewsRog command line exists for several purposes:<P>
+
+   <UL>
+     <LI>Controlling the startup environment of NewsRog, such as
+     specifying certain project files or the priority of the NewsRog
+     task.<P></LI>
+
+     <LI>Accessing an NNTP server in batch mode.</LI>
+   </UL><P>
+
+The first type option can also be used in an AmigaOS icon tooltype.
+Consult your Amiga documentation for more information on tooltypes.<P>
+
+Running NewsRog from the command line with a question mark as an option
+(NewsRog ?) will print an options template.  The case of options is not
+significant, and either a space or an equals sign can separate options
+from their values; the following are synonymous:<P>
+
+   <UL>STARTPROJ=ram:Project.Test<BR>
+       STARTPROJ ram:Project.Test<BR></UL><P>
+
+Many options have shorter synonyms, such as SP=STARTPROJ.<P>
+       
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Proj"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Project Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following command line options deal with projects:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Option</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>STARTPROJ<BR>SP</TD>
+         <TD>Filename</TD>
+         <TD>Specifies the filename of the project to be loaded into
+             NewsRog.  If omitted, and the NOPROJ option is not used, then
+             the defaul NewsRog project is loaded if it exists.
+         </TD></TR>
+
+     <TR><TD>NOPROJ<BR>NP</TD>
+         <TD><I>None</I></TD>
+         <TD>Specifies that no project should be loaded when NewsRog
+             starts.  This overrides the STARTPROJ option.
+         </TD></TR>
+
+     <TR><TD>HELP<BR>USAGE</TD>
+         <TD><I>None</I></TD>
+         <TD>Prints command line usage template to stdout and exits.
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Task"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Task Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following command line options relate to the NewsRog task:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Option</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>TASKPRI<BR>TP</TD>
+         <TD>Priority</TD>
+         <TD>The task priority of the NewsRog task is set to this value.
+         </TD></TR>
+
+     <TR><TD>CX_PRI<BR>NP</TD>
+         <TD>Priority</TD>
+         <TD>The commodities exchange priority of the NewsRog task is set
+         to this value.
+         </TD></TR>
+
+     <TR><TD>ONLINEMODE<BR>ON</TD>
+         <TD><I>None</I></TD>
+         <TD>NewsRog is started in online mode.  If neither this nor
+         OFFLINEMODE is given, then the value stored in the initial
+         project file, if any, is used.
+         </TD></TR>
+
+     <TR><TD>OFFLINEMODE<BR>OFF</TD>
+         <TD><I>None</I></TD>
+         <TD>NewsRog is started in offline mode.  If neither this nor
+         ONLINEMODE is given, then the value stored in the initial
+         project file, if any, is used.
+         </TD></TR>
+
+     <TR><TD>NOBANNER<BR>NB</TD>
+         <TD><I>None</I></TD>
+         <TD>Disables display of the NewsRog startup end exit banners.
+         </TD></TR>
+
+     <TR><TD>NOBANNERIMG<BR>NBI</TD>
+         <TD><I>None</I></TD>
+         <TD>Enables display of the startup end exit banners, but disables
+             display of the graphic logo in the banner, which may be
+             advantageous for very slow machines.
+         </TD></TR>
+
+     <TR><TD>BUTTONPATH<BR>NBI</TD>
+         <TD>Path</TD>
+         <TD>This option can be set to a comma separated list of
+         pathnames, from which NewsRog will try to load button images
+         before using the default location of PROGDIR:Images.  The
+         filenames must match exactly with the ones in PROGDIR:Images, and
+         any mask images must be present in the same directory as the
+         image itself.  This option is provided for people who wish to use
+         alternate sets of button imagery with NewsRog.  If not all the
+         images are provided, the ones not found will be loaded from the
+         default location.
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Batch"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Batch NNTP Operations
+<FONT SIZE=+0> </TD>
+<TD>
+
+NewsRog can be used in a batch mode where commands are sent to the NNTP
+server and the results are printed on the standard output.  In this
+manner, it is possible to use NewsRog as part of a shell script or ARexx
+script.<P>
+
+If any of these batch options are present on the command line, then
+NewsRog exits after performing the indicated option.  No project is loaded
+and the NewsRog user interface does not appear.  Batch options may be used
+even if an interactive NewsRog is currently running.  Batch operations may
+only be performed if a networking stack is present and online.  Currently,
+the batch mode is not useable with servers that require NNTP
+authentication.<P>
+
+All of the batch NNTP operations require a server name.  The following
+strategy is used to find the name of the NNTP server with which to
+communicate.<P>
+
+ <UL>
+   <LI>A server name specified with the SERVER option is used if present.<P></LI>
+   <LI>The value of the NNTPSERVER environment variable is used, if
+       defined.<P></LI>
+   <LI>Lastly, the value <I>news</I> is used as a server name.  This can
+       work if you have an alias set up in your IP software.</LI>
+ </UL><P>
+
+For example, this command line fetches a particular article by Message-ID
+from the news server named news.mydomain.com and prints the result on
+the standard output:<P>
+
+  <UL>
+    NewsRog SRV news.mydomain.com MSGID "&lt;some.message.id@foo.bar.com&gt;"
+  </UL><P>
+
+while the following performs the same command using the server defined in
+NNTPSERVER, or "news" otherwise:<P>
+        
+  <UL>
+    NewsRog MSGID "&lt;some.message.id@foo.bar.com&gt;"
+  </UL><P>
+
+In the rest of the examples on this page, the SRV option has been omitted
+for brevity, but may be used together with any other batch command.<P>
+
+Many commands refer to Message-ID's.  Message-ID's are unique strings
+enclosed in angle brackets which refer to a particular usenet article.  A
+particular article's Message-ID is the same no matter which server it
+resides on, and every article has its own Message-ID.<P>
+  
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Operation</TH><TH>Description</TH></TR>
+
+     <TR><TD VALIGN=Top><B>Fetching Articles</B></TD>
+         <TD>The basic command to return a news article given it's
+         Message-ID is:<P>
+           NewsRog MSGID &lt;messageid&gt;<P>
+         If the given message-id does not contain angle brackets, NewsRog
+         will supply them itself before sending the command to the server.
+         This reduces the need to quote message-id's to avoid shell I/O
+         redirection.  If the angle brackets are given, surround the message
+         id in double quotes.<P>
+  
+         There are optional switches for returning just the article's
+         headers, just the body, or the whole article (which is the
+         default):<P>
+             <UL>
+             NewsRog MSGID &lt;message-id&gt; HEAD<BR>
+             NewsRog MSGID &lt;message-id&gt; BODY<BR>
+             NewsRog MSGID &lt;message-id&gt; ART
+             </UL>
+      </TD></TR>
+
+      <TR><TD VALIGN=Top><B>Testing Articles</B></TD>
+
+         It is possible to check for the existance of a particular article
+         by using the CHECK switch.  In this case, NewsRog produces no
+         output but exits with a return code of zero (0) if the article
+         was found, or one (1) otherwise:<P>
+             <UL>
+             NewsRog MSGID &lt;message-id&gt; CHECK
+             </UL>
+      </TD></TR>
+
+      <TR><TD VALIGN=Top><B>Finding a Header Value</B></TD>
+         To return just the value of a particular header from a particular
+         article, use the HDR option:<P>
+             <UL>
+             NewsRog MSGID &lt;message-id&gt; HDR From
+             </UL><P>
+
+         Any valid usenet header name may be given.  NewsRog will output
+         the value of the given header in the given article, if found,
+         <U>without</U> the field name itself.  The header name is not
+         case sensitive.
+     </TD></TR>
+
+     <TR><TD VALIGN=Top><B>Listing Groups</B></TD>
+         <TD>The groups on the server which match a particular pattern may
+         be listed via:<P>
+             <UL>
+             NewsRog LISTGROUPS wildmat
+             </UL><P>
+         Where <I>wildmat</I> is a simplified wildcard format supporting
+         "*" and a few other wildcard characters.  For example, to return
+         a listing of the Amiga related newsgroups:<P>
+             <UL>
+             NewsRog LISTGROUPS *amiga*
+             </UL>
+     </TD></TR>
+
+     <TR><TD VALIGN=Top><B>Listing Message ID's in a group</B></TD>
+         <TD>A listing of Message-ID's in a particular newsgroup may be
+         generated via:<P>
+             <UL>
+             NewsRog GROUP groupname LISTMSGIDS
+             </UL><P>
+         Where <I>groupname</I> is the name of a valid usenet group.
+     </TD></TR>
+
+     <TR><TD VALIGN=Top><B>Testing Groups</B></TD>
+         <TD>The existance of a particular newsgroup may be checked via:<P>
+             <UL>
+             NewsRog GROUP groupname CHECK
+             </UL><P>
+         Where <I>groupname</I> is the name of a valid usenet group.
+         NewsRog produces no output but exits with a return code of zero
+         (0) if the group was found on the server, or one (1) otherwise.
+     </TD></TR>
+
+     <TR><TD VALIGN=Top><B>Counting Group Articles</B></TD>
+         <TD>The <U>approximate</U> count of articles in a newsgroup may
+         be obtained via:
+             <UL>
+             NewsRog GROUP groupname ARTCOUNT
+             </UL><P>
+         Where <I>groupname</I> is the name of a valid usenet group.
+         The approximate count of articles in the group is printed on the
+         standard output.  This count is only approximate due to the
+         manner in which NNTP is defined  The number of articles in
+         the group will not exceed this value, although it may be less.
+     </TD></TR>
+
+     <TR><TD VALIGN=Top><B>Searching through Articles</B></TD>
+         <TD>To search through the bodies of all articles in a group for a
+         specific AmigaOS pattern:<P>
+             <UL>
+             NewsRog GROUP groupname SEARCH pattern
+             </UL><P>
+         Where <I>groupname</I> is the name of a valid usenet group, and
+         <I>pattern</I> is an AmigaOS pattern.  The Message-IDs of
+         articles containing that pattern will be printed to stdout.<P>
+
+         To instead print the Subject (or some other) header of matching
+         articles, use the SEARCHRES option, like this:<P>
+             <UL>
+             NewsRog GROUP comp.sys.amiga.misc SEARCH NewsRog SEARCHRES Subject
+             </UL><P>
+
+         A special value MATCH to the SEARCHRES option will print all
+         lines that match the pattern.  To make the search case sensitive,
+         use the MATCHCASE switch.  To print articles that do <B>not</B>
+         contain a match for the pattern, use the INVERT switch:<P>
+             <UL>
+             NewsRog GROUP groupname SEARCH pattern MATCHCASE<BR>
+             NewsRog GROUP groupname SEARCH pattern INVERT
+             </UL><P>
+
+         To search through all header field, use:<P>
+             <UL>
+             NewsRog GROUP groupname SEARCH pattern HEAD
+             </UL><P>
+
+         To search through a particular header field for each article:<P>
+             <UL>
+             NewsRog GROUP groupname SEARCH pattern HEADER header
+             </UL><P>
+     </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+</BODY>
+</HTML>

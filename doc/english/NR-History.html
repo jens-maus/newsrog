@@ -1,0 +1,2041 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>History</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Version History <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Main.html">
+          <IMG SRC="Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="NR-Main.html">
+          <IMG SRC="Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=3 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#V1.8">    Version 1.8</A></TD>
+    <TD><A HREF="#V1.7">    Version 1.7</A></TD>
+    <TD><A HREF="#V1.6">    Version 1.6</A></TD>
+    <TD><A HREF="#V1.5">    Version 1.5</A></TD>
+    </TR><TR>
+    <TD><A HREF="#V1.4">    Version 1.4</A></TD>
+    <TD><A HREF="#V1.3">    Version 1.3</A></TD>
+    <TD><A HREF="#V1.2">    Version 1.2</A></TD>
+    <TD><A HREF="#V1.1">    Version 1.1a</A></TD>
+    </TR><TR>
+    <TD><A HREF="#V1.0">    Version 1.0</A></TD>
+    <TD></TD>
+    <TD></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.8"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.8
+<FONT SIZE=+0> </TD>
+<TD>
+
+<H3>NewsRog 1.8b Update</H3><P>
+
+To use this update, you must have already installed NewsRog 1.0 through
+1.8a.  Click on the supplied Update_1.8 icon in order to begin the install
+process.<P>
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.8b</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The uudecoder will now successfully skip blank lines.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The documentation for the PctCaps selection filter was
+    incorrect.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The followup button no longer causes NewsRog to crash if the
+    editor window position has not been snapshot.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The ARexx post SET commands (SETSUBJ, etc) were broken and
+    now work. </TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new ARexx INSFILE post command.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Headers can be displayed in an arbitrary order,
+    selectable via drag and drop.  The HideHeader display filter now
+    permits a list of AmigaOS patterns to be entered.  Headers will be
+    displayed in the order they are matched by the patterns.  If the
+    pattern matches more than one header, the matched headers will be
+    displayed in the order they are found in the article.  See the
+    reference documentation for the HideHeader for more information.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The maximum string length for multimedia action arguments has
+    been increased.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>NewsRog will no longer crash upon encountering a URL longer
+    than about 170 characters.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A URL that contains a string that looks like an email address
+    is now displayed correctly.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a line wrap formatting option to the EmpHeader
+    display filter which allows certain headers, such as Newsgroups: and
+    References:, to have each of their entries displayed on a separate
+    line.  This avoids very long header lines for these fields.  See the
+    reference documentation for the EmpHeader filter for more information.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>When saving file from MIME or UUencoded data blocks, NR
+    will prompt if the file to be written already exists.  You may save
+    over the old file, chose a new filename, or cancel the operation.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The Save/Save As/Action buttons in data blocks now occupy
+    the left 50% of the block width, to make them easier to access for
+    very wide images.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new "Start Article" setting in the main
+    configuration which controls the positioning of the cursor when a
+    group window is opened.  The cursor may be placed on the article it
+    was on when the group was last closed (unless that article has
+    expired), on the thread entry point of that article, or on the first
+    or last articles in the article list.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a "Browse Articles" setting in the main
+    configuration which determines which articles are skipped and which
+    are shown when using the article browsing commands (such as +/- or
+    page up/down on the numeric keypad).  You can chose to browse all
+    articles (the default), only unread articles, only new articles, or
+    both.  Broken articles are skipped in all cases and must be retried by
+    double clicking on them or using the return key.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The included version of TextEditor has been updated to 15.6.</TD></TR>
+
+</TABLE><BR><P>
+
+<H3>NewsRog 1.8a Update</H3><P>
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.8b</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A memory corruption bug was fixed.</TD></TR>
+</TABLE><BR><P>
+
+
+<H3>NewsRog 1.8 Update</H3><P>
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.8</TH></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The ARexx DISPART command now accepts Message-ID's as
+    well as an ordinal list position.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The text selection mechanism does not start selecting text
+    until the mouse cursor has moved two pixels.  This means that a single
+    character is no longer copied to the clipboard when clicking on email
+    address, URL's, or other clickable links.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The default pattern for the save and insert requestors in the
+    multimedia actions list has been changed to "MMAction.*".</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is an autosave option in the project area of the
+    configuration window which will autosave the NewsRog project each time
+    a group window is closed (unless it is closed via the "Close (NoSave)"
+    menu option.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Test posts to non-test groups are now detected, and
+    NewsRog offers the choice of sending the post to alt.test, cancelling
+    the post and returning to the post editor, or proceding with the post
+    anyway.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>When opening a group window, NewsRog now starts the
+    article list cursor on the same article it was left on when the group
+    was last closed, if that article is still available, even if that
+    article is not a thread base article.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a ${getenv} function to return the value of an
+    AmigaOS environment variable.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a ${concat} function to concatenate words with a
+    specified separator string between them.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a ${default} function to return the value of a
+    variable, if it is bound, or a given string otherwise.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a ${replace} function to replace a given
+    substring in a string with a new substring.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is experimental support for defining functions
+    within the variable language.  See the variable reference
+    documentation for details.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The EMail display filter now has a feature for detecting
+    article Message-ID's.  The Message-ID format is &lt;idstring@host.addr&gt;
+    which also happens to be the most common format for writing email
+    addresses as well, so most newsreaders cannot tell the difference
+    between the two when such a string occurs in an article body.
+    However, NewsRog has a heuristic which can tell the difference with an
+    accuracy in excess of 99% (just 4 of over 3500 such strings randomly
+    selected from the alt.test group were misidentified).  Message-ID's
+    have a NewsRog MIME type of application/X-MsgID, and you may define
+    popup menu multimedia actions for them just like for email addresses
+    or URL's.  When clicking with the left mouse button on a Message-ID,
+    NewsRog will move to that message in the article list and display the
+    message if it is available.  When clicking with the right mouse
+    button, a popup menu displaying the multimedia actions for
+    application/X-MsgID is displayed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>
+        Holding down the alt key while selecting text in the
+    clipboard will allow you to multiselect several regions of text, and
+    will bypass the AutoClip feature if it is turned on.  For instance,
+    you can alt-doubleclick to select a word, move the mouse cursor to
+    another word, and alt-doubleclick to select that word and drag to
+    select several more adjacent ones, while leaving the first word
+    selected.  By itself this is not useful, but it is meant for use in
+    conjunction with other features which allow actions to be performed on
+    selected text.<P>
+    <CENTER>
+    <IMG SRC="Graphics/NR-Tut-Web-MSel.GIF" WIDTH=386 HEIGHT=61 BORDER=0>
+    </CENTER>
+    </TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>Since the article view area now has a popup menu, the 
+    group window menus are no longer available when the mouse cursor is
+    over this area.  Instead, move the mouse cursor elsewhere in the
+    window to access the group window menus.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Text that is selected in the article viewer may be used
+    in multimedia actions.  The NewsRog MIME type is application/X-Text,
+    and you may define multimedia actions that will appear in a popup menu
+    when the right mouse button is pressed over the article view area.
+    The variable ${SelTxt} may be used in a multimedia action and will
+    return the currently selected text.  It has several optional
+    parameters; see the variable reference documentation for details.<P>
+
+    There are many potential uses for this, including interfacing NewsRog
+    to web search engines and translation services.  For example, perhaps
+    you are reading the newsgroup sci.space.news and see an article text
+    about NASA's Mars Climate Orbiter spacecraft.  You can
+    alt-double-click the word NASA, and separately alt-double-click and
+    drag over Mars Climate Orbiter, and then select "Search:Yahoo" from
+    the NewsRog popup context menu.  NewsRog will then formulate a query
+    to the Yahoo web directory asking for pages about both NASA and "Mars
+    Climate Orbiter"!<P>
+
+    You may load multimedia actions for several popular web search
+    directories from the Objects subdirectory of NewsRog by clicking the
+    "Insert..." button under the Multimedia Actions tab and double
+    clicking the files.  If you have a NewsRog variable called "Browser"
+    defined, this will be used as your web browser.  Otherwise,
+    Work:IBrowse/IBrowse is used as the default.<P>
+
+    Please see the new NewsRog tutorial #16 on this topic for more
+    information.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Action filters now have an option for marking articles as
+    read after they have been processed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Spaces in a newsgroups list will be automatically removed
+    before a post is sent to the network.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>
+    There is a popup crosspost editor list available in the
+    post list window.  You can drag groups from the main group list
+    window, the server group list, or the list of subscribed groups on the
+    right side of the popup window, into the lefthand list to add them to
+    the crosspost list for this article.  You can remove them using the
+    delete button or by dragging groups from the left list into the right
+    one.  See the Posts tutorial for more information.<P>
+    <CENTER>
+    <IMG SRC="Graphics/NR-Tut-Posts-PopEdit.GIF" WIDTH=425 HEIGHT=166 BORDER=0>
+    </CENTER>
+    </TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Using the kill articles option in the group window would not
+    work unless there was an active article in the article list.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new placement option for the filter function
+    toolbar; the icons may be placed with those that are already part of
+    the article view toolbar.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Highlight filters were not being run after a batch download.
+    They now are.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The MIME type message/rfc822 is now displayed as an
+    imbedded message in a multipart MIME document.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is now a selectable preferences setting which will
+    chose between quoted-printable encoding and 8bit (no encoding) when
+    posting articles containing non-ASCII data.  This can be controlled
+    separately for post bodies and post headers.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Previously, if an article was aborted in mid-transfer (for
+    instance, if the abort button is pushed before it was done loading),
+    the article would not be re-fetched from the network the next time it
+    was displayed.  Now it will be.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>If nested group-specific filters were used, editing one of
+    them and then closing the group would cause NewsRog to crash.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>
+    The Rewrap display filter can now detect tabular data and
+    display it in a fixed sized font with no line wrapping even if the
+    rest of the article is displayed in a proportional font.  This feature
+    is disabled by default; it must be explicitly enabled by editing the
+    Rewrap filter and clicking on the "Table Heuristics" checkbox.  This
+    feature will allow you to use an easy to read proportional font for
+    reading article text, yet have items such as Aminet charts or a table
+    of race results displayed in a logical manner without having to turn
+    off the rewrap filter to avoid rewrapping the table lines.  For example:<P>
+
+    <CENTER>
+    <IMG  SRC="Graphics/NR-Ref-Rewrap-Ex4.GIF" WIDTH=344 HEIGHT=143 BORDER=0>
+    </CENTER><P>
+
+    Note that there is no information in usenet posts to indicate what is
+    and is not a table.  Although NewsRog uses an advanced heuristic for
+    detecting tables which typically works quite well, this can never be
+    done perfectly.  It is quite possible for NewsRog to miss some types
+    of tables, particularly if they are small or not well formatted.  But
+    in most cases, this feature works quite well.<P>
+
+    Please see the reference documentation for the Rewrap filter for more
+    information on automated table detection.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The Rewrap filter has been rewritten for improved performance
+    on very large posts.  There should be no significant behavioral
+    differences.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The Rewrap filter would previously insert an extra blank line
+    when quoted text ended at the right hand wrap border.  This no longer
+    happens.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Previously, it was possible for the rewrap filter to enter
+    an infinite loop if a very long word that would not fit on a single
+    line was present with whitespace before it in the original post.  This
+    has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>If the character before a URL matched by the URL filter
+    is an open parenthesis, then any closing parenthesis as the last
+    character of a URL will be removed.  This allows URLs to contain
+    parentheses in cases such as:<P>
+
+      <UL>HTTP://www.foo.bar/some/path/(with_parens)</UL>
+
+    but will not include parentheses in the URL when the entire URL is
+    enclosed by them, as in:<P>
+
+      <UL>(HTTP://www.foo.bar/)</UL>
+   </TD></TR>
+
+  </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+
+</TABLE><BR><P>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.7"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.7
+<FONT SIZE=+0> </TD>
+<TD>
+
+<H3>NewsRog 1.7 Update</H3><P>
+
+To use this update, you must have already installed NewsRog 1.0 through
+1.6.  Click on the supplied Update_1.7 icon in order to begin the install
+process.<P>
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.7b</TH></TR>
+
+  <TR><TD VALIGN=Top><B> Bug Fix</B></TD><TD> The server port number can now be set to numbers larger than
+    1024.</TD></TR>
+
+  <TR><TD VALIGN=Top><B> Bug Fix</B></TD><TD> A memory buffer overflow when displaying articles has been
+    fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B> New Feature</B></TD><TD> When searching through cached article bodies, a new
+    option is available to pre-load them all into memory (if enough free
+    memory is available - NewsRog will not do this if less than 4 Mb would
+    be free after they are loaded).  This can reduce the time for
+    searching through 200 article bodies from 6 seconds down to 0.4
+    seconds on an 060.</TD></TR>
+
+  <TR><TD VALIGN=Top><B> New Feature</B></TD><TD> When searching through article bodies, a progress
+    indicator is displayed in the search window.</TD></TR>
+
+  <TR><TD VALIGN=Top><B> New Feature</B></TD><TD> The variable ${Name} is available for use in the
+    deletion marker field in the UUDecode and MIME filters.  It will be
+    set to the filename of the deleted data.</TD></TR>
+
+  <TR><TD VALIGN=Top><B> Change</B></TD><TD> The maximum memory cache setting for groups can now be set
+    beyond 100 articles.</TD></TR>
+
+  <TR><TD VALIGN=Top><B> New Feature</B></TD><TD> A command line SEARCH option has been added which will
+    search through article headers or bodies for a given pattern and print
+    either the Message-ID of that article or some other defined header.
+    This may take a while on a large group over a slow network connection.
+    See the command line reference section for more information.</TD></TR>
+
+  <TR><TD VALIGN=Top><B> New Feature</B></TD><TD> Headers with base64 encoded words are now decoded.</TD></TR>
+
+  </TABLE><BR><P>
+
+<TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.7a</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Quoted-Printable header generation was not correctly handling
+    quoted strings.  The quotes are now placed outside of the
+    quoted-printable word instead of inside.</TD></TR>
+  </TABLE><BR><P>
+
+<TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.7</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Toggling the "Use Font" or "Use Color" checkboxes in a
+    group's configuration settings the 2nd time a group was opened
+    would crash NewsRog.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> HTML tags are no longer highlighted as a quote prefix.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The rewrap algorithm now works better on hanging
+    indents.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The DblSpace selection filter can now optionally
+    match subjects with any alternately repeating character, such as
+    (T*h*i*s I*s S*p*a*m*!).</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> Random tagline files are now supported.  The format
+    is identical to the format used by the popular YAM mail software.  See
+    the Configuration Options tutorial in the NewsRog documentation for
+    more information.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Sorting permanent articles before nonpermanent, or read
+    before unread, was broken and has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is a posting rate filter which can select
+    threads according to the number of posts they get per unit time
+    period.  This is useful for showing very active or very inactive
+    threads.  It's not as useful as a kill filter, because killing
+    articles affects the number of articles in the thread, and thus
+    the posting rate statistics. </TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>
+
+    Filters can now have a user defined toolbar icon
+    which can be used to toggle that filter on/off and update the article
+    list or article view with a single click.  This makes commonly used
+    filters easier to access.  The Filter Toolbar Location setting in the
+    Program Options / Window Options configuration area controls the
+    location of this toolbar in the group window.  There is also an option
+    available for including a filter's description as a label under the
+    filter icon, in which case it will be set to bold text when the filter
+    is enabled, and standard text otherwise.  For example:<P>
+
+    <CENTER>
+    <IMG SRC="Graphics/Window-Grp-FFTB.GIF" WIDTH=187 HEIGHT=286 BORDER=0>
+    </CENTER><P>
+
+    There are several 24-bit 50x30 icons supplied in the Images/Filter
+    directory of NewsRog.  These icons are designed for use on truecolor
+    (16 or 24 bit) displays in at least 800x600 resolution.  They are not
+    optimal for register screens (less than or equal to 256 colors),
+    but any graphic for which there is a datatype present on your system
+    may be used as a button image.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The "Any/All" gadgets in filter lists now have bubble
+    help.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Information about the Any/All mode of filters has been
+    added to the selection filter tutorial.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> When using the close gadget or Cancel button in the post
+    editor which is editing a new post, NewsRog will now prompt for
+    whether the post should be deleted or sent to the Post Queue.  The
+    behavior when editing old posts is unchanged.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The first available, or first unread article can now
+    be automatically display when moving from All Threads mode to One
+    Thread mode in the group reader window.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The Batch D/L buttons in the group list window now
+    have keyboard shortcuts.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is a SENDPOST ARexx command available for
+    sending one or more queued posts to the network.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> The Toolbar Style and Article List Weight configuration
+    option have been moved from the Misc Options area to the Window
+    Options area.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> A print menu is available in the group menu structure
+    which can be used to send the currently display article (with or
+    without headers) to the printer.  The printer device is defined in
+    the configuration window under Program Options / Misc Options /
+    Printer Device.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> A Spoiler display filter is available which can
+    either display multi-page articles which have pages separated by a
+    formfeed character, or act as a spoiler protector for spoilers
+    separated by a formfeed character.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> The algorithm for generating abbreviations from user names
+    has been changed for the case where there is only one name
+    present.  Instead of returning the first 5 characters of this
+    name, only the first character is returned.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> Although NewsRog's variable strings are not intended to
+    be a complete language, a useful set of formatting and math functions
+    has been added to the variable lookup language.  These include:<P>
+
+       <UL>
+       <TABLE NOFLOW BORDER=0 CELLSPACING=1 CELLPADDING=1>
+       <TR><TH ALIGN=Left>Command(s)</TH><TH ROWSPAN=19>&nbsp;&nbsp;</TH><TH ALIGN=Left>Description</TH></TR>
+       <TR><TD>abbrev</TD><TD>generate abbreviations/acronyms</TD></TR>
+       <TR><TD>and,or,not</TD><TD>boolean logic</TD></TR>
+       <TR><TD>bytes</TD><TD>format a byte count into Kb or Mb with decimal</TD></TR>
+       <TR><TD>charcount</TD><TD>counts instances of characters in a string</TD></TR>
+       <TR><TD>bound</TD><TD>test whether a variable name is bound</TD></TR>
+       <TR><TD>cond</TD><TD>evaluate multiple conditions</TD></TR>
+       <TR><TD>if</TD><TD>conditional test</TD></TR>
+       <TR><TD>min,max</TD><TD>find minimum or maximum of numbers</TD></TR>
+       <TR><TD>pad</TD><TD>pad numbers or strings ("5" -&gt "005")</TD></TR>
+       <TR><TD>remchars</TD><TD>remove characters from a string</TD></TR>
+       <TR><TD>repeat</TD><TD>repeat string</TD></TR>
+       <TR><TD>strlen</TD><TD>return length of string</TD></TR>
+       <TR><TD>substr</TD><TD>return substring from string</TD></TR>
+       <TR><TD>toupper,tolower</TD><TD>case conversion</TD></TR>
+       <TR><TD>word</TD><TD>return Nth word of a series of words</TD></TR>
+       <TR><TD>wordcount</TD><TD>find number of words in a string</TD></TR>
+       <TR><TD>+,-,*,/,%</TD><TD>math</TD></TR>
+       <TR><TD>&lt;,&gt,&lt=,&gt=,!=,=</TD><TD>numeric or string comparisons</TD></TR>
+       </TABLE></UL><P>
+
+    For full details on these functions, see the Functions section of the
+    variable reference documentation.  Note that if a function is
+    cumbersomely long for inclusion in a single string gadget, it is often
+    useful to create custom variables for subsections of it in the
+    Variables tab of the Config window, a tactic which also allows its use
+    from multiple locations without repeating the source.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The PRI option to the ${exec} function was being ignored.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> Display filters can now modify article text when it is
+    saved to a disk file, printed, or used in generating a reply.  There
+    are new options in the Global Info tab of the filter editor which
+    control this behavior.  "Enabled" acts as it always has; if this is
+    checked, then the filter is used to modify displayed articles.  if
+    "For Printing" is checked, it is also used to modify article text for
+    printing.  "Saving" does similar for article text saved to a disk
+    file, and "Replies" uses the filter when generating replies to
+    articles.<P>
+
+    Not all filters can be used in this manner.  It only applies to
+    textual modifications.  For example, the URL filter, which generates
+    clickable URL links for articles displayed in the article view area,
+    cannot be used to modify a pure text stream, so these options are
+    unavailable in its editor window.  Some filters also act in a
+    different manner when used to process text in this fashion.  For
+    instance, the uudecode filter removes binaries entirely instead of
+    displaying them as inline graphics.<P>
+
+    Some filters have additional parameters to control their operation
+    when used to modify replies or saved/printed text.  For example, the
+    Rewrap filter usually wraps proportional text to a given percentage of
+    the total display width.  When used as a text-only filter, it can wrap
+    to a user defined number of columns, such as 72.<P>
+
+    If the MIME filter is enabled for replies, it will decode
+    quoted-printable text before importing it into the post editor.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The HTML dimensions of the Server Groups' window in tutorial
+    #5 were incorrect.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> The HTML documentation has many new screenshots and extensive
+    additions in many areas.  Screenshots from older versions of
+    NewsRog have been updated to reflect the most current version, and a
+    number of ommissions have been corrected.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The SP=STARTPROJ/K command line option has been changed
+    to SP=STARTPROJ/M, which allows a project name to be given on the
+    command line without the use of the STARTPROJ or SP keywords.  Only
+    one project name is permitted.  If present, the SP=STARTPROJ keyword
+    works as before.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> The memory cache algorithm for article data has been changed
+    so that the currently displayed article will never be deleted from the
+    memory cache even if it is larger than the current memory cache
+    settings for that group.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> If the "Mem cache articles" setting for the group was a
+    multiple of 16, memory corruption would result when the memory cached
+    filled up.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Reading articles of various sizes in certain combinations
+    could result in a memory cache related crash.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> A new button and key combination is available for
+    removing selected articles or threads from the current article list
+    without killing those articles.  Lower case 'z' will remove selected
+    articles, and upper case 'Z' will remove all articles in the same
+    threads as the selected articles.  This functionality is also
+    available from new "Article_List/Remove/Selected_Articles" and
+    "Selected_Threads" menus.  Articles removed in such a manner will be
+    visible the next time the group is opened (unless they were expired or
+    removed via some other means), and can be restored to the current view
+    at any time by using the new "Article_List/Remove/UnRemove" menu
+    option.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Some (broken) news servers return a successful return code
+    from the NNTP ARTICLE/HEAD/BODY commands (return codes 220, 221, 222),
+    but then do not return any lines of text.  Previously, this would
+    crash NewsRog.  This is extremely poor behavior on the part of a news
+    server, but the error is now handled successfully in NewsRog, which
+    will display a broken icon next to that article.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is a settable policy option in the main config
+    window which controls NewsRog's behavior if the number of articles to
+    be downloaded from a group exceeds the group's Max Articles count.
+    You may chose to silently ignore the oldest articles, or to download
+    all articles (ignoring the Max Articles setting), or to prompt for
+    what to do (only for non-batch operations).</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The maximum number of articles to download in a group,
+    and the number of article headers to keep when the group window is
+    closed, are now separate controls and may be adjusted independently.
+    Unless it is set separately, the "Max to Keep on Exit" parameter
+    defaults to the value of MaxArticles for that group, so the behavior
+    is the same as in version 1.6.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The MIME display filter now has a "No-Display Types"
+    setting, which can be set to an AmigaOS pattern matching zero or
+    more MIME types which will not be displayed.  This is useful for
+    filtering out things such as text/html.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> The BadWrap Fix option is now on by default in the Rewrap
+    display filter.  This will not affect old projects, only newly created
+    Rewrap filters after version 1.7.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> The default UI mode for the HLQuotes option is now scrolled
+    quote blocks, rather than toggled quote blocks.  This will not affect
+    old projects, only newly created HLQuotes filters after version 1.7.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Continuation lines in article headers are handled better now.
+    These would occasionally break things in version 1.6 and older, such
+    as references threading or certain MIME features.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Some MIME-encoded images are posted with the filename in the
+    filename attribute of the Content-Disposition field rather than the
+    more standard name attribute of the Content-Type field.  The MIME
+    display filter now handles both cases.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> If there are non-ASCII characters present in a post (or
+    the associated sig file), it will be transmitted as a text/plain MIME
+    document using quoted-printable encoding in the character set you have
+    specified in the main config window.  There is not yet a provision for
+    attaching binary files such as images to posts.  Note that while such
+    a document is mostly human-readable, the quoted-printable encoding
+    enforces certain restrictions.  For example, lines longer than 75
+    characters _after_ encoding will be transmitted as a sequence of multiple
+    lines with one or more "soft" linebreaks, and thus may appear to be
+    wrapped in a less than readable manner on newsreaders without MIME
+    support.  There are similar limitations for whitespace at the end of
+    lines and for the transmission of an ASCII equal ('=') sign.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The character set used for composing and reading posts is
+    now settable in the main configuration window.  This should match the
+    character set used by your font(s).  ISO-8859-1 (Latin-1) is common
+    for Amiga fonts but there are other possible choices.  This setting
+    will be transmitted as the charset parameter of the MIME Content-Type
+    field when you post a document that requires quoted-printable
+    encoding.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The post editor has a new preview mode accessed via the
+    same cycle gadget that has always switched between the editor and
+    preview modes.  The new preview mode "View Encoding" will display the
+    raw quoted-printable encoding of the current document, both headers
+    and body lines.  In this mode you may see quoted-printable encoding
+    markers such as "=3D", and soft line breaks.  The other preview modes
+    ("View Wrapped", and "View All") show the actual characters in the
+    post, and you will not see the quoted-printable encoding.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> A CharMap display filter is available which can perform
+    user defined display time character set translations.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> A memory leak in the author note feature of filters has been
+    fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The HELP and USAGE command line options now print the
+    NewsRog usage template to stdout.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A new column in the group list is available which
+    displays the moderation status of a group.  This information defaults
+    to No (not moderated) and is only updated if you perform a "Read
+    Description" operation on that group.  Thereafter it will be stored
+    with the group, so this only needs to be done once.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>Parantheses are no longer added as part of a user name
+    abbreviation.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Using the "Limit to Selected" group window menu option with
+    no articles selected would result in NewsRog getting stuck in an
+    infinite loop. The same bug was causing one fewer articles than were
+    actually selected to be displayed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The minimum stack size for NewsRog has been increased to 80 Kb.</TD></TR>
+
+</TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+
+</TABLE><BR><P>
+
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.6"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.6
+<FONT SIZE=+0> </TD>
+<TD>
+
+<H3>NewsRog 1.6 Update</H3><P>
+
+To use this update, you must have already installed NewsRog 1.0 through
+1.5.  Click on the supplied Update_1.6 icon in order to begin the install
+process.<P>
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.6</TH></TR>
+
+<TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> An enforcer hit that appeared when popup menus for email
+    addresses or URLs were displayed has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Some controls in the multimedia actions editor were not
+    tab-selectable from the keyboard.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> It is now possible to send ARexx commands to other
+    ARexx clients directly from NewsRog.  There is a toggle button in the
+    Multimedia Actions list which can be set to CLI or ARexx.  When set to
+    ARexx, a port name and ARexx command string can be set; other
+    parameters such as stack size and task priority are ignored.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The MUI preferences editor for the built in text editor used
+    for editing posts is now installed correctly.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> For NNTP servers on nonstandard ports, a port number may
+    be defined for each NNTP server.  The default is 119.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The timezone offset was being added instead of substracted.
+    This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> The built in text editor's cursor now starts at the top of the
+    post if the post is longer than one screen.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is a new BUTTONPATH command line option which can
+    define a search path for loading NewsRog's button graphics.  This path
+    is a comma separated list of AmigaOS pathnames.  Any button image not
+    found in the search path will be loaded from the standard location.
+    The tooltype abbreviation is BP.  For example:<P>
+       <UL>
+       NewsRog SP Project.AmiGrps BP SYS:Graphics/NRButtons/Set1
+       </UL></TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The left and right numeric keypad keys (4 & 6) now scroll
+    the displayed article sideways.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The year 2000 leapyear calculation was incorrect and has been
+    fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is a "Server Groups Pattern" setting in the Group
+    List window which can be used to define which groups will be listed in
+    the server group's window.  For example, if you cannot speak Japanese
+    and are not interested in Microsoft groups, you might wish to use a
+    pattern such as "~(jp.*|microsoft.*)".  Then, the list of server
+    groups will be restricted to those matching the given pattern.  This
+    can be useful to narrow down a very large list of matching groups to
+    those which you can read or are interested in.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The server group update interval when reading group names
+    from the server can now be set in the Group List's options settings.
+    The default is to update the display every 100 articles, but this can
+    be changed to suit faster or slower network connections.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> Although true support for multipart posts is still being
+    developed, several new features have been provided to make these
+    easier to handle.  There are new article variables ${ArtPartNum} and
+    ${ArtPartTot} which return, respectively, the current and maximum part
+    numbers for articles in a multipart series.  For example, for an
+    article with the subject "Some Article [1/3]", these values would be "1"
+    and "3". Using ${ArtPartNum,3} would return "001" instead of "1".
+    These can be used when saving files with a SaveTxt filter to include
+    the part number in the filename.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> A new group window menu command will select all related
+    segments of a multipart post.  I.e, if the active article's title is
+    "Some Article [2/3]", then parts [1/3] and [3/3] will also be
+    selected, if they are visible in the current article list view.  Any
+    missing parts will be reported.<P>
+
+    More transparent support for multipart documents will appear in a
+    future version of NewsRog.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The group window's menus now include a "Group Stats..."
+    entry which will display a window containing some information about
+    the group, such as the number of articles that have been killed, the
+    total size in Kb/Mb of the cached & permanent articles, etc.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The article list window (and article view window, if it
+    is separate) can now be moved to the back or front from the keyboard.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> A new ARexx WINCTRL command can move the article list and
+    article view windows for a given group to the back or front.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> The heuristic for telling a quote prefix from an accidental
+    occurrence of the same string has been improved.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The post queue window now has a separate area where posts
+    that have been sent to the network are archived.  The maximum number
+    of posts archived here is defined in the "Max Saved Posts" setting in
+    the Post Options area of the global configuration window.</TD></TR>
+
+
+  </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+
+</TABLE><BR><P>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.5"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.5
+<FONT SIZE=+0> </TD>
+<TD>
+
+<H3>NewsRog 1.5 Update</H3><P>
+
+To use this update, you must have already installed NewsRog 1.0 through
+1.5.  Click on the supplied Update_1.5 icon in order to begin the install
+process.<P>
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.5c</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> A display bug introduced in version 1.5B has been fixed.
+    This could cause article text to disappear in some situations.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The Clone buttons in the multimedia actions and types lists
+    have not been functioning since the first version, and have been
+    fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> Double clicking in an article body will now select next
+    on word boundaries, and triple clicking will select text by lines.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Previously, copying text to the clipboard from an article
+    view would sometimes leave out newlines, making one line where
+    there had been two.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is a new Decode action filter which can save MIME
+    or UUEncoded binary data to disk files.  This is useful for batch
+    decoding pictures or other types of data without requiring the use of
+    an external command for this purpose.  The reference section of the
+    documentation gives more information on this filter.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Posting large amounts of text no longer crashes.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The HLQuotes display filter now allows the maximum lines to be
+    set to zero, which does not display any text next to the toggle button
+    for toggled quote blocks, and acts as if it was set to one for
+    scrolled quote blocks.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> Double clicking a fitler name in the popup filter lists
+    now presents the editor for that filter.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> A bug introduced in version 1.5B was making clickable URLs
+    and email addresses fail to inherit the font and color of the
+    surrounding article if they did not set a font or color themselves.</TD></TR>
+
+  </TABLE><BR><P>
+
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.5b</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Some changes to better deal with the Demon ISP have been
+    added.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>A few small performance improvements are in place.  They are minor, on the order of 10 to 20
+    milliseconds per email address or URL on a 68060, which is not noticeable unless there are a number of
+    them.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The article list search window now has a keyboard
+    shortcut for changing the search field.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The "Select All" button in the group list window now has
+    a hotkey.</TD></TR>
+
+</TABLE><BR><P>
+
+
+<TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.5a</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Fix enforcer hit if the Cancel button in the post editor was
+    used when the post editor was toggled into one of the preview modes.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The user name is now quoted when generating posts, so that
+    the From: header is RFC compliant if the user name contains
+    punctuation.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>In the uuencode &amp; MIME filter save requestors, pressing
+    cancel no longer generates an enforcer hit.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The Amiga+W hotkey for saving articles in the group window
+    had accidentally been removed in version 1.5 and has been restored.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Using the "Viewer Article/Redisplay/Raw" menu item while an
+    article was in the middle of transferring from the network would
+    display the partial article without updating when the article was
+    finished transferring.  This menu item now has no effect unless the
+    viewer article is finished transferring from the network.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Updating from very early versions of NewsRog (1.0 or 1.1)
+    with the supplied update scripts did not update one of the shared
+    libraries, which would cause a crash when editing filters in version
+    1.5.  Running the new update script will make the appropriate changes
+    to the library.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>the XOVER header fetch method would sometimes ignore article
+    posted to more than one group.  It has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The logfile destination in the update installer script is now
+    set to the NewsRog install directory.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>If no server is defined in NewsRog, and an operation
+    causes network I/O, then the value of the NNTPSERVER environment
+    variable is used to create a new server dynamically, if that variable
+    is defined.  This makes "scratch projects" easier to use.  To set up
+    an NNTPSERVER environment variable, type this in a CLI window:<P>
+       <UL>
+         SetEnv NNTPSERVER your.newsserver.name
+       </UL></TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The update installer script will now accept either the
+    parent directory of the NewsRog directory, or the NewsRog directory
+    itself, when asking for the location of NewsRog.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The installer update script now functions better from the
+    command line, since it no longer requires the APPNAME tooltype or
+    command line option.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The batch command line mode now supports fetching
+    messages by number as well as MsgID:<P>
+       <UL>
+       NewsRog GROUP group.name MSGNUM 1234
+       </UL></TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The Substitute display filter now has an option to search
+    using AmigaOS patterns.  The longest or the shortest match may be
+    replaced.</TD></TR>
+
+  </TABLE><BR><P>
+
+
+
+<TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.5</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A kill filter bug introduced in version 1.4 is fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> More types of illegal email addresses are checked for before
+    posting the article to the network, such as addresses with two '@'
+    signs.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is an option to control the interval at which the
+    article list updates while headers are being loaded from the network.
+    The default is for the list to update every 100 articles, but you
+    might increase this for faster network connections or decrease it for
+    slower as you see fit.  The new articles will be threaded in with the
+    other articles each time the list is updated, which can incur some
+    overhead on slower machines.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> When doing certain operations such as batch downloading
+    articles, NewsRog can issue multiple commands at once before waiting
+    for the first to finish.  In most situations, this can drastically
+    increase streaming throughput.  However, a few types of news servers
+    do not handle this very well, and there is a new option in NewsRog to
+    control the maximum number of simultaneous commands NewsRog will try
+    to issue at once.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is a new method of fetching headers which can
+    achieve much higher performance on certain types of servers.  You can
+    now choose between the original type, which downloads all the headers
+    for each article, or a new overview type on servers that support the
+    NNTP XOVER command.  Some servers implement XOVER in a very slow
+    manner which does not have acceptable performance, while others are
+    extremely fast.  Now you can chose which style of header fetching you
+    prefer and which works best in your environment.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is a new option under the windows config tab which
+    allows group windows to be opened in one of two modes.  The first mode
+    is identical to that in NewsRog &lt;= 1.4, with the article list and
+    article reader window combined into a single Amiga window.  An
+    additional, new mode allows the article list and the article view to
+    be in separate windows, which can be preferable on low resolution
+    displays.  If the article list window is active, the numeric keypad
+    keys still scroll/page the article in the article viewer window.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> In "All Articles" mode, using the thread-movement commands
+    will no longer move to "One Thread" mode.  Instead, the current mode
+    is retained and the current article marker will move to the next or
+    previous thread.  Of course, the thread movement correctly follows
+    references, so it skips articles in the same thread which have had the
+    subject changed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> A "Read &amp; Cache" option has been added to the group
+    configuration under "Cache Options".  If selected, articles that are
+    read interactively are copied to the local disk cache as they are
+    read.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The URL and EMail display plugins have an option to
+    require a doubleclick to invoke their intended actions, rather than
+    the standard singleclick.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> Variables (excepting article variables) may now be
+    used in the HeaderMatch filter.  This allows one to use variables such
+    as ${UserEmail} as a pattern in the filter, which will be expanded
+    when the filter is run.  This is often easier than hardcoding such
+    strings, since the filter need not be changed if the account
+    information in NewsRog is changed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The URL filter would sometimes fail to detect URL's that in
+    fact matched the given pattern.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Some newsgroups with an empty description would cause NewsRog
+    to display garbage when the "Read Description" button was used.  Doing
+    this operation again on those groups should now fix the problem.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There are a series of new article variables which provide
+    for better formatting of the article's datestamp.  See the reference
+    section of the documentation for details.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> If a posting fails for some reason, the error text from
+    the news server is reported by NewsRog.  This can aid in finding the
+    cause of the post failure.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> There is an option under "Program Options/Post Options"
+    in the config area which allows the defined external editor to be
+    launched automatically as soon as the post editor window is opened.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> In keeping with the NewsRog tradition of providing
+    cutting-edge features to deal with Usenet, the HLQuotes and Rewrap
+    display filters now include new, advanced heuristics for matching
+    quote prefixes.  For instance, the string "so: " occuring at the
+    beginning of a line might be part of some english text such as:<P>
+       <UL><I>
+       so: I said to him that he should not...
+       </I></UL><P>
+    in which case this line is not part of a quotation, and should not be
+    colorized or rewrapped as if it was.  On the other hand, the very same
+    prefix string might sometimes be part of a quoted text block quoting
+    somebody named Sam Ospry, as in:<P>
+       <UL><I>
+       Sam Ospry <samosp@foo.bar.com> writes:<P>
+       so: Some text written by Sam Ospry...
+       </I></UL><P>
+
+    In which case it *should* be colorized and rewrapped as a quote.  The
+    new heuristics attempt to distinguish these two cases and act
+    appropriately in each case.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> If the multimedia type of uuencoded data could not be
+    determined from the defined media types, then NewsRog could crash when
+    displaying the data.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> In some cases, DOS paths in uuencoded filenames could cause a
+    requestor for drive "D:", etc to appear.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> Certain headers were being parsed in a case sensitive manner
+    in some places, rather than case insensitive as should have been the
+    case.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD> In previous versions, articles selected for display were
+    inserted in a group's download queue and fetched after the currently
+    downloading article, if any, was done.  Now, if such articles are
+    already present in the local cache (for example, they have been
+    prefetched, or cached explicitly), then they are displayed
+    immediately.  This improves the interactive response.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> In certain cases when NewsRog variable names were more than
+    24 characters longer than their value, memory corruption could occur.
+    This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The variable lookup mechanism can now call an external
+    program to determine the value of a variable.  The format is:<P>
+       <UL>
+       ${exec CMD="command" ARGS="args" PRI=pri STACK=stack}
+       </UL><P>
+    where everything except CMD is optional.  Values that contain spaces
+    must be quoted.  The given command will be called with the given
+    arguments, and the first line of output up to 80 characters read via
+    an AmigaOS pipe and used as the value of the given variable.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> Optional user defined headers are now looked up in the
+    variable list.  Coupled with the above feature, this allows one to use
+    a user defined program to generate header values.  For example, you
+    might have a program that prints the phase of the moon.  It's output
+    can now be used to generate a NewsRog header.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> If the first word of a subject contained an encoded word
+    according to RFC2047, the ISO encoding of the word would start on the
+    2nd letter instead of the first.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> If the first character of the first word of a subject string
+    was an encoded word according to RFC2047, then the word would not be
+    encoded.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The Server Group's window has a new feature which allows
+    a newsgroup to be browsed on a temporary basis without subscribing to
+    the group.  This can be useful in order to read a few articles in a
+    group you are not interested in on a long term basis.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A popup menu is available for URLs and email addresses.
+    The menu allows the URL or email address to be copied to the
+    clipboard, or for any associated multimedia action defined in NewsRog
+    to be executed.  For example, if you have two web browsers, you can
+    define two actions for the <B>application/X-URL</B> type, one called
+    <B>Send-IBrowse</B> and another called <B>Send-AWeb</B>.  The popup menu for
+    URLs will then list both choices.  The popup menus may be turned off
+    in the display filter preferences.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The overhead of the HLPatt buffer has been reduced when it
+    doesn't match anything in the article.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A new Substitute display filter can substitute user
+    defined strings or small graphic images for patterns in the displayed
+    article.  You might use this to, for example, fix a few particularly
+    common and annoying spelling errors, or to replace an ASCII smiley :-)
+    with an actual graphic smiley.  Like other NewsRog display filters,
+    the substitute filter only affects the presentation of the article,
+    and does not change the original in any way.<P>
+
+    There are a few predefined face images and an associated mask bitmap
+    included with NewsRog in the Images/Faces directory.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The popup editor boxes in the group window now have an
+    edit button which will show the editor for the active filter.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The rewrap filter will now put lines with no alphabetic
+    characters on a line by themselves.  Such lines are most often strings
+    of dashes ("--------") or other items which should not be rewrapped.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The BadWrap detector will no longer trigger if the line after
+    the badly wrapped line matches the break pattern defined in the Rewrap
+    filter.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>When adding new fitlers, the popup filter list now
+    supports multiselection, so multiple filters can be added at once.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>New display filters are now added in an enabled state, so they
+    do not need to be separately enabled.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The Paste menu in the post text editor was not functioning
+    and has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The filter lists now have popup context menus which allow
+    selected filters to be saved or loaded from disk, along with a few
+    other operations.  Multiple filters can be saved to a file by
+    multi-selecting the filters and selecting the save menu.  This allows
+    you to easily save filters for future use, or to share your filters
+    with other people.  Loading filters from a file will bring up a list
+    of filters from that file (along with author notes if any), which can
+    then be selected for loading. The Filter tutorial (Tutorial #12)
+    contains more information on this topic.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Filters now have an optional Author Note which can be
+    edited to provide a longer description of the filter.  This is useful
+    when saving filters for sharing with other people.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The NewsRog command line now has new options to fetch
+    articles and other information from a news server, and send the
+    results to standard output.  For example, to fetch an article by
+    Message-ID from a server named "my.news.com":<P>
+
+      <UL>NewsRog SRV my.news.com MSGID "&lt;some.message@id&gt;"</UL><P>
+
+    There are a number of other options for fetching other data from the
+    server.  If the SRV parameter is omitted, the value of the NNTPSERVER
+    environment variable is used to find the server to connect to.<P>
+
+    Other command line batch operations are described in the reference
+    section of the NewsRog documentation.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>All selection filters now have an option to control their
+    behavior when used to limit the set of articles shown in the article
+    list.  The setting, called Thread Mode, only affects the behavior of
+    the filter when the article list is set to show thread entry points
+    only.  In this case, there are several modes to pick from:<P>
+
+      <UL>
+        <LI><B>Base - </B>A thread is shown only if the basenote of the thread
+             matches the filter.  This was the behavior of earlier
+             verions of NewsRog.<P></LI>
+
+        <LI><B>Any - </B>A thread is shown if any article in the thread matches the
+             filter.<P></LI>
+
+        <LI><B>All - </B>A thread is shown only if all articles in the thread matche
+             the filter.</LI>
+       </UL><P>
+
+     Using this setting allows an easy way to create, for example, a
+     filter which shows new articles, and shows threads which contain any
+     new articles if the article list is in Threads mode.  This setting
+     does not affect other uses such as kill or highlight filters.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>If a single article was marked, the article list display was
+    not being updated to reflect the new state.</TD></TR>
+       
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The MatchHeader and MatchHeaderBase filters did not work with
+    a few of the other types of filters, notably the "Marked" filter and
+    others which checked article flags.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There are new command line options to avoid displaying
+    the startup banner.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new set of group menus available for 
+    copying certain parts of the displayed article,such as 
+    the subject line, message-id, or even the entire article, to the
+    clipboard.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There are some new group menus available for displaying
+    the "raw" viewer article - that is, without using any display filters.</TD></TR>
+
+  </TABLE><BR><P>
+
+
+<A HREF="#Top">Back to Top</A>
+
+</TABLE><BR><P>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.4"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.4
+<FONT SIZE=+0> </TD>
+<TD>
+
+<H3>NewsRog 1.4 Update</H3><P>
+
+To use this update, you must have already installed NewsRog 1.0 through
+1.3.  Click on the supplied Update_1.4 icon in order to begin the install
+process.<P>
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.4b</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A kill filter bug introduced in version 1.4 is fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The uudecode filter now handles 4-octal-digit file modes as
+    well as 3.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The line count displayed by the MIME plugin was always zero.
+    It is now displayed properly.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new option in the uudecode and MIME plugins to
+    display the width, height, and depth of images in the information
+    block.  This is turned on by default.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new group option which allows incremental
+    loading of articles to be turned off.  This is handy in binaries
+    newsgroups to prevent needless re-parsing of uuencoded data.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>If an article is canceled part way through a download,
+    leaving only a partial article in the local memory cache, then the
+    entire article is re-read from the network next time the article is
+    fetched, rather than the incomplete article being read from the memory
+    cache.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>If a network error occurred during a batch download
+    operation, NewsRog would crash after the error requestor was canceled.
+    This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a "Reset Article Pos" menu in groups which
+    resets the last article position.  Normally, when entering a group,
+    NewsRog reads only the new headers since the last time the group
+    headers were fetched.  Using this menu option will reset the last
+    article position, causing all the headers to be re-read the next time
+    a header fetch happens.  Typically this is not needed.</TD></TR>
+
+  </TABLE><BR><P>
+
+  <TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.4a</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A posting bug introduced in version 1.4 which caused articles to not be sent to the network has been fixed.</TD></TR>
+
+  </TABLE><BR><P>
+
+
+<TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.4</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>After kill articles in a group reader window, the article
+    list is now updated to remove the killed articles.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Pressing the "Mark as Read" or "Mark as Unread" buttons from
+    the group list window will now cause the article list to be updated if
+    the group window for the selected group is open.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Batch downloads from the group list window were ignoring
+    global kill filters.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The prefix 'Re: ' is now removed before comparing subject
+    strings in the header match filter.  It was previously not, meaning
+    that kill entries by subject created using the "Skull" icon in the
+    group reader window were not processed correctly.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The local timezone adjustment could produce article
+    datestamps in excess of 24:00 hours.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The memory allocation scheme for news articles has been
+    changed to allow for increased performance when expiring or deleting
+    articles (or article headers) from memory.  In some cases, this now happens up to 10 times as fast.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The Post Editor now has an "Insert Quoted" menu item
+    which will add a text file as quoted text.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>In addition to icons for open, closed, and broken
+    groups, there is a new group icon in the group list window which is
+    displayed after a batch download operation on a given group.  The icon
+    is reset when a group is read.  This way, it is easy to see which
+    groups have batch downloaded articles since the last time the group
+    was read.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The server group's list has an option to view the
+    groups newly created since the last time this option was used.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A memory corruption problem when sending posts to the network
+    has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>If the font of some text in a scrollable quote block was set
+    to italic, bold, or underlined, the height of the block would be
+    miscalculated in previous versions.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The method of fetching headers has been changed to work better
+    with some idiosyncratic news servers.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Many news servers do not automatically supply a Bytes:
+    header, in which case NewsRog cannot display the size of the article
+    in Kb.  There is a new option in the Config area which instructs
+    NewsRog to ask for this header explicitly.  On the other hand, some
+    news servers have performance problems when doing this and header
+    downloads will become slower.  In this case, NewsRog can be instructed
+    not to ask for the Bytes: header.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>If an article is aborted in the middle of a transfer, it is
+    now marked with the "Broken" icon.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Kill filters that were run against new articles read from the
+    network were being processed correctly, but kill filters run against
+    articles read from the local disk cache could cause enforcer hits in
+    some situations.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>When batch downloading articles, the article fetched
+    immediately after a "broken" article (one which was not available on
+    the server) would have an extra line inserted into the article body
+    with a raw NNTP return code from the server.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The count of subscribed groups in the group list window
+    ("Subscribed Groups (nn)") was remaining at zero when the group list
+    window was first opened.  It now displays the count of subscribed
+    groups.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The throughput when reading from a very fast networked source
+    has been improved.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A new DblSpace filter matches articles who's subject
+    lines have d&nbsp;o&nbsp;u&nbsp;b&nbsp;l&nbsp;e&nbsp;&nbsp;s&nbsp;p&nbsp;a&nbsp;c&nbsp;e&nbsp;d letters.  Such articles are
+    most often spam.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The default set of characters for the RepeatChar filter now
+    includes a dollar sign ($).</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The NOSAVE and FORCE options to the CLOSEGROUP ARexx command
+    were not functioning properly in previous versions and have been
+    fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The "Bad Wrap" detector in the rewrap display filter would
+    sometimes trigger on an empty middle line.  This no longer happens.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>If the last line of a post composed in the post editor did
+    not end with a newline, it would be skipped when the post was sent to
+    the network.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD> The NoFlow pattern in the Rewrap display filter was being
+    used as an anchored pattern, which means that it had to match the
+    entire line.  This has been changed so that it need only match a
+    prefix of the line.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The post line wrapping feature may be disabled via a
+    configuration option in the main config window.  If so disabled, line
+    breaks must be inserted via some other means, such as the built in
+    editor or by using an external editor.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>NewsRog now issues a warning if a post is sent with lines
+    over 80 characters.  Many people still read usenet using Unix
+    text-based newsreaders such as "tin" which perform no line wrapping,
+    and it is considered bad netiquette to post with longer lines.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>NewsRog now issues a warning if a post is sent with more
+    quoted text than original text, for posts over a few lines.  It is
+    considered bad netiquette to leave unnecessarily large blocks of
+    quoted text in a reply.  The post may still be sent, but there is no
+    way to avoid the warning.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The signature separator line added between a post and the
+    signature file may now be omitted if it is part of the signature file
+    itself.  A new option in the main configuration window controls this
+    behavior.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>When moving from "One Thread" mode to "All Threads" mode, when
+    all articles in the thread have been read and only read articles are
+    being displayed, the list cursor now better tracks the position of the
+    next thread.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The kill button (skull and crossbones icon) in the group
+    window can now create global kill entries as well as group-local
+    entries.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>When a batch download is in progress and other group windows
+    are open, the article list no longer refreshes during the batch
+    download unless some of the downloaded articles are crossposted to the
+    open group.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Non-ASCII From: and Subject: header lines are now posted
+    in RFC2047 format.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>RFC2047 format header lines are decoded into non-ASCII
+    data when they are read from the network.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The badwrap detector in the Rewrap filter now detects a
+    few additional cases, such bad line wrapping after a paragraph who's
+    first line is indented.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A bug in the HLQuotes filter could cause quoted regions with
+    most of the lines exceeding the max quote level to be displayed in
+    their entirety instead of being trimmed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The max quote level in the HLQuotes filters was being ignored
+    inside of scrolled quote blocks.  Lines who's quoted depth now exceeds
+    this value are trimmed from scrolled quote blocks.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>An ASCII smiley (":-)") will no longer be seen as a quote
+    introduction even if the colon character is configured as a quote
+    separator.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>NewsRog now uses TextEditor class version 15.5.</TD></TR>
+
+  </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+
+</TABLE><BR><P>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.3"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.3
+<FONT SIZE=+0> </TD>
+<TD>
+
+<H3>NewsRog 1.3 Update</H3><P>
+
+To use this update, you must have already installed NewsRog 1.0, 1.1, or
+1.2[A].  Click on the supplied Update_1.3 icon in order to begin the
+install process.<P>
+
+<TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.3</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A potential stack corruption problem in one of the NewsRog
+    libraries that could cause crashes in some situations has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A memory corruption problem when closing group windows has
+    been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>NNTP authentication is now supported via the "AUTHINFO
+    user" and "AUTHINFO pass" commands.  Kerberos or other types of
+    authentication are not currently supported.  User and password
+    information for authentication is defined per server in the server
+    list window.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The maximum string length for headers has been expanded.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The height of scrollable text blocks is now calculated more
+    accurately when there are different fonts used within the block.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Double clicking on groups in the Server Groups window
+    will now subscribe to the clicked-on group.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The group pattern string gadget in the Server Group's
+    window is now active by default when the window is opened.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A FAQ management system has been added which can
+    automatically fetch newsgroup FAQs from a FAQ server and display them.
+    FAQs have a predefined multimedia type of "application/X-FAQ".
+    Multimedia actions on FAQs may use the variable "FAQFile", which is
+    set to the filename of the selected FAQ.  If no multimedia actions are
+    defined for FAQs, the default is to view them using "multiview".  To
+    define two additional actions for FAQs, one to save the FAQ to RAM:,
+    and the other view it using a custom viewer, one might do this:<P>
+
+     <TABLE NOFLOW BORDER=2>
+      <TR><TH ALIGN=Left>Media Type</TH><TH ALIGN=Left>Action Name</TH><TH ALIGN=Left>Command</TH><TH ALIGN=Left>Args</TH></TR>
+      <TR><TD>application/X-FAQ</TD><TD>SaveRAM</TD><TD>copy</TD><TD>${FAQFile}&nbsp;RAM:${GroupAbbrev}-FAQ</TD></TR>
+      <TR><TD>application/X-FAQ</TD><TD>View</TD><TD>myviewer</TD><TD>${FAQFile}</TD></TR>
+     </TABLE><BR><P>
+
+    Please read the tutorial section about the FAQ manager for more
+    information!</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The MIME display filter could crash if Display Inline was
+    turned off and a non-zero value was on the stack.  This has been
+    fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The busy pointer is no longer displayed during article display,
+    unless the article contains an inlined image.  This means that
+    keystrokes pressed during article decoding are no longer lost.  This
+    means that it is now more pleasant to start an article downloading
+    into the article viewer, and then page around in the article list
+    while it is transferring.  Keystrokes are not lost when the article
+    viewer updates progressively during the transfer.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Fixed a possible buffer overflow error in articles with very
+    long subject strings.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A new highlight filter feature can be used to highlight
+    articles in the article list which match a particular selection
+    filter.  This might be used, for example, to highlight articles by
+    interesting authors.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>When articles were killed, they were not being uncached.
+    They now are.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The post editor has a new mode which will show the
+    complete post including the headers and signature file.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>If a group defined a custom server, and a post was created in
+    that group, the default server was still used to send the post,
+    instead of the group's custom server.  The group's server is now used
+    to send the post.  This only happens if you create the post from
+    inside of a group.  If the post is created directly in the post list
+    window, then the project's default server is used.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The Server Group's window would previously not load a saved
+    group file if any group name was longer than 255 characters.  This
+    limit has been increased to 1024 to accomodate very long newsgroup
+    names.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The TextStyles display filter now has an option to
+    constrain emphasized regions to start and end at word boundaries.
+    This helps to avoid false positives when, for example, forward slashes
+    are used in pathnames.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The "AutoClip" configuration option can be selected in
+    order to have text that's selected in an article view be copied to the
+    system clipboard as soon as it is selected.  If unselected, the
+    clipboard behavior is identical to previous versions of NewsRog.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Replying to posts with very long Newsgroups: or Subject:
+    headers would cause a crash 100% of the time.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>If two articles in a group had the same message ID, NewsRog
+    would corrupt the free memory pool.  This should *never* happen since
+    message ID's are supposed to be unique, but in any case, the bug has
+    been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>NewsRog no longer uses the NNTP XHDR command to fetch message
+    IDs from the server when downloading the group overview information.
+    It seems that some NNTP servers are very slow in replying to the XHDR
+    command over a large range of articles, so an alternate method is now
+    employed that may be faster on some news servers.  There are two
+    drawbacks to the new method: First, when switching to a new NNTP
+    server, NewsRog cannot be as intelligent about skipping article
+    headers that are already present in the local news database.  Second,
+    more data must be transferred over the modem when fetching the group's
+    headers (although this may be offset by the higher transfer speeds for
+    servers which don't do XHDR quickly).</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>NewsRog would get confused threading information for some
+    types of NNTP servers.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>NewsRog now employs an alternate method of keeping the article
+    list in sync with changes to articles that results in improved
+    performance when switching between different article list modes.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>A new method of batch downloading articles is now employed
+    which is better at maintaining a streaming data flow.  This can result
+    in vastly improved batch download times.  Streaming batch downloads
+    are only supported by using the "Batch D/L Articles..." button in the
+    group list window.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The batch download status windows now display some other
+    information, including the elapsed time (ET) for the transfer so far,
+    the estimated time remaining, and the average number of headers or
+    articles per second transferred so far.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A Batch D/L filter is now available in the Group List
+    window.  This filter controls, on a group by group basis, which
+    articles will be batch downloaded.  Thus, it is now possible to batch
+    download only new articles, or only those less than a certain size,
+    and so on.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Both batch D/L buttons in the Group List window (for headers,
+    and for headers+articles) are now disabled when either is in progress,
+    since these operations cannot take place simultaneously.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>If a batch D/L function was in progress, and another group
+    window was closed, NewsRog would enter an infinite loop and lock up.
+    This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Certain images that could not be decoded by the datatypes
+    library would produce a (harmless) enforcer hit in NewsRog.  This has
+    been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The prefetch count in the group preferences was off by one
+    and has been fixed. If set to 2, it would only prefetch one article,
+    and if set to 1, it would not prefetch any.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>An ARexx port has been added, with approximately 85
+    commands.  More will be added in future versions.  A new chapter in
+    the References section of the manual describes the ARexx commands.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The global "Any/All" mode of many of the filter lists was
+    being ignored in many situations.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The post editor now offers improved rewrapping which is
+    more intelligent about quoted text.  There is also a new menu option
+    to explicitly rewrap the editor text instead of having it done when
+    the text is posted to the network..</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The "Bad Wrap" detection in the Rewrap filter has been
+    improved to detect some additional cases.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The EMail filter had a bug which could, in rare
+    circumstances, cause messages to be truncated.  This typically
+    happened only when parsing binary data, such as when trying to display
+    uuencoded or MIME data without the associated filters turned on.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The EMail filter now has an option to require dots (.) in
+    email address hostnames.  For example, "user@myhost.com" would be
+    matched, but not "user@myhost".  This can prevent false positives when
+    parsing certain types of data.</TD></TR>
+
+ </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+
+</TABLE><BR><P>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.2"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.2
+<FONT SIZE=+0> </TD>
+<TD>
+
+<H3>NewsRog 1.2 Update</H3><P>
+
+To use this update, you must have already installed NewsRog 1.0 or 1.1.
+Click on the supplied Update_1.2 icon in order to begin the install
+process.<P>
+
+<TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.2</TH></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Newly downloaded articles can now be marked with an icon
+    in the article list.  The new icon can be reset when the group is
+    closed, or when articles are read, or both.  The feature can also be
+    disabled on a per-group basis from the group preferences.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A new selection filter can be used to match new articles.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Previously, tabs in articles were always being expanded to 8
+    spaces.  Now, they are expanded only to the next position which is a
+    multiple of 8 characters.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Global kill filters were not being processed properly.  They
+    now are.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The relative weight of the size of the article list in
+    the group window can now be set via the "Article List Weight" setting
+    in the main preferences.  For example, if you want the ratio of
+    article list to article view heights to be 40:60, you can set this
+    number to "40".  This setting is found in the
+    "Program Options/Misc Options" area of the config window.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Both the MIME &amp; UUDecode display filters now have an
+    option to create directories when the "Save" button is pressed if
+    those directories don't already exist.  This does not affect the "Save
+    As" button, which still uses the file requestor.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Both the MIME &amp; UUDecode display filters now have an
+    option to disable the "OK" and "Cancel" requesters that are normally
+    displayed after a file is saved.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Groups now have a new variable called GroupNameChr.  It
+    can supply the group name with "." characters transformed to an
+    alternate character, which defaults to "/".  Use it like this:<P>
+    <TABLE BORDER=2 CELLSPACING=2 CELLPADDING=2>
+      <TR><TH>Varible</TH><TH>Group Name</TH><TH>Expands To</TH></TR>
+      <TR><TD>${GroupNameChr}</TD><TD>alt.foo.bar</TD><TD>alt/foo/bar</TD></TR>
+      <TR><TD>${GroupNameChr,/}</TD><TD>alt.foo.bar</TD><TD>alt/foo/bar</TD></TR>
+      <TR><TD>${GroupNameChr,-}</TD><TD>alt.foo.bar</TD><TD>alt-foo-bar</TD></TR>
+      <TR><TD>${GroupNameChr,#}</TD><TD>alt.foo.bar</TD><TD>alt#foo#bar</TD></TR>
+    </TABLE><BR><P>
+
+    This can be used inside the "Save Dir" field of MIME &amp; uudecode
+    filters to automatically save data to pathnames built from the group
+    name.  For example, you might use "DH0:Whatever/${GroupNameChr}".</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>the MUI help for the variable list in the config window was
+    missing.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new Headers area in the global config window
+    where optional headers such as X-No-Archive may be defined for a group
+    or a specific set of groups such as "comp.sys.*".  A "Custom Headers"
+    checkbox in the post editor controls whether custom headers are posted
+    or ommitted.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A new AgeRange selection filter can select articles based
+    on their age in days.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new available column for article lists that
+    shows the articles age in days, hours, and minutes.  The displayed age
+    is the article's age when the group was opened, and is not updated
+    continuously.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Fixed a number of typos in the documentation.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>previously, draging a subset of the filters from one filter
+    list to another would cause them *all* to get copied.  Now, only the
+    ones that got dragged are actually copied.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The size of articles in Kb/Mb can now be displayed in the
+    article list.  This only works for newly downloaded articles.
+    Articles that were fetched before version 1.2 will display a question
+    mark for this field.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A SizeRange filter is available to select articles by
+    size.  You might, for example, filter articles over 50 Kb.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new article list sort option for sorting by
+    article size.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The group's defined sort order is now saved with the project
+    and will be restored when the group is re-entered.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The group's column settings in the article list are now saved
+    with the project and will be restored when the group is re-entered.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Hiding the toolbar window and showing it again no longer
+    causes a duplicate set of icon images to be displayed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Hiding the last open main window now causes NewsRog to
+    iconify itself.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>Running NewsRog a second time no longer creates another
+    application.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Articles which have been killed are now also added to the
+    read article count, so that a group's unread article count will be
+    zero when all articles have been either read or killed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Previously, using the "Use Full Headers" option in groups
+    would cause enforcer hits if the cursor was moved off of an article's
+    entry in the artice list *after* NewsRog started fetching the article
+    from the network, but *before* any lines arrived up from the server.
+    This no longer happens.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The main windows now have a "Quit (No Save)" menu option
+    that will quit without saving the group project (even if the exit mode
+    is set to save projects on exit).  It is best to use this only when
+    absolutely needed, since the group contains state information that is
+    needed for optimal operation of the program.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The explicit expire menu option in the group window wouldn't
+    function correctly if the first article number reported by the NNTP
+    GROUP command was not preset on the server.  An alternate method of
+    determining the age of the oldest article in the group is now used
+    which does not have this problem and it should now work on a wider
+    range of servers.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Previously, the group status line would display:
+    "D/L'ing Articles (1 of 1)..."  and not return to display "Idle" after
+    displaying an article that was fetched from disk or memory cache
+    instead of from the network.  This has been fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Fixed a problem that was causing rare but occasional crashes
+    either when exiting groups or when shutting down the program.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>Windows-Demangler.  Some broken MS-Windows applications
+    put Windows backslash-style path components in uuencoded or MIME
+    filenames.  A new feature detects these names and will ask you whether
+    to translate them to a simple basename before saving.  This will avoid
+    the "Please insert volume E:" requestors and backslashes as part of
+    filenames.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The "Set Default" button in the server list window was not
+    working.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Fixed a crash that could occur under rare conditions in the
+    post editor if zero sized files were saved and re-edited, and the
+    stack frame contained a particular value.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The insert feature of the builtin editor now inserts the text
+    at the cursor location instead of replacing the old buffer text with
+    the new.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>A single header split among multiple lines no longer cause
+    NewsRog to treat this as the end of the header region.  However, to
+    properly cope with articles with a header split onto multiple lines,
+    the "Use Full Headers" option must be turned on.  This should fix the
+    problem of the MIME Content-Type: header's "boundary" parameter being
+    on a separate line from the Content-Type: header itself.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There are new buttons and hotkeys for moving
+    forward/backward by threads/articles in the group reader window.  All
+    common browing actions (scrolling in an article, moving to the
+    next/previous article or next/previous thread) can now be performed
+    using only the numeric keypad.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>In order to accommodate using the numeric keypad '+' and '-'
+    keys for moving forward and backward by articles, the hotkey for the
+    article list column editor has been changed to '^'</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>Image Bitmaps such as used in the main toolbar window and the
+    post editor are now cached in memory.  This improves the performance
+    when the window containing them is hidden and then shown again (in the
+    post editor, for example).</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There are several new article list search options.  The
+    list of headers to search through now includes new entries:<P>
+
+      <TABLE BORDER=2 CELLSPACING=2 CELLPADDING=2>
+        <TR><TD><B>All Headers</B></TD>
+            <TD>Searches through all article headers.</TD></TR>
+        <TR><TD><B>Cached Bodies</B></TD>
+            <TD> Searches through the bodies of all articles
+                 that are currently displayed in the article
+                 list and have cached bodies.</TD></TR>
+        <TR><TD><B>Hdrs+Cached Bodies</B></TD>
+            <TD>Searches through the headers + bodies of
+                cached articles displayed in the article list.</TD></TR>
+      </TABLE><BR><P>
+
+    All of the above modes work with dynamic seaches, although a fast
+    machine and disk subsystem is necessary for reasonable performance of
+    dynamic searching though a large number of article bodies fetched from
+    disk.  Having a sizeable disk cache helps as well, but on a fast
+    machine, performance is quite reasonable.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>When searching in article bodies, if the search text is
+    found inside of a scrollable quotation block, the block will be
+    scrolled down to show the search text.  This only works with
+    scrollable quote blocks, not toggled blocks.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Typing too fast for dynamic searches to keep up would
+    sometimes cause the search to miss seeing valid matches.  This no
+    longer happens.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Deleting characters from the middle of the string when doing
+    dynamic searches now works better.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>Deleting all the characters from the string gadget in search
+    windows now causes the next search to restart from the beginning, even
+    if the search start position was initially later.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The article list in the group window can be restricted to
+    viewing just a selected set of articles with the new menu option
+    "Limit to Selected".  This, in combination with the search features,
+    provides an easy way to, for example, batch download all articles
+    containing some string in the subject line.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>The rewrap filter would occasionally remove blank lines that
+    should have been left in to separate paragraphs.  It is a bit more
+    intelligent about this now.  Although doing perfect rewrap in the
+    absense is markup information is not possible, the filter performs
+    better now.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The HideSig filter has an option for specifying the
+    maximum length of a signature block.  This helps to prevent hiding of
+    text when authors use signature style separator lines to separate
+    quoted from new text.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD> The article font and color can now be specified per
+    group, in the group window's config area.  If turned off, the values
+    from the main config window are inherited.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug Fix</B></TD><TD>Going to offline mode now closes bsdsocket.library.  This
+    should prevent TCP stacks from sending quit signals to NewsRog if they
+    exit while NewsRog is still running, as long as NewsRog is in offline
+    mode.  In online mode, of course the networking library must be open,
+    so exiting the TCP stack will send a quit signal to NewsRog. </TD></TR>
+
+ </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+
+</TABLE><BR><P>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.1"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.1a
+<FONT SIZE=+0> </TD>
+<TD>
+
+<H3>NewsRog 1.1a Update</H3><P>
+
+<TABLE NOFLOW CELLSPACING=4 CELLPADDING=4>
+  <TR><TH></TH><TH>Changes for NewsRog 1.1a</TH></TR>
+
+  <TR><TD VALIGN=Top><B>Bug fix</B></TD><TD>Articles with a From: field containing an open paren but no
+    closing paren, such as:<BR><UL>
+        Joe Cool (<BR></UL>
+    would cause NewsRog to crash when displaying the article.  Fixed.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug fix</B></TD><TD>The multimedia actions list was not preserving the stack size
+    and priority set for various commands.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug fix</B></TD><TD>If the NNTP server reset its message IDs, NewsRog would
+    sometimes fail to read new messages.  This situation is now detected.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug fix</B></TD><TD>If, due to a corrupted database on the NNTP server, XHDR
+    returned a null Msg-ID for an otherwise valid article, NewsRog would
+    crash.  This has been fixed.  However, this situation should never
+    occur and is a data corruption problem on the news server.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Bug fix</B></TD><TD>If a global display filter was added with a group pattern,
+    the filter would properly appear or not appear in the global filter
+    list of individual groups.  But when an article was displayed, all
+    filters would be used anyway.  Patterns in global display filters work
+    properly now.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is now a button in the group list to toggle between
+    Online and Offline mode.  It performs the same function as the menu
+    items.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is now a built in text editor for composing posts.
+    External editors may still be used as well.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There are some new options in the global config area to
+    control line wrapping for posts.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is a new option to turn off NewsRog generated
+    message IDs.  In this case, the news server must generate the message
+    ID.  It is usually best to let NewsRog generate Message IDs, but in
+    some firewall configurations the news server must do it.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The bold, italic, and underline styles in the TextStyle
+    display filter can now be turned on and off independently.  In many
+    cases, for example, it might be desirable to turn off the italic style
+    to avoid making slashes/used/to/separate/alternatives or path/names/
+    into italic text.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>When toggling on hidden text (such as a hidden signature
+    block), the region is now scrolled into the visible display area if it
+    was partially out of view.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The numeric pad enter key can now be used as a synonym
+    for the return key.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>The NewsRog toolbar style can now be set to horizontal or
+    vertical, with or without labels.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>A new HLPatt filter can highlight user defined patterns
+    in article bodies.  You might, for example, highlight your cat's name
+    when reading posts in the rec.pets.cats.* hierarchy.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>New Feature</B></TD><TD>There is now a "Select All" button in the post list
+    window.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The ramiga-c hotkey no longer closes the group reader window.
+    Instead, it copies any currently selected text to the clipboard, which
+    is a more standard meaning for this key.</TD></TR>
+
+  <TR><TD VALIGN=Top><B>Change</B></TD><TD>The browse mode in the group reader now will load the
+    article highlighted in the article list instead of the next article,
+    if no article is currently displayed in the article view.</TD></TR>
+
+  </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TABLE><BR><P>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="V1.0"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD WIDTH=120 ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Version 1.0
+<FONT SIZE=+0> </TD>
+<TD>
+
+First public release.
+
+</TD> </TR>
+
+<A HREF="#Top">Back to Top</A>
+
+</TABLE>
+
+</BODY>
+</HTML>

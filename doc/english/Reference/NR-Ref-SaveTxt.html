@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Action Filters: SaveTxt</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Action Filters: SaveTxt <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-ActFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-Decode.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=1 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">          Filter Overview</A></TD>
+    <TD><A HREF="#UI">            User Interface & Options</A></TD>
+    <TD><A HREF="#Vars">          Variables</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter will save raw article text to disk files.  No decoding of MIME
+or UUEncoded data is performed; for this purpose, see the
+<A HREF="NR-Ref-Decode.html"> Decode</A> filter.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter has two main sections:<P>
+
+<CENTER>
+<IMG ALIGN=Center SRC="../Graphics/NR-Ref-SaveTxt-UI1.GIF" WIDTH=476 HEIGHT=257>
+</CENTER><P>
+
+The available configuration options here are:<P>
+
+<UL>
+  <LI><B>Filename</B> - This is the file to which the binary data should
+     be saved.  The variable <B>${Num}</B> will expand to the ordinal
+     number of the article being saved as a four digit integer.
+      <P></LI>
+
+   <LI><B>Save Parts</B> - One of:<P>
+     <UL>
+       <LI><B>Header+Body</B> - The entire article including the header
+       and all body lines is saved.</LI><P>
+       <LI><B>Header</B> - Only the article headers are saved.</LI><P>
+       <LI><B>Body</B> - Only the body lines are saved.</LI><P>
+     </UL><P></LI>
+
+   <LI><B>Save Mode</B> - One of:<P>
+     <UL>
+       <LI><B>Overwrite</B> - Any old file with the same filename is
+       silently overwritten with the new data.</LI><P>
+       <LI><B>Append</B> - The saved data will be appended to any old file
+       with the same name.</LI><P>
+       <LI><B>Skip</B> - No data is saved if a file with the same filename
+       already exists.</LI><P>
+       <LI><B>Suffix</B> - If a file with the same filename already
+       exists, a four digit numeric suffix is appended to the filename of
+       the saved data.</LI><P>
+     </UL><P></LI>
+
+    <LI><B>Create Dirs</B> - If selected and the directory of the saved
+    file does not already exist, it will be created.<P></LI>
+</UL><P>
+
+<P>
+
+<CENTER>
+<IMG ALIGN=Center SRC="../Graphics/NR-Ref-SaveTxt-UI2.GIF" WIDTH=476 HEIGHT=257>
+</CENTER><P>
+
+The available configuration options here are:<P>
+
+<UL>
+  <LI><B>Command</B> - If non-empty, this command will be run after the
+  artilce text has been saved to the disk file.<P></LI>
+
+  <LI><B>Args</B> - Parameters for the command.  The variable
+    <B>${File}</B> will expand to the filename to which the article lines
+    have been saved.<P></LI>
+
+  <LI><B>Input File</B> - Standard input for the command.<P></LI>
+  <LI><B>Output File</B> - Standard output for the command.<P></LI>
+  <LI><B>Stack Size</B> - Stack size for the command.<P></LI>
+  <LI><B>Task pri</B> - Task priority for the command.<P></LI>
+  <LI><B>Current Dir</B> - Current working directory for the command.<P></LI>
+
+  <LI><B>Async</B> - If set, the command will run asynchronously - i.e, in
+      the background.  Otherwise, NewsRog will halt while the command
+      executes and resume after the command terminates.<P></LI>
+
+  <LI><B>Delete File</B> - If set, the saved file will be deleted after
+  the command has been run.  This option is chiefly useful when Async is
+  turned off, or the file will be deleted before the command has a chance
+  to run.<P></LI>
+
+</UL><P>
+       
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Vars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables, in addition to the standard group, article, and
+project variables, are available to this filter:<P>
+
+<CENTER>
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>Num</TD>
+         <TD>This is set to the ordinal number of the article being saved
+         as a four digit integer.  For example, the first article will be
+         0001, the second, 0002, and so on.
+         </TD></TR>
+
+     <TR><TD>File</TD>
+         <TD>This is set to the filename of the saved data and can be used
+         in the command section to perform actions upon the file.
+         </TD></TR>
+   </TABLE>
+</CENTER>
+
+
+</BODY>
+</HTML>

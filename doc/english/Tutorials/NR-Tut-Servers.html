@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 7: The Servers List</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 7: The Servers List <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Groups.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Network.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=2 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">    General Info</A></TD>
+    <TD><A HREF="#Cmds">    Server List Commands</A></TD>
+    <TD><A HREF="#Cols">    Displayable Info</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Tuning">  Performance Tuning</A></TD>
+    <TD><A HREF="#Summary"> Summary</A></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+General Server Info<P>
+<CENTER>
+<IMG SRC="../Graphics/Toolbar-B2.jpg" WIDTH=86 HEIGHT=81 BORDER=0>
+</CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+Multiple news servers can be added to NewsRog.  One server is the default
+server, which is to say the server from which news is obtained if the
+group itself does not provide a group specific news server.  The default
+server can be changed at any time (if, for example, your main news server
+is down, you might switch to a backup).  NewsRog will fully preserve all
+state information across a server change, unlike other newsreaders which
+either crash outright or lose read/unread and other article information.<P>
+
+NewsRog expects the server to provide the NNTP protocol as defined in
+RFC977 <I>(A Proposed Standard for the Stream-Based Transmission of
+News)</I> and the Common NNTP Extensions defined in
+<I>draft-ietf-nntpext-imp-01.txt</I>.  Other types of news servers will
+not work.<P>
+
+Depending on how NewsRog is configured and used, it may need to create
+multiple connections to the news server.  In order for this to happen,
+your news server must be configured to allow this.  Information on how to
+use NewsRog in single connection mode is available elsewhere in this
+documentation.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Cmds"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group List Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+  <CENTER>
+  <IMG SRC="../Graphics/Window-Servers.GIF" WIDTH=475 HEIGHT=233
+       ALIGN=Center BORDER=0>
+  </CENTER><P>
+
+The server list window looks like this.  The button icons at the top have
+been explained in a <A HREF="NR-Tut-Com.html#Lists">previous tutorial</A>.
+Other commands available here are:<P>
+
+<UL>
+  <LI><B>Add Server</B> - Creates a new, unnamed server.  The server name
+       or IP address can be typed into the text field.<P></LI>
+
+  <LI><B>Delete</B> - Remove any selected servers.<P></LI>
+
+  <LI><B>Sort</B> - Sort the server list.  The list may only be sorted by
+      name in this version of NewsRog.<P></LI>
+
+  <LI><B>Reset Stats</B> - Reset the statisics dealing with the number of
+      sucessful and failed connections and the number of groups on the
+      server.<P></LI>
+
+  <LI><B>Set Default</B> - Sets the active server as the default.
+      Clicking on the <B>Default</B> checkbox next to the server name has
+      the same effect.<P></LI>
+
+  <LI><B>Get Env</B> - Attempts to read an environment variable named
+      <B>NNTPSERVER</B> and creates a corresponding server entry.  This
+      environment variable is used by the <I>tin</I> newsreader.<P></LI>
+
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Cols"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Displayable Data
+<FONT SIZE=+0> </TD>
+<TD>
+
+The server list can be set to display any desired information about a
+server.  (See <A HREF="NR-Tut-Com.html#Lists">this</A> tutorial for more
+information).  The following data may be displayed:<P>
+
+  <TABLE BORDER=2>
+    <TR><TH>Column</TH> <TH>Description</TH></TR>
+
+    <TR><TD VALIGN=Top>Default</TD>
+        <TD>Displays a checkbox that will be checked next to the current
+            default server, and unchecked next to the other servers.
+            Clicking on this checkbox will make that server the default.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Server</TD>
+        <TD>The full server name.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Success</TD>
+        <TD>The number of successful connections to date.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Fail</TD>
+        <TD>The number of failed connections to date.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Connect %</TD>
+        <TD>Success*100/(Success+Fail).  Useful to determine which servers
+            are the most reliable.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top># Groups</TD>
+        <TD>The number of known groups on this server.  The only way this
+        information is updated is by using the Server Group List feature
+        of the <A HREF="NR-Tut-Groups.html">Group List</A> window.  If "*"
+        is used as a pattern, all groups will be loaded and this count
+        will be updated appropriately.  It will thereafter be saved with
+        the server when the NewsRog project is saved.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Timeout</TD>
+        <TD>The TCP Connection timeout value for this server.  If a TCP
+        connection has not been made in this many seconds, the attempt is
+        aborted.  This value may be set with the <B>Cx Timeout</B> slider.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Retry Delay</TD>
+        <TD>The delay between connection retries.  A connection is only
+        retried if the previous attempt established a valid TCP
+        connection, and if the server reported that it was alive but busy.
+        Other situations, such as failure to establish a TCP socket, or a
+        server which fails to respond once the TCP socket has been
+        established, will not retry the connection.
+        This value may be set with the <B>Retry Delay</B> slider.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Retries</TD>
+        <TD>The maximum number of connection retries before giving up.
+        This value may be set with the <B>Max Retries</B> slider.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Hostname</TD>
+        <TD>The hostname component of the server's nodename.  This is
+        shorter than the server name and may be displayed instead.
+        </TD></TR>
+
+
+    <TR><TD VALIGN=Top>Auth User</TD>
+        <TD>This user name is transmitted when an NNTP authentication
+        request arrives from this server.
+       </TD></TR>
+
+    <TR><TD VALIGN=Top>Password</TD>
+        <TD>This password is transmitted when an NNTP authentication
+        request arrives from this server.  The password is not displayed
+        in the string gadget for security reasons.
+       </TD></TR>
+
+    <TR><TD VALIGN=Top>Type</TD>
+        <TD>This is usually set to <B>NNTP</B>, for news servers.
+        However, for FTP servers used to fetch FAQs, this must be set to
+        <B>FTP</B>.
+       </TD></TR>
+
+</TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Tuning"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Tuning for Maximum Performance
+<FONT SIZE=+0> </TD>
+<TD>
+
+If you are using some protocol such as PPP over a modem for an internet
+connection, it may be possible to tune your setup for faster NewsRog
+performance.  Most modern modems can do data compression.  Sent data is
+compressed by the remote modem for transfer, and the local modem
+uncompresses the data again before sending it to your computer.<P>
+
+It is generally best to run the computer-modem link at a much faster rate
+than the the modems themselves will connect.  Using speeds of 115200, or
+the fastest than your hardware can support, can often increase speed
+especially for header downloads and other easily compressable data.
+It is generally necessary to use RTS/CTS flow control for maximum
+performance.<P>
+
+It is often possible to tune your modem for fastest possible connection
+speeds, but the specifics vary by manufacturer and are outside the scope
+of this documentation.  Consult your modem user's manual for more
+information.<P>
+
+Depending on your protocol and TCP software, you may be able to set TCP
+header compression.  This also improves performance of your network link.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>The purpose of configurating multiple news servers.
+      </LI>
+  <LI>The type of news NNTP server required for use with NewsRog.
+      </LI>
+  <LI>The function of the default server, and how to change it.
+      </LI>
+  <LI>What all of the buttons in the group servers window do.
+      </LI>
+  <LI>What the different columns available for display mean.
+      </LI>
+  <LI>How to tune your computer and modem setup for fastest operation.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

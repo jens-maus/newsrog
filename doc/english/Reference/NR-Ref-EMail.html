@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Display Filters: EMail</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Display Filters: EMail <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-CharMap.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-EmpHeader.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=2 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">          Filter Overview</A></TD>
+    <TD><A HREF="#UI">            User Interface & Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Example">       Example</A></TD>
+    <TD><A HREF="#Vars">          Variables</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This display filter searches for email addresses and creates clickable
+objects that may be used to send mail to the listed email address.  It can
+also generate clickable Message-IDs that may be used to display the
+indiciated message if it is available.<P>
+
+The format &lt;string@host.name&gt; is frequently used both for 
+message-IDs and for email addresses.  However, NewsRog has a sophisticated
+algorithm for detecting the difference when such a string appears in an
+article body with over 99% accuracy.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-EMail-UI.GIF" WIDTH=373 HEIGHT=285 BORDER=0>
+</CENTER><P>
+
+The available configuration options are:<P>
+
+<UL>
+  <LI><B>Multimedia Action</B> - This is an action from the
+         <A HREF="../Tutorials/NR-Tut-MM.html#Actions">Multimedia
+       Actions</A> list that will be invoked when an email address is
+       clicked.  The multimedia type is <B>application/X-email</B> (case
+       sensitive!)  The multimedia action may be any user defined action;
+       for example, to send the article text to an email program such as
+       YAM.
+      <P></LI>
+
+  <LI><B>Require Dots</B> - If selected, then a string is detected as an
+     email address or a Message-ID only if the hostname component contains
+     a dot (.).  For example, "user@myhost.com" would be matched, but not
+     "user@myhost".  This can prevent false positives when parsing certain
+     types of data.
+      <P></LI>
+       
+  <LI><B>Double Click</B> - If selected, then a doubleclick is needed to
+       trigger the default action for this email address or Message-ID.
+       Otherwise, a single click is sufficient.
+      <P></LI>
+
+  <LI><B>Use PopMenus</B> - If selected, then a popup menu is created for
+      email addresses and message-IDs allowing the address to be copied to
+      the clipboard, or any multimedia action defined for the indiciated
+      type to be executed.  Email address have a multimedia type of
+      <B>application/X-email</B>, and message-IDs have a multimedia type of
+      <B>application/X-MsgID</B>.  Both are case sensitive.
+      More than one multimedia action may be defined, for example, to send
+      an article to different email programs.<P></LI>
+
+  <LI><B>email Font</B> - If non-null, this font is used to display the email
+       addresses.
+      <P></LI>
+
+  <LI><B>email Color</B> - If selected, this color is used to display email
+      addresses.
+      <P></LI>
+
+  <LI><B>email Style</B> - The text style for displayed email addresses.
+      <P></LI>
+
+  <LI><B>email Selected Col</B> - This color is used to display email addresses
+      when they are pressed using the mouse.
+      <P></LI>
+
+  <LI><B>Message-ID Font</B> - If non-null, this font is used to display
+       message-IDs.
+      <P></LI>
+
+  <LI><B>Message-ID Color</B> - If selected, this color is used to display
+       message-IDs.
+      <P></LI>
+
+  <LI><B>Message-ID Style</B> - The text style for displayed message-IDs.
+      <P></LI>
+
+  <LI><B>Message-ID Selected Col</B> - This color is used to display message-IDs
+      when they are pressed using the mouse.
+      <P></LI>
+</UL>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Example"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Example
+<FONT SIZE=+0> </TD>
+<TD>
+
+Here is an example of a clickable email address.<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-EMail-Ex.GIF" WIDTH=204 HEIGHT=16 BORDER=0>
+</CENTER><P>
+
+When pressed, the text will change to the <A HREF="#UI">selected color</A>
+and the associated
+<A HREF="../Tutorials/NR-Tut-MM.html#Actions">multimedia action</A> will
+be executed.  Email addresses in the article body are also clickable.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Vars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables, in addition to the standard group, article, and
+project variables, are available to multimedia actions using this filter:<P>
+
+<CENTER>
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>File</TD>
+         <TD>When used in a multimedia action for a clickable email address, this
+         variable will be set to a filename which contains the article
+         text.  By default this is the full header and body of the
+         article, but the following suffixies can be used:<P>
+          <UL>
+            <LI><B>:Head</B> - The file will contain only the header
+            information.</LI>
+            <LI><B>:Body</B> - The file will contain only the body, but no
+            headers.</LI>
+            <LI><B>:HdBd</B> - The file will contain both the header and
+            the body of the article.  This is the default.</LI>
+            <LI><B>:Q</B> - The body of the article will be quoted.</LI>
+          </UL><P>
+
+         For example, referencing the variable <B>${File:Body:Q}</B> would
+         specify a file containing the quoted body of the article, with no
+         header.  This is useful for passing the indicated text to an
+         external program.
+         </TD></TR>
+
+    <TR><TD>email</TD>
+         <TD>Used in a multimedia action for the type application/X-email,
+         the email variable contains the email address that was clicked on.
+         </TD></TR>
+
+    <TR><TD>MsgID</TD>
+         <TD>Used in a multimedia action for the type application/X-MsgID,
+         the MsgID variable contains the message-ID string that was
+         clicked on.
+         </TD></TR>
+
+    </TABLE>
+</CENTER>
+
+
+</BODY>
+</HTML>

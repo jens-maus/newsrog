@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Selection Filters: MatchThread</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Selection Filters: MatchThread <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-SelFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-MatchFollowup.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-MatchThreadBase.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This selection filter matches all articles that are in the same thread as
+articles that match a given condition, as defined by another selection
+filter.  For example, you might define a filter to match articles that are
+in any thread you have posted to, whether those articles are followups to
+yours or not.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG ALIGN=Center SRC="../Graphics/NR-Ref-MatchThread-UI.GIF" WIDTH=392 HEIGHT=169>
+</CENTER><P>
+
+There are two controls available:<P>
+
+<UL>
+   <LI><B>Mode</B> - This changes the matching mode between <B>Any</B>, in
+   which all articles in a thread are selected if any article in the
+   thread matches the sub-filter, and <B>All</B>, in which articles are
+   only selected if all other articles in the thread match.<P></LI>
+
+   <LI>The <B>New...</B> button adds a sub-filter.  The MatchThread
+   filter will match any article that either is matched by the added filter, or is
+   in the same thread as any article matched by that filter.<P></LI>
+</UL>
+        
+After adding a sub-filter, that filter's user interface appears in the
+blank area and may be edited normally.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,365 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 13: Display Filters</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 13: Display Filters <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-SelFlt.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Group.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=5 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">     Display Filters</A></TD>
+    <TD><A HREF="#Scope">    Filter Scope</A></TD>
+    </TR><TR>
+    <TD><A HREF="#AddRem">   Adding & Removing Filters</A></TD>
+    <TD><A HREF="#Edit">     Editing Filters</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Common">   Common Filter Features</A></TD>
+    <TD><A HREF="#GlobInfo"> Global Filter Data</A></TD>
+    </TR><TR>
+    <TD><A HREF="#AuthNote"> Author Notes</A></TD>
+    <TD><A HREF="#SvLd">     Saving & Loading Filters</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Summary">  Summary</A></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+What are Display Filters?
+<FONT SIZE=+0> </TD>
+<TD>
+
+Display filters modify the way in which articles are displayed in the
+group window's article view area.  The original article is not modified in
+any way, only its presentation is affected.  Display filters might do
+things such as trim excess quoted text, colorize various aspects of an
+article, hide unwanted header fields, and so on.  It's possible to make
+display filters group specific, or to apply them to any subset of groups,
+such as "comp.*".<P>
+
+Display filters can also modify text streams when saving articles to disk
+files, printing article text, or generating replies to other people's
+articles.  For example, a filter might remove a large UUencoded block of
+data in a post that you are replying to.<P>
+
+This section of the documentation discusses general display filter topics.
+The specifics of each different type of filter are covered in the
+<A HREF="../NR-Reference.html">reference section</A> of this
+documentation.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Scope"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Scope
+<FONT SIZE=+0> </TD>
+<TD>
+
+   <A HREF="NR-Tut-Config.html">
+      <IMG SRC="../Graphics/Toolbar-B6.jpg" WIDTH=91 HEIGHT=81
+       BORDER=0 ALIGN=Right HSPACE=10>
+   </A>
+
+Filters can be defined within the context of a particular group, in which
+case they apply <U>only</U> to that group, or they can be defined globally
+to apply to groups matching any particular pattern (set in the <I>Group
+Patt</I> area of the filter list).  Global filters are defined in the <A
+HREF="NR-Tut-Config.html#FltOpts">configuration editor</A> for NewsRog.  Group
+specific filters are defined from within the group reader window.
+Generally, if a filter is to apply to more than one group (for example, to
+<I>comp.*</I>) it is best to define it once in the <A
+HREF="NR-Tut-Config.html#FltOpts">configuration editor</A> instead of duplicating
+the filter in each group.<P>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AddRem"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Adding and Deleting Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+In each filter list there is an <B>Add</B> button that, when pressed, will
+display a popup list of available filters.  Filters are <I>plug-ins</I>,
+so the list may change depending on which filters are currently
+installed.  The popup filter list looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Tut-DspFlt-FAdd.GIF" WIDTH=360 HEIGHT=152 BORDER=0>
+</CENTER><P>
+
+A filter may be added by double clicking on it's name in the popup list.
+You may insert multiple filters at once by drag-selecting several and
+clicking the <B>Insert Selected</B> button.  The list may be closed
+without adding a filter by clicking the <B>Close</B> button.<P>
+
+Removing filters is a simple matter of selecting those to be removed and
+using the <B>Delete</B> button.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Edit"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Editing Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+Each filter provides a user interface for customizing its operation.  For
+example, a quoted text hilighting filter might let you chose the font and
+color for text of different quoted indent levels, while a header hiding
+filter might let you specify a pattern indicating which headers to hide
+and which to show.<P>
+
+The user interface for any filter may be called up by either double
+clicking on the name of the filter in the filter list, or by using the
+<B>Edit</B> button.  The user interface for each filter is described in
+detail in the <A HREF="../NR-Reference.html">reference section</A> of this
+documentation.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Common"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Common Filter Features
+<FONT SIZE=+0> </TD>
+<TD>
+
+Certain information is available in every type of display filter.
+Calling up the editor for a particular filter reveals three main click
+tabs:<P>
+
+   <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-DspFlt-FltTabs.GIF" WIDTH=378 HEIGHT=25
+        BORDER=0>
+   </CENTER><P>
+
+   <LI><A HREF="../NR-Reference.html"><B>Filter Settings</B></A> - This is
+   where you edit information specific to this particular filter.  What
+   appears here will differ depending on the type of filter in question,
+   and the specifics for each filter type is documented in the
+   <A HREF="../NR-Reference.html">reference section</A> of this
+   documentation. <P></LI>
+
+   <LI><A HREF="#GlobInfo"><B>Global Info</B></A> - This area edits data
+    common to all types of filters, such as the filter's
+    description.<P></LI>
+
+   <LI><A HREF="#AuthNote"><B>Author Note</B></A> - This area can be used
+   to edit a longer description for this filter, useful for complex
+   filters that you wish to share with other people.<P></LI>
+
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="GlobInfo"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Global Info
+<FONT SIZE=+0> </TD>
+<TD>
+
+The global info area looks like this:<P>
+
+   <CENTER>
+      <IMG SRC="../Graphics/NR-Tut-DspFlt-GlobInfo.GIF" WIDTH=378 HEIGHT=147
+           BORDER=0>
+   </CENTER><P>
+
+The following features are available here:
+
+<UL>
+  <LI>The filter <B>description</B> is any short string that will remind
+      you of the purpose of this filter.  Filters can be toggled on and
+      off individually to change the presentation of articles in the group,
+      and this name can serve to remind you what a particular filter
+      does.<P></LI>
+
+  <LI>The <B>Enable</B> checkbox toggles this filter on or off.  Filters that
+      are not enabled have no effect on the displayed article
+      presentation.<P></LI> 
+
+  <LI>The <B>Printing</B> checkbox is only present on filters that can
+      modify text streams.  This filter will be used to modify article
+      text sent to the printer only if this box is checked.<P></LI> 
+
+  <LI>The <B>Saving</B> checkbox is only present on filters that can
+      modify text streams.  This filter will be used to modify article
+      text saved to disk files only if this box is checked.<P></LI> 
+
+  <LI>The <B>Replies</B> checkbox is only present on filters that can
+      modify text streams.  This filter will be used to modify article
+      text used in formulating replies to other people's articles.<P></LI> 
+
+  <LI>The <B>Toolbar Button</B> option allows you to define a graphic file
+      which will be used to create a toolbar button for this filter.  This
+      toolbar button appears in the <A HREF="NR-Tut-Group.html#FFTB">Group
+      Window</A>, near the article view area, and clicking a filter's icon
+      will toggle that filter on or off and update the currently displayed
+      article accordingly.<P></LI>
+
+</UL>
+
+The filter <B>description</B> may also be changed by typing into the name
+box in a filter list when a particular filter is selected.  The
+<B>Enabled</B> option may be toggled on and off from the filter list by
+clicking in the appropriate column of the list.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AuthNote"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Author Notes
+<FONT SIZE=+0> </TD>
+<TD>
+
+The use of the Author Note field is the same as in
+<A HREF="NR-Tut-SelFlt.html#AuthNote">Selection Filters</A>.  Please see
+that documentation for more details.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="SvLd"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Saving & Loading Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+Display filters can be saved and loaded in a manner identical to
+<A HREF="NR-Tut-SelFlt.html#SvLd">Selection Filters</A>.  Please see that
+documentation for more details.
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>What display filters are.
+      </LI>
+  <LI>That display filters change only the presentation of articles,
+      not the article itself.
+      </LI>
+  <LI>What filter scope refers to, and the difference between global and
+      group specific filters.
+      </LI>
+  <LI>How to add and remove filters.
+      </LI>
+  <LI>How to edit a particular filter's parameters.
+      </LI>
+  <LI>How to change a filter's description.
+      </LI>
+  <LI>How to enable and disable filters.
+      </LI>
+  <LI>How to save and load groups of filters to disk files.
+      </LI>
+  <LI>How and when filters modify articles sent to the printer, saved to
+     disk files, or used in formulating replies.
+     </LI>
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+</BODY>
+</HTML>

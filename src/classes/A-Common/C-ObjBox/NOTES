@@ -1,0 +1,25 @@
+
+add object contained in editobj
+
+
+
+Operations:
+
+  Setup:
+     Use pointer, don't copy obj, add to group
+
+  Remove: 
+     Remove from group, don't dispose
+
+  NewObj
+     remove old obj from group
+     dispose old obj, & dispose from editobj
+     add new object to group
+     set pointer in editobj to new val
+
+  revert
+     remove & dispose old obj
+
+
+  assign
+     remove & dispose old obj

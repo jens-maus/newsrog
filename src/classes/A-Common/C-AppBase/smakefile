@@ -1,0 +1,66 @@
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+ODIR       = Obj
+MFILES     = Makefile SCOPTIONS /SCOPTIONS ///SCOPTIONS_OPT
+default: all
+
+
+# ============================================================================
+# -- This data is customizable per-class -------------------------------------
+# ============================================================================
+
+LIBNAME    = AppBase
+LIBVER     = 1
+LIBREV     = 0
+
+SRCFILES   = C-AppBase.c L-AppBase.c
+
+CFILES     = $(SRCFILES)
+
+HFILES     = /Include/Libraries/C-AppBase.h      \
+             //A-Common/Include/S-RootMethods.h  \
+             //Include/S-AttrMaps.h              \
+             //Include/S-Dispatcher.h            \
+             //Include/S-Classes.h               \
+             C-AppBase-Mthd.h                    \
+             C-AppBase-I.h                       \
+
+
+OFILES     = $(ODIR)/C-AppBase.o \
+	     $(ODIR)/L-AppBase.o \
+
+
+$(ODIR)/C-AppBase.o:    C-AppBase.c $(HFILES) $(MFILES)
+$(ODIR)/L-AppBase.o:    L-AppBase.c $(HFILES) $(MFILES)
+
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+PDIR       = /Include/Proto
+LIBSDIR    = /MUI
+
+PFILES     = $(PDIR)/$(LIBNAME)_protos.h
+LIBSFSPEC  = $(LIBSDIR)/S5697_$(LIBNAME).mcc
+LNKFSPEC   = $(LIBSDIR)/S5697_$(LIBNAME).lnk
+
+DEFINES    = DEFINE=SW_LIBS
+LINKERLIBS = lib:amiga.lib lib:sc.lib
+
+TESTSRC    = test.c
+TESTEXE    = test
+
+
+# ----------------------------------------------------------------------
+# This calls things from smake.def
+# ----------------------------------------------------------------------
+
+all:          $(LIBSFSPEC)
+$(LIBSFSPEC): $(OFILES)
+
+protos:                      $(PDIR)/$(LIBNAME)_protos.h
+$(PDIR)/$(LIBNAME)_protos.h: $(SRCFILES)

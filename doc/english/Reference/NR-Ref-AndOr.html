@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Selection Filters: And/Or</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Selection Filters: And/Or <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-SelFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-AgeRange.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-Cached.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This selection filter combines other filters using boolean operators.  You
+might, for example, define a filter that matches any article that's posted
+by a particular person <I>and</I> is posted to less than three groups.  Or
+you might define an anti-spam filter that matches articles with certain
+strings in their subject line <I>or</I> contains more than a certain
+number of lines.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-AndOr-UI.GIF" WIDTH=412 HEIGHT=219 BORDER=0>
+</CENTER><P>
+
+The available controls are:<P>
+
+<UL>
+  <LI><B>Add...</B> - This allows you to add other filters to the list.
+      <P></LI>
+
+  <LI><B>Edit...</B> - This allows you to change parameters of filters
+      that have been added to the list.
+      <P></LI>
+
+  <LI><B>Delete</B> - This deletes the selected filters from the list.
+      <P></LI>
+
+  <LI><B>Clone</B> - This makes a copy of the active filter.
+      <P></LI>
+
+  <LI><B>Any/All</B> - This changes the boolean mode.  In <B>Any</B> mode,
+      the And/Or filter will match an article if any of the filters in
+      this list match (<B>or</B> mode).  In <B>All</B> mode, the And/Or
+      filter will match only if all filters in the list match (<B>and</B>
+      mode).<P>
+      <P></LI>
+</UL>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+</BODY>
+</HTML>

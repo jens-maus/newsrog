@@ -1,0 +1,90 @@
+/***************************************************************************
+
+ NewsRog - Amiga MUI Usenet News Reader
+ Copyright (C) 1998-1999 by ShadowWorks Software (Steve Koren)
+ Copyright (C) 2004      by NewsRog Open Source Team
+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+ NewsRog OpenSource project:  http://sourceforge.net/projects/newsrog/
+
+ $Id$
+
+***************************************************************************/
+
+FUTURE:
+  - option to switch off internal editor entirely
+  - overview option - big article from little ones
+  - separate title for sorting
+  - fix bug in batch dl upon 430 return code?
+  - cmd to run after savetxt is complete on all parts
+
+  - Fix kill -> update read count
+  - expire + escape to abort causes crashe
+  - option for save/saveas button in decode filters to not clobber/or ask
+  - in display filters, zero AV() buffers, and go back to MEMF_ANY when
+    creating pool.
+  - own pool mgmt in support library?
+  - localization of message catalogs
+  - check max message ID length
+  - command line rexx script option
+  - changing group name from group list with group open corrupts title
+  - re-run HL filters after batch DL finishes?
+  - re-run HL filters when entering group in offline mode?
+  - reread post cache dir if exited abnormally
+  - save subj/groups/etc with post on disk?  Careful of other code that
+    only expects the body
+  - arexx cmd for sideways scrolling
+
+  - fix space in source/dest paths in installer/updater scripts
+  - some sort of listtree for group lists
+  - MIME/Partial
+  - insert reply to line for mail address
+  - allow import of other texts into FAQ manager. (MUI docs into
+    .programmer, etc)
+  - add Prefetch for max article size in kb
+  - add drag/drop note to docs/tips
+  - popup menus for text editor
+  - popup help passed through to editor
+  - option to reflow filter for max consecutive space, max # tabs, max % nonalpha
+  - hotlist for URL's, email addrs.
+  < autosense ROT13
+  - post MIME/UUE attachment files
+  - add htmlview class
+  - reread post dir after abnormal shutdown?
+    (store proj name in post file somewhere?)
+  - test aborting in middle of article with UseFullHeaders on
+  - file comments on saved files using NR vars
+  - expire arts by age in addition to #
+  - Autoclip broken inside some scrolled quote blocks?
+  - update on start broken in group list?
+  - multiple signature files (w/ group pattern)
+  - add MIME partial/* support
+    - with support for missing pieces to come later
+  - group author frequency profile
+  - store blank lines in articles as blnk line ptr?
+  - customizeable toolbars?
+  - customizeable keys?
+  - option to set download dir in MIME box?
+  - move all group win image buttons to group itself?
+  - Fix ListCol-Mthd to not include image buttons - param to method
+  - remove MakeBt from artlist, artview
+  - support X-Face header
+  - make group list editor gadget with popup list
+  - add option to view dates in posted timezone instead of user's TZ
+  - URLs on line by themselves stretch across display, so
+    clicks to the right of the text trigger the action.
+  - search multiple times in one body? fix in listsearch maybe
+  - option to use nlist if present

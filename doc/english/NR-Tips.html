@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog: Tips & Techniques</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR>
+
+<TH VALIGN=Top>
+    <A HREF="NR-Main.html">
+       <IMG SRC="Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+            ALT="Move Up">
+    </A>
+    <A HREF="NR-Main.html">
+       <IMG SRC="Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+            ALT="Move to Top">
+    </A>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Tips & Techniques <FONT SIZE=+0>
+</TH> </TR>
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+2>
+Performance Tips
+<FONT SIZE=+0> </TD>
+<TD>
+
+Here are some tips on configuring your system to obtain the best possible
+performance from NewsRog.<P>
+
+<UL>
+  <LI><B>Modem compression</B><P>
+  If you connect to an ISP using a
+  modem, turn on modem compression and use the maximum possible serial
+  speed.  Fast Amigas can support serial speeds up to 115200 bps.  Since
+  items such as newsgroup headers are easily compressed, this can often
+  lead to transfers much faster than the external connection speed of your
+  modem.<P></LI>
+
+  <LI><B>Disk Cache</B> <P>
+  NewsRog reads and writes header cache files for
+  various newsgroups.  Using a disk cache program that supports
+  write-ahead can immensely improve the speed of entering and exiting
+  newsgroups.<P></LI>
+       
+  <LI><B>HeaderMatch Filter</B><P>
+  Using static strings instead of patterns
+  in the <A HREF="Reference/NR-Ref-HeaderMatch.html">HeaderMatch</A> filter
+  can improve the speed of matching manyfold.<P></LI>
+
+</UL><P>
+
+</TD> </TR>
+
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Tips
+<FONT SIZE=+0> </TD>
+<TD>
+
+These tips can help you set up useful selection filters.
+
+<UL>
+  <LI><B>Local vs. global filters</B><P> If a filter is to be used in more
+  than one place, it is usually best to define it once in the
+  <A HREF="Tutorials/NR-Tut-Config.html">configuration</A> area and use a
+  group pattern, if required, to control the set of groups to which the
+  filter should apply.  This way, the filter only needs to be changed once
+  instead of in multiple locations.<P></LI>
+
+  <LI><B>Making a filter to show all threads you've posted to</B><P>
+     Creating different selection filters to show different views of a
+     newsgroup is a very powerful and useful technique.  For example, try
+     defining a
+     <A HREF="Reference/NR-Ref-MatchThread.html">MatchThread</A> filter,
+     add setting the sub-filter to a
+     <A HREF="Reference/NR-Ref-HeaderMatch.html">HeaderMatch</A> on your
+     email address.  With a few mouseclicks, you can now toggle on this
+     filter from the group reader window and show only those threads in
+     which you have been participating.  This makes it easy to temporarily
+     ignore all the other threads in the group.
+     <P></LI>
+
+  <LI><B>Killing all followups to a particular author.</B><P>
+     Most newsreaders provide you the ability to kill articles based on
+     the author.  This is useful to ignore authors who post nothing but
+     posts designed to annoy or disrupt the group.  But with NewsRog you
+     can go a step futher: you can ignore all <I>followups</I> to such a
+     person as well, no matter who posted the followup.  This lets you
+     easily remove large flame wars started by a few obnoxious
+     individuals.  Try using a
+     <A HREF="Reference/NR-Ref-MatchFollowup.html">MatchFollowup</A>
+     filter containing a
+     <A HREF="Reference/NR-Ref-HeaderMatch.html">HeaderMatch</A>
+     filter that matches the email addresses of the offending persons.
+     <P></LI>
+
+  <LI><B>Browsing posts by your favorite authors</B><P>
+     You might define a
+     <A HREF="Reference/NR-Ref-HeaderMatch.html">HeaderMatch</A>
+     filter listing various authors who you have determined to be
+     worthwhile to read, perhaps including it in a
+     <A HREF="Reference/NR-Ref-MatchFollowup.html">MatchFollowup</A>
+     filter.
+     <P></LI>
+       
+</UL>
+
+</TD> </TR>
+
+<!--------------------------------------------------------------------------->
+
+</TABLE>
+</BODY>
+</HTML>

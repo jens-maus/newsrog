@@ -1,0 +1,469 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 6: The Groups List</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 6: The Group List <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Reading.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Servers.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=3 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Cmds">    Button Commands</A></TD>
+    <TD><A HREF="#Cols">    Displayable Info</A></TD>
+    <TD><A HREF="#Menus">   Menus</A></TD>
+    </TR><TR>
+    <TD><A HREF="#SGList">  Server Groups</A></TD>
+    <TD><A HREF="#Opts">    Options</A></TD>
+    <TD><A HREF="#BatchDL"> Batch Download Filters</A></TD>
+    </TR><TR>
+    <TD><A HREF="#FAQs">    FAQ Manager</A></TD>
+    <TD><A HREF="#Summary"> Summary</A></TD>
+    <TD></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Cmds"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group List Commands<P>
+<CENTER>
+<IMG SRC="../Graphics/Toolbar-B1.jpg" WIDTH=91 HEIGHT=81 BORDER=0>
+</CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+  <CENTER>
+  <IMG SRC="../Graphics/Window-Groups.GIF" WIDTH=557 HEIGHT=244>
+  </CENTER><P>
+
+The group list window looks like this.  The button icons at the top have
+been explained in a <A HREF="NR-Tut-Com.html#Lists">previous tutorial</A>.
+Other commands available here are:<P>
+
+<UL>
+  <LI><B>Read Group</B> - This button will open the group window for the
+      active (selected) group.<P></LI>
+
+  <LI><B>Mark as Read</B> - This will mark all articles in the selected
+      groups as read.  This may take a few moments since the group
+      headers must be read from the disk cache for each group and saved
+      afterwards.<P></LI>
+
+  <LI><B>Mark as Unread</B> - Similar to the above, but all articles are
+       marked as unread.<P></LI>
+
+  <LI><B>Update Count</B> - The count of new articles from the server
+      (since the group was last read) is updated for the selected groups.
+      Due to the pecularities of the news protocol, this count is almost
+      always an overstatement of the actual number of new articles.<P></LI>
+
+  <LI><B>Read Description</B> - The group description for the selected
+      groups is read from the news server.  This will be stored with the
+      group so you generally only need to do this once, and then only if
+      you want to display the information.<P></LI>
+
+  <LI><B>Batch D/L Overview</B> - The overview (header) information for
+      the selected groups is fetched in batch mode.  This includes only
+      the header fields, not the actual article bodies.<P></LI>
+
+  <LI><B>Batch D/L Articles</B> - The articles (including article bodies)
+      from the selected groups (as well as the header information) are
+      downloaded in batch mode.  This may take a while for large groups or
+      those with large posts!  All of the articles fetched will be placed
+      in the local disk cache, and the group may be read offline later on.
+      Note that this is only one way to prepare for offline reading.
+      Another is to select certain articles or threads in the group window
+      and batch cache them from there.<P>
+
+      When using the batch download features, a window similar to this one
+      appears to report on the status of the download.  The indicated time
+      remaining is only an estimate based on the transfer speeds so far
+      and the amount yet to go, and may be inaccurate especially in the
+      early part of the batch download.  The cancel button may be used to
+      abort the operation.  If some articles have alreay been downloaded,
+      these will be saved when the operation is aborted.<P>
+
+        <CENTER>
+          <IMG SRC="../Graphics/NR-Tut-Groups-BatchProg.GIF" WIDTH=330 HEIGHT=95>
+        </CENTER><P>
+
+      Note that <A HREF="#BatchDL">Batch D/L Filters</A> can be used to
+      limit the download to certain articles.  For instance, you might
+      wish to batch download only articles that are new since the last
+      time, or only articles that are smaller than some particular size.
+      <P></LI>
+
+  <LI><B>Add Group</B> - Adds a new group; the name can be edited in the
+      text box.<P></LI>
+
+  <LI><B>Sort</B> - Sort the group list by the most recently defined
+      criteria.  For example, the last read date might have changed
+      recently.  The group list can be resorted by using this button.<P></LI>
+
+  <LI><B>Select All</B> - Select all groups.  This is useful to, for
+      example, update the count of all subscribed groups.<P></LI>
+
+  <LI><B>Show Groups...</B> - Show the list of groups available on the
+      news server.<P></LI>
+</UL>
+
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Cols"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Displayable Data
+<FONT SIZE=+0> </TD>
+<TD>
+
+The article list can be set to display any desired information about a
+group.  (See <A HREF="NR-Tut-Com.html#Lists">this</A> tutorial for more
+information).  The following data may be displayed:<P>
+
+  <TABLE BORDER=2>
+    <TR><TH>Column</TH> <TH>Description</TH></TR>
+
+    <TR><TD VALIGN=Top>Status Icon</TD>
+        <TD>Displays a small open
+            (<IMG SRC="../Graphics/NR-Tut-Groups-WinOpen.GIF" WIDTH=13 HEIGHT=12>)
+            or closed
+            (<IMG SRC="../Graphics/NR-Tut-Groups-WinClose.GIF" WIDTH=13 HEIGHT=12>)
+            window icon for open or closed groups, or a broken group icon
+            (<IMG SRC="../Graphics/NR-Tut-Groups-WinBroke.GIF" WIDTH=14 HEIGHT=10>)
+            if a group is opened that could not be found on the news server.
+            A closed icon with a small letter N inside
+            (<IMG SRC="../Graphics/NR-Tut-Groups-WinNew.GIF" WIDTH=13 HEIGHT=12>)
+            means that new articles have been batch-downloaded to this
+            group since it was last opened.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Group Name</TD>
+        <TD>Depending on other configuration settings, this can be either
+            the full name of the group (e.g, <I>comp.sys.amiga.misc</I>),
+            or the abbreviated name (e.g. <I>c.s.a.misc</I>).
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Last Read</TD>
+        <TD>The date and time on which the group was last opened.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>New</TD>
+        <TD>The number of new articles on the server since the group was
+        last opened.  Due to the pecularities of the news protocol, this count
+        is almost always an overstatement of the actual number of new articles.
+        This number can be updated using the <B>Update Count</B> command,
+        or by setting an automatic update interval in the configuration
+        settings.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Group</TD>
+        <TD>The number of articles in the group, locally, including both read
+        and unread articles. This is updated when the headers are fetched
+        from the server.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Read</TD>
+        <TD>The number of articles in the group that have been read.  This is
+        updated every time you read an article that was previously unread.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Unread</TD>
+        <TD>The number of unread articles in the group.  This is
+        updated every time you read an article that was previously unread.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Avail</TD>
+        <TD>The total number of articles for this group available from the
+        server.  For some large groups, you may want to configure NewsRog
+        to fetch a less than this number.  Due to the pecularities of the
+        news protocol, this number is usually an overstatement of the
+        actual number of articles available from the server.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Description</TD>
+        <TD>The group's description, as fetched from the server using the
+        <B>Read Description</B> command.  It may also be set to any
+        desired value from within the group window's configuration
+        section, which is useful for groups that don't have a description
+        on the server.  Setting only happens locally; nothing on the
+        network or server is changed.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Server</TD>
+        <TD>The server from which to fetch this group.  Usually this is
+        just the default server defined in the <A
+        HREF="NR-Tut-Servers.html"> Servers Window </A>.
+        </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Menus"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group List Menus
+<FONT SIZE=+0> </TD>
+<TD>
+
+In addition to the standard project related menus, the following group
+list specific menus are available:<P>
+
+<UL>
+  <LI><B>Groups/Import&nbsp;.newsrc</B> - This menu item will read a
+  .newsrc file in the format saved by <I>tin</I> and some other
+  newsreaders.  All the subscribed groups found in the .newsrc file will
+  be subscribed to in the group list.  Only the group names are imported;
+  the read article information cannot be imported to NewsRog.<P></LI>
+
+  <LI><B>Groups/All in Cache Dir</B> - It is possible for the cache
+  directory to contain cached information about groups that are not in the
+  project.  This can happen several ways; either projects can be deleted
+  with the <B>Keep OV Dir</B> option selected, or the computer can be
+  rebooted after adding groups but before the NewsRog project file is
+  saved.  In any case, this menu option will subscribe to all the groups
+  found in the cache directory.<P></LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="SGList"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Server Group List
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Window-SGList.GIF" WIDTH=308 HEIGHT=259 ALIGN=Right
+     HSPACE=10>
+
+The server group list window looks like this.  Typing a pattern into the
+text box and pressing return or the <B>Fetch</B> button will fetch the
+groups on the server matching the given pattern.  Note that this pattern
+is parsed on the server and is more restrictive than the normal AmigaOS
+patterns.  Only a few features such as the "*" (asterisk) wildcard are
+supported.<P CLEAR=Right>
+
+The following commands are available in this window:<P>
+
+<UL>
+  <LI><B>Fetch</B> - Fetch the groups matching the given pattern from the
+      server.  Pressing return in the string gadget has the same effect.<P></LI>
+
+  <LI><B>Clear</B> - Clears the current list of groups.<P></LI>
+
+  <LI><B>Search...</B> - Opens up a search window.  The titlebar gadget
+       has the same effect<P></LI>
+
+  <LI><B>Sort</B> - Sort the list of groups by name.<P></LI>
+
+  <LI><B>Subscribe</B> - Subscribe to the currently selected (highlighted)
+      groups.  Dragging a set of groups sideways out of this list and into
+      the main group list window has the same effect.<P></LI>
+
+  <LI><B>Load</B> - Load a previously saved groups list.<P></LI>
+
+  <LI><B>Save</B> - Save the current list of groups to a file for later
+      loading.  This file is ASCII and may be viewed with any text display
+      program such as multiview.<P></LI>
+
+  <LI><B>Show New</B> - Show new groups on the server since the last time
+  this option was used.<P></LI>
+
+  <LI><B>Browse</B> - Browse the group without subscribing to it.  If the
+  group has already been subscribed to, it will be read normally.
+  Otherwise, it may be read once a trial basis, but no cache files or
+  article state is saved to disk when the group window is closed.<P></LI>
+
+  <LI><B>Abort</B> - Aborts the current transfer.  Only available while
+      the list is being transferred.  In any case, the list will be
+      updated periodically during the transfer.<P></LI>
+</UL>
+
+Note that there may potentially tens of thousands of groups on the server.
+Fetching a pattern of "*" (asterisk) may download quite a few groups!
+It's generally much faster to specify a pattern matching the general area
+you are interested in, such as "*bicycles*" or "*amiga*".
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Opts"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group List Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+There are a few options specific to the group list:<P>
+
+  <CENTER>
+  <IMG SRC="../Graphics/NR-Tut-Groups-Opts.GIF" WIDTH=557 HEIGHT=244>
+  </CENTER><P>
+
+<UL>
+  <LI><B>Full Names</B> - If set, full group names (e.g.
+  comp.sys.amiga.misc) are displayed instead of abbreviated names (e.g.
+  c.s.a.misc). <P></LI>
+
+  <LI><B>Update on Start</B> - If set, the count of new articles on the
+  server will be updated any time the group list window is opened). <P></LI>
+
+  <LI><B>Update Interval</B> - If set, the new article count is updated
+  periodically at the given interval).  Reading a group will reset the new
+  article count to zero.<P></LI>
+
+  <LI><B>Server Groups Upd Interval</B> - The update interval for the
+  server groups list.  This may be increased or decreased as desired for
+  network connections of different speeds.<P></LI>
+
+  <LI><B>Server Groups Pattern</B> - Only server groups matching this
+  pattern will be listed in the server groups window.  This provides an
+  easy way to ignore groups in languages you cannot read, while still
+  searching for wildcard matches in the list of server groups.<P></LI>
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="BatchDL"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Batch Download Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+  <CENTER>
+  <IMG SRC="../Graphics/NR-Tut-Groups-BatchDL.GIF" WIDTH=557 HEIGHT=244>
+  </CENTER><P>
+
+Batch download filters use NewsRog <A HREF="NR-Tut-SelFlt.html"> selection
+filters <A> to determine which articles will be downloaded during a batch
+article download.  If any filters are present, then only articles which
+match those filters will be downloaded.<P>
+
+If a <I>Group Pattern</I> is given for a particular filter, then this
+filter will only be applied when downloading articles in a group which
+matches the group pattern.  You might, for example, use <I>comp.sys.*</I>
+to make a filter apply to all groups in the comp.sys hierarchy.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="FAQs"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group FAQs
+<FONT SIZE=+0> </TD>
+<TD>
+
+Pressing the FAQ button
+(<IMG SRC="../Graphics/Button-FAQ.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+will open the
+<A HREF="NR-Tut-FAQMgr.html"> FAQ Manager </A>
+for the active group.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>What all of the buttons in the group list window do.
+      </LI>
+  <LI>What the different columns available for display mean.
+      </LI>
+  <LI>How to import a .newsrc file from the tin newsreader.
+      </LI>
+  <LI>How to subscribe to all groups in the cache directory.
+      </LI>
+  <LI>What all the buttons in the server group window do.
+      </LI>
+  <LI>How to save and load the server group list.
+      </LI>
+  <LI>What the different group list options do.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Display Filters: HLQuotes</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Display Filters: HLQuotes <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-HLPatt.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-MIME.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=2 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">          Filter Overview</A></TD>
+    <TD><A HREF="#UI">            User Interface & Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Example">       Example</A></TD>
+    <TD><A HREF="#Vars">          Variables</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This display filter highlights quoted text, and can trim long quotation
+blocks by using a scroll region or a clickable toggle between the full and
+trimmed quotation block.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-HLQuotes-UI1.GIF" WIDTH=412 HEIGHT=219 BORDER=0>
+</CENTER><P>
+
+The available configuration options are:<P>
+
+<UL>
+  <LI><B>Separator Chars</B> - Characters in this set separate quotation
+  levels.  For example, if this set contains both a "greater than" (">")
+  and a vertical bar ("|") character, then the line:<P>
+       <UL>
+       Bob| Joe> This is some text...<BR>
+       </UL><P>
+  has a quote level of two.  Different quote levels are highlighted
+  independently.
+  <P></LI>
+
+  <LI><B>Prefix Len</B> - The maximum number of characters in a single
+       quote prefix.  For example, if this value is set to four (4), then
+       the line:<P>
+       <UL>
+        Bob>Joeseph> This is a test<BR>
+       </UL><P>
+      has only one quote level.
+  <P></LI>
+       
+  <LI><B>Max Lines</B> - The maximum number of lines to display from a
+       single quote block.  Depending on the other settings, the full
+       quote can be toggled on or scrolled through.
+  <P></LI>
+
+  <LI><B>Max Level</B> - The maximum quote level to display.  Lines
+       quoted more deeply than this are hidden.  For example, if this
+       value is 2, the 2nd and 3rd lines below would be hidden:<P>
+       <UL>
+         >> Hello<BR>
+         >>> These two lines<BR>
+         >>> are hidden<BR>
+         > But not this one<BR>
+      </UL>
+  <P></LI>
+
+  <LI><B>UI Mode</B> - There are several available quoting modes:<BR>
+       <UL>
+         <LI><B>Toggle Full/Partial</B> - Allows toggling between full and
+         trimmed quotation blocks.</LI>
+
+         <LI><B>Show Only Trimmed Quote</B> - Always shows trimmed
+         quotation blocks.</LI>
+
+         <LI><B>Scroll Quoted Region</B> - Shows a small scrolling
+              view of the larger quotation block.  The size of the
+              scroller is determined from the settings for <B>Max
+              Lines.</B></LI>
+       </UL>
+  <P></LI>
+</UL><P>
+
+For each quotation level up to 5, the text style may be adjusted.
+Quotation levels greater than 5 use the text style for 5:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-HLQuotes-UI2.GIF" WIDTH=412 HEIGHT=219 BORDER=0>
+</CENTER>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Example"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Example
+<FONT SIZE=+0> </TD>
+<TD>
+
+A scrollable quote block looks like this.  The scrollbar on the left may
+be used to scroll through the quoted text:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-HLQuotes-Ex1.GIF" WIDTH=470 HEIGHT=68 BORDER=0>
+</CENTER><P>
+
+A togglable quote  block looks like this.  The small box may be clicked to
+toggle between the full and trimmed quote block:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-HLQuotes-Ex2.GIF" WIDTH=470 HEIGHT=68 BORDER=0>
+</CENTER><P>
+
+And a trimmed quote block with no user interface looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-HLQuotes-Ex3.GIF" WIDTH=470 HEIGHT=68 BORDER=0>
+</CENTER><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Vars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+There are no variables supported by this filter.
+
+</BODY>
+</HTML>

@@ -1,0 +1,948 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: ARexx Port</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: ARexx <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Reference.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-Kbd.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Prev">
+       </A>
+       <A HREF="NR-Ref-CmdLine.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Next">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+      <TD ROWSPAN=3 VALIGN=Top><B>Contents:</B></TD>
+      <TD><A HREF="#ARexx">    NewsRog ARexx Info</A></TD>
+      <TD><A HREF="#Proj">     Project Commands</A></TD>
+      <TD><A HREF="#Win">      Window Commands</A></TD>
+    </TR><TR>
+      <TD><A HREF="#Net">      Network Commands</A></TD>
+      <TD><A HREF="#Srv">      Server Commands</A></TD>
+      <TD><A HREF="#Post">     Post Commands</A></TD>
+    </TR><TR>
+      <TD><A HREF="#Group">    Group Commands</A></TD>
+      <TD><A HREF="#Art">      Article Commands</A></TD>
+      <TD></TD>
+     </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ARexx"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+General NewsRog ARexx Info
+<FONT SIZE=+0> </TD>
+<TD>
+
+The NewsRog ARexx port name is <B>NEWSROG</B>.  NewsRog ARexx commands are
+all upper case.  Since ARexx normally converts non-quoted strings to upper
+case before sending them to the application, this is convenient.<P>
+
+Note that in some cases, parameters to ARexx commands which need to have
+their case preserved, such as filenames, must be quoted.<P>
+
+ShadowWorks Software cannot provide support on the ARexx scripting
+language.  Please consult your ARexx documentation for more information on
+using ARexx.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Proj"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+ARexx Project Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following ARexx commands deal with projects.<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>OPENPROJECT_I</TD>
+         <TD><I>None</I></TD>
+         <TD>Interactively open a project.  A file requestor is presented,
+             and when the user selects a project file, this file will be
+             loaded into NewsRog.
+         </TD></TR>
+
+     <TR><TD>SAVEPROJECTAS_I</TD>
+         <TD><I>None</I></TD>
+         <TD>Interactively save a project.  A file requestor is presented,
+             and when the user selects a file, the current NewsRog project
+             will be saved to the selected file.
+         </TD></TR>
+
+     <TR><TD>SAVETOLAST</TD>
+         <TD><I>None</I></TD>
+         <TD>The current NewsRog project file will be saved to the last
+         file that was opened or saved.
+         </TD></TR>
+
+     <TR><TD>SAVETODEF</TD>
+         <TD><I>None</I></TD>
+         <TD>The current NewsRog project file will be saved as the default
+         project.
+         </TD></TR>
+
+     <TR><TD>NEWPROJECT</TD>
+         <TD><I>None</I></TD>
+         <TD>The currently loaded NewsRog project is erased from memory
+         and a new project is begun.
+         </TD></TR>
+
+     <TR><TD>RESTOREDEF</TD>
+         <TD><I>None</I></TD>
+         <TD>The current NewsRog project is replaced with the default
+         project.
+         </TD></TR>
+
+     <TR><TD>LASTSAVED</TD>
+         <TD><I>None</I></TD>
+         <TD>The current NewsRog project is replaced with the last saved
+         project.
+         </TD></TR>
+
+     <TR><TD>UNICONIFY</TD>
+         <TD><I>None</I></TD>
+         <TD>NewsRog is uniconified.
+         </TD></TR>
+
+     <TR><TD>PROJFILENAME</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result string <B>RESULT</B> is set to the name
+         of the currently loaded project file.
+         </TD></TR>
+
+     <TR><TD>PROJISMODIFIED</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result string <B>RESULT</B> is set to 1 if the
+         current project has been modified, and 0 otherwise.  Note that
+         only major modifications impact this variable, such as adding or
+         deleting groups, servers, posts, and so on.  Minor changes to
+         configuration options do not affect this state.
+         </TD></TR>
+
+     <TR><TD>LOADPROJECT</TD>
+         <TD>FILENAME</TD>
+         <TD>The current NewsRog project is loaded from the filename given
+             in the FILENAME argument, which must be a valid NewsRog
+             project file.  Example:<P>
+                <UL>LOADPROJECT 'ram:Project.Foobar'</UL>
+         </TD></TR>
+
+     <TR><TD>SAVEPROJECT</TD>
+         <TD>FILENAME</TD>
+         <TD>The current NewsRog project is saved to the filename given
+             in the FILENAME argument.  Example:<P>
+               <UL>SAVEPROJECT 'ram:Project.Foobar'</UL>
+         </TD></TR>
+
+     <TR><TD>SHUTDOWN</TD>
+         <TD>[MODE]</TD>
+         <TD>The optional <B>MODE</B> parameter must be one of: <B>ASK</B>,
+               </B>SAVE</B>, or <B>NOSAVE</B>.  This command causes
+               NewsRog to exit, saving the project if indicated.
+               Example:<P>
+            <UL>SHUTDOWN SAVE</UL>
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Win"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+ARexx Window Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following ARexx commands deal with windows.<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>OPENWINDOW</TD>
+         <TD>WINDOWNAME</TD>
+         <TD><B>WINDOWNAME</B> must be one of: GROUPS, NETWORK,
+            SERVERS, POSTS, MULTIMEDIA, or CONFIG. The named NewsRog
+            window is opened, or brought to the front if already open.
+            Example:<P>
+
+            <UL>OPENWINDOW GROUPS</UL>
+         </TD></TR>
+
+     <TR><TD>CLOSEWINDOW</TD>
+         <TD>WINDOWNAME</TD>
+         <TD>WINDOWNAME takes the same values as in
+             the OPENWINDOW command.  The named NewsRog window will be
+             closed. Example:<P>
+
+           <UL>CLOSEWINDOW GROUPS</UL>
+         </TD></TR>
+
+     <TR><TD>ISWINDOWOPEN</TD>
+         <TD>WINDOWNAME</TD>
+         <TD>WINDOWNAME takes the same values as in
+         the OPENWINDOW command.  The secondary result variable
+         <B>RESULT</B> is set to 1 if the named window is open, and to 0
+         otherwise.
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Net"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+ARexx Network Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following ARexx commands deal with the NewsRog Networking State.<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>ONLINE</TD>
+         <TD><I>None</I></TD>
+         <TD>Change NewsRog to online mode.
+         </TD></TR>
+
+     <TR><TD>OFFLINE</TD>
+         <TD><I>None</I></TD>
+         <TD>Change NewsRog to offline mode.
+         </TD></TR>
+
+     <TR><TD>ISONLINE</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to 1 if
+         NewsRog is currently in online mode, and 0 otherwise.
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Srv"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+ARexx Server Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following ARexx commands deal with servers:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>SERVEREXISTS </TD>
+         <TD>SERVER</TD>
+         <TD>The SERVER parameter may be either a server name
+         ("news.foobar.com"), or an ordinal position in the server list
+         starting from 0.  The secondary result variable <B>RESULT</B> is
+         set to 1 if the indicated server exists, and to 0 otherwise.
+     </TD></TR>
+
+     <TR><TD>SERVERCOUNT</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         number of servers in the NewsRog server list.
+     </TD></TR>
+
+     <TR><TD>GETSERVER</TD>
+         <TD>SERVER</TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         name of the indicated server.
+     </TD></TR>
+
+     <TR><TD>ADDSERVER</TD>
+         <TD>SERVERNAME</TD>
+         <TD>A server with the given name is inserted into the NewsRog
+         server list.
+     </TD></TR>
+
+     <TR><TD>GETDEFSERVER</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         name of the default server.
+     </TD></TR>
+
+     <TR><TD>SETDEFSERVER</TD>
+         <TD>SERVER</TD>
+         <TD>The indicated server set set as the default server.
+     </TD></TR>
+
+  </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+           
+<!--------------------------------------------------------------------------->
+
+<A NAME="Post"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+ARexx Post Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following ARexx commands deal with posts:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>POSTCOUNT</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         number of posts in the NewsRog post queue.
+     </TD></TR>
+
+     <TR><TD>ADDPOST</TD>
+         <TD><I>None</I></TD>
+         <TD>A new, empty post is added to the NewsRog post queue.  The
+         secondary result variable <B>RESULT</B> is set to the ordinal
+         number of the new post in the post queue.
+     </TD></TR>
+
+     <TR><TD>SENDPOST</TD>
+         <TD>POSTS</TD>
+         <TD>The posts specified by POSTS are send to the network.
+         POSTS may be iether a space separated list of numbers, or the
+         keyword ALL to send all posts in the queue.  Example:<P>
+            <UL>SENDPOST ALL<BR>
+                SENDPOST 2 4 5</UL>
+     </TD></TR>
+
+     <TR><TD>POSTCMD</TD>
+         <TD>POSITION POSTCOMMAND</TD>
+         <TD>The POSTCOMMAND is sent to the post indicated by POSITION,
+         which is an ordinal position in the NewsRog post queue starting
+         from 0.  The valid POSTCOMMANDs are listed in the next table.  Example:<P>
+            <UL>POSTCMD 2 SETSUBJ 'My Subject'</UL>
+     </TD></TR>
+
+   </TABLE><BR><P>
+
+The following commands may be sent to a particular post by using the
+POSTCMD Arexx command described above:<P>
+            
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>OPENPOSTEDITOR</TD>
+         <TD><I>None</I></TD>
+         <TD>The post editor for the specified post is opened.
+     </TD></TR>
+
+     <TR><TD>ISPOSTEDITOROPEN</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to 1 if
+         the post editor for the specified post is open, and 0 otherwise.
+     </TD></TR>
+
+     <TR><TD>CLOSEPOSTEDITOR</TD>
+         <TD>[FORCE] [NOSAVE]</TD>
+         <TD>The post editor for the specified post is closed.  If the
+         optional FORCE parameter is given, then no questions are asked if
+         the post has been modified and the close action would cause the
+         modifications to be lost.  If the optional NOSAVE parameter is
+         given, then the post is not saved when the post editor is closed.
+         Examples:<P>
+            <UL> POSTCMD 0 CLOSEPOSTEDITOR NOSAVE FORCE<BR>
+                 POSTCMD 1 CLOSEPOSTEDITOR
+            </UL>
+     </TD></TR>
+
+     <TR><TD>ISPOSTMODIFIED</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to 1 if
+            the post has been modified since the last save, and 0
+            otherwise.
+     </TD></TR>
+
+     <TR><TD>GETSUBJ</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         <B>Subject:</B> header of the specified post.
+     </TD></TR>
+
+     <TR><TD>GETGROUPS</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         <B>Newsgroups:</B> header of the specified post.
+     </TD></TR>
+
+     <TR><TD>GETFUPS</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         <B>Followups:</B> header of the specified post.
+     </TD></TR>
+
+     <TR><TD>GETDISTRIB</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         <B>Distribution:</B> header of the specified post.
+     </TD></TR>
+
+     <TR><TD>GETSIGFILE</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         filename of the signature file to be appended to this post when
+         it is sent to the network.
+     </TD></TR>
+
+     <TR><TD>GETPOSTLINES</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         number of lines in the post.  This variable is only updated when
+         a post is saved, not during editing when the post editor is open.
+     </TD></TR>
+
+     <TR><TD>GETPOSTBYTES</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondary result variable <B>RESULT</B> is set to the
+         number of bytes in the post.  This variable is only updated when
+         a post is saved, not during editing when the post editor is open.
+     </TD></TR>
+
+     <TR><TD>SETSUBJ</TD>
+         <TD>SUBJECT</TD>
+         <TD>The <B>Subject:</B> header of the specified post is set to
+         the specified value, which should be quoted to avoid ARexx case
+         munging.
+     </TD></TR>
+
+     <TR><TD>SETGROUPS</TD>
+         <TD>GROUPS</TD>
+         <TD>The <B>Newsgroups:</B> header of the specified post is set to
+         the specified value, which should be quoted to avoid ARexx case
+         munging.
+     </TD></TR>
+
+     <TR><TD>SETFUPS</TD>
+         <TD>FOLLOWUPS</TD>
+         <TD>The <B>Followups:</B> header of the specified post is set to
+         the specified value, which should be quoted to avoid ARexx case
+         munging.
+     </TD></TR>
+
+     <TR><TD>SETDISTRIB</TD>
+         <TD>DISTRIB</TD>
+         <TD>The <B>Distribution:</B> header of the specified post is set to
+         the specified value, which should be quoted to avoid ARexx case
+         munging.
+     </TD></TR>
+
+     <TR><TD>SETSIGFILE</TD>
+         <TD>FILENAME</TD>
+         <TD>The filename of the signature file to be appended to this post when
+         it is sent to the network is set to the specified value.
+     </TD></TR>
+            
+   </TABLE><BR><P>
+            
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Group"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+ARexx Group Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following ARexx commands deal with groups:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>OPENGROUP</TD>
+         <TD>GROUP</TD>
+         <TD>Opens the group window for the indicated group.  The GROUP
+         parameter may be either the name of a subscribed-to newsgroup, or
+         the ordinal position of the group in the NewsRog groups list
+         starting from 0.  Due to ARexx capitalization of unquoted
+         strings, it is necessary to quote newsgroup names.  Examples:<P>
+            <UL>
+                /* open c.s.a.misc */<BR>
+                OPENGROUP 'comp.sys.amiga.misc'<BR>
+                /* open the first group in the group list */<BR>
+                OPENGROUP 0
+            </UL>
+         </TD></TR>
+
+     <TR><TD>CLOSEGROUP</TD>
+         <TD>GROUP [NOSAVE] [FORCE]</TD>
+         <TD>Closes the group window for the indicated group.  The GROUP
+         parameter is a group name or ordinal number as described for the
+         OPENGROUP command.  If the optional keyword <B>NOSAVE</B> is
+         given, then the group overview will not be saved when the group
+         is shut down.  If the optional keyword FORCE is given, then no
+         questions will be asked if the group overview information has
+         been modified and would be lost when the group is shut down.
+         Examples:<P>
+            <UL>
+                /* close c.s.a.misc */<BR>
+                CLOSEGROUP 'comp.sys.amiga.misc' SAVE FORCE<BR>
+                /* close the first group in the group list */<BR>
+                CLOSEGROUP 0
+            </UL>
+         </TD></TR>
+
+     <TR><TD>ISGROUPOPEN</TD>
+         <TD>GROUP</TD>
+         <TD>The secondard result string <B>RESULT</B> is set to 1 if the
+         indicated group is open, and to 0 otherwise.  The GROUP
+         parameter is a group name or ordinal number as described for the
+         OPENGROUP command.  Examples:
+            <UL> ISGROUPOPEN 'comp.sys.amiga.misc' </UL>
+         </TD></TR>
+
+     <TR><TD>GROUPEXISTS</TD>
+         <TD>GROUP</TD>
+         <TD>The secondard result string <B>RESULT</B> is set to 1 if the
+         indicated group exists in the NewsRog subscription list, and to 0
+         otherwise.  The GROUP parameter is a group name or ordinal number
+         as described for the OPENGROUP command.  Examples:
+            <UL> GROUPEXISTS 'comp.sys.amiga.misc' </UL>
+         </TD></TR>
+
+     <TR><TD>GROUPCOUNT</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result string <B>RESULT</B> is set to the
+         number of newsgroups in the NewsRog subscription list.
+         </TD></TR>
+
+     <TR><TD>GETGROUP</TD>
+         <TD>GROUP</TD>
+         <TD>The secondard result string <B>RESULT</B> is set to the name
+         of the indiciated group.  This is useful to determine the
+         newsgroup name given an ordinal position in the subscription
+         list.  Example:<P>
+            <UL>GETGROUP 0</UL>
+         </TD></TR>
+
+     <TR><TD>UPDCOUNT</TD>
+         <TD>GROUP</TD>
+         <TD>The new article count for the indiciated group is updated
+         from the NNTP server.
+         </TD></TR>
+
+     <TR><TD>MARKREAD</TD>
+         <TD>GROUP</TD>
+         <TD>All current articles in the indicated group are marked as
+         read.
+         </TD></TR>
+
+     <TR><TD>MAKRUNREAD</TD>
+         <TD>GROUP</TD>
+         <TD>All current articles in the indicated group are marked as
+         unread.
+         </TD></TR>
+
+     <TR><TD>SORTGROUPS</TD>
+         <TD>GROUP</TD>
+         <TD>The list of groups in the subscription list is sorted based
+         on the current sort criteria.
+         </TD></TR>
+
+     <TR><TD>ADDGROUP</TD>
+         <TD>GROUPNAME</TD>
+         <TD>A group with the given name is added to the subscription
+         list.
+         </TD></TR>
+
+     <TR><TD>OPENSERVERGROUPS</TD>
+         <TD><I>None</I></TD>
+         <TD>The Server Groups window is opened if it is not open already.
+         </TD></TR>
+
+     <TR><TD>CLOSESERVERGROUPS</TD>
+         <TD><I>None</I></TD>
+         <TD>The Server Groups window is closed if it is open.
+         </TD></TR>
+
+     <TR><TD>CLEARSERVERGROUPS</TD>
+         <TD><I>None</I></TD>
+         <TD>The list of server groups in the Server Groups window is
+         cleared.
+         </TD></TR>
+
+     <TR><TD>FETCHSERVERGROUPS</TD>
+         <TD>[PATTERN]</TD>
+         <TD>The groups from the server matching the given pattern is
+         fetched from the NNTP server.  If no pattern is given, an
+         asterisk (<B>*</B>) is used to fetch all the groups.  Like all
+         network IO in NewsRog, this operation is started asynchronously,
+         and may take some time to complete.  The SGFETCHPENDING command
+         may be used to determine if the operation has completed.
+         </TD></TR>
+
+     <TR><TD>SGFETCHPENDING</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to 1 if
+         a FETCHSERVERGROUPS command is currently running, and to 0
+         otherwise.
+         </TD></TR>
+
+     <TR><TD>SERVERGROUPCOUNT</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to the
+         number of groups currently in the server groups list.
+         </TD></TR>
+
+     <TR><TD>GETSERVERGROUP</TD>
+         <TD>POSITION</TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to the
+         name of the group at the given position in the server groups
+         list.  The first group is number 0.
+         </TD></TR>
+
+     <TR><TD>GROUPCMD</TD>
+         <TD>GROUP GROUPCOMMAND</TD>
+         <TD>The GROUPCOMMAND is sent to the indiciated group (which may
+         be a group name or an ordinal position in the group list starting
+         from 0).  The valid GROUPCOMMANDs are listed in the next table.
+         Example:<P> 
+            <UL>GROUPCMD alt.test FETCHNEW</UL>
+        </TD></TR>
+
+   </TABLE><BR><P>
+
+
+The following ARexx commands may be sent to a specific group by using the
+GROUPCMD command described above:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>SAVEOV</TD>
+         <TD><I>None</I></TD>
+         <TD>The group overview database for the current group is saved.
+         The group window for this group must be open for this command to
+         function. Example:<P>
+              </UL>GROUPCMD 'alt.test' SAVEOV</UL>
+       </TD></TR>
+     
+     <TR><TD>FETCHNEW</TD>
+         <TD><I>None</I></TD>
+         <TD>New headers are fetched from the NNTP server.  Like all
+         network I/O in NewsRog, this operation is asynchronous.  The
+         FETCHPENDING command may be used to determine if a FETCHNEW is
+         currently pending.  The group window for this group must be open
+         for this command to function. 
+       </TD></TR>
+     
+     <TR><TD>FETCHPENDING</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to 1 if a
+         FETCHNEW command is currently pending, and to 0 otherwise.
+       </TD></TR>
+     
+     <TR><TD>EXPIRE</TD>
+         <TD><I>None</I></TD>
+         <TD>Old articles are expired from the newsgroup.  The group
+         window for this group must be open for this command to function. 
+       </TD></TR>
+     
+     <TR><TD>OPENFAQLIST</TD>
+         <TD><I>None</I></TD>
+         <TD>The FAQ List window for this group is opened.
+       </TD></TR>
+     
+     <TR><TD>CLOSEFAQLIST</TD>
+         <TD><I>None</I></TD>
+         <TD>The FAQ List window for this group is closed.
+       </TD></TR>
+     
+     <TR><TD>ISFAQLISTOPEN</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to 1 if
+         the FAQ List window for this group is open, and to 0 otherwise.
+       </TD></TR>
+
+     <TR><TD>OPENARTSEARCHWIN</TD>
+         <TD><I>None</I></TD>
+         <TD>The article list search window is opened.  The group
+         window for this group must be open for this command to function. 
+       </TD></TR>
+     
+     <TR><TD>OPENBODYSEARCHWIN</TD>
+         <TD><I>None</I></TD>
+         <TD>The article body search window is opened.  The group
+         window for this group must be open for this command to function. 
+       </TD></TR>
+     
+     <TR><TD>BATCHDLHDRS</TD>
+         <TD><I>None</I></TD>
+         <TD>Headers for this group will be downloaded in batch mode, even
+         if the group window is closed.
+       </TD></TR>
+     
+     <TR><TD>BATCHDLHDRSPENDING</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> will be set to 1
+         if a BATCHDLHDRS operation is currently pending, and to 0
+         otherwise.
+       </TD></TR>
+     
+     <TR><TD>BATCHDLARTS</TD>
+         <TD><I>None</I></TD>
+         <TD>Headers <U>and</U> articles for this group will be downloaded
+         in batch mode, even if the group window is closed.
+       </TD></TR>
+     
+     <TR><TD>BATCHDLARTSPENDING</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> will be set to 1
+         if a BATCHDLARTS operation is currently pending, and to 0
+         otherwise.
+       </TD></TR>
+     
+     <TR><TD>DISPARTCOUNT</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> will be set to
+         the number of articles currently displayed in the group's article
+         list.  The group window for this group must be open for this
+         command to function.
+       </TD></TR>
+     
+     <TR><TD>GROUPARTCOUNT</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> will be set to
+         the number of articles in this group, including even articles not
+         displayed in the article list. The group window for this group
+         must be open for this command to function.
+       </TD></TR>
+     
+     <TR><TD>SETTHREADMODE</TD>
+         <TD>MODE</TD>
+         <TD>The thread display mode for this group is set to MODE, which
+         must be one of: ALL, BASE, or 1THREAD.  The group window for this
+         group must be open for this command to function.  Example:<P>
+            <UL>GROUPCMD 'alt.test' SETTHREADMODE ALL</UL>
+       </TD></TR>
+     
+     <TR><TD>GETTHREADMODE</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to one of
+         the following strings according to the current thread mode of the
+         group: ALL, BASE, or 1THREAD.  The group window for this group
+         must be open for this command to function.
+       </TD></TR>
+     
+     <TR><TD>ARTBROWSE</TD>
+         <TD>[BACK] [MODE]</TD>
+         <TD>Browse through articles.  If the optional BACK argument is
+         given, then browsing happens backwards.  Otherwise it is
+         forwards.  The optional MODE argument may be one of: THREAD, ART,
+         or NORMAL.  NORMAL browsing pages forward in an article until the
+         end, and then moves to the next article.  ART moves to the
+         beginning of the next article without scrolling the current
+         article.  THREAD browsing moves to the beginning of the next
+         thread without moving to other articles in the current thread.
+         The group window for this group must be open for this command to
+         function.   Examples:<P>
+            <UL>GROUPCMD 'alt.test' ARTBROWSE<BR>
+                GROUPCMD 'alt.test' ARTBROWSE THREAD<BR>
+                GROUPCMD 'alt.test' ARTBROWSE BACK ART
+            </UL>
+       </TD></TR>
+     
+     <TR><TD>ARTSCROLL</TD>
+         <TD>[BACK]</TD>
+         <TD>Scroll in the currently displayed article.  The optional BACK
+         argument causes a reverse scroll.  The group window for this
+         group must be open for this command to function.   Examples:<P>
+            <UL>GROUPCMD 'alt.test' ARTSCROLL<BR>
+                GROUPCMD 'alt.test' ARTSCROLL BACK
+            </UL>
+       </TD></TR>
+            
+     <TR><TD>ARTICLETOP</TD>
+         <TD><I>None</I></TD>
+         <TD>Move to the top of the currently displayed article. The group
+         window for this group must be open for this command to function.
+       </TD></TR>
+            
+     <TR><TD>ARTICLEBOTTOM</TD>
+         <TD><I>None</I></TD>
+         <TD>Move to the bottom of the currently displayed article. The
+         group window for this group must be open for this command to
+         function.
+       </TD></TR>
+
+     <TR><TD>DISPART</TD>
+         <TD>ARTICLE</TD> <TD>Fetch the article indicated by ARTICLE,
+         which may be either an ordinal number in the article list
+         starting from zero, or a Message-ID, and display it in the
+         article viewer when it is available.  The article will be fetched
+         from the local disk cache if available, and from the network
+         otherwise.  The group window for this group must be open for this
+         command to function.  Example:<P>
+            <UL>GROUPCMD 'alt.test' DISPART 25<BR>
+                GROUPCMD 'alt.test' DISPART '&lt;a@msg.id&gt;'
+           </UL>
+       </TD></TR>
+            
+     <TR><TD>SETACTIVE</TD>
+         <TD>POSITION</TD>
+         <TD>The article indicated by POSITION is made the active article
+         in the article list.  If done in BASE thread mode, then this is
+         the thread that will be entered when the thread mode is changed
+         to 1THREAD.  The group window for this group must be open
+         for this command to function.  Example:<P>
+            <UL>GROUPCMD 'alt.test' SETACTIVE 25</UL>
+       </TD></TR>
+            
+     <TR><TD>ARTFETCHPENDING</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to 1 if
+         there are articles currently in the download queue for this
+         group, and to 0 otherwise. The group window for this group must be open
+         for this command to function.
+       </TD></TR>
+
+      <TR><TD>WINCTRL</TD>
+         <TD>WINDOW POS</TD>
+         <TD>WINDOW may be either ARTLIST or ARTVIEW.  POS may be either
+         BACK or FRONT.  The indicated window, if open, is moved to the
+         back or front of the window stack for this screen.  Example:<P>
+            <UL>GROUPCMD 'alt.test' WINCTRL ARTLIST FRONT</UL>
+        </TD></TR>
+
+      <TR><TD>ARTCMD</TD>
+         <TD>POSITION ARTCOMMAND</TD>
+         <TD>The ARTCOMMAND is sent to the indiciated article, which is an
+         ordinal position in the current article list starting from 0.
+         The group window for this group must be open for this command to
+         function. The valid ARTCOMMANDs are listed in the section on
+         <A HREF="#Art">Article Commands</A>.
+        </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Art"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+ARexx Article Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following ARexx commands deal with articles, and must be sent to a
+particular article using the ARTCMD group command.<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Command</TH><TH>Parameters</TH><TH>Description</TH></TR>
+
+     <TR><TD>FINDHEADER</TD>
+         <TD>HEADER</TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to the
+         indicated header of the article, if found, and to a null string
+         otherwise.  Due to ARexx case conversion, the HEADER must be
+         quoted to preserve case.  Example:<P>
+            <UL>GROUPCMD 0 ARTCMD 25 FINDHEADER 'Subject'</UL>
+     </TD></TR>
+
+     <TR><TD>ISREAD</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to 1 if
+         the article has been read, and 0 otherwise.
+     </TD></TR>
+              
+     <TR><TD>ISPERM</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to 1 if
+         the article is marked as permanent, and 0 otherwise.
+     </TD></TR>
+              
+     <TR><TD>ISUSERMK</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to 1 if
+         the article has been marked (bold), and 0 otherwise.
+     </TD></TR>
+              
+     <TR><TD>ISNEW</TD>
+         <TD><I>None</I></TD>
+         <TD>The secondard result variable <B>RESULT</B> is set to 1 if
+         the article is newly downloaded, and 0 otherwise.
+     </TD></TR>
+
+  </TABLE><BR><P>
+            
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+</BODY>
+</HTML>

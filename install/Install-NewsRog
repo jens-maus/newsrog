@@ -1,0 +1,376 @@
+;;----------------------------------------------------------------------------
+;;
+;; Install-NewsRog - NewsRog installation script for Installer
+;;
+;; Copyright © 1998 ShadowWorks Software, All Right reserved.
+;;
+;; Use following Icon tooltypes / Command line options:
+;; APPNAME=NewsRog
+;; MINUSER=AVERAGE
+;;----------------------------------------------------------------------------
+
+;;-- declare procedures ------------------------------------------------------
+
+(procedure P_Abort abtmsg
+   (transcript abtmsg)
+   (abort abtmsg))
+
+;;-- initialization ----------------------------------------------------------
+
+(set locale 0)
+(set src-floppy 0)
+(set @default-dest "RAM:")
+(set @app-name "NewsRog")
+
+(if (exists "C/unzip")
+   (set src-floppy 1))
+
+;;------------------------------ english messages ----------------------------
+
+(if (not (= @language "english"))
+   (P_Abort #halted))
+
+(if (= @language "english")
+ (
+
+   (set #welcome           (cat "Welcome to the " @app-name " installation "
+                                "process."))
+   (set #bad-MUI 	   (cat "You need at least MUI 3.8 to use " @app-name))
+   (set #bad-OS            (cat "You need at least OS 3.0 to use " @app-name
+                                "2.0."))
+   (set #dir-choice 	   (cat "Select the directory where the " @app-name
+                                " Directory will be created."))
+   
+   (set #copy 		   (cat "Copying " @app-name "..."))
+   (set #unzipdocs	   (cat "Extracting documentation..."))
+   (set #unziplibs	   (cat "Extracting libraries..."))
+   (set #wbstrt            (cat "Installing " @app-name " in WBStartup"))
+   (set #diricon           (cat "Installing directory icon..."))
+   (set #doc-copy          (cat "Copying Documentation..."))
+   (set #tooltype-prompt   (cat "Setting tooltypes..."))
+   (set #update            (cat "Updating "))
+   
+   (set #browser-prompt    (cat "The HTML documentation is best read with a web "
+                                "browser such as IBrowse which supports "
+                                "tables.  Enter a the command used to send a "
+                                "URL to your web browser.  A %s will be "
+                                "replaced by the URL of the NewsRog "
+                                "documentation.  For example, for IBrowse you "
+                                "might enter\n\n"
+                                "Work:IBrowse/IBrowse URL %s"))
+   
+   (set #replbr-prompt     (cat "A browser invocation line already exists.  Do "
+                                "you wish to update it?"))
+   
+   (set #reinst-prompt     (cat "The " @app-name " directory was last "
+                                "installed in %s.  Do you "
+                                "wish to use this location again?"))
+
+   (set #shutdown-prompt   (cat "If NewsRog is running, it must be stopped "
+                                "before this installation.  Continue?"))
+
+   (set #halted            (cat "Installation halted."))
+
+   (set #badarch           (cat "Bad archive.  File paths and empty directories "
+                                "must be preserved when unarchiving NewsRog.lha!"))
+
+   (set #disk1             (cat "Please insert the disk labelled NewsRog_1."))
+   (set #disk2             (cat "Please insert the disk labelled NewsRog_2."))
+   (set #bad-instdir       (cat "NewsRog cannot be installed into the same "
+                                "directory as the install archive was "
+                                "extracted into.  Please chose a different "
+                                "destination for the NewsRog installation."))))
+
+;=============================================================================
+; Installation procedure
+;=============================================================================
+
+; -- check for existance of MUI: ---------------------------------------------
+
+(welcome #welcome)
+
+(if (< (exists "MUI:") 2)
+    (P_Abort #bad-MUI))
+
+(if (< (getversion "exec.library" (resident)) 2555904)
+    (P_Abort #bad-OS))
+
+(if (not (askbool (prompt #shutdown-prompt)
+                  (help   @askbool-help)
+                  (default 1)))
+    (P_Abort #halted))
+
+
+; -- check for proper archive ------------------------------------------------
+
+(if (= src-floppy 0)
+    (if (or (not (exists "/MUI/S5697_NNews.mcc"))
+            (not (exists "/ARexx"))
+            (not (exists "/C"))
+            (not (exists "/C/FlushLibs"))
+            (not (exists "/Catalogs"))
+            (not (exists "/Contrib"))
+            (not (exists "/Icons"))
+            (not (exists "/Images"))
+            (not (exists "/Install"))
+            (not (exists "/MUI"))
+            (not (exists "/Filters"))
+            (not (exists "/Objects"))
+            (not (exists "/Projects"))
+            (not (exists "/Projects/Project.Default.Orig"))
+            (not (exists "/Reginfo"))
+            (not (exists "/Remove")))
+        (P_Abort #badarch)))
+
+; -- select our install dir --------------------------------------------------
+
+(set LastDir "")
+(set NR-Dir  "")
+
+(if (exists "ENV:NewsRog/NR-Dir")
+    ((set LastDir (getenv "NewsRog/NR-Dir"))
+     (if (not (exists (tackon LastDir "NewsRog/NewsRog")))
+         (set LastDir ""))))
+
+(complete 10)
+(set Reuse 0)
+(if LastDir
+    (if (askbool (prompt  (#reinst-prompt LastDir))
+                 (help    @askbool-help)
+                 (default 1))
+        ((set Reuse 1)
+         (set NR-Dir (tackon LastDir "NewsRog")))))
+
+(if (= NR-Dir "")
+    (set NR-Dir
+         (tackon (askdir (prompt #dir-choice )
+                         (help "")
+                         (default "SYS:Utilities")
+                         (newpath))
+                 @app-name)))
+
+
+; -- Check for overlapping install dir ---------------------------------------
+
+(if (exists (tackon NR-Dir "Install/Install-NewsRog"))
+    (P_Abort #bad-instdir))
+
+; -- copy our files into place -----------------------------------------------
+
+(complete 20)
+
+(set @default-dest NR-Dir)
+
+;; -- save old program icon, if there is one ---------------------------------
+
+(if (exists (tackon NR-Dir "NewsRog.info"))
+    (copyfiles (prompt #copy) (help   @copyfiles-help)
+               (source (tackon NR-Dir "NewsRog.info"))
+               (dest "T:") (newname "NewsRog.info.orig")))
+
+(if (exists (tackon (pathonly NR-Dir) "NewsRog.info"))
+    (copyfiles (prompt #copy) (help   @copyfiles-help)
+               (source (tackon (pathonly NR-Dir) "NewsRog.info"))
+               (dest "T:") (newname "NewsRog.info.dir")))
+
+;; -- copy all of our files to the destination directory ---------------------
+
+(if (= src-floppy 0)
+    ;; -- source is not on floppies ------------------------------------------
+    ((copyfiles
+      (prompt #copy) (help   @copyfiles-help)
+      (infos)
+      (source "/") (dest NR-Dir)
+      (choices "ARexx" "Catalogs" "Contrib" "Docs" "Remove" "NewsRog" "MUI"
+               "RegInfo" "Projects" "Objects" "Filters" "ReadMe.MUI"
+               "ReadMe.TXT" "C" "Icons" ".sig"))
+
+     (if (exists "/NewsRog.key")
+         (copyfiles
+          (prompt #copy) (help   @copyfiles-help)
+          (infos)
+          (source "/") (dest NR-Dir) (optional "nofail")
+          (choices "NewsRog.key")))
+
+     (copyfiles
+      (prompt #copy) (help   @copyfiles-help)
+      (infos)
+      (source "/") (dest NR-Dir) (optional "nofail")
+      (choices "Images"))
+
+     (copylib
+      (prompt #copy-edit)
+      (help @copylib-help)
+      (source "/MUI/TextEditor.mcc")
+      (dest "MUI:libs/mui"))
+
+     (copylib
+      (prompt #copy-edit)
+      (help @copylib-help)
+      (source "/MUI/TextEditor.mcp")
+      (dest "MUI:libs/mui")))
+
+  ;; -- else, source is on floppies ------------------------------------------
+
+  ((askdisk (prompt #disk1) (help @askdisk-help) (dest "NewsRog_1") (assigns))
+
+   (copyfiles
+    (prompt #copy) (help   @copyfiles-help)
+    (infos) (optional "nofail")
+    (source "NewsRog_1:") (dest NR-Dir)
+    (choices "Images"))
+    
+   (copyfiles
+    (prompt #copy) (help   @copyfiles-help)
+    (infos)
+    (source "NewsRog_1:C/UnZip") (dest "t:"))
+
+   (copyfiles
+    (prompt #copy) (help   @copyfiles-help)
+    (infos)
+    (source "NewsRog_1:") (dest NR-Dir)
+    (choices "ARexx" "Catalogs" "Contrib" "Remove" "NewsRog" 
+             "RegInfo" "Projects" "Objects" "Filters" "ReadMe.MUI"
+             "ReadMe.TXT" "ReadMeZip.TXT" "C" "Icons" ".sig" "NewsRog.key"))
+
+   (copyfiles
+    (prompt #copy) (help   @copyfiles-help)
+    (source "NewsRog_1:") (dest NR-Dir)
+    (choices "Docs.info"))
+
+   (working #unziplibs)
+
+   (run
+    (cat "t:unzip -o -qq NewsRog_1:Libs.zip -d " NR-Dir))
+
+   (copylib
+    (prompt #copy-edit)
+    (help @copylib-help)
+    (source (tackon NR-Dir "MUI/TextEditor.mcc"))
+    (dest "MUI:libs/mui"))
+
+   (copylib
+    (prompt #copy-edit)
+    (help @copylib-help)
+    (source (tackon NR-Dir "MUI/TextEditor.mcp"))
+    (dest "MUI:libs/mui"))
+
+   (complete 50)
+
+   (askdisk (prompt #disk2) (help @askdisk-help) (dest "NewsRog_2") (assigns))
+
+   (working #unzipdocs)
+
+   (run
+    (cat "t:unzip -o -qq NewsRog_2:Docs.zip -d " NR-Dir)))
+)
+
+(makedir (tackon NR-Dir "ServerGroups"))
+
+(complete 90)
+
+;; -- restore original program icon, if we had one ---------------------------
+
+(if (exists "T:NewsRog.info.orig")
+    ((copyfiles (prompt #copy) (help   @copyfiles-help)
+                (source "T:NewsRog.info.orig")
+                (dest NR-Dir) (newname "NewsRog.info"))
+     (delete "T:NewsRog.info.orig")))
+
+; -- remove TextEditor in PROGDIR:MUI ----------------------------------------
+
+(if (exists (tackon NR-Dir "MUI/TextEditor.mcc"))
+    (delete (tackon NR-Dir "MUI/TextEditor.mcc")))
+
+(if (exists (tackon NR-Dir "MUI/TextEditor.mcp"))
+    (delete (tackon NR-Dir "MUI/TextEditor.mcp")))
+
+;; -- copy or restore directory icon -----------------------------------------
+
+(if (= src-floppy 0)
+    (set info-src "//")
+  (set info-src "NewsRog_2:Distrib"))
+
+(if (exists "T:NewsRog.info.dir")
+    (copyfiles
+     (prompt #copy) (help   @copyfiles-help)
+     (source "T:NewsRog.info.dir") (dest (pathonly NR-Dir))
+     (newname "NewsRog.info"))
+  ((copyfiles
+    (prompt #copy) (help   @copyfiles-help)
+    (source info-src) (dest (pathonly NR-Dir))
+    (choices "NewsRog.info"))
+   (tooltype (dest (tackon (pathonly NR-Dir) "NewsRog"))
+             (prompt #diricon)
+             (noposition))))
+
+(complete 95)
+
+
+; -- add or update the browser launcher script -------------------------------
+
+(set DocLauncher (tackon NR-Dir "Docs/English/NR-Main"))
+(set UpdateLauncher 0)
+
+(if (exists DocLauncher)
+    (if (askbool (prompt  #replbr-prompt)
+                 (help    @askbool-help)
+                 (default 1))
+        ((delete DocLauncher)
+         (set    UpdateLauncher 1)))
+  (set UpdateLauncher 1))
+
+(if UpdateLauncher
+    ((set LaunchCmd (askstring (prompt #browser-prompt)
+                               (help    @askstring-help)
+                               (default "Work:IBrowse/IBrowse URL %s")))
+     (textfile (dest DocLauncher)
+               (append (cat ";!c:execute\n"
+                            "stack 64000\n"
+                            "set wd `cd`\n"
+                            (LaunchCmd "file://localhost/${wd}/NR-Main.html")
+                            "\n")))))
+
+
+
+; -- Copy Project.Default, if none exists ------------------------------------
+
+(if (= src-floppy 0)
+    (set proj-src "/Projects/Project.Default.Orig")
+  (set proj-src (tackon NR-Dir "Projects/Project.Default.Orig")))
+
+(if (not (exists (tackon NR-Dir "Projects/Project.Default")))
+    (copyfiles (prompt #copy) (help @copyfiles-help)
+               (source proj-src)
+               (dest (tackon NR-Dir "Projects"))
+               (newname "Project.Default")))
+
+
+; -- create env vars ---------------------------------------------------------
+
+(complete 98)
+
+(makedir "ENV:NewsRog")
+(makedir "ENVARC:NewsRog")
+
+(if (exists "ENV:NewsRog/NR-Dir")    (delete "ENV:NewsRog/NR-Dir"))
+(if (exists "ENVARC:NewsRog/NR-Dir") (delete "ENVARC:NewsRog/NR-Dir"))
+
+(textfile (dest (tackon "ENV:NewsRog"    "NR-Dir"))
+          (append (pathonly NR-Dir)))
+(textfile (dest (tackon "ENVARC:NewsRog" "NR-Dir"))
+          (append (pathonly NR-Dir)))
+
+
+(run (tackon NR-Dir "C/FlushLibs"))
+
+;; -- cleanup -----------------------------------------------------------------
+
+(if (= src-floppy 1)
+    (if (exists "t:unzip") (delete "t:unzip")))
+
+(if (exists "T:NewsRog.info.dir")    (delete "t:NewsRog.info.dir"))
+
+(complete 100)
+
+(exit)

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Display Filters: HLPatt</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Display Filters: HLPatt <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-HideSig.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-HLQuotes.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=2 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">          Filter Overview</A></TD>
+    <TD><A HREF="#UI">            User Interface & Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Example">       Example</A></TD>
+    <TD><A HREF="#Vars">          Variables</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter highlights article text matching certain patterns using a
+defined color and font.  For example, you might highlight your cat's name
+appearing in article bodies in the rec.pets.cats.* hierarchy, or highlight
+common acronyms such as <I>ROTFL</I> or </I>FWIW</I>.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-HLPatt-UI.GIF" WIDTH=362 HEIGHT=201 BORDER=0>
+</CENTER><P>
+
+The available configuration options are:<P>
+
+<UL>
+  <LI><B>Pattern</B> - An AmigaOS pattern matching the text that should be highlighted.
+  <P></LI>
+
+  <LI><B>Case Sensitive</B> - If set, pattern matching is case sensitive.
+      <P></LI>
+       
+  <LI><B>Fast Check</B> - Since pattern matching is slow on some systems,
+  an initial faster check for these fixed strings is performed, and only
+  lines which contain one or more of the given strings are checked for the
+  actual pattern.  This can save quite a few expensive pattern
+  matches.  This string should contain one or more strings separated by a
+  vertical bar ("|") character.
+  <P></LI>
+
+  <LI><B>Match Mode</B> - This can be set to <I>Shorest Match</I>, to
+  match the shortest section of the line which matches the given pattern,
+  or <I>Longest Match</I>, to match the longest.<P>
+  For example, if an article line contains:<P>
+   <UL>
+     foo test bloot blah
+   </UL><P>
+  and the pattern is <I>foo*t</I>, then the shortest match is <I>foo t</I>,
+  while the longest is <I>foo test bloot</I>.
+  <P></LI>
+
+  <LI><B>Font</B> - If non-null, this font is used to highlight text
+  matching the given pattern.
+      <P></LI>
+
+  <LI><B>Color</B> - If selected, this color is used to display text
+  matching the given pattern.
+      <P></LI>
+
+  <LI><B>Style</B> - The text style for displayed text.
+      <P></LI>
+
+</UL><P>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Example"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Example
+<FONT SIZE=+0> </TD>
+<TD>
+
+Here is an example of some text with a HLPatt filter set to highlight the
+word <I>Saginaw</I> in a different color and font.<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-HLPatt-Ex.GIF" WIDTH=400 HEIGHT=35 BORDER=0>
+</CENTER><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Vars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+There are no variables supported by this filter.
+
+</BODY>
+</HTML>

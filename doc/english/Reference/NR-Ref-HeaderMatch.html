@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Selection Filters: HeaderMatch</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Selection Filters: HeaderMatch <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-SelFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-DblSpace.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-InGroup.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This selection filter supplies high performance string matching against
+various header fields.   Pattern matching may be case sensitive or not,
+and fixed strings or full patterns may be matched.<P>
+
+This filter is perhaps the most useful single selection filter.<P>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG ALIGN=Center SRC="../Graphics/NR-Ref-HeaderMatch-UI.GIF" WIDTH=412 HEIGHT=219>
+</CENTER><P>
+
+A set of patterns can be added to the pattern list.  For each pattern, the
+following options may be set:<P>
+
+<UL>
+  <LI><B>Case</B> - Setting this option makes the search case sensitive.
+  Otherwise it is case insensitive.  Case sensitive matches are slightly
+  faster than case insensitive matches, but once a single case insensitive
+  match has been specified, the overhead has been payed and other case
+  insensitive matches are as cheap as case sensitive.<P></LI>
+
+  <LI><B>Wild</B> - If set, the pattern match may contain AmigaOS
+  wildcards.  Otherwise, the pattern is a fixed string.  Wildcard matching
+  is much slower than fixed string matching and should only be used where
+  a fixed string cannot be used.<P></LI>
+
+  <LI><B>Anchor</B> - If set, the indicated pattern must match the entire
+  header field exactly.  Otherwise, it must only be contained in the
+  header field.  For example, if the subject field is
+  <I>Yessiree&nbsp;Bob</I>, a pattern of <I>ree</I> would match only if
+  Anchor is <I>not</I> set.  This applies to wildcard matches as well:
+  with Anchor unset, <I>s*e</I> would match.  With Anchor set,
+  <I>*s*bo*</I> would match but <I>s*bo</I> would not.<P></LI>
+
+  <LI><B>Header</B> - This controls the article header against which the
+  match takes place.<P></LI>
+
+  <LI><B>Pattern</B> - This is a fixed string or pattern which is matched
+  against the indicated header field from articles.<P></LI>
+</UL>
+<P>
+
+The following controls are available:<P>
+
+<UL>
+  <LI><B>Edit</B> - Edits a specific pattern.  Individual patterns may be
+  given expiration times in the same manner as
+  <A HREF="../Tutorials/NR-Tut-SelFlt.html#Expire">selection filters</A>
+  may.<P></LI>
+
+  <LI><B>Delete</B> - Deletes the selected patterns.<P></LI>
+
+  <LI><B>Select All</B> - Selects all patterns in the list.<P></LI>
+
+  <LI><B>Add Pattern</B> - Adds a new pattern to the list.<P></LI>
+
+  <LI><B>Mode</B> - Switches the mode between <B>Any</B>, in which the
+  filter will match an article if any listed pattern matches, and
+  <B>All</B>, in which the filter will only match an article if all listed
+  patterns match.<P></LI>
+</UL><P>
+
+It is faster to add multiple patterns to a single HeaderMatch filter than
+it is to use multiple HeaderMatch filters.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+</BODY>
+</HTML>

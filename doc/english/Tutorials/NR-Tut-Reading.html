@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 5: Newsreading Basics</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=5>
+
+<TR> <TH WIDTH=100></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 5: Newsreading Basics <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-InitConfig.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Groups.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=3 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Sub">     Subscribing</A></TD>
+    <TD><A HREF="#UnSub">   Unsubscribing</A></TD>
+    <TD><A HREF="#GrpWin">  The Group Window</A></TD>
+    </TR><TR>
+    <TD><A HREF="#ArtList"> The Article List</A></TD>
+    <TD><A HREF="#ArtView"> The Article View</A></TD>
+    <TD><A HREF="#Close">   Closing Groups</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Summary"> Summary</A></TD>
+    <TD></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Sub"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+Subscribing to Groups
+<FONT SIZE=+0> </TD>
+<TD>
+
+<A HREF="NR-Tut-Groups.html">
+      <IMG SRC="../Graphics/Toolbar-B1.jpg" WIDTH=91 HEIGHT=81 ALIGN=Right HSPACE=10
+           VSPACE=10>
+</A>
+
+NewsRog maintains a list of subscribed groups.  This is a subset of the
+entire list of groups available from the news server.  There might
+potentially be tens of thousands of news groups available, and the chances
+are that you are only interested in perhaps 10 or 20 of them.  All group
+management is done from the Group List window.  Since NewsRog tracks a
+great deal of information about groups, it would take too much space to
+put all the groups from the server in the subscribed list, not to mention
+that searching for the group you want in a list of 25,000 would quickly
+lose its novelty.<P>
+
+The default project includes a basic set of newsgroups, but you can add
+more to build your own customized list.  There are several ways to
+subscribe to newsgroups:<P>
+
+<UL>
+  <LI> If you have previously been using <I>tin</I> or another newsreader
+       that supports .newsrc files, you can import your old groups by
+       using the <B>Groups/Import&nbsp;.newsrc</B> menu item from the
+       newsgroups list window.  This will tell NewsRog to subscribe to all
+       the groups that were found in that file.<P></LI>
+
+  <LI> If you know the exact name of the groups you wish to subscribe to,
+       you can press the <B>Add&nbsp;Group</B> button and type the group
+       name into the string gadget.<P>
+       <CENTER>
+       <IMG SRC="../Graphics/NR-Tut-Read-Add.GIF" WIDTH=393 HEIGHT=23>
+       </CENTER><P>
+       </LI>
+
+  <LI> If you wish to search for newsgroups, you can have NewsRog display
+       a list of all groups on the server, or all groups matching a
+       particular pattern.  Pressing the <B>Show&nbsp;Groups</B> button
+       will bring up a window that looks like this:<P>
+
+       <CENTER>
+       <IMG SRC="../Graphics/Window-SGList.GIF" WIDTH=308 HEIGHT=259>
+       </CENTER><P>
+
+       Type in a pattern and pressing the <B>Fetch</B> key will retrieve
+       groups from the server matching that pattern.  This pattern is
+       parsed on the server and does not support the full set of features
+       provided by AmigaOS patterns, but an asterisk wildcard may be used.<P>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+<A NAME="UnSub"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+Deleting Subscribed Groups
+<FONT SIZE=+0> </TD>
+<TD>
+
+To unsubscribe from groups, select the groups you wish to unsubscribe from
+in the group list and press the <B>Delete</B> button.  If you have
+previously read some of these groups and NewsRog has cached the group
+headers on your local disk, you will see a prompt like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-DelOV.GIF" WIDTH=333 HEIGHT=105>
+</CENTER><P>
+
+There are several choices available:<P>
+
+<UL>
+  <LI> <B>Delete&nbsp;OV</B> - This will delete the overview (local disk
+          cache) for the group when the group is deleted.  Any information
+          about read and unread articles, cached articles, and so on will
+          be lost.<P></LI>
+  <LI> <B>Keep&nbsp;OV</B> - This will preserve the overview for the
+          groups, although the group will be deleted from this project.
+          This way, you may later add this group to this or another
+          project and the overview information will still be present.<P></LI>
+  <LI> <B>Cancel</B> - This will abort the operation and will not delete
+          any groups.<P></LI>
+  <LI> <B>Ask&nbsp;for&nbsp;Each</B>  - This will prompt ask whether to
+          delete or keep the overview for each group in the list to be
+          deleted.<P></LI>
+</UL>
+<A HREF="#Top">Back to Top</A>
+
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="GrpWin"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+The Group Window
+<FONT SIZE=+0> </TD>
+<TD>
+
+Once you have chosen a group to read from your list of subscribed groups,
+you can enter the group and start reading articles.  You can do this in
+several ways:<P>
+
+<UL>
+  <LI> Double click on one of the group names.</LI>
+  <LI> Press return when one of the group names is selected.</LI>
+  <LI> Press the <B>Read</B> button when one of the group names is selected.</LI>
+</UL><P>
+
+The group reader window for that group will then be opened.  As many group
+windows may be opened at once as you wish, but the screen tends to become
+cluttered with more than one or two, so it is best to close them when you
+are done reading a group.  The group window looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-GRead.GIF" WIDTH=592 HEIGHT=369>
+</CENTER><P>
+
+This version has been deliberately resized to be small enough to fit in
+this documentation; in general it works best in a larger size (or smaller
+fonts, which you can set in MUI preferences).  Most of the features of the
+group window will be explained later in this documentation, but enough
+basics to read articles are given here.<P>
+
+You can see that the group window has two main areas.  On top is the
+article list, and on the bottom is the article display (also known as the
+"Article View").  The size of each can be adjusted by grabbing the balance
+bar between them and dragging up or down.  Each of these areas will be
+discussed in the next few sections.<P>
+
+<A HREF="#Top">Back to Top</A>
+
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ArtList"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+The Article List
+<FONT SIZE=+0> </TD>
+<TD>
+
+The article list has three different modes:<P>
+
+<UL>
+  <LI><IMG SRC="../Graphics/Button-3Art.GIF" WIDTH=21 HEIGHT=18>
+     <B>All Articles</B> - In this mode, all articles in all threads are
+      displayed (as long as they match other filter criteria, but that
+      will be explained in a more advances section).  For example, this
+      mode might display:
+<PRE>
+  Lines  Grp  Auth        Repl  Subject
+     21    1  Joe Cool    2     Some Subject
+     85    1  Joe's Bro   0       Some Subject
+     12    1  Piper       0       Some Subject
+     40    2  Peter J.    1     Another Subject Entirely
+     19    2  Frank Rama  0       Another Subject Entirely
+</PRE>
+  </LI>
+       
+  <LI><IMG SRC="../Graphics/Button-2Art.GIF" WIDTH=21 HEIGHT=18>
+       <B>All Threads</B> - In All Threads mode, the article list displays
+         only thread entry points.  A thread is a <I>basenote</I>, which
+         is a original article, plus all its <I>followups</I>, which are
+         replies to that article or to other followups.  In this mode, the
+         above articles would look like this:
+<PRE>
+  Lines  Grp  Auth        Repl  Subject
+     21    1  Joe Cool    2     Some Subject
+     40    2  Peter J.    1     Another Subject Entirely
+</PRE>
+</LI>
+       
+  <LI><IMG SRC="../Graphics/Button-1Art.GIF" WIDTH=21 HEIGHT=18>
+       <B>One Thread</B> - In One Thread mode, the article list displays
+         only posts that are part of a particular chosen thread.  For
+         example, if the first thread titled <I>Some Subject</I> is
+         chosen, the list will display:
+<PRE>
+  Lines  Grp  Auth        Repl  Subject
+     21    1  Joe Cool    2     Some Subject
+     85    1  Joe's Bro   0       Some Subject
+     12    1  Piper       0       Some Subject
+</PRE>
+</UL>
+
+These modes can be thought of as levels of restriction: in the first, all
+articles are displayed.  In the second, only thread entry points are
+displayed, and in the third, only articles in a single thread.<P>
+
+To view a particular article, you must be in either <B>All Articles</B>
+mode or in <B>One Thread</B> mode.  Double clicking on the list in either
+of those modes will fetch the requested article and display it in the
+article view.  Double clicking in <B>All Threads</B> mode will display the
+articles in the given thread by switching to <B>One Thread</B> mode.
+You may also press the return key with an entry selected.<P>
+
+To move back "up" to a higher mode, you may either press the button that
+cycles between these images:
+<IMG SRC="../Graphics/Button-3Art.GIF" WIDTH=21 HEIGHT=18>
+<IMG SRC="../Graphics/Button-2Art.GIF" WIDTH=21 HEIGHT=18>
+<IMG SRC="../Graphics/Button-1Art.GIF" WIDTH=21 HEIGHT=18>
+, or you may use the arrow buttons:
+<IMG SRC="../Graphics/Button-ArrowUp.GIF" WIDTH=17 HEIGHT=14>
+<IMG SRC="../Graphics/Button-ArrowDn.GIF" WIDTH=17 HEIGHT=14>
+.<P>
+
+Almost every button or gadget in NewsRog also has a keyboard equivalent;
+look at the MUI help bubbles to see what the keyboard equivalent is.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ArtView"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+The Article View
+<FONT SIZE=+0> </TD>
+<TD>
+
+After the article you have selected is fetched from the network (or local
+cache if available), it is displayed in the lower section of the group
+window, called the article view.  Other features of the article view will
+be explained elsewhere in this documentation, but for now, the <B>browse</B>
+buttons are of interest.  There are two browse buttons: forward
+(<IMG SRC="../Graphics/Button-BrowseF.GIF" WIDTH=21 HEIGHT=18>), and reverse
+(<IMG SRC="../Graphics/Button-BrowseR.GIF" WIDTH=21 HEIGHT=18>).<P>
+
+Pressing the forward browse button (or the period/full-stop ".") key
+will page forward in the article displayed in the article list.  When the
+end of the article is reached, the next article in the present thread will
+be fetched and displayed.  When the end of the thread is reached, the
+first article in the next thread will be displayed, and so on until the
+end of the group.  Many times, it is possible to browse news using just
+by pressing the "." key when you are ready to continue reading.  The
+reverse browse button (mapped to the "," key) performs the same function
+but in reverse.  It pages back in the present article, etc.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Close"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+Closing the Group
+<FONT SIZE=+0> </TD>
+<TD>
+
+To close a group, you can use the close gadget in the upper left corner of
+the window, or the <B>Group&nbsp;Project/Close</B> menu item.  This action
+will close the group window, saving the current set of headers to a local
+disk cache so they don't have to be fetched from the network next time.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>The difference between subscribed and unsubscribed newsgroups.
+      </LI>
+  <LI>Several ways to subscribe to and unsubscribe from groups.
+      </LI>
+  <LI>The basic layout of the group window.
+      </LI>
+  <LI>The difference between <B>All Article</B>, <B>All Threads</B>, and
+      <B>One Thread</B> modes.
+      </LI>
+  <LI>How to switch the article list between modes.
+      </LI>
+  <LI>How to view a selected article
+      </LI>
+  <LI>How to browse news forward or backward from the keyboard or with the
+      mouse.
+     </LI>
+  <LI>How to close the group window, and what happens when you do.
+     </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+</BODY>
+</HTML>

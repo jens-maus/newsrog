@@ -1,0 +1,250 @@
+
+ODIR  = Obj
+HFILES= NewsRog.h                       \
+        //Classes/Include/S-EventLoop.h \
+        //Classes/Include/S-LibSetup.h
+
+CFILES= NewsRog.c
+
+IMAGES =            \
+   IFF.1Author      \
+   IFF.1Art         \
+   IFF.2Art         \
+   IFF.3Art         \
+   IFF.Action       \
+   IFF.ArtFwd       \
+   IFF.ArtBack      \
+   IFF.Broken       \
+   IFF.BrowseF      \
+   IFF.BrowseR      \
+   IFF.HLight       \
+   IFF.FAQ          \
+   IFF.Kill         \
+   IFF.PostNew      \
+   IFF.PostFup      \
+   IFF.Read         \
+   IFF.Remove       \
+   IFF.ThreadFwd    \
+   IFF.ThreadBack   \
+   IFF.Unread       \
+   IFF.View         \
+   B.Config.L.R8    \
+   B.Config.L.TC    \
+   B.Config.S.R8    \
+   B.Config.S.TC    \
+   B.Config.S.R4    \
+   B.Groups.L.R8    \
+   B.Groups.L.TC    \
+   B.Groups.S.R8    \
+   B.Groups.S.TC    \
+   B.Groups.S.R4    \
+   B.MMTypes.L.R8   \
+   B.MMTypes.L.TC   \
+   B.MMTypes.S.R8   \
+   B.MMTypes.S.TC   \
+   B.MMTypes.S.R4   \
+   B.Network.L.TC   \
+   B.Network.L.R8   \
+   B.Network.S.R8   \
+   B.Network.S.TC   \
+   B.Network.S.R4   \
+   B.PostQueue.L.R8 \
+   B.PostQueue.L.TC \
+   B.PostQueue.S.R8 \
+   B.PostQueue.S.TC \
+   B.PostQueue.S.R4 \
+   B.Servers.L.R8   \
+   B.Servers.L.TC   \
+   B.Servers.S.R8   \
+   B.Servers.S.TC   \
+   B.Servers.S.R4   \
+   NRLogo.L.R8      \
+   NRLogo.L.TC      \
+   NRLogo.R8        \
+   NRLogo.TC        \
+   NRLogo.R4        \
+
+
+CIMAGES =        \
+   IFF.ListCol   \
+   IFF.Clip      \
+   IFF.Sort      \
+   IFF.Search    \
+
+FACEIMAGES =    \
+   FaceMask.iff \
+   Flat.iff     \
+   Frown.iff    \
+   Smile.iff    \
+   Wink.iff
+
+EIMAGES =        \
+   IFF.eb_Bold   \
+   IFF.eb_Copy   \
+   IFF.eb_Copy_G \
+   IFF.eb_Cut    \
+   IFF.eb_Cut_G  \
+   IFF.eb_Insert \
+   IFF.eb_Italic \
+   IFF.eb_Paste  \
+   IFF.eb_Save   \
+   IFF.eb_Uline  \
+   IFF.eb_Undo   \
+   IFF.eb_Undo_G \
+   IFF.eb_Redo   \
+   IFF.eb_Redo_G \
+
+CLIBS = Classlist Root ListSearch ListCol AppBase Timer CText VarList \
+        AttrVal AttrVal4 FileTypes DTImg FAct FileActs
+
+RLIBS =                \
+   NAF_SaveTxt         \
+   NAF_Decode          \
+   NDF_CharMap         \
+   NDF_EMail           \
+   NDF_EmpHeader       \
+   NDF_HideHeader      \
+   NDF_HideSig         \
+   NDF_HLQuotes        \
+   NDF_HLPatt          \
+   NDF_MIME            \
+   NDF_Rewrap          \
+   NDF_ROT13           \
+   NDF_ScrollHdrs      \
+   NDF_Spoilers        \
+   NDF_Substitute      \
+   NDF_TextStyles      \
+   NDF_TrimSpace       \
+   NDF_UUDecode        \
+   NDF_URL             \
+   NSFList             \
+   NSF_Cached          \
+   NSF_HeaderMatch     \
+   NSF_InGroup         \
+   NSF_AgeRange        \
+   NSF_DblSpace        \
+   NSF_SizeRange       \
+   NSF_LineRange       \
+   NSF_LimitXPost      \
+   NSF_Marked          \
+   NSF_PostRate        \
+   NSF_New             \
+   NSF_MatchFollowup   \
+   NSF_MatchThread     \
+   NSF_MatchThreadBase \
+   NSF_PctCaps         \
+   NSF_Permanent       \
+   NSF_Read            \
+   NSF_RepeatChar      \
+   NSF_SubjMatch       \
+   NSF_ThreadBase      \
+
+
+MLIBS =                \
+   NArticle            \
+   NArticleList        \
+   NArticleMgr         \
+   NArticleView        \
+   NAFilter            \
+   NDFilter            \
+   NGroup              \
+   NGroupList          \
+   NHdrList            \
+   NNews               \
+   NPost               \
+   NPostList           \
+   NServer             \
+   NServerList         \
+   NStrFilter          \
+   NSFilter            \
+   NTCP                \
+   NTCPList            \
+
+
+SLIBS = Support
+
+OFILES= $(ODIR)/NewsRog.o
+
+CFLAGS=
+LFLAGS= SC SD OD
+EFILES= $(ODIR)/NewsRog
+MFILES= SCOPTIONS Makefile
+LIBS  = lib:amiga.lib lib:sc.lib
+
+all: NewsRogExe
+
+$(ODIR)/NewsRog.o:     NewsRog.c     $(HFILES) $(MFILES)
+
+
+# ----------------------------------------------------------------------
+# This makes .o files from .c files
+# ----------------------------------------------------------------------
+
+$(OFILES):
+	@echo "  Compiling $>..."
+	@sc $(CFLAGS) $>.c
+	@echo "    Done."
+
+
+# ----------------------------------------------------------------------
+# This links things to make our executables.
+# ----------------------------------------------------------------------
+
+NewsRogExe: $(OFILES)
+	@echo "  Linking NewsRog..."
+	@slink >nil: with SCLINK
+	@echo "    Done."
+
+
+# ----------------------------------------------------------------------
+# Copy our libraries from the class build tree
+# ----------------------------------------------------------------------
+
+Libs: CleanLibs $(MLIBS) $(RLIBS) $(SLIBS) $(CLIBS)
+	@-Flushlibs
+	@echo "Copied libraries and RegInfo."
+
+Images: $(IMAGES) ${CIMAGES} $(EIMAGES) $(FACEIMAGES)
+
+Faces: $(FACEIMAGES)
+
+CleanLibs:
+	@-delete >NIL: Obj/MUI/*
+	@-delete >NIL: Obj/RegInfo/*
+
+CleanImages:
+	@-delete >NIL: Obj/Images/* QUIET
+
+$(IMAGES):
+	@copy QUIET //Classes/A-News/Images/$@ Obj/Images
+
+$(CIMAGES):
+	@copy QUIET //Classes/A-Common/Images/$@ Obj/Images
+
+$(EIMAGES):
+	@copy QUIET //Classes/A-News/C-NPost/Images/$@ Obj/Images
+
+$(FACEIMAGES):
+	@copy QUIET //Classes/A-News/Images/Faces/$@ Obj/Images/Faces
+
+$(MLIBS):
+	@copy //Classes/A-News/MUI/S5697_$@.mcc Obj/MUI
+
+$(RLIBS):
+	@copy //Classes/A-News/MUI/S5697_$@.mcc Obj/MUI
+	@copy //Classes/A-News/RegInfo/Class.$@ Obj/RegInfo
+
+$(CLIBS):
+	@copy //Classes/A-Common/MUI/S5697_$@.mcc Obj/MUI
+
+$(SLIBS):
+	@copy //Classes/A-Common/MUI/S5697_$@.library Obj/MUI
+
+# ----------------------------------------------------------------------
+# make clean
+# ----------------------------------------------------------------------
+
+clean: CleanLibs
+	@echo "Cleaning up directory."
+	@-avail >nil: flush
+	@echo "Done."

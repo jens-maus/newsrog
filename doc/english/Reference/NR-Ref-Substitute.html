@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Display Filters: Substitute</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Display Filters: Substitute <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-Spoilers.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-TextStyles.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=2 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">          Filter Overview</A></TD>
+    <TD><A HREF="#UI">            User Interface & Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Example">       Example</A></TD>
+    <TD><A HREF="#Vars">          Variables</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter allows certain strings in an article to be replaced with other
+strings or with graphics when the article is displayed.  You might use
+this to, for example, fix a few particularly common and annoying spelling
+errors, or to replace an ASCII smiley <B>:-)</B> with an actual smiley, as
+shown in the <A HREF="#Example">example</A> below<P>
+
+Like all other display filters, the Substitute filter only affects the
+<U>presentation</U> of the article.  It does not change the original in
+any way.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Substitute-UI.GIF" WIDTH=470 HEIGHT=254 BORDER=0>
+</CENTER><P>
+
+The filter accepts a list of replacement rules, each of which has the
+following parameters:<P>
+
+<UL>
+  <LI><B>Case</B> - Can be set to make the comparison case sensitive, or
+  unset to make it non case sensitive.  Case sensitive comparisons are
+  faster and generally recommended when possible.
+  <P></LI>
+
+  <LI><B>Wild</B> - If set, the pattern will be matched using AmigaOS
+  wildcards.  Otherwise, the pattern is searched for using a fixed string
+  match, which is much faster than using wildcards.
+  <P></LI>
+
+  <LI><B>Longest</B> - When using a wildcard search, this option controls
+  whether the longest or the shortest possible substring is matched.  For
+  example, given this text:<P>
+       <UL>aaaZ bbbZ</UL><P>
+  if the longest option is used, 9 characters are matched (from the first
+  a up until the Z in the second word).  Otherwise, only 4 characters are
+  matched (the first a through the Z at the end of that word).
+  <P></LI>
+
+  <LI><B>Pattern</B> - This string is searched for in the article body,
+  and will be replaced with the replacement string or image defined below.
+  <P></LI>
+
+  <LI><B>Replacement</B> - When the pattern is found in an article body,
+  it is replaced with this string, if non-empty.  The string may contain
+  the variable <B>${Img}</B> in order to imbed a defined image in the
+  replacement string.  If the replacement string is empty and an image is
+  defined, then the image is substituted for the original pattern.
+  <P></LI>
+
+  <LI><B>Image</B> - If non-empty, this is a filename of an image which is
+  loaded using datatypes and used to replace the original pattern.  This
+  is intended to be used for small images such as smiley faces and the
+  suchlike.  If the replacement string above is empty, the image can be
+  used directly.  If the replacement string is non-empty, then it can use
+  the variable <B>${Img}</B> to control the location in the replacement
+  where this image is displayed.
+  <P></LI>
+
+  <LI><B>Mask</B> - If non-empty, this is a filename of a mask which is
+  used to control how the image is copied to the screen.  The mask file
+  must be a single plane IFF file with the same dimensions as the image
+  file.  Image bits are copied in any location where the mask has a 1, and
+  the background shows through the image in any location where the mask
+  has a zero.
+  <P></LI>
+       
+</UL><P>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Example"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Example
+<FONT SIZE=+0> </TD>
+<TD>
+
+Here is an example of some text with a Substitute filter set to convert
+ASCII smileys to a smiley graphic:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Substitute-Ex1.GIF" WIDTH=385 HEIGHT=20 BORDER=0>
+</CENTER><P>
+
+And here is the original text without using the substitute filter:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Substitute-Ex2.GIF" WIDTH=385 HEIGHT=20 BORDER=0>
+</CENTER><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Vars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+There is one variable supported by this filter.  The variable
+<B>${Img}</B> may be used in the replacement text to specify the location
+in the replacement text where the defined image should be imbedded.
+
+</BODY>
+</HTML>

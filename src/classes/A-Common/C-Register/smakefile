@@ -1,0 +1,102 @@
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+ODIR       = Obj
+MFILES     = Makefile SCOPTIONS /SCOPTIONS ///SCOPTIONS_OPT
+default: all
+
+
+# ============================================================================
+# -- This data is customizable per-class -------------------------------------
+# ============================================================================
+
+LIBNAME    = Register
+
+SRCFILES   = C-Register.c C-Register-UI.c
+
+CFILES     = $(SRCFILES)
+
+HFILES     = /Include/Libraries/C-Register.h \
+	     //Include/S-Dispatcher.h        \
+	     //Include/S-Classes.h           \
+	     C-Register-I.h                  \
+	     C-Register-Mthd.h               \
+
+OFILES     = $(ODIR)/C-Register.o    \
+	     $(ODIR)/C-Register-UI.o \
+
+TESTSRC    = test.c
+TESTEXE    = test
+
+
+$(ODIR)/C-Register.o:       C-Register.c        $(HFILES) $(MFILES)
+$(ODIR)/C-Register-UI.o:    C-Register-UI.c     $(HFILES) $(MFILES)
+
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+PDIR       = /Include/Proto
+
+PFILES     = $(PDIR)/$(LIBNAME)_protos.h
+
+DEFINES    = 
+LKFLAGS    = LINKERWITH=SCLINK
+
+
+# ----------------------------------------------------------------------
+# This makes .o files from .c files
+# ----------------------------------------------------------------------
+
+all: $(OFILES) $(TOFILES)
+
+$(OFILES) $(TOFILES):
+	@echo "  Compiling: $>"
+	@sc $(DEFINES) $>.c
+	@echo "    Done."
+
+protos: $(SRCFILES)
+	@echo "  Generating prototypes... $(LIBNAME)"
+	@sc IGN 72 GENPROTOS $(DEFINES) $?
+	@join \#?_protos.h TO $(PDIR)/$(LIBNAME)_protos.h 
+        @c:delete \#?_protos.h QUIET FORCE
+	@echo "    Done."
+
+# ----------------------------------------------------------------------
+# This links things to make our executables.
+# ----------------------------------------------------------------------
+
+
+# ----------------------------------------------------------------------
+# Create tests
+# ----------------------------------------------------------------------
+
+tests:
+	@echo "  Creating tests"
+	@sc LINK $(TESTSRC) OBJ $(OFILES)
+	@echo "    Done."
+
+
+# ----------------------------------------------------------------------
+# Run tests
+# ----------------------------------------------------------------------
+
+runtests:
+	@echo "  Running tests"
+	@copy $(ODIR)/$(TESTEXE) /
+	@/$(TESTEXE)
+	@echo "    Done."
+
+
+# ----------------------------------------------------------------------
+# make clean
+# ----------------------------------------------------------------------
+
+clean:
+	@echo "  Cleaning up directory."
+	@-delete Obj/\#? $(PRAGMA) $(PFILES) $(LIBSFSPEC) FORCE QUIET
+	@FlushLibs
+	@echo "    Done."

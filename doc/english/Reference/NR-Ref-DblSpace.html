@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Selection Filters: DblSpace</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Selection Filters: DblSpace <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-SelFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-Cached.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-HeaderMatch.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This selection filter matches all articles which have more than a given
+number of doublespaced letters in their subject.  For example:<P>
+
+<UL>
+   T&nbsp;h&nbsp;i&nbsp;s&nbsp; &nbsp;I&nbsp;s&nbsp; &nbsp;P&nbsp;r&nbsp;o&nbsp;b&nbsp;a&nbsp;b&nbsp;l&nbsp;y&nbsp; &nbsp;S&nbsp;p&nbsp;a&nbsp;m&nbsp;!
+</UL><P>
+
+Such articles are rarely of any value.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG ALIGN=Center SRC="../Graphics/NR-Ref-DblSpace-UI.GIF" WIDTH=379 HEIGHT=163>
+</CENTER><P>
+
+The available options are:<P>
+
+<UL>
+   <LI><B>Min Length</B> - Matched articles must have this minimum number
+   of characters in the subject field.  Articles with shorter subject
+   fields are ignored.<P></LI>
+
+   <LI><B>Min DblSpace %</B> - This filter matches articles who's subject line
+   contains at least this percentage of doublespaced characters.
+   Doublespace characters are characters followed by between one and four
+   spaces.<P></LI>
+
+  <LI><B>DblSpace Chars</B> - Characters in this set are detected as
+   doublespace characters.  For example, if an asterisk (*) is part of
+   this string, then the subject "T*h*i*s i*s s*p*a*m" will be matched.
+  .<P></LI>
+</UL><P>
+        
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

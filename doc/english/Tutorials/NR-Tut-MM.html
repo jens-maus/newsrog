@@ -1,0 +1,422 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 9: The Multimedia System</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 10: The Multimedia System <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Posts.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Config.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=3 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Multimedia"> Multimedia Overview</A></TD>
+    <TD><A HREF="#Actions">    Multimedia Actions</A></TD>
+    </TR><TR>
+    <TD><A HREF="#ActParams">  Action Parameters</A></TD>
+    <TD><A HREF="#Types">      Multimedia Type Recognition</A></TD>
+    </TR><TR>
+    <TD><A HREF="#TypeMatch">  Multimedia Type Matching</A></TD>
+    <TD><A HREF="#Summary">    Summary</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Multimedia"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Multimedia Overview<P>
+<CENTER>
+<IMG SRC="../Graphics/Toolbar-B5.jpg" WIDTH=86 HEIGHT=81 BORDER=0>
+</CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+Usenet is a text only medium.  It is possible to include non-textual
+information such as pictures, audio, and video by encoding the data in
+various ways.  There are two basic standards for non text information on
+usenet:<P>
+
+<UL>
+  <LI><B>uuencoded data blocks</B> - uuencoding is a process for
+  transforming arbitrary binary data to 7-bit ASCII text form for
+  transmitting over text transports such as usenet or email.  Uuencoding
+  is very old, predating personal computers, but still useful and quite
+  popular.  It suffers from several drawbacks, however.  It does not
+  include any information on the <U>type</U> of the encoded data, for
+  example.
+  <P></LI>
+
+  <LI><B>MIME</B> - MIME stands for <I>Multipurpose Internet Mail
+  Extensions</I>, and is a newer method of encapuslating non-text
+  attachments in text transports.  MIME solves many of the problems of
+  uuencoding.  For instance, it specifies the type of the data it
+  encloses.  <P></LI>
+</UL>
+
+The type of the enclosed data (for example, a jpeg bitmap, or a WAV audio
+file, or plain text) is called the <I>Multimedia Type</I>.  The MIME
+format defines various multimedia types, which are composed of a type and
+a subtype separated by a forward slash.  Some example multimedia types are:<P>
+<UL>
+image/jpeg<BR>
+image/gif<BR>
+text/plain<BR>
+application/octet-stream<BR>
+application/postscript<BR>
+</UL><P>
+
+In the case of MIME messages, NewsRog can obtain the multimedia type from
+the information MIME itself provides.  In the case of uuencode, this is
+not possible, but NewsRog provides a powerful ability to auto-detect the
+data type by examining the decoded data itself.<P>
+
+Any multimedia types or subtypes that begin with the <I>X-</I> are
+internal to NewsRog.  An example is "application/X-URL".  Other multimedia
+types or subtypes that do not begin with <I>X-</I> are standardized.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Actions"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Multimedia Actions
+<FONT SIZE=+0> </TD>
+<TD>
+
+User defined actions may be defined for different multimedia types.  For
+example, you might define a <B>Show</B> action that calls one command for
+image/jpeg and another for application/postscript.  Then you might define
+a <B>Print</B> command that sends application/postscript data to a
+postscript printer and text/plain data to another printer.  Actions can
+match multimedia types using wildcards, so one might define an action for
+image/*.  Actions can have any user defined name.<P>
+
+The multimedia action editor looks like this:<P>
+
+  <CENTER>
+  <IMG SRC="../Graphics/Window-MMActions.GIF" WIDTH=473 HEIGHT=269
+       ALIGN=Center BORDER=0>
+  </CENTER><P>
+
+This editor associates multimedia types with user commands.  The following
+buttons are available:<P>
+
+<UL>
+  <LI><B>New</B> - Add a new multimedia action.<P></LI>
+
+  <LI><B>Delete</B> - Delete the selected actions.<P></LI>
+
+  <LI><B>Clone</B> - Clone the active multimedia action.<P></LI>
+
+  <LI><B>Save</B> - Save the selected action to a disk file.<P></LI>
+
+  <LI><B>Insert</B> - Insert a saved action into the current list.<P></LI>
+
+  <LI><B>Sort</B> - Sort the current list by multimedia type.<P></LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ActParams"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Multimedia Action Parameters
+<FONT SIZE=+0> </TD>
+<TD>
+
+For each multimedia action, the following data may be defined:<P>
+
+  <TABLE BORDER=2>
+    <TR><TH>Parameter</TH> <TH>Description</TH></TR>
+
+    <TR><TD VALIGN=Top>Media Type</TD>
+        <TD>This is an AmigaOS pattern matching a multimedia type.  For
+        example, you might use <I>image/*</I> to match all image data in
+        order to send it to an external viewer program, <I>text/*</I> to
+        send text data to a text viewer, or <I>video/quicktime</I> to send
+        this type to a quicktime video player.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Action Name</TD>
+        <TD>This is a user defined name describing the action.  All action
+        names found for a particular media type will be listed anyplace in
+        NewsRog where multimedia actions may be performed.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Command</TD>
+        <TD>This is the command to launch in order to perform the
+        requested action.  For example, this command might show a
+        quicktime video or print a postscript file.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Args</TD>
+        <TD>The arguments (parameters) to the command.  In most cases
+        there are variables available such as ${File}, ${URL}, or
+        ${ArtSubj} that can be substituted before invoking the command.
+        The exact details are described elsewhere in this documentation.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Input</TD>
+        <TD>A filename from which the standard input of the command should
+        be redirected.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Output</TD>
+        <TD>A filename to which the standard output of the command should
+        be redirected.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Stack</TD>
+        <TD>The stack size for the command.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Pri</TD>
+        <TD>The task priority for the command.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Dir</TD>
+        <TD>The working directory for the command.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>ASync</TD>
+        <TD>If set, the command is run asynchronously (in the
+        background).  In this case, NewsRog will continue to run even
+        while the command is executing.  Turning this option off will
+        cause the command to be executed synchronously (in the
+        foreground), in which case NewsRog will be suspended until the
+        command returns.  Most often, Async is the correct setting.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>CmdType</TD>
+        <TD>This can be set to CLI, or to ARexx, in which case an ARexx
+        port and command string can be entered to send the given string to
+        the specified ARexx port.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>ARexx Port</TD>
+        <TD>An ARexx port name, case sensitive.  Only valid if CmdType is
+        set to ARexx.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>ARexx Cmd</TD>
+        <TD>An ARexx string to send to the given ARexx port.  Only valid
+        if CmdType is set to ARexx.
+        </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Types"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Multimedia Type Recognition
+<FONT SIZE=+0> </TD>
+<TD>
+
+The multimedia type recognition system is used only in cases where the
+multimedia type is not specified in the file itself (for example,
+uuencoded data does not specify a multimedia type).  In this case, NewsRog
+will attempt to determine the content type by examining the encoded data
+itself.  The Multimedia Types lists contains a set of rules to be used in
+order to match data name or content to multimedia types.  Not all types
+need to be listed here!  Many can be determined based on MIME information.
+Only in other cases such as uuencoded data does NewsRog use this
+information to determine the media type.  The Multimedia Types list looks
+like this:<P>
+
+  <CENTER>
+  <IMG SRC="../Graphics/Window-MMTypes.GIF" WIDTH=473 HEIGHT=269
+       ALIGN=Center BORDER=0>
+  </CENTER><P>
+
+The first field is the multimedia type.  The second is the method used to
+match the data to the type, and the third is pattern used to do the
+matching.  The exact interpretation of the pattern field depends on the
+method used to do the matching.<P>
+
+The following commands are available:<P>
+
+<UL>
+  <LI><B>New</B> - Add a new (empty) multimedia type.<P></LI>
+
+  <LI><B>Delete</B> - Delete the selected multimedia types.<P></LI>
+
+  <LI><B>Clone</B> - Create a copy of the selected multimedia type.<P></LI>
+
+  <LI><B>Save...</B> - Save the selected type to disk.<P></LI>
+
+  <LI><B>Insert...</B> - Insert a saved media type into the list.<P></LI>
+
+  <LI><B>Sort</B> - Sort the media types by name.<P></LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="TypeMatch"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Multimedia Type Matching
+<FONT SIZE=+0> </TD>
+<TD>
+
+There are several types of matching available:<P>
+
+  <TABLE BORDER=2>
+  <TR>
+    <TH>Method</TH> <TH>Description</TH>
+  </TR>
+  <TR>
+    <TD>Match File Name (Ignore Case)</TD>
+    <TD> A straightforward match of a filename, ignoring case.  Any
+    valid AmigaOS pattern may be used.  It is generally better to match the
+    data contents, if possible.  Most formats have fixed identifier
+    bytes near the beginning of the data to permit a content match.</TD>
+  </TR>
+  <TR>
+    <TD>Match File Name (Match Case)</TD>
+    <TD>Similar to the above, but case sensitive.</TD>
+  </TR>
+  <TR>
+    <TD>Match Data Contents (Binary)</TD>
+    <TD>The <I>Pattern</I> attribute is a description of a short segment
+        of the data's contents, in ASCII or hex.  The following may be
+        included, and must be separated by one or more spaces:<P>
+
+         <UL>
+           <LI> The keyword <B>Offset</B> (case sensitive), followed by a colon,
+                followed by an offset specifying a byte position in the data.
+                For example:<P>
+                <UL>Offset:6</UL><P> </LI>
+       
+           <LI> The string <B>0x</B>, followed by one or more hex characters.  For
+                example:<P>
+                <UL>0x00ab91</UL><P> </LI>
+       
+           <LI> One or more more 8 bit printable characters.</LI>
+         </UL>
+
+       The hex or printable characters must match the data contents at the
+       indicated offset.  For example, to match a JPEG file, one might use:<P>
+
+       <UL><B>Offset:6 JFIF</B></UL><P>
+
+       Which will match any data with the string <B>JFIF</B> 6 bytes into the
+       file.</TD>
+  </TR>
+  <TR>
+     <TD>Match Data Contents (Pattern)</TD>
+     <TD>The data is checked for the given AmigaOS pattern.
+         Note that this will happen for binary and text data alike.  The results for
+         binary data may be unpredictable, and this is only designed for
+         use on textual data.</TD>
+  </TR>
+  <TR>
+     <TD>Match Directory Name (Ignore Case)</TD>
+     <TD>Not applicable to inline data in posts.</TD>
+  </TR>
+   <TR>
+     <TD>Match Directory Name (Match Case)</TD>
+     <TD>Not applicable to inline data in posts.</TD>
+  </TR>
+       
+  </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>The two primary standards for including non-texual data in usenet
+      posts.
+      </LI>
+  <LI>What a multimedia type is.
+      </LI>
+  <LI>The difference between internal and standardized multimedia types
+      and subtypes.
+      </LI>
+  <LI>How multimedia actions are matched against multimedia types.
+      </LI>
+  <LI>How to add, delete, and manage multimedia actions.
+      </LI>
+  <LI>The different options that may be set for multimedia actions.
+      </LI>
+  <LI>How multimedia types are recognized for imbedded data which does not
+      specify the type itself.
+      </LI>
+  <LI>The different supported types of data matching.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

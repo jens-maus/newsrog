@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Display Filters: UUDecode</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Display Filters: UUDecode <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-URL.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=2 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">          Filter Overview</A></TD>
+    <TD><A HREF="#UI">            User Interface & Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Example">       Example</A></TD>
+    <TD><A HREF="#Vars">          Variables</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This display filter parses uuencoded data blocks in articles and replaces
+them with an inlined image (for image data) and an imbedded user interface
+that can be used to save the encoded data to a disk file or to perform
+defined multimedia actions on the data.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-UUDecode-UI.GIF" WIDTH=378 HEIGHT=155 BORDER=0>
+</CENTER><P>
+
+The available configuration options are:<P>
+
+<UL>
+  <LI><B>Save Directory</B> - The default save directory for the data.
+      <P></LI>
+
+  <LI><B>Display Inline</B> - If the data is image data and there is an
+  appropriate system datatype, the image will be displayed inline if this
+  option is checked.  Note that the datatype display may not happen
+  properly or at all if there are an insufficient number of free pens.
+  Generally it is best to use a truecolor (16 or 24 bit) display mode, but
+  failing that, 256 colors is usually adequate as well.
+  <P></LI>
+
+  <LI><B>Make Dirs</B> - If selected, save directories will automatically
+  be created if they do not already exist. <P></LI>
+
+  <LI><B>Use Requestors</B> - If selected, <B>OK</B> and <B>Cancel</B>
+  requestors will be displayed after saving data from a uuencoded data
+  block.  Otherwise, all saves are silent. <P></LI>
+
+  <LI><B>Display Size</B> - If selected, UUencoded data blocks which are
+  of any image type (<B>image/*</B>) will display the size of the graphic
+  file in the information area of the data block.<P></LI>
+
+  <LI><B>Deletion Marker</B> - When operating in text mode (for printing,
+  saving article text, or generating replies), uuencoded data blocks are
+  deleted and replaced with this text. <P></LI>
+
+  <P></LI>
+</UL>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Example"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Example
+<FONT SIZE=+0> </TD>
+<TD>
+
+When uuencoded data is detected in an article body, an inline user
+interface is presented that looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-UUDecode-Ex.JPG" WIDTH=509 HEIGHT=318 BORDER=0>
+</CENTER><P>
+
+The following controls are available:<P>
+
+<UL>
+  <LI><B>Save...</B> - Saves the encoded data to the default
+      <A HREF="#UI">save directory</A> using the filename defined in the
+      uuencoded data block.<P></LI>
+
+  <LI><B>Save As...</B> - Displays a file requestor and saves the encoded
+  data to the chosen filename.<P></LI>
+
+  <LI><B>Action...</B> - Displays a list of defined
+  <A HREF="../Tutorials/NR-Tut-MM.html">multimedia actions</A> for this
+  image type.  Double clicking on one of the actions in the list will
+  perform the indicated action.  Actions might be defined to, for example,
+  send the image to an image processing program, print it, or display it
+  using an external viewer program.<P></LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Vars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables, in addition to the standard group, article, and
+project variables, are available to multimedia actions using this filter:<P>
+
+<CENTER>
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>File</TD>
+         <TD>When used in a multimedia action for a uuencoded data block, this
+         variable will be set to a filename which contains the decoded
+         data.  It maybe used to send to external commands.  The data file
+         will be deleted when the article display goes away, either from
+         another article being displayed or the group reader window being
+         closed.
+         </TD></TR>
+
+     <TR><TD>Lines</TD>
+         <TD>When used in the <A HREF="#UI">Deletion Marker</A> field,
+         this variable expands to the number of lines in the uuencoded
+         data block.
+         </TD></TR>
+
+     <TR><TD>Name</TD>
+         <TD>When used in the <A HREF="#UI">Deletion Marker</A> field,
+         this variable expands to the filename given in the uuencoded
+         data block.
+         </TD></TR>
+
+     <TR><TD>Size</TD>
+         <TD>When used in the <A HREF="#UI">Deletion Marker</A> field,
+         this variable expands to the number of bytes in the uuencoded
+         data block, before decoding.
+         </TD></TR>
+</TABLE>
+</CENTER>
+
+
+</BODY>
+</HTML>

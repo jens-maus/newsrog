@@ -1,0 +1,67 @@
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+ODIR       = Obj
+MFILES     = Makefile SCOPTIONS /SCOPTIONS ///SCOPTIONS_OPT
+default: all
+
+
+# ============================================================================
+# -- This data is customizable per-class -------------------------------------
+# ============================================================================
+
+LIBNAME    = NSF_MatchThreadBase
+LIBVER     = 1
+LIBREV     = 0
+
+SRCFILES   = C-NSF-MatchThreadBase.c
+
+CFILES     = $(SRCFILES)
+
+HFILES     = /Include/Libraries/C-NSF-MatchThreadBase.h \
+             //A-Common/Include/S-RootMethods.h         \
+             //Include/S-AttrMaps.h                     \
+             //Include/S-Dispatcher.h                   \
+             //Include/S-Classes.h                      \
+             //Include/Libraries/S-Lists.h              \
+             C-NSF-MatchThreadBase-Mthd.h               \
+             C-NSF-MatchThreadBase-I.h                  \
+
+
+OFILES     = $(ODIR)/C-NSF-MatchThreadBase.o \
+	     $(ODIR)/L-NSF-MatchThreadBase.o \
+
+
+$(ODIR)/C-NSF-MatchThreadBase.o:    C-NSF-MatchThreadBase.c $(HFILES) $(MFILES)
+$(ODIR)/L-NSF-MatchThreadBase.o:    L-NSF-MatchThreadBase.c $(HFILES) $(MFILES)
+
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+PDIR       = /Include/Proto
+LIBSDIR    = /MUI
+
+PFILES     = $(PDIR)/$(LIBNAME)_protos.h
+LIBSFSPEC  = $(LIBSDIR)/S5697_$(LIBNAME).mcc
+LNKFSPEC   = $(LIBSDIR)/S5697_$(LIBNAME).lnk
+
+DEFINES    = DEFINE=SW_LIBS
+LINKERLIBS = lib:amiga.lib lib:sc.lib
+
+TESTSRC    = test.c
+TESTEXE    = test
+
+
+# ----------------------------------------------------------------------
+# This calls things from smake.def
+# ----------------------------------------------------------------------
+
+all:          $(LIBSFSPEC)
+$(LIBSFSPEC): $(OFILES)
+
+protos:                      $(PDIR)/$(LIBNAME)_protos.h
+$(PDIR)/$(LIBNAME)_protos.h: $(SRCFILES)

@@ -1,0 +1,1374 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Variables</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Variables <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Reference.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-SelFlt.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=6 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#VarInfo">  General Variable Info</A></TD>
+    <TD><A HREF="#Naming">   Variable Naming & Lookup</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Errors">   Variables Errors</A></TD>
+    <TD><A HREF="#Recur1">   Variables Lookup Recursion</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Recur2">   Variables Naming Recursion</A></TD>
+    <TD><A HREF="#Global">   Global Variables</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Article">  Article Variables</A></TD>
+    <TD><A HREF="#Group">    Group Variables</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Project">  Project Variables</A></TD>
+    <TD><A HREF="#MM">       Multimedia Variables</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Filter">   Filter Specific Variables</A></TD>
+    <TD><A HREF="#Func">     Functions</A></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VarInfo"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+General Variable Info
+<FONT SIZE=+0> </TD>
+<TD>
+
+Variables may be used in most text strings.  For example, the default
+article viewer title (settable in the
+<A HREF="../Tutorials/NR-Tut-Config.html">configuration</A> area) is:
+<PRE>
+  \33bFrom:\33n ${ArtUserName}  \33bSubj\33n: ${ArtSubj}
+</PRE><P>
+
+This prints the word <B>From:</B> in bold, followed by the user name found
+in the viewed article, followed by the word <B>Subj:</B> again in bold,
+followed by the article subject header field.<P>
+
+A variable is used in a text value.  Any text of the form
+<B>${varname}</B> is replaced by the contents of the named variable.
+There are several ways a variable can find its value.  There is a global
+list of variables that applies everywhere.  These variables can be seen by
+any object.  This global list can be edited from the main editor window
+and may include user defined values.<P>
+
+Also, each group, article, or filter can potentially export a set of
+variables.  In the previous example the variables ${ArtUserName} and
+${ArtSubj} are referenced.  These variables are exported by the article
+being viewed.  When a new article is selected for reading, the article
+viewer title will automatically change as well.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Naming"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variable Naming & Lookup
+<FONT SIZE=+0> </TD>
+<TD>
+
+Variable references have the form <B>${Varname}</B>.  Variable names are
+case <U>sensitive</U> and may contain any valid character except a closing
+curly brace '}'.<P>
+
+Article and group variables are searched first.  If no definition is
+found, then the global variable list is searched in order.  If more than
+one variable is defined with the same name, the results are undefined.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Errors"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variable Errors
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following conditions will trigger an error, and the variable reference
+will return the string <I>ERROR</I>.<P>
+
+<UL>
+   <LI> Unterminated variable name.  Opening '${' not matched by closing '}'.
+        <P></LI>
+   <LI> Maximum variable name length (31 characters) exceeded.
+        <P></LI>
+   <LI> Too many variable replacements - typically when a variable recursion
+        loop exists - i.e, the definition of variable A is ${B}, and the
+        definition of variable B is ${A}.  The limit is 32.
+        <P></LI>
+   <LI> No expansion found for variable name.
+        <P></LI>
+</UL>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+ 
+<!--------------------------------------------------------------------------->
+
+<A NAME="Recur1"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variable Lookup Recursion
+<FONT SIZE=+0> </TD>
+<TD>
+
+Two types of variable recursion are permitted; this is one.<P>
+
+If a variable expansion results in a string that contains another variable
+reference, variable expansion happens again on the new string until either
+no variable references are left, or a maximum replacement count is exceeded.<P>
+
+For example, consider a user defined variable <B>MyArtInfo</B> who's definition
+is: <B>${ArtUserAbbrev}&nbsp;(${ArtUserName})</B>.  When the variable
+<B>${MyArtInfo}</B> is referenced, it first yields the definition above.
+But the definition contains two additional variable references, one to
+<B>${ArtUserAbbrev}</B> and another to <B>${ArtUserName}</B>.  These
+variables are in turned looked up to find their definition, and the end
+result might be that referencing <B>${MyArtInfo}</B> yields the string:
+<I>JBS (John B. Smith)</I>.<P>
+ 
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Recur2"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variable Naming Recursion
+<FONT SIZE=+0> </TD>
+<TD>
+
+Two types of variable recursion are permitted; this is another.<P>
+
+Recursion is permitted on variable names. Consider three variables,
+var1=Foo, var2=Bar, and variable FooBarXYZ=test.<P>
+
+The reference <B>${${var1}${var2}XYZ}</B> will yield the string <I>test</I>.
+Inner variables are expanded before outer.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Global"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Read-Only Global Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+Some global variables are read-only.  In many cases their value will
+change between expansions; for example, the amount of free memory.<P>
+
+  <CENTER>
+  <H4>Date & Time Variables (uses Locale settings)</H4>
+  <TABLE BORDER=2 CELLPADDING=2 CELLSPACING=2>
+      <TR><TH>Variable</TH>  <TH>Explanation</TH> <TH>Example</TH></TR>
+
+   <TR><TD>AmPm</TD>         <TD>AM/PM string</TD>                <TD>AM</TD></TR>
+   <TR><TD>DayNum</TD>       <TD>Day number (leading zeros)</TD>  <TD>03</TD></TR>
+   <TR><TD>DayNumSp</TD>     <TD>Day number (leading spaces)</TD> <TD> 3</TD></TR>
+   <TR><TD>Hour12</TD>       <TD>Hour in 12 hour format (leading zeros)</TD> <TD>04</TD></TR>
+   <TR><TD>Hour12Sp</TD>     <TD>Hour in 12 hour format (leading spaces)</TD> <TD> 4</TD></TR>
+   <TR><TD>Hour24</TD>       <TD>Hour in 24 hour format (leading zeros)</TD> <TD>04</TD></TR>
+   <TR><TD>Hour24Sp</TD>     <TD>Hour in 24 hour format (leading spaces)</TD> <TD> 4</TD></TR>
+   <TR><TD>Min</TD>          <TD>Minute value</TD>                <TD>59</TD></TR>
+   <TR><TD>Month</TD>        <TD>Month name</TD>                  <TD>April</TD></TR>
+   <TR><TD>MonthNum</TD>     <TD>Month number</TD>                <TD>05</TD></TR>
+   <TR><TD>MonthShort</TD>   <TD>Month name (short)</TD>          <TD>Apr</TD></TR>
+   <TR><TD>Sec</TD>          <TD>Seconds</TD>                     <TD>33</TD></TR>
+   <TR><TD>Weekday</TD>      <TD>Day of week</TD>                 <TD>Tuesday</TD></TR>
+   <TR><TD>WeekdayShort</TD> <TD>Day of week (short)</TD>         <TD>Tue</TD></TR>
+   <TR><TD>Year2</TD>        <TD>2 digit year</TD>                <TD>98</TD></TR>
+   <TR><TD>Year4</TD>        <TD>4 digit year</TD>                <TD>1998</TD></TR>
+  </TABLE><BR><P>
+
+  <P> <H4>Memory & Resource Variables</H4>
+  <TABLE BORDER=2 CELLPADDING=2 CELLSPACING=2>
+      <TR><TH>Variable</TH>  <TH>Explanation</TH> <TH>Example</TH></TR>
+
+   <TR><TD>ChipKb</TD>    <TD>Chip memory in Kb</TD>      <TD>1910</TD></TR>
+   <TR><TD>FastKb</TD>    <TD>Fast memory in Kb</TD>      <TD>31022</TD></TR>
+   <TR><TD>AllKb</TD>     <TD>All memory in Kb</TD>       <TD>32932</TD></TR>
+   <TR><TD>LargestKb</TD> <TD>Largest block in Kb</TD>    <TD>28107</TD></TR>
+   <TR><TD>ChipMb</TD>    <TD>Chip memory in Mb</TD>      <TD>1</TD></TR>
+   <TR><TD>FastMb</TD>    <TD>Fast memory in Mb</TD>      <TD>31</TD></TR>
+   <TR><TD>AllMb</TD>     <TD>All memory in Mb</TD>       <TD>32</TD></TR>
+   <TR><TD>LargestMb</TD> <TD>Largest block in Mb</TD>    <TD>28</TD></TR>
+  </TABLE><BR><P>
+  <CENTER>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Article"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Article Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables refer to information about news articles:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>ArtDate</TD>
+         <TD>The contents of the <B>Date:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtDistrib</TD>
+         <TD>The contents of the <B>Distribution:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtFollowup</TD>
+         <TD>The contents of the <B>Followup-To:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtFrom</TD>
+         <TD>The contents of the <B>From:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtGroups</TD>
+         <TD>The contents of the <B>Newsgroups:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtKeywords</TD>
+         <TD>The contents of the <B>Keywords:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtLines</TD>
+         <TD>The contents of the <B>Lines:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtMimeType</TD>
+         <TD>The contents of the <B>Content-Type:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtMimeVer</TD>
+         <TD>The contents of the <B>Mime-Verseion:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtMsgID</TD>
+         <TD>The contents of the <B>Message-ID:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtNewsRd</TD>
+         <TD>The contents of the <B>X-Newsreader:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtOrganiz</TD>
+         <TD>The contents of the <B>Organization:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtArtPath</TD>
+         <TD>The contents of the <B>Path:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtRef</TD>
+         <TD>The contents of the <B>Followup-To:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtSender</TD>
+         <TD>The contents of the <B>Sender:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtSubj</TD>
+         <TD>The contents of the <B>Subject:</B> header field.
+         </TD></TR>
+
+     <TR><TD>ArtUserAbbrev</TD>
+         <TD>A short abbreviation for the user name.  For example, if the
+             posting user is John S. Smith, this variable would be
+             <I>JSS</I>.
+         </TD></TR>
+
+     <TR><TD>ArtUserEmail</TD>
+         <TD>The email address portion of the <B>From:</B> header.
+         </TD></TR>
+
+     <TR><TD>ArtUserName</TD>
+         <TD>The user name portion of the <B>From:</B> header.
+         </TD></TR>
+
+     <TR><TD>ArtAmPm</TD>
+         <TD>Similar to <A HREF="#Global"> AmPm </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtDayNum</TD>
+         <TD>Similar to <A HREF="#Global"> DayNum </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtDayNumSp</TD>
+         <TD>Similar to <A HREF="#Global"> DayNumSp </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtHour12</TD>
+         <TD>Similar to <A HREF="#Global"> Hour12 </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtHour12Sp</TD>
+         <TD>Similar to <A HREF="#Global"> Hour12Sp </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtHour24</TD>
+         <TD>Similar to <A HREF="#Global"> Hour24 </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtHour24Sp</TD>
+         <TD>Similar to <A HREF="#Global"> Hour24Sp </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtMin</TD>
+         <TD>Similar to <A HREF="#Global"> Min </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtMonth</TD>
+         <TD>Similar to <A HREF="#Global"> Month </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtMonthNum</TD>
+         <TD>Similar to <A HREF="#Global"> MonthNum </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtMonthShort</TD>
+         <TD>Similar to <A HREF="#Global"> MonthShort </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtSec</TD>
+         <TD>Similar to <A HREF="#Global"> Sec </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtWeekday</TD>
+         <TD>Similar to <A HREF="#Global"> Weekday </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtWeekdayShort</TD>
+         <TD>Similar to <A HREF="#Global"> WeekdayShort </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtYear2</TD>
+         <TD>Similar to <A HREF="#Global"> Year2 </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtYear4</TD>
+         <TD>Similar to <A HREF="#Global"> Year4 </A>, but for the article's datestamp.
+         </TD></TR>
+
+     <TR><TD>ArtPartNum</TD>
+         <TD>For articles which are part of a multipart series (marked
+         with (n/m) or [n/m]), this variable will return the part number
+         of this article, and a null string otherwise.  This can be used
+         to include the part number in a saved filename when saving
+         articles using the SaveTxt filter.<P>
+
+         A comma separated suffix of 2, 3, or 4 may be used to control the
+         number of digits in the resulting string.  For example,
+         referencing the variable <B>${ArtPartNum,3}</B> would return
+         "003" for part 3 of a 10 part article.
+         </TD></TR>
+
+     <TR><TD>ArtPartTot</TD>
+         Similar to ArtPartNum, but returns the maximum part number.  For
+         example, referencing <B>${ArtPartTot,2}</B> will return "10" for
+         any part of a 10 part article.
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Group"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables refer to information about news groups:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>GroupAbbrev</TD>
+         <TD>The abbreviated group name.  For example,
+         <I>comp.sys.amiga.misc</I> would be <I>c.s.a.misc</I>.
+         </TD></TR>
+
+     <TR><TD>GroupMaxArticles</TD>
+         <TD>The maximum number of articles to be fetched at one time.
+         </TD></TR>
+
+     <TR><TD>GroupName</TD>
+         <TD>The full group name.
+         </TD></TR>
+
+     <TR><TD>GroupNameChr</TD>
+         <TD>The full group name with substitution of the period (full
+         stop) character.  By default, periods are replaced with forward
+         slashes.  This is useful in, for example, SaveTxt filters to
+         automatically create a directory hierarchy matching the group
+         hierarchy.  However, any character may be used as a replacement:<P>
+
+          <TABLE CELLSPACING=4 CELLPADDING=4>
+             <TR><TH ALIGN=Left>Variable</TH><TH ALIGN=Left>Group Name</TH><TH ALIGN=Left>Expands to</TH></TR>
+             <TR><TD>${GroupNameChr}</TD><TD>alt.foo.bar</TD><TD>alt/foo/bar</TD></TR>
+             <TR><TD>${GroupNameChr,/}</TD><TD>alt.foo.bar</TD><TD>alt/foo/bar</TD></TR>
+             <TR><TD>${GroupNameChr,-}</TD><TD>alt.foo.bar</TD><TD>alt-foo-bar</TD></TR>
+             <TR><TD>${GroupNameChr,#}</TD><TD>alt.foo.bar</TD><TD>alt#foo#bar</TD></TR>
+          </TABLE>
+
+     </TD></TR>
+
+     <TR><TD>GroupReadArticles</TD>
+         <TD>The number of read articles in this group.
+         </TD></TR>
+
+     <TR><TD>GroupTotArticles</TD>
+         <TD>The total number of articles in the group.
+         </TD></TR>
+
+     <TR><TD>GroupUnreadArticles</TD>
+         <TD>The number of unread articles in the group.
+         </TD></TR>
+
+     <TR><TD>FAQFile</TD>
+         <TD>This variable is set to the filename of a stored FAQ file
+         when used in a multimedia action in the
+         <A HREF="../Tutorials/NR-Tut-FAQMgr.html">FAQ Manager</A>.
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Project"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Project Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables refer to information about the NewsRog project:<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>CacheDir</TD>
+         <TD>The cache directory for this project.
+         </TD></TR>
+
+     <TR><TD>UserName</TD>
+         <TD>The user name that has been set in the
+             <A HREF="../Tutorials/NR-Tut-Config.html">configuration</A>
+             settings for this project.
+         </TD></TR>
+
+     <TR><TD>UserEmail</TD>
+         <TD>The user email address that has been set in the
+             <A HREF="../Tutorials/NR-Tut-Config.html">configuration</A>
+             settings for this project.
+         </TD></TR>
+
+     <TR><TD>UserOrg</TD>
+         <TD>The organization field that has been set in the
+             <A HREF="../Tutorials/NR-Tut-Config.html">configuration</A>
+             settings for this project.
+         </TD></TR>
+
+     <TR><TD>SigFile</TD>
+         <TD>The signature filename that has been set in the
+             <A HREF="../Tutorials/NR-Tut-Config.html">configuration</A>
+             settings for this project.
+         </TD></TR>
+
+     <TR><TD>Editor</TD>
+         <TD>The editor that has been set in the
+             <A HREF="../Tutorials/NR-Tut-Config.html">configuration</A>
+             settings for this project.
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="MM"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Multimedia Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables refer to decoded multimedia data:
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>File</TD>
+         <TD>(Used in the context of a multimedia action upon, for
+         example, uuencoded or base64 data in an article body) -
+         A filename which contains the decoded multimedia data.  This
+         used in various multimedia actions: see
+         <A HREF="../Tutorials/NR-Tut-MM.html">Multimedia Actions</A>
+          in the tutorial section.
+         </TD></TR>
+
+     <TR><TD>SelTxt</TD>
+         <TD>This variable is used in conjunction with mutlimedia actions
+         performed upon selected text in an article body (multimedia type
+         <B>application/X-Text</B>). (See the tutorial on <A
+         HREF="../Tutorials/NR-Tut-Web.html">web interfaces</A> for more
+         information).<P>
+
+         If there are multiple selected text regions, you may return them
+         individually using ${SelTxt <I>num</I>}, where 0 is the first
+         region, 1 is the second, and so on.  The special value ALL
+         returns all selected text regions.<P>
+
+         You may use the parameter QUOTE= to control quoting of phrases.
+         For example, %22 is a common way to quote phrases to web search
+         engines.  If the user selects the phrase "Space Shuttle" in an
+         article body, then ${SelTxt QUOTE=%22 ALL} will return
+         <I>%22Space&nbsp;Shuttle%22</I>.<P>
+
+         You may use the parameter SEP= to control the manner in which
+         multiple words or phrases are separated.  For example, if the
+         user multiselects the phrase "Space Shuttle" and the word "NASA",
+         then ${SelTxt SEP=+ QUOTE=%22 ALL} will return
+         <I>%22Space&nbsp;Shuttle%22+NASA</I>.<P>
+
+
+         If you are interfacing to
+         a web search engine that requires words in quoted phrases to be
+         separated by + signs as well, you might use this in your
+         multimedia action:<P>
+           <UL>
+           ${concat SEP=+ ${SelTxt QUOTE=%22 SEP=+ ALL}}</UL><P>
+
+         Used with "Space Shuttle" and "NASA" multiselected, this will
+         produce the string <I>%22Space+Shuttle%22+NASA</I>, which is a
+         common way to encode search queries for web based search
+         engines.<P>
+     </TD></TR>
+
+     <TR><TD>SelTxtCnt</TD>
+        <TD>Returns the number of multiselected text regions when used in
+        a multimedia action for the type <B>application/X-Text</B>.
+     </TD></TR>
+           
+
+</TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Filter"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables can be used in the context of the indicated
+filters (any applicable group or article variables may also be used):<P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Filter Type</TH><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD ROWSPAN=2>URL<br>(Display Filter)</TD><TD>File</TD>
+         <TD>When used in a multimedia action for a clickable URL, this
+         variable will be set to a filename which contains the article
+         text.  By default this is the full header and body of the
+         article, but the following suffixies can be used:<P>
+          <UL>
+            <LI><B>:Head</B> - The file will contain only the header
+            information.</LI>
+            <LI><B>:Body</B> - The file will contain only the body, but no
+            headers.</LI>
+            <LI><B>:HdBd</B> - The file will contain both the header and
+            the body of the article.  This is the default.</LI>
+            <LI><B>:Q</B> - The body of the article will be quoted.</LI>
+          </UL><P>
+
+         For example, referencing the variable <B>${File:Body:Q}</B> would
+         specify a file containing the quoted body of the article, with no
+         header.  This is useful for passing the indicated text to an
+         external program of some sort.
+         </TD></TR>
+
+    <TR><TD>URL</TD>
+        <TD>The URL variable contains the URL that was clicked on.
+         </TD></TR>
+
+    <TR><TD ROWSPAN=3>EMail<br>(Display Filter)</TD><TD>File</TD>
+         <TD>The File variable in the Email display filter operates in the
+         same manner as in the URL filter described above.
+         </TD></TR>
+
+    <TR><TD>email</TD>
+         <TD>The email variable in the Email display filter contains the
+         email address that was clicked on.
+         </TD></TR>
+
+    <TR><TD>MsgID</TD>
+         <TD>The MsgID variable in the Email display filter contains the
+         message-ID stirng that was clicked on.
+         </TD></TR>
+
+    <TR><TD ROWSPAN=6>MIME<br>(Display Filter)</TD><TD>File</TD>
+         <TD>When used in a multimedia action for a MIME data block, this
+         variable will be set to a filename which contains the decoded
+         data.  It maybe used to send to external commands.  The data file
+         will be deleted when the article display goes away, either from
+         another article being displayed or the group reader window being
+         closed.
+         </TD></TR>
+
+    <TR><TD>Lines</TD>
+         <TD>When used in the Deletion Marker field,
+         this variable expands to the number of lines in the data area
+         being deleted.
+         </TD></TR>
+
+    <TR><TD>MIMEDesc</TD>
+         <TD>When used in the Deletion Marker field,
+         this variable expands to the MIME Content-Description field
+         for data being deleted.
+         </TD></TR>
+
+    <TR><TD>MIMEType</TD>
+         <TD>When used in the Deletion Marker field,
+         this variable expands to the MIME Content-Type field for data
+         being deleted.
+         </TD></TR>
+
+    <TR><TD>Name</TD>
+         <TD>When used in the Deletion Marker field,
+         this variable expands to the filename given in the MIME
+         data block.
+         </TD></TR>
+
+    <TR><TD>Size</TD>
+         <TD>When used in the Deletion Marker field,
+         this variable expands to the number of bytes in the data area
+         being deleted.
+         </TD></TR>
+
+    <TR><TD ROWSPAN=4>Spoilers<br>(Display Filter)</TD><TD>MaxPage</TD>
+         <TD>This variable will expand to the maximum number of
+         formfeed (^L) separated pages in this article.<P>
+         </TD></TR>
+
+    <TR><TD>Lines</TD>
+         <TD>This variable will expand to the number of lines in the
+         spoiler protected page.
+         </TD></TR>
+
+    <TR><TD>Page</TD>
+         <TD>This variable will expand to the current ordinal number of
+         the spoiler protected page.
+         </TD></TR>
+
+    <TR><TD>Size</TD>
+         <TD>This variable will expand to the size of the spoiler
+         protected page in bytes.
+         </TD></TR>
+
+    <TR><TD>Substitute<br>(Display Filter)</TD><TD>Img</TD>
+         <TD>This variable may be imbedded in the substitution string and
+         is replaced with a graphic image as defined for each replacement
+         pattern.
+         </TD></TR>
+
+    <TR><TD ROWSPAN=4>UUDecode<br>(Display Filter)</TD><TD>File</TD>
+         <TD>When used in a multimedia action for a uuencoded data block, this
+         variable will be set to a filename which contains the decoded
+         data.  It maybe used to send to external commands.  The data file
+         will be deleted when the article display goes away, either from
+         another article being displayed or the group reader window being
+         closed.
+         </TD></TR>
+
+    <TR><TD>Lines</TD>
+         <TD>When used in the Deletion Marker field,
+         this variable expands to the number of lines in the uuencoded
+         data block.
+         </TD></TR>
+
+    <TR><TD>Name</TD>
+         <TD>When used in the Deletion Marker field,
+         this variable expands to the filename given in the uuencoded
+         data block.
+         </TD></TR>
+
+    <TR><TD>Size</TD>
+         <TD>When used in the Deletion Marker field,
+         this variable expands to the number of bytes in the uuencoded
+         data block, before decoding.
+         </TD></TR>
+
+    <TR><TD ROWSPAN=2>SaveTxt<br>(Action Filter)</TD><TD>File</TD>
+         <TD>The File variable references a file containing the raw, unprocessed
+         article text.  This can be passed to, for example, an external
+         decoder program.
+         </TD></TR>
+
+    <TR><TD>Num</TD>
+         <TD>If more than one article has been queued to be sent to an
+         action filter, this variable will be set to the ordinal position
+         of the article in the queue.  For example, if the filter is set
+         to save articles to the filename <I>RAM:Article_${Num}.Txt</I>,
+         then the saved files will be named <I>RAM:Article_0001.Txt</I>,
+         <I>RAM:Article_0002.Txt</I>, and so on.
+         </TD></TR>
+
+    <TR><TD>Decode<br>(Action Filter)</TD><TD>File</TD>
+         <TD>The File variable will expand to the filename as obtained
+         from the MIME or UUEncoded data segment, minus and MS-DOS
+         backslash-style path information.
+         </TD></TR>
+
+     </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Func"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Functions
+<FONT SIZE=+0> </TD>
+<TD>
+
+  <B>String maniulation functions:</B><P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Function Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>bytes</TD>
+         <TD>This function will format an integer into a Kb or Mb size.<P>
+
+         <UL>
+         ${bytes&nbsp;DIG=digits&nbsp;bytes}
+         </UL><P>
+
+         This will format <I>bytes</I> into a Kb or Mb value with
+         <i>digits</I> digits after the decimal point.  <I>Digits</I> must
+         be between 0 and 3 inclusive.  If ommited, <I>Digits</I> defaults
+         to 2.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${bytes&nbsp;5800}</TD><TD>5.66 Kb</TD><TR>
+           <TR><TD>${bytes&nbsp;DIG=0&nbsp;5800}</TD><TD>6 Kb</TD><TR>
+           <TR><TD>${bytes&nbsp;DIG=1&nbsp;5800000}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>5.7 Mb</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>concat</TD>
+         <TD>This function will concatenate its arguments, with a user
+         defined separator string between them.  The separator string
+         defaults to an empty string.<P>
+
+         <UL>
+         ${concat&nbsp;SEP=SepStr&nbsp;words...}
+         </UL><P>
+
+         Examples:
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${concat&nbsp;A&nbsp;B&nbsp;C}</TD><TD>ABC</TD><TR>
+           <TR><TD>${concat&nbsp;SEP=+&nbsp;A&nbsp;B&nbsp;C}</TD><TD>A+B+C</TD><TR>
+           <TR><TD>${concat&nbsp;SEP=+&nbsp;A&nbsp;"B&nbsp;C"}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>A+B&nbsp;C</TD><TR>
+         </TABLE></UL>
+
+         </TD></TR>
+         
+     <TR><TD>charcount</TD>
+         <TD>This function will count specified characters in a string (as
+         opposed to strlen, which returns the length of the string):<P>
+
+         <UL>
+         ${charcount&nbsp;CHARS=characters&nbsp;string}
+         </UL><P>
+
+         The number of characters in <I>string</I> which are contained in the set
+         <I>characters</I> is returned.  If ommited, <I>characters</I>
+         defaults to a single space.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${charcount&nbsp;abc&nbsp;def&nbsp;ghi}</TD><TD>2</TD><TR>
+           <TR><TD>${charcount&nbsp;CHARS="*-"&nbsp;A*B&nbsp;c--d}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>3</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>pad</TD>
+         <TD>This function will pad a string to a given length:
+
+         <UL>
+         ${pad&nbsp;CHAR=padchar&nbsp;LEN=length&nbsp;string}
+         </UL><P>
+
+         This will return the original string if it is equal or more than
+         <I>length</I> characters long.  Otherwise, a new string of
+         <I>length</I> characters is returned by prefixing <I>string</I>
+         with a sufficient number of <I>padchar</I> characters.  If
+         ommited, <I>padchar</I> defaults to a space, and <I>length</I>
+         defaults to 4.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${pad&nbsp;CHAR=0&nbsp;23}</TD><TD>0023</TD><TR>
+           <TR><TD>${pad&nbsp;CHAR=.&nbsp;LEN=5 ab}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>...ab</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>remchars</TD>
+         <TD>This function will remove a specified set of characters from
+         a string, or remove repeated instances of characters:<P>
+
+         <UL>
+         ${remchars&nbsp;CHARS=characters&nbsp;MAX=max&nbsp;string}
+         </UL><P>
+
+         A new string is returned in which no more than <I>max</I>
+         repetitions of any character in the set <I>characters</I> is
+         returned.  If ommited, <I>characters</I> defaults to a single
+         space, and <I>max</I> defaults to 0.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${remchars&nbsp;abc&nbsp;def&nbsp;ghi}</TD><TD>abcdefghi</TD><TR>
+           <TR><TD>${remchars&nbsp;CHARS=".,"&nbsp;abc&nbsp;def,&nbsp;ghi.}</TD><TD>abc&nbsp;def&nbsp;ghi</TD><TR>
+           <TR><TD>${remchars&nbsp;CHARS=.&nbsp;MAX=1&nbsp;abc...def...ghi}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>abc.def.ghi</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>repeat</TD>
+         <TD>This function builds a repeating string:<P>
+
+         <UL>
+         ${repeat&nbsp;COUNT=repeatcount&nbsp;string}
+         </UL><P>
+
+         This will return <I>repeatcount</I> instances of <I>string</I>.
+         If ommited, <I>repeatcount<i> defaults to 2.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${repeat&nbsp;COUNT=3&nbsp;Z}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>ZZZ</TD><TR>
+           <TR><TD>${repeat&nbsp;Abc}</TD><TD>AbcAbc</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>replace</TD>
+         <TD>This function replaces a given substring in a string with
+         another substring.:<P>
+
+         <UL>
+         ${replace&nbsp;OLD=old-substr&nbsp;NEW=new-substr&nbsp;ALL=bool&nbsp;string}
+         </UL><P>
+
+         This returns a new string made by taking <I>string</i> and
+         replacing instances of <I>old-substr</I> with <I>new-substr</I>.
+         If ommitted, <I>old-substr</I> defaults to <B>%s</B>.  If
+         <I>bool</I> is a non-zero integer, all matches for
+         <I>old-substr</I> are replaced.  Otherwise, only the first match
+         is replaced.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${replace&nbsp;NEW=XYZ&nbsp;Hi&nbsp;%s&nbsp;there&nbsp;%s}</TD><TD>Hi&nbsp;XYZ&nbsp;there&nbsp;XYZ</TD><TR>
+           <TR><TD>${replace&nbsp;NEW=XYZ&nbsp;ALL=0&nbsp;Hi&nbsp;%s&nbsp;there&nbsp;%s}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>Hi&nbsp;XYZ&nbsp;there&nbsp;%s</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>strlen</TD>
+         <TD>This function returns the length of a given string in bytes:<P>
+
+         <UL>
+         ${strlen&nbsp;string}
+         </UL><P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${strlen&nbsp;abcdefghijkl}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>12</TD><TR>
+           <TR><TD>${strlen&nbsp;"a&nbsp;b&nbsp;c"}</TD><TD>5</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>substr</TD>
+         <TD>This function will return a substring from a given string:<P>
+
+         <UL>
+         ${substr&nbsp;LEFT=startpos&nbsp;LEN=length&nbsp;string}
+         </UL><P>
+
+         This will return <I>length</I> characters from <I>string</I>
+         starting at character <I>startpos</I>.  The first character of
+         the string is 0.  If ommitted, <I>startpos</I> defaults to 0
+         and <I>length</I> defaults to 256.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${substr&nbsp;LEFT=2&nbsp;abcdef}</TD><TD>cdef</TD><TR>
+           <TR><TD>${substr&nbsp;LEFT=2&nbsp;LEN=3&nbsp;abcdef}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>cde</TD><TR>
+           <TR><TD>${substr&nbsp;LEN=3&nbsp;abcdef}</TD><TD>abc</TD><TR>
+           <TR><TD>${substr&nbsp;LEN=5&nbsp;"ab&nbsp;cdef"}</TD><TD>ab cd</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>tolower</TD>
+         <TD>This function converts a string to lower case:<P>
+
+         <UL>
+         ${tolower&nbsp;string}
+         </UL><P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${tolower&nbsp;Hi&nbsp;There}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>hi&nbsp;there</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>toupper</TD>
+         <TD>This function converts a string to upper case:<P>
+
+         <UL>
+         ${toupper&nbsp;string}
+         </UL><P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${toupper&nbsp;Hi&nbsp;There}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>HI&nbsp;THERE</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>word</TD>
+         <TD>This function will return the Nth word in a sequence:<P>
+
+         <UL>
+         ${word&nbsp;POS=wordnum&nbsp;words}
+         </UL><P>
+
+         This will return the <I>wordnum</I>-th word from <I>words</I>.
+         The initial word is number zero.  If ommitted, <I>wordnum</I>
+         defaults to 0.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${word&nbsp;POS=1&nbsp;abc&nbsp;def&nbsp;ghi}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>def</TD><TR>
+           <TR><TD>${word&nbsp;"Z&nbsp;abc"&nbsp;def&nbsp;ghi}</TD><TD>Z&nbsp;abc</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>wordcount</TD>
+         <TD>This function will count the words in a sequence:<P>
+
+         <UL>
+         ${wordcount&nbsp;words}
+         </UL><P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${wordcount&nbsp;abc&nbsp;def&nbsp;ghi}</TD><TD>3</TD><TR>
+           <TR><TD>${wordcount&nbsp;abc&nbsp;"def&nbsp;ghi"}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>2</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+   </TABLE><BR><P>
+
+   <B>Math functions:</B><P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Function Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>+</TD>
+         <TD>Adds arguments, returns result.
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${+&nbsp;1&nbsp;2&nbsp;3}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>6</TD><TR>
+         </TABLE></UL>
+         </TD></TR>
+
+     <TR><TD>-</TD>
+         <TD>Subtracts arguments, returns result.  With a single
+             argument, returns unitary negation of value.<P>
+         
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${-&nbsp;10&nbsp;3}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>7</TD><TR>
+           <TR><TD>${-&nbsp;10&nbsp;3&nbsp;1}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>6</TD><TR>
+           <TR><TD>${-&nbsp;4}</TD><TD>-4</TD><TR>
+         </TABLE></UL>
+         </TD></TR>
+         
+     <TR><TD>*</TD>
+         <TD>Multiplies arguments, returns result.<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${*&nbsp;2&nbsp;3&nbsp;4}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>24</TD><TR>
+         </TABLE></UL>
+         </TD></TR>
+         
+     <TR><TD>/</TD>
+         <TD>Divides arguments, returns result.<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${/&nbsp;100&nbsp;5}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>20</TD><TR>
+           <TR><TD>${/&nbsp;100&nbsp;10&nbsp;2}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>5</TD><TR>
+         </TABLE></UL>
+         </TD></TR>
+         
+     <TR><TD>%</TD>
+         <TD>Returns remainder of first argument divided by second argument:<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${%&nbsp;11&nbsp;3}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>2</TD><TR>
+         </TABLE></UL>
+         </TD></TR>
+
+     <TR><TD>min</TD>
+         <TD>Returns minimum value.<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${min&nbsp;10&nbsp;2&nbsp;5}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>2</TD><TR>
+         </TABLE></UL>
+         </TD></TR>
+         
+     <TR><TD>max</TD>
+         <TD>Returns maximum value.<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${max&nbsp;10&nbsp;2&nbsp;5}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>10</TD><TR>
+         </TABLE></UL>
+         </TD></TR>
+         
+   </TABLE><BR><P>
+         
+   <B>Comparision and logic functions:</B><P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Function Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>&gt;,&lt;,&gt;=,&lt;=,=,!=</TD>
+         <TD>Numeric or string comparisons.<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${=&nbsp;5&nbsp;1}</TD><TD>0</TD><TR>
+           <TR><TD>${=&nbsp;5&nbsp;5}</TD><TD>1</TD><TR>
+           <TR><TD>${!=&nbsp;5&nbsp;1}</TD><TD>1</TD><TR>
+           <TR><TD>${!=&nbsp;5&nbsp;5}</TD><TD>0</TD><TR>
+           <TR><TD>${&lt;=&nbsp;5&nbsp;8}</TD><TD>1</TD><TR>
+           <TR><TD>${&gt;=&nbsp;5&nbsp;8}</TD><TD>0</TD><TR>
+           <TR><TD>${=&nbsp;abc&nbsp;abc}</TD><TD>1</TD><TR>
+           <TR><TD>${=&nbsp;abc&nbsp;abcd}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>0</TD><TR>
+           </TABLE></UL>
+         </TD></TR>
+         
+     <TR><TD>and</TD>
+         <TD>Returns logical and of multiple 0 or 1 values.<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${and&nbsp;1&nbsp;0&nbsp;1}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>0</TD><TR>
+           <TR><TD>${and&nbsp;1&nbsp;1&nbsp;1}</TD><TD>1</TD><TR>
+           <TR><TD>${and&nbsp;1}</TD><TD>1</TD><TR>
+           <TR><TD>${and&nbsp;0}</TD><TD>0</TD><TR>
+           </TABLE></UL>
+         </TD></TR>
+         
+     <TR><TD>bound</TD>
+         <TD>Test whether a given variable name is bound in the current context:<P>
+
+         <UL>
+         ${bound&nbsp;varname}
+         </UL><P>
+
+         This function returns 1 if <I>varname</I> exists as a variable in
+         the current context, and 0 otherwise.  Note that the variable
+         name should <B>not</B> be surrounded with ${ and } symbols.
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${bound&nbsp;DayNum}</TD><TD>1</TD><TR>
+           <TR><TD>${bound&nbsp;NoSuchVar}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>0</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>cond</TD>
+         <TD>Evaluate multiple conditions:<P>
+
+         <UL>
+         ${cond&nbsp;cond1&nbsp;result1&nbsp;cond2&nbsp;result2&nbsp;...}
+         </UL><P>
+
+         This each condition from <I>cond1</I>, <I>cond2</I>... is
+         evaluated in turn, until one condition returns a non-0 value,
+         whereupon the associated <I>result</I> is returned.  To force a
+         default value, include a 1 as the last condition.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${cond&nbsp;0&nbsp;a&nbsp;0&nbsp;b&nbsp;1&nbsp;c}</TD><TD>c</TD><TR>
+           <TR><TD>${cond&nbsp;${&lt;&nbsp;3&nbsp;1}&nbsp;a&nbsp;1&nbsp;b}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>b</TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>default</TD>
+         <TD>Returns the value of a variable, if it is bound, or a default
+         value otherwise:<P>
+
+         <UL>
+         ${default&nbsp;VAR=varname&nbsp;default-value}
+         </UL><P>
+
+         This function returns the value of the variable <I>varname</I> if
+         that exists as a variable in the current context, and the string
+         <I>default-value</I> otherwise.  Note that the variable
+         name should <B>not</B> be surrounded with ${ and } symbols.
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${default&nbsp;VAR=Month&nbsp;ZZZ}</TD><TD>July</TD><TR>
+           <TR><TD>${default&nbsp;VAR=NoSuchVar&nbsp;ZZZ}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>ZZZ</TD><TR>
+         </TABLE></UL>
+         
+
+     <TR><TD>if</TD>
+         <TD>This function will one of two arguments based on a condition:<P>
+
+         <UL>
+         ${if&nbsp;condition&nbsp;trueresult&nbsp;falseresult}
+         </UL><P>
+
+         This will return the <I>falseresult</I> if <I>condition</I> is 0,
+         and <I>trueresult</I> otherwise.  <I>falseresult</I> may be
+         ommitted.  Note that this can be rewritten as
+         ${cond&nbsp;condition&nbsp;trueresult&nbsp;1&nbsp;falseresult}.<P>
+
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${if&nbsp;${&gt&nbsp;3&nbsp;0}&nbsp;"hi&nbsp;there"&nbsp;def}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>hi&nbsp;there</TD><TR>
+           <TR><TD>${if&nbsp;${&gt&nbsp;3&nbsp;8}&nbsp;abc&nbsp;def}</TD><TD>def</TD><TR>
+           <TR><TD>${if&nbsp;1&nbsp;a}</TD><TD>a</TD><TR>
+           <TR><TD>${if&nbsp;0&nbsp;a}</TD><TD></TD><TR>
+         </TABLE></UL>
+         
+         </TD></TR>
+
+     <TR><TD>not</TD>
+         <TD>Returns logical not of a single boolean value:<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${not&nbsp;0}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>1</TD><TR>
+           <TR><TD>${not&nbsp;1}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>0</TD><TR>
+           </TABLE></UL>
+         </TD></TR>
+         
+     <TR><TD>or</TD>
+         <TD>Returns logical or of multiple 0 or 1 values.<P>
+         <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+           <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+           <TR><TD>${or&nbsp;0&nbsp;0&nbsp;1}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>1</TD><TR>
+           <TR><TD>${or&nbsp;0&nbsp;0&nbsp;0}</TD><TD>0</TD><TR>
+           <TR><TD>${or&nbsp;1}</TD><TD>1</TD><TR>
+           <TR><TD>${or&nbsp;0}</TD><TD>0</TD><TR>
+           </TABLE></UL>
+         </TD></TR>
+         
+
+   </TABLE><BR><P>
+         
+   <B>Execution and system functions:</B><P>
+
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Function Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>exec</TD>
+         <TD>This function can be used to execute external commands and
+         return the result:<P>
+
+         <UL>
+         ${exec&nbsp;CMD="command"&nbsp;ARGS="args"&nbsp;PRI=pri&nbsp;STACK=stack}
+         </UL><P>
+
+         This will execute <I>command</I> with paramters <I>args</I> using
+         a task priority of <I>pri</I> and a stack size of <I>stack</I>.
+         Only the <B>CMD</B> optionis required; all others are optional.
+         Parameters which contain spaces or other special characters must
+         be quoted.  Either single or double quotes may be used.<P>
+
+         The standard output of the given command is read using an AmigaOS
+         pipe, and the result up to the first new line or the first 80
+         characters, whichever comes first, is returned as the value of
+         the variable.<P>
+
+         Take care that the given command actually produces output, and
+         produces a finite amount of said output.  NewsRog will pause
+         during the execution of the command.<P>
+
+         Example: given the appropriate command, this will return current
+         phase of the moon in a NewsRog variable:<P>
+
+         <UL>
+         ${exec&nbsp;CMD="PhaseOfMoon"&nbsp;ARGS="-today"}
+         </UL>
+         
+         </TD></TR>
+
+     <TR><TD>getenv</TD>
+         <TD>This function returns the value of an environment variable,
+         or a supplied default value if none was found:<P>
+
+         <UL>
+         ${getenv&nbsp;DEF="default-value"&nbsp;varname}
+         </UL><P>
+
+         This will return the value of the <I>varname</I> environment
+         variable, if found, or the string <I>default-value</I>
+         otherwise.  Example:<P>
+
+         <UL>
+         ${getenv&nbsp;NewsRog/NR-Dir}
+         </UL>
+         
+         </TD></TR>
+
+     </TABLE><BR><P>
+
+  <B>Definining Functions:</B><P>
+
+  Simple functions may be defined by declaring a variable which combines
+  other, built in functions and optionally uses the variables <B>${0}</B>, <B>${1}</B>,
+  etc to reference the arguments to the function.  <B>${*)</B> expands to
+  the entire argument list, and <B>${#}</B> expands to the number of
+  arguments to the function.  To call a function use
+  ${func&nbsp;<I>function_name</I>&nbsp;arguments...}.<P>
+
+  For example, to create a function named itemcount which, when given
+  numbers 1, 2, or 3, returns the strings "one", "two", or "three",
+  and the actual number otherwise, make a variable called <I>itemcount</I>
+  with the following definition:<P>
+
+    <UL>
+      ${cond ${= ${0} 1} one ${= ${0} 2} two ${= ${0} 3} three 1 ${0}}
+    </UL><P>
+
+  You may then call this function using the ${func} command:<P>
+
+   <UL><TABLE NOFLOW CELLSPACING=1 CELLPADDING=0>
+     <TR><TH ALIGN=Left>Example</TH><TH ALIGN=Left>Result</TH></TR>
+     <TR><TD>${func&nbsp;itemcount&nbsp;3}&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>three</TD><TR>
+     <TR><TD>${func&nbsp;itemcount&nbsp;1}</TD><TD>one</TD><TR>
+     <TR><TD>${func&nbsp;itemcount&nbsp;17}</TD><TD>17</TD><TR>
+     </TABLE></UL><P>
+
+  Functions may call other functions.<P>
+         
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

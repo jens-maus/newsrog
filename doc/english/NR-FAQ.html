@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog: FAQ</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR>
+
+<TH VALIGN=Top>
+    <A HREF="NR-Main.html">
+       <IMG SRC="Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+            ALT="Move Up">
+    </A>
+    <A HREF="NR-Main.html">
+       <IMG SRC="Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+            ALT="Move to Top">
+    </A>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Frequently Asked Questions <FONT SIZE=+0>
+</TH> </TR>
+
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+1>
+Where does the name <I>NewsRog</I> come from?
+<FONT SIZE=+0> </TD>
+<TD>
+
+It comes from <I>News</I>, as it netnews, and <I>Rog</I>.
+
+</TD> </TR>
+
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+1>
+Ok, what does <I>Rog</I> mean then?
+<FONT SIZE=+0> </TD>
+<TD>
+
+No one knows.  If you have an idea, let us know!
+
+</TD> </TR>
+
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+1>
+Why do articles sometimes not appear immediately when reading?
+<FONT SIZE=+0> </TD>
+<TD>
+
+This is almost always because the news server has taken a while to respond
+to the request for data.  The article prefetch feature of NewsRog can
+often minimize news server delays, but particulary busy servers sometimes
+can be very slow.  A good way to check out what's going on is to look at
+the network status window.
+
+</TD> </TR>
+
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+1>
+Why do some articles appear with broken icons when I try to read them?
+<FONT SIZE=+0> </TD>
+<TD>
+
+This means that the article is no longer available on the news server.  It
+may have expired, or it may have been killed.  You can remove older
+articles when reading a group by using the <I>Expire</I> menu option in
+the group window, which typically removes most unavailable articles.
+
+</TD> </TR>
+
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+1>
+Why do I sometime get the message <I>Cleaning Cache...</I> when I start
+reading a group?
+<FONT SIZE=+0> </TD>
+<TD>
+
+This means that the group was not properly shut down last time.  NewsRog
+saves some cache information when the group window is closed, and if the
+computer is rebooted without shutting NewsRog down, this information is
+lost and must be rebuild.  But for most groups, it only takes a few
+moments.
+
+</TD> </TR>
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+1>
+Why does the abort button sometimes not work?
+<FONT SIZE=+0> </TD>
+<TD>
+
+There can be a few causes of this.  NewsRog might be busy with some
+internal computation, although this is rare especially on fast machines.
+Also, there are several networking operations that are non interuptable
+and must time out if an error occurs.  This is rare too; almost all
+network IO in newsrog is abortable.
+
+</TD> </TR>
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+1>
+Why are the toolbar icons in greyscale instead of color?
+<FONT SIZE=+0> </TD>
+<TD>
+
+If run on a screen with only a few colors, NewsRog displays 8 color
+greyscale icons instead of the color or truecolor icons used on 16 and 24
+bit screens.  Running the program on a 16 or 24 bit screen will display
+the truecolor icons.<P>
+
+In any case, the icons live in PROGDIR:Images and may be replaced with any
+file in any graphics format for which the system has a datatype, so color
+or other icons can be used even on register screens.
+
+</TD> </TR>
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+1>
+Why is the article time  displayed in the article list not the same as the
+time in the article headers?
+<FONT SIZE=+0> </TD>
+<TD>
+
+NewsRog normalizes these dates to your local timezone, while the time
+given in the article headers is most often in the local time zone of the
+posting system.  NewsRog normalizes the dates so that it can correctly
+sort articles by posted date even across different timezones.<P>
+
+If your timezone is not set properly, then this feature will display
+incorrect values. 
+
+</TD> </TR>
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+1>
+How can I search through the text in the body of articles?
+<FONT SIZE=+0> </TD>
+<TD>
+
+Use the <B>Cached Bodies</B> option in the
+<A HREF="Tutorials/NR-Tut-Group.html#SrchBody">article list</A> search in the
+<A HREF="Tutorials/NR-Tut-Group.html">Group</A> window.
+
+</TD> </TR>
+
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,91 @@
+e
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+ODIR       = Obj
+MFILES     = Makefile SCOPTIONS /SCOPTIONS ///SCOPTIONS_OPT
+default: all
+
+
+# ============================================================================
+# -- This data is customizable per-class -------------------------------------
+# ============================================================================
+
+LIBNAME    = Root
+LIBVER     = 2
+LIBREV     = 0
+CCOPTS     = IGN=315
+
+SRCFILES   = C-Root.c
+
+CFILES     = $(SRCFILES)
+
+HFILES     = /Include/Libraries/C-Root.h      \
+	     //Include/S-Dispatcher.h         \
+             //Include/S-Classes.h            \
+	     //Include/S-AttrMaps.h           \
+	     C-Root-Assign.h                  \
+	     C-Root-CheckErr.h                \
+	     C-Root-ClearObjE.h               \
+	     C-Root-Clone.h                   \
+	     C-Root-Compare.h                 \
+	     C-Root-Exchange.h                \
+	     C-Root-I.h                       \
+	     C-Root-Insert.h                  \
+	     C-Root-LendAttr.h                \
+	     C-Root-ListDoMethod.h            \
+	     C-Root-Load.h                    \
+	     C-Root-MethodForward.h           \
+	     C-Root-Mthd.h                    \
+	     C-Root-NthChild.h                \
+	     C-Root-PutIcon.h                 \
+	     C-Root-CopyFile.h                \
+	     C-Root-Read.h                    \
+	     C-Root-ReadInt.h                 \
+	     C-Root-RequestFN.h               \
+	     C-Root-Reset.h                   \
+	     C-Root-Save.h                    \
+	     C-Root-SaveLoad.h                \
+	     C-Root-Sem.h                     \
+	     C-Root-SendMsg.h                 \
+	     C-Root-SetObjE.h                 \
+	     C-Root-SetOnce.h                 \
+	     C-Root-Setup.h                   \
+	     C-Root-Syscmd.h                  \
+	     C-Root-Write.h
+
+OFILES     = $(ODIR)/L-Root.o  \
+	     $(ODIR)/C-Root.o
+
+TESTSRC    = test.c
+TESTEXE    = test
+
+$(ODIR)/C-Root.o:    C-Root.c  $(HFILES) $(MFILES)
+$(ODIR)/L-Root.o:    L-Root.c  $(HFILES) $(MFILES)
+
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+PDIR       = /Include/Proto
+LIBSDIR    = /MUI
+
+PFILES     = $(PDIR)/$(LIBNAME)_protos.h
+LIBSFSPEC  = $(LIBSDIR)/S5697_$(LIBNAME).mcc
+LNKFSPEC   = $(LIBSDIR)/S5697_$(LIBNAME).lnk
+
+DEFINES    = DEFINE=SW_LIBS
+LINKERLIBS = lib:amiga.lib lib:sc.lib
+
+
+# ----------------------------------------------------------------------
+# This calls things from smake.def
+# ----------------------------------------------------------------------
+
+all:          $(LIBSFSPEC)
+$(LIBSFSPEC): $(OFILES)
+
+protos:                      $(PDIR)/$(LIBNAME)_protos.h
+$(PDIR)/$(LIBNAME)_protos.h: $(SRCFILES)

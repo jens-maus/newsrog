@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Display Filters: Rewrap</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Display Filters: Rewrap <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-MIME.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-ROT13.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=2 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">          Filter Overview</A></TD>
+    <TD><A HREF="#UI">            User Interface & Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Example">       Example</A></TD>
+    <TD><A HREF="#Vars">          Variables</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This display filter rewraps text to a given percentage of the display
+width.  It can also auto-detect tabular data and display it with no line
+wrapping in a fixed point font.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+There are several configuration tabs for this filter.  The first controls
+the action when rewrapping normal text:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Rewrap-UI.GIF" WIDTH=378 HEIGHT=265 BORDER=0>
+</CENTER><P>
+
+The available configuration options are:<P>
+
+<UL>
+  <LI><B>Quote Chars</B> - Characters in this set separate quotation
+  levels.  The wrap filter will attempt to preserve quotes when rewrapping
+  text.  For more information, see the
+  <A HREF="NR-Ref-HLQuotes.html#UI">Highlight Quotes</A> display filter.
+  <P></LI>
+
+  <LI><B>Prefix Len</B> - The maximum number of characters in a single
+  quote prefix.  For more information, see the
+  <A HREF="NR-Ref-HLQuotes.html#UI">Highlight Quotes</A> display filter.
+  <P></LI>
+       
+  <LI><B>Wrap Width %</B> - The text is wrapped to approximately this
+  percentage of the article view display width.
+  <P></LI>
+
+  <LI><B>Break Chars</B> - Characters where word wrapping may break the
+  line.  This defaults to a single space character.
+  <P></LI>
+
+  <LI><B>Min Wrap Len</B> - The minimum line length that is a candidate
+  for rewrap.  Lines shorter than this will cause a line break.
+  <P></LI>
+
+  <LI><B>Badwrap Fix</B> - If set, an attempt is made to detect and fix
+       bad wrapping by other software.  For example, some text is posted
+       like this:<P>
+       <UL>
+         &gt; &gt; This is a line of quoted text, but<BR>
+         this<BR>
+         &gt; &gt; word is not wrapped correctly, and<BR>
+         neither<BR>
+         &gt; &gt; is this one.<BR>
+       </UL><P>
+      Setting this option will try to find and fix these cases.  This
+      feature is not perfect, but more often than not it will fix this
+      problem without you ever noticing that the original article was
+      badly formatted.
+  <P></LI>
+
+  <LI><B>Prefix Heuristics</B> -
+      If enabled, the filter will use some heuristics to attempt to
+      determine when a line prefix is intentional, and when it is
+      accidental.  For example, the prefix <B>so:</B> might occur as part
+      of english text, and not be intended as a quote prefix.  Or it might
+      occur as part of text quoting someone named Sam Ospry.  This
+      heuristic attempts to make the correct determination.
+  <P></LI>
+
+  <LI><B>NoFlow Pattern</B> - This pattern can be set to match lines which
+  should not be wrapped.  For example, patterns to match various types of
+  item lists are useful here.
+  <P></LI>
+       
+  <LI><B>Wrap Column</B> - When used to modify text, such as when
+  generating replies to articles, saving, or printing article text, this
+  filter will wrap to this many characters instead of to a given
+  percentage of the display width.
+  <P></LI>
+       
+</UL><P>
+
+<B>Tables</B></P>
+
+The other configuration area controls the behavior of the filter when used
+to detect tables.  Although tabular data is not explicitly marked in
+usenet posts, this filter has the ability to automatically detect such
+tables and display them in a fixed point font with no line wrapping
+performed.  This way, you can use an easy-to-read proportional font for
+normal article text, while still viewing tables such as Aminet charts or
+columns of race results in a readable manner.  The table area of the UI
+looks like this:<P>
+
+The available configuration options are:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Rewrap-UI1.GIF" WIDTH=378 HEIGHT=265 BORDER=0>
+</CENTER><P>
+
+<UL>
+  <LI><B>Table Heuristics</B> - Turning this off will turn off the table
+  detection feature entirely.  By default, it is turned off, so you must
+  manually enable it if you wish to use this feature.  There is some
+  performance penalty when using the table detection feature on normal
+  text, but it is unnoticeable for normal sized articles on reasonably
+  fast systems.<P></LI>
+
+  <LI><B>Min Table Rows</B> - A table must contain at least this many rows
+  to be detected as such.  This is to prevent false triggering on
+  non-tabular data.<P></LI>
+
+  <LI><B>Min Table Columns</B> - A table must contain at least this many
+  columns to be detected as such.  This is to prevent false triggering on
+  non-tabular data.<P></LI>
+
+  <LI><B>Min Table Probability</B> - The table heuristic generates a
+  probability for each line of text indicicating how likely NewsRog
+  thinks this line of text is to be part of a table.  This setting
+  controls the minimum necessary probability for a table to be displayed
+  as such.  Settings of about 50 work well.  Some poorly formatted tables
+  may require a lower value to be detected, but the risk of detecting
+  non-tabular data as a table increases when this number is
+  decreased.<P></LI>
+
+  <LI><B>Max Intro Lines</B> - A table is only detected when there is an
+  empty line shortly before it.  This setting controls the maximum number
+  of non-tabular lines that may immediately precede a table.<P></LI>
+
+  <LI><B>Table Font</B> - The table will be displayed with no line
+  wrapping in this font.  Generally this should be set to a fixed width
+  (non-proportional) font so that the columns line up properly, although
+  this is not strictly required.<P></LI>
+
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Example"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Example
+<FONT SIZE=+0> </TD>
+<TD>
+
+Here is some original, unwrapped text:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Rewrap-Ex1.GIF" WIDTH=500 HEIGHT=150 BORDER=0>
+</CENTER><P>
+
+And the same text with the rewrap filter turned on:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Rewrap-Ex2.GIF" WIDTH=500 HEIGHT=126 BORDER=0>
+</CENTER><P>
+
+<B>Tables</B></P>
+
+Here is a table without using the table feature, displayed in a
+proportional font (and with line wrapping turned off, so that you can see
+that it is a table - normally the rewrap filter would rewrap the table's
+lines, destroying the columns): <P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Rewrap-Ex3.GIF" WIDTH=321 HEIGHT=153 BORDER=0>
+</CENTER><P>
+
+Here is the same table displayed in courier/11 fixed point font using the
+table feature:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Ref-Rewrap-Ex4.GIF" WIDTH=344 HEIGHT=143 BORDER=0>
+</CENTER><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Vars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+There are no variables supported by this filter.
+
+</BODY>
+</HTML>

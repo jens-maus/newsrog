@@ -1,0 +1,658 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 11: Program Configuration Options</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 11: Program Configuration Options <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-MM.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-SelFlt.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=6 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">      Configuration Overview</A></TD>
+    <TD><A HREF="#ProjOpts">  Project Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#UserOpts">  User Options</A></TD>
+    <TD><A HREF="#NewsOpts">  News Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#MiscOpts">  Misc Options</A></TD>
+    <TD><A HREF="#WinOpts">   Window Options</A></TD>
+    </TR><TR>
+    <TD><A HREF="#PostOpts">  Post Options</A></TD>
+    <TD><A HREF="#ListCol">   Default Columns</A></TD>
+    </TR><TR>
+    <TD><A HREF="#FltOpts">   Filter Options</A></TD>
+    <TD><A HREF="#VarEdit">   Variable Editor</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Headers">   Custom Headers</A></TD>
+    <TD><A HREF="#Summary">   Summary</A></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Config Overview<P>
+<CENTER>
+<IMG SRC="../Graphics/Toolbar-B6.jpg" WIDTH=91 HEIGHT=81 BORDER=0>
+</CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+NewsRog has a large number of configuration options.  Some of the
+configuration options are settable on a per-group basis, but others are
+global in scope or can be set for all groups matching a particular
+pattern.  The main configuration editor edits config options which are not
+group specific.  The click tabs across the top of the configuration window
+can be used to edit different configuration areas.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ProjOpts"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Project Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-Proj.GIF" WIDTH=443 HEIGHT=321 BORDER=0>
+</CENTER><P>
+
+The project options settings are:<P>
+
+<UL>
+  <LI><B>Popkey</B> - A commodities key specification for a key to display
+       NewsRog if it is in an iconified state.<P></LI>
+
+  <LI><B>Save Project Icons</B> - If set, workbench icons will be saved
+      with project files.  Otherwise, no icons are created .<P></LI>
+
+  <LI><B>Clobber</B> - If set, projects saved over the top of a different
+  file will not ask whether this is OK.  The old files will be silently
+  overwritten.<P></LI>
+
+  <LI><B>Exit Mode</B> - May be set to <I>Save</I>, which always saves the
+   project file upon program exit, or <I>Ask</I>, which inquires, or
+   <I>Don't Save</I>, which never never saves.  With the last option, the
+   <B>Project/Save</B> menu item may still be used to save project files.
+   There is a great deal of state information kept with project files and
+   it is usually best to select <I>Save</I> here.<P></LI>
+
+  <LI><B>Backup Suffix</B> - When project files are re-saved, the old file
+  will be moved to it's name plus this suffix, if it is non-empty.<P></LI>
+
+  <LI><B>AutoSave Project</B> - This may be set to <I>Never</I>, in which
+  case project files are never autosaved, or to <I>After Closing
+  Groups</I>, in which case the NewsRog project will be saved
+  automatically ever time a group window is closed.<P></LI>
+
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UserOpts"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-User.GIF" WIDTH=475 HEIGHT=203 BORDER=0>
+</CENTER><P>
+
+The user options settings are:<P>
+
+<UL>
+  <LI><B>Real Name</B> - Your user name.<P></LI>
+
+  <LI><B>User Email</B> - Your email address in the form user@host.  This
+  should not include your user name.<P></LI>
+
+  <LI><B>Organization</B> - The organization from which you are posting.
+  This will be displayed with your posts when other usenet users view
+  them.<P></LI>
+
+  <LI><B>Reply Line</B> - This line of text is included when composing
+  replies to other people's posts, and may include NewsRog <A
+  HREF="../Reference/NR-Ref-Vars.html">variables</A>.<P></LI>
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="NewsOpts"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Program News Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-News.GIF" WIDTH=437 HEIGHT=321 BORDER=0>
+</CENTER><P>
+
+The news options settings are:<P>
+
+<UL>
+  <LI><B>Cache Dir</B> - The directory used for storing program cache
+  files.  Multiple projects may share a cache directory as long as only
+  one is opened at a time.  Multiple projects may also use different cache
+  directories.  Usually you will not need to change the default value.<P></LI>
+
+  <LI><B>Header Memory Cache</B> - The amount of memory allocated to
+  caching article headers.  This is a lower bound; at a minimum, headers
+  for all open groups will be cached even if they exceed this size.  It is
+  best to keep this value as large as practical for your machine.<P></LI>
+
+  <LI><B>Header D/L Method</B> - The method used to fetch article headers
+  from your server.  Different methods work best on different servers, so
+  some experimentation may be necessary.<P></LI>
+
+  <LI><B>Header D/L Increment</B> - The article list in group windows will
+  be updated every time this many headers have been fetched from the
+  server.  Lower numbers involved much more local overhead for keeping the
+  list sorted and threaded, but will let you start reading news sooner
+  while other headers are still loading.  Higher numbers will be more
+  efficient but it will take longer before you can start reading articles.
+  The proper value depends on the speed of your network and your news
+  server, so experiment.<P></LI>
+
+  <LI><B>Max Simultaneous Commands</B> - This chiefly affects batch
+  article downloading.  Larger values are more efficient, but some servers
+  act improperly when this value is set too large.<P></LI>
+
+  <LI><B>Enter Thread Action</B> - You may have NewsRog automatically
+  fetch and display the first available, or first unread, article when
+  you enter a thread in the <A HREF="NR-Tut-Group.html">Group
+  Window.</A><P></LI>
+       
+  <LI><B>Header Fetch Policy</B> - This controls the behavior of NewsRog
+  when there are more headers available in a group than the Max Articles
+  count for a particular group.  You may fetch only the most recent
+  MaxArticles number of headers, or fetch all headers, or prompt for what
+  to do:<P>
+    <CENTER>
+      <IMG SRC="../Graphics/Window-Cfg-FetchPr.GIF" WIDTH=290 HEIGHT=141 BORDER=0>
+    </CENTER><P>
+
+  Prompting only happens for interactive fetches; batch download
+  operations will not prompt.  If you chose to always download all
+  headers, the Max Articles setting is ignored.<P></LI>
+       
+  <LI><B>FAQ Directory</B> - When using the <A
+  HREF="NR-Tut-FAQMgr.html">FAQ Manager</A>, this is the directory from
+  which group FAQs are obtained.<P></LI>
+       
+  <LI><B>FAQ Server</B> - This is the FTP server used to fetch group FAQs
+  using the <A HREF="NR-Tut-FAQMgr.html">FAQ Manager</A>.<P></LI>
+       
+
+</UL><P>
+       
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="MiscOpts"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Program Misc Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-Misc.GIF" WIDTH=443 HEIGHT=321 BORDER=0>
+</CENTER><P>
+
+The misc options settings are:<P>
+
+<UL>
+  <LI><B>Signature File</B> - A short file appended to posts that you send
+  to the network.  A signature separator line is automatically included
+  and need not be added to the signature file unless you disable the
+  <A HREF="#PostOpts">Use Sig Separator</A> option.<P></LI>
+
+  <LI><B>Editor</B> - The command line used to launch an external editor.
+  The NewsRog <A HREF="../Reference/NR-Ref-Vars.html">variable</A>
+  <B>${File}</B> may be included in this string and will be set to the
+  file for the editor to edit.<P></LI>
+
+  <LI><B>Startup Network Mode</B> - May be set to online or offline to
+  have the program come up in the indicated network mode.  If no
+  networking protocl stack is found, the program will always start in
+  offline mode no matter what this value is set to.<P></LI>
+
+  <LI><B>Article Text Font</B> - The default font used to display the body
+  text of articles.<P></LI>
+
+  <LI><B>Article Text Color</B> - The default color for displaying article
+  text.<P></LI>
+
+  <LI><B>AutoClip</B> - If checked, then text selected in an article view
+  using the mouse will be automatically copied to the system clipboard.
+  <P></LI>
+
+  <LI><B>Article Title</B> - The title line displayed above the article
+  viewer.  Various group and article
+  <A HREF="../Reference/NR-Ref-Vars.html">variables</A> may be used.<P></LI>
+
+  <LI><B>Soft Scroll</B> - The soft scroll setting used when paging up and
+  down in news articles.  A setting of zero disables soft scroll entirely
+  (jump scrolling is used).  Higher numbers are for smoother but slower
+  scrolling.  Lower numbers are for courser but faster scrolling.<P></LI>
+
+  <LI><B>Printer Device</B> - The device used to send text to the printer.
+  Usually the correct value is <I>PRT:</I>, but this might be different
+  depending on your computer's configuration.  Also, you can set this to
+  the name of a file for printing article text to a file.<P></LI>
+
+  <LI><B>Start Article</B> - When a group window is first opened, this
+  setting controls the initial placement of the list cursor.  If set to
+  <B>Previous Thread</B>, the list cursor will be placed on the thread
+  base article corresponding to the highlighted article when the group was
+  last closed, if it still exists in the group.  <B>Previous Article</B>
+  will attempt to place the cursor on the last active article, if it is
+  available, changing the read mode if necessary.  <B>First in List</B>
+  will place the cursor at the top of the article list, and <B>Last in
+  List</B> at the bottom.<P></LI>
+
+  <LI><B>Browse Articles</B> - Controls the behavior of the browsing
+  commands (such as page up/down and the +/- keys on the on the numeric
+  keypad).  Only articles matching this criteria will be browsed.  You may
+  chose to browse all articles, only unread articles, only new articles,
+  or only articles that are both new and unread.  In any case, broken
+  articles will be skipped and must be manually read by double clicking on
+  them or using the return key when they are the active article in the
+  article list.<P>
+
+</UL><P>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="WinOpts"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Program Window Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-Win.GIF" WIDTH=437 HEIGHT=321 BORDER=0>
+</CENTER><P>
+
+The window options settings are:<P>
+
+<UL>
+  <LI><B>Group List Window</B> - Controls whether the group list window is
+  opened or closed when a project is first loaded.  This may be set to
+  <I>Last Saved State</I>, which will open the window if and only if it
+  was opened when the project was saved, or <I>Open on Project Load</I>,
+  which will open the window when a project is loaded, or <I>Closed on
+  Project Load</I>, which will close the window.<P></LI>
+
+  <LI><B>Server List Window</B> - Performs the same function for the
+  server list window.<P></LI>
+
+  <LI><B>TCP List Window</B> - Performs the same function for the
+  TCP networking list window.<P></LI>
+
+  <LI><B>Post Queue Window</B> - Performs the same function for the
+  post queue window.<P></LI>
+
+  <LI><B>Multimedia Types Window</B> - Performs the same function for the
+  Multimedia types window.<P></LI>
+
+  <LI><B>Config Window</B> - Performs the same function for the
+  config windows.<P></LI>
+
+  <LI><B>Group Windows</B> - Performs the same function for group reader
+  windows.  The <I>Open on Project Load</I> option is not available here,
+  since it would be unworkable to open all the windows for 20 or 30
+  subscribed groups.<P></LI>
+
+  <LI><B>Group Window Mode</B> - This can be set to <I>Single List/View
+  Window</I>, in which case the article list and article view areas are
+  displayed in the same window, or <I>Separate List/View Windows</I>, in
+  which case each is displayed in a separate window.  MUI window snapshot
+  settings are unique for each of these settings, so snapshotting a single
+  window will not affect the separate window mode.<P></LI>
+
+  <LI><B>Toolbar Style</B> - The style for the main NewsRog
+  <A HREF="../NR-Tutorial.html">toolbar</A>.  You may chose a horizontal or
+  a vertical toolbar, with or without text labels.<P></LI>
+
+  <LI><B>Filter Toolbar Location</B> - In
+   <A HREF="NR-Tut-Group.html#FFTB">Group Windows</A>, the filter function
+   toolbar may be displayed above, below, to the right, or to the left of
+   the article view area.<P></LI>
+       
+  <LI><B>Labels</B> - If selected, filter toolbar icons will be labeled
+   with the filter's description under the icon.<P></LI>
+       
+  <LI><B>Article List Weight</B> - In
+   <A HREF="NR-Tut-Group.html">Group Windows</A>, the ratio of the height
+   of the article list to the overall window height may be set here.  The
+   remainder of the area is used for the article view.<P></LI>
+       
+</UL><P>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="PostOpts"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Post Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-Post.GIF" WIDTH=443 HEIGHT=321 BORDER=0>
+</CENTER><P>
+
+The post options settings are:<P>
+
+<UL>
+  <LI><B>Quote Mode</B> - The mode used to created quoted text when
+  composing followups.  The supported quote modes are:<P>
+       <UL>
+         <LI><B>Off</B> - No line quoting is performed.<P></LI>
+         <LI><B>Line Prefix/Quote Blank</B> -  Prefixes each line of
+         quoted text with a short string.  Blank lines are quoted.<P></LI>
+         <LI><B>Line Prefix/Skip Blank</B> -  Prefixes each line of
+         quoted text with a short string.  Blank lines not quoted.<P></LI>
+       </UL><P>
+  </LI>
+
+  <LI><B>Quote Prefix</B> - The prefix used to create quoted text when
+  composing followups in <I>Line Prefix</I> quotemode.  Various group and
+  article <A HREF="../Reference/NR-Ref-Vars.html">variables</A> may be
+  used.<P></LI>
+
+  <LI><B>Charset</B> - This should be set to the character set that
+  matches the font you use to read and write articles.  ISO-8859-1
+  (Latin-1) is common for Amiga fonts but there are other possible
+  choices.  This setting will be transmitted as the charset parameter of
+  the MIME Content-Type field when you post a document that requires
+  <A HREF="NR-Tut-Posts.html#MIME">quoted-printable encoding</A>.
+  Only ISO-8859-X character sets are permitted by the MIME
+  standard.<P></LI>
+
+  <LI><B>Post Wrap Mode</B> - Posts may be wrapped immediately before
+  being sent to the network (the default), when typing the post into the
+  post editor, or never (in which case it should be done with an external
+  editor).  See <A HREF="NR-Tut-Posts.html#Preview">Preview and Post
+  Wrapping</A> for more information. <P></LI>
+
+  <LI><B>Post Wrap Column</B> - Your posts will be rewrapped to this many
+  columns before being sent to the network, or as indicated by the <B>Post
+  Wrap Mode</B> above.  Be sure to
+  <A HREF="NR-Tut-Posts.html#Preview">preview</A> your posts before sending
+  them!  For the convenience of people reading usenet using text-only
+  newsreaders, you should generally set this value at less than 72
+  characters.<P></LI>
+
+  <LI><B>Max Saved Posts</B> - The maximum number of previously sent posts
+  to be archived in the <A HREF="NR-Tut-Posts.html#Info"> Post Queue</A>
+  window.  When the number of archived posts exceeds this number, the
+  oldests posts are deleted first.<P></LI>
+
+  <LI><B>Tagline File</B> - If non-empty, this is a file of taglines which
+  will be appended to posts.  The file may contain any number of taglines
+  separated by a fixed string on a line by itself (usually two percentage
+  (%%) characters).  A random tagline will be selected by NewsRog before
+  transmitting the post.  You can
+  <A HREF="NR-Tut-Posts.html#Preview">preview</A> the tagline in the post
+  editor.  This format of tagline file is also employed by various other
+  popular internet software such as the YAM mailer, and you may use the
+  same file for all such programs. <P></LI>
+
+  <LI><B>Tagline Separator</B> - This string separates entries in a
+  tagline file, when it occurs on a line by itself with no other
+  characters.<P></LI>
+
+  <LI><B>Body Encoding</B> - May be set to <I>Quoted-Printable</I> (the
+  default), <I>8-bit</I>, or <I>7-bit</I>.  This setting has no effect
+  when a post body contains only ASCII characters.  When a post body
+  contains non-ASCII characters, then the post will be transmitted using
+  Quoted-Printable encoding in a MIME document, if this option is set
+  accordingly.  If set to 8-bit, non-ASCII characters are transmitted with
+  no encoding, which strictly violates RFC822, but may be acceptable under
+  some circumstances.  Use this setting with caution.  If set to 7-bit, an
+  error will be generated when attempting to post an article when the body
+  contains non-ASCII characters.  For more information on post encoding,
+  see <A HREF="NR-Tut-Posts.html#MIME">The Post Queue</A>.<P></LI>
+
+  <LI><B>Header Encoding</B> - This has the same effect as the above, only
+  for header lines such as the Subject string.  Only the
+  <I>Quoted-Printable</I> and <I>8-bit</I> settings are available.  Again,
+  only the use of Quoted-Printable is recommended, as headers containing
+  non-ASCII characters violate RFC822.<P></LI>
+       
+  <LI><B>Use Sig Separator</B> - When checked, NewsRog will generate a
+  signature separator line before including your signature file.
+  Otherwise, the signature separator line (two dashes and a space, "-- "),
+  must be part of your signature file. <P></LI>
+
+  <LI><B>Gen Msg IDs</B> - Generally this setting should be left checked.
+  It is chiefly useful for posting though gateways where various other
+  software must generate post message IDs.<P></LI>
+
+  <LI><B>AutoStart Editor</B> - If checked, the <A HREF="#MiscOpts">
+  external editor</A> you have selected will be automatically started when
+  you edit a post.<P></LI>
+
+</UL><P>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ListCol"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Article View Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-ListCol.GIF" WIDTH=437 HEIGHT=256 BORDER=0>
+</CENTER><P>
+
+When a new group is created, the initial article data displayed in the
+article list is copied from this template.  Thereafter, it may be changed
+on a per-group basis.  Data items may be dragged back and forth between
+the displayed and hidden columns, or reordered within one column.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="FltOpts"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Options
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-SelFlt.GIF" WIDTH=437 HEIGHT=321 BORDER=0>
+</CENTER><P>
+
+These global filters can be used in any group who's name matches the
+<B>Group Pattern</B> entered for that filter.  For more information, read
+about NewsRog <A HREF="NR-Tut-SelFlt.html"> Selection Filters</A> and <A
+HREF="NR-Tut-DspFlt.html">Display Filters</A>.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VarEdit"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variable Editor
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-Vars.GIF" WIDTH=437 HEIGHT=321 BORDER=0>
+</CENTER><P>
+
+These global variables can be referenced in any place that you can use a
+NewsRog <A HREF="../Reference/NR-Ref-Vars.html">variable</A> name.  The
+global values supplied by NewsRog are highlighted, but you can also define
+your own in any manner you chose.  Variable values are not bound until the
+variable is referenced, so you can define global variables here that act
+almost like function calls.  See the reference documentation on the
+<A HREF="../Reference/NR-Ref-Vars.html">variable</A> lookup system for
+more information.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Headers"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Custom Headers
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-Hdrs.GIF" WIDTH=406 HEIGHT=247 BORDER=0>
+</CENTER><P>
+
+When posts are sent to the network, custom headers from this list are
+appended to them, unless this option is turned off in the
+<A HREF="NR-Tut-Posts.html#ECmds">Post Editor</A>.  Headers are posted to
+groups which match the pattern listed under <B>Group Patt</B>, if present.<P>
+
+The <B>Mode</B> button controls the behavior of the group pattern for
+crossposted articles.  For example, consider an article crossposted to
+both <I>comp.sys.amiga.misc</I> and <I>comp.sys.be</I>.  If the
+<B>mode</B> gadget is set to <B>Any</B>, then the indicated header will be
+posted if any group in the crosspost list matches this pattern.  For
+example, if this pattern is <I>comp.sys.amiga.*</I>, then the header will
+be generated.<P> 
+
+Conversely, if the <B>mode</B> gadget is set to <B>All</B>, then the
+pattern must match all groups in the crosspost list.  For example, this
+would be the case if the pattern was <I>comp.*</I>, but not if it was
+<I>comp.sys.amiga.*</I>. <P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>How to open the NewsRog configuration editor, find, and configure various
+  configuration options.<P>
+      </LI>
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

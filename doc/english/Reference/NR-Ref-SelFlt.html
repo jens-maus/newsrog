@@ -1,0 +1,452 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Selection Filters</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Selection Filters <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Reference.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-Vars.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+       <A HREF="NR-Ref-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AndOr"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-AndOr.html"> And/Or </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter combines other filters using boolean operators.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AgeRange"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-AgeRange.html"> AgeRange </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter selects articles by their current age in days, hours, minutes,
+and seconds.  It compensates for the timezone of the article's author.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Cached"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-Cached.html"> Cached </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches articles that have been cached on the local disk.
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="DblSpace"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-DblSpace.html"> DblSpace </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches articles that have more than a given percentage of
+d&nbsp;o&nbsp;u&nbsp;b&nbsp;l&nbsp;e&nbsp; &nbsp;s&nbsp;p&nbsp;a&nbsp;c&nbsp;e&nbsp;d
+characters in their subject field.
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="HeaderMatch"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-HeaderMatch.html"> Header Match </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches one or more fixed strings or patterns in article headers.
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="InGroup"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-InGroup.html"> In Group </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches articles in a particular group.
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="LimitXPost"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-LimitXPost.html"> Limit XPost </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches articles crossposted to not less than a minimum and
+not more than a maximum number of groups.
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="LineRange"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-LineRange.html"> Line Range </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches articles containing not less than a minimum and not
+more than a maximum number of body lines.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Marked"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-Marked.html"> Marked </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches articles that have been marked in the
+<A HREF="../Tutorials/NR-Tut-Group.html">group window.</A>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="MatchFollowup"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-MatchFollowup.html"> Match Followup </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches all articles that are followups to articles that
+match a given condition.  This lets you, for example, define a filter to
+show all followups to your own articles.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="MatchThread"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-MatchThread.html"> Match Thread </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches all articles that are in the same thread as articles
+that match a given condition.  This lets you, for example, define a filter
+to show all articles in threads you have participated in.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="MatchThreadBase"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-MatchThreadBase.html"> Match Thread Base </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches all articles that are in a thread in which the
+basenote matches a given condition.  This lets you, for example, define a
+filter to show all articles in threads that you started.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="PctCaps"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-PctCaps.html"> % Caps </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches all articles with subject lines containing less than a
+given percentage of capital letters.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="New"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-New.html"> New </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches all articles that are marked as newly downloaded.  The
+new flag may be reset when articles are read, when the group is shut down,
+or both.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Permanent"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-Permanent.html"> Permanent </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches all articles that have been marked as permanent in
+the <A HREF="../Tutorials/NR-Tut-Group.html">group window.</A>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="PostRate"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-PostRate.html"> PostRate </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches threads with a given rate of posting, as defined by
+the number of articles posted per day.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Read"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-Read.html"> Read </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches all articles that have been read.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="RepeatChar"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-RepeatChar.html"> Repeat Char </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches all articles that have a given number of repeated
+characters in their subject line.  This allows you to match articles
+containing, for example, "$$$$" or "!!!!".  Such articles are rarely of
+value.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="SizeRange"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-SizeRange.html"> SizeRange </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter selects articles by their size in bytes, Kb, or Mb.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="SubjMatch"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-SubjMatch.html"> Subject Match </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter is a more limited version of the
+<A HREF="#HeaderMatch"> Header Match</A> filter.  Unlike Header Match, it
+does not allow matching against more than one pattern.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ThreadBase"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+<A HREF="NR-Ref-ThreadBase.html"> Thread Base </A>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter matches articles that are the basenote of a thread.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,72 @@
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+ODIR       = Obj
+MFILES     = Makefile SCOPTIONS /SCOPTIONS ///SCOPTIONS_OPT
+default: all
+
+
+# ============================================================================
+# -- This data is customizable per-class -------------------------------------
+# ============================================================================
+
+LIBNAME    = NArticleView
+LIBVER     = 1
+LIBREV     = 0
+
+SRCFILES   = C-NArticleView.c
+
+CFILES     = $(SRCFILES)
+
+HFILES     = /Include/Libraries/C-NArticleView.h \
+             //A-Common/Include/S-RootMethods.h  \
+             //Include/S-AttrMaps.h              \
+             //Include/S-Dispatcher.h            \
+             //Include/S-Classes.h               \
+             /Include/Libraries/C-NDFilter.h     \
+             C-NArticleView-Mthd.h               \
+             C-NArticleView-I.h                  \
+             C-TextHide.h                        \
+             C-TextSel.h                         \
+             C-TextCmd.h                         \
+             C-TextScroll.h                      \
+             C-MimeBox.h                         \
+
+
+OFILES     = $(ODIR)/C-NArticleView.o \
+	     $(ODIR)/L-NArticleView.o \
+
+
+$(ODIR)/C-NArticleView.o:    C-NArticleView.c $(HFILES) $(MFILES)
+$(ODIR)/L-NArticleView.o:    L-NArticleView.c $(HFILES) $(MFILES)
+
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+PDIR       = /Include/Proto
+LIBSDIR    = /MUI
+
+PFILES     = $(PDIR)/$(LIBNAME)_protos.h
+LIBSFSPEC  = $(LIBSDIR)/S5697_$(LIBNAME).mcc
+LNKFSPEC   = $(LIBSDIR)/S5697_$(LIBNAME).lnk
+
+DEFINES    = DEFINE=SW_LIBS
+LINKERLIBS = lib:amiga.lib lib:sc.lib
+
+TESTSRC    = test.c
+TESTEXE    = test
+
+
+# ----------------------------------------------------------------------
+# This calls things from smake.def
+# ----------------------------------------------------------------------
+
+all:          $(LIBSFSPEC)
+$(LIBSFSPEC): $(OFILES)
+
+protos:                      $(PDIR)/$(LIBNAME)_protos.h
+$(PDIR)/$(LIBNAME)_protos.h: $(SRCFILES)

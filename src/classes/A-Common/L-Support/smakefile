@@ -1,0 +1,130 @@
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+ODIR       = Obj
+MFILES     = Makefile SCOPTIONS /SCOPTIONS ///SCOPTIONS_OPT
+default: all
+
+
+# ============================================================================
+# -- This data is customizable per-class -------------------------------------
+# ============================================================================
+
+LIBNAME    = Support
+LIBVER     = 6
+LIBREV     = 0
+
+SRCFILES   = L-Support.c C-Decode.c C-Timeslider.c C-ObjString.c C-ObjList.c
+
+
+CFILES     = $(SRCFILES)
+
+HFILES     = /Include/Libraries/L-Support.h \
+	     L-Debug.h                      \
+             C-Support-I.h                  \
+	     L-Attrmap.h                    \
+	     L-Subtask.h                    \
+	     //Include/S-AttrMaps.h         \
+             C-Support-UIObjs.h             \
+
+OFILES     = $(ODIR)/L-Support.o $(ODIR)/C-Decode.o $(ODIR)/C-Timeslider.o \
+             $(ODIR)/C-ObjString.o $(ODIR)/C-ObjList.o  
+
+TESTSRC    = test.c
+TESTEXE    = test
+
+$(ODIR)/L-Support.o:    L-Support.c    $(HFILES) $(MFILES)
+$(ODIR)/C-Decode.o:     C-Decode.c     $(HFILES) $(MFILES)
+$(ODIR)/C-Timeslider.o: C-Timeslider.c $(HFILES) $(MFILES)
+$(ODIR)/C-ObjString.o:  C-ObjString.c  $(HFILES) $(MFILES)
+$(ODIR)/C-ObjList.o:    C-ObjList.c    $(HFILES) $(MFILES)
+
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+PDIR       = /Include/Proto
+LIBSDIR    = /MUI
+
+PFILES     = $(PDIR)/$(LIBNAME)_protos.h
+LIBSFSPEC  = $(LIBSDIR)/S5697_$(LIBNAME).library
+LNKFSPEC   = $(LIBSDIR)/S5697_$(LIBNAME).lnk
+
+PRAGMA     = /Include/Pragmas/$(LIBNAME)_pragmas.h
+FDFILE     = $(LIBNAME).fd
+DEFINES    = DEFINE=SW_LIBS
+LKFLAGS    = LINKERWITH=SCLINK
+
+
+# ----------------------------------------------------------------------
+# This makes .o files from .c files
+# ----------------------------------------------------------------------
+
+all:                    $(PRAGMA) $(LIBSFSPEC)
+
+$(OFILES):
+	@echo "  Compiling: $>"
+	@sc LIBCODE $(DEFINES) $>.c
+	@echo "    Done."
+
+protos: $(SRCFILES)
+	@echo "  Generating prototypes... $(LIBNAME)"
+	@sc IGN 72 GENPROTOS $(DEFINES) $?
+	@join \#?_protos.h TO $(PDIR)/$(LIBNAME)_protos.h 
+        @c:delete \#?_protos.h QUIET FORCE
+	@echo "    Done."
+
+$(PRAGMA): $(FDFILE)
+	@echo "  Generating Pragmas: $>"
+	@fd2pragma $(FDFILE) $(PRAGMA)
+	@splat -o "pragma libcall SWSupportBase SWDebugPrint" "pragma tagcall SWSupportBase SWDebugPrint" $(PRAGMA)
+	@echo "    Done."
+
+
+# ----------------------------------------------------------------------
+# This links things to make our executables.
+# ----------------------------------------------------------------------
+
+$(LIBSFSPEC): $(OFILES)
+	@echo "  Creating library: $@"
+	@sc link TO $(LIBSFSPEC) BATCH STRT=libinit $(OFILES) \
+	LIBVERSION $(LIBVER) LIBREVISION $(LIBREV) \
+	LIBFD $(FDFILE) $(LKFLAGS) LIB sc:lib/amiga.lib
+	@delete $(LNKFSPEC) FORCE QUIET
+	@-FlushLibs
+	@echo "    Done."
+
+
+# ----------------------------------------------------------------------
+# Create tests
+# ----------------------------------------------------------------------
+
+tests:
+	@echo "  Creating tests"
+	@sc link $(TESTSRC)
+	@echo "    Done."
+
+
+# ----------------------------------------------------------------------
+# Run tests
+# ----------------------------------------------------------------------
+
+runtests:
+	@echo "  Running tests"
+	@copy $(ODIR)/$(TESTEXE) /
+	@/$(TESTEXE)
+	@echo "    Done."
+
+
+# ----------------------------------------------------------------------
+# make clean
+# ----------------------------------------------------------------------
+
+clean:
+	@echo "  Cleaning up directory."
+	@-delete Obj/\#? $(PRAGMA) $(PFILES) $(LIBSFSPEC) FORCE QUIET
+	@FlushLibs
+	@echo "    Done."

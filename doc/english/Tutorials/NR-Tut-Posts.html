@@ -1,0 +1,597 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 9: The Post Queue</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 9: The Post Queue <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Network.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-MM.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=5 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">    Posting Overview</A></TD>
+    <TD><A HREF="#Create">  Creating New Posts</A></TD>
+    </TR><TR>
+    <TD><A HREF="#PopEdit"> Popup Group List Editor</A></TD>
+    <TD><A HREF="#QCmds">   Post Queue Cmds</A></TD>
+    </TR><TR>
+    <TD><A HREF="#ECmds">   Post Editor Cmds</A></TD>
+    <TD><A HREF="#Preview"> Preview & Post Wrapping</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Cols">    Displayable Info</A></TD>
+    <TD><A HREF="#MIME">    MIME & Non-ASCII Encoding</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Summary"> Summary</A></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Posting Overview<P>
+<CENTER>
+<IMG SRC="../Graphics/Toolbar-B4.jpg" WIDTH=86 HEIGHT=81 BORDER=0>
+</CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+Posts in NewsRog are usually created by using commands available in the
+group reader window.  However, they can also be directly created from
+within the post queue.  The post queue holds a list of composed postings
+that you have created.  These posts can be composed on or offline.  Once
+one or more posts have been composed, they can all be sent to the network
+in a batch mode.<P>
+
+There are two specific post related windows; the <I>Post Queue</I> holds a
+list of posts being composed that have not yet been sent to the network:<P>
+
+  <CENTER>
+  <IMG SRC="../Graphics/Window-PostQueue.GIF" WIDTH=410 HEIGHT=175
+       ALIGN=Center BORDER=0>
+  </CENTER><P>
+
+And in the "Send Posts" area, a list of posts that have been sent to the
+network:<P>
+
+  <CENTER>
+  <IMG SRC="../Graphics/Window-PostQueueS.GIF" WIDTH=410 HEIGHT=175
+       ALIGN=Center BORDER=0>
+  </CENTER><P>
+
+
+The <I>Post Editor</I> allows you to edit one particular post.<P>
+
+  <CENTER>
+    <A HREF="#ECmds">
+      <IMG SRC="../Graphics/Window-PostEdit.GIF" WIDTH=590 HEIGHT=329
+           ALIGN=Center BORDER=0>
+    </A>
+  </CENTER><P>
+
+NewsRog allows you to use any text editor that you chose to edit posts, or
+you can use the builtin text editor shown here.  If you are using an
+external text editor, as soon as that editor saves the file, NewsRog will
+update it's own display in the post editor window.  AmigaOS file
+notifications are used, so the editor can be run asynchronously and you
+can save the file from the text editor as many times as you wish before
+closing the editor.  The default external editor is c:ed, but this can be
+changed in the <A HREF="NR-Tut-Config.html#MiscOpts">global configuration
+options.</A><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Create"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Creating Posts
+<FONT SIZE=+0> </TD>
+<TD>
+
+There are several ways to create new posts:<P>
+
+<UL>
+  <LI>Using the <B>Group/Post&nbsp;New...</B> or
+     <B>Viewer&nbsp;Article/Post&nbsp;Followup...</B> menu items in the
+     group window.<P></LI>
+
+  <LI>Dragging an article from the article list in a group window onto the
+      post queue window.  This will compose a followup to the article,
+      quoting the original article text.<P></LI>
+
+  <LI>Dragging a group from the group list window onto the post queue
+      window.  This will compose a new post to that group.<P></LI>
+
+  <LI>Adding a post manually by using the <B>Add</B> button in the post
+      queue window shown above.  In this case you will need to enter both
+      the subject and group information by hand.<P></LI>
+</UL><P>
+
+Under normal operation using the group reader <B>Followup</B> or
+<B>Post&nbsp;New</B> commands, the post queue window does not appear.
+Instead, a post editor for that post appears directly.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="PopEdit"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Popup Group Editor
+<FONT SIZE=+0> </TD>
+<TD>
+
+Pressing the popup button next to a Newsgroups or Followups string will
+display the popup group editor:<P>
+
+  <CENTER>
+  <IMG SRC="../Graphics/NR-Tut-Posts-PopEdit.GIF" WIDTH=425 HEIGHT=166
+       ALIGN=Center BORDER=0>
+  </CENTER><P>
+
+The left section is the list of groups to which this article will be sent
+(or the list of groups in the followup list, if editing the Followups-To
+header).  The right section is the list of groups you have subscribed to.
+You may multiselect one or more group names from the right side and drag
+them onto the left to add those groups to the crosspost list for this
+article, or you may drag groups from the left side to the right to remove
+them from the crosspost list.<P>
+
+You may also drag newsgroups out of the <A HREF="NR-Tut-Groups.html">Group
+List</A> window and drop them on the left side to add them to the post
+list.<P>
+
+Any changes you make will be immediately reflected in the group string
+above the popup list.<P>
+
+Press the popup button again, or the close button, to close the list.<P>
+
+Pressing the "Delete" button will delete the selected groups from the
+list.  Pressing "Restore" will return the list to the value it had before
+you invoked the popup group list editor.<P>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="QCmds"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Post Queue Cmds
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following commands are available from the post queue window:<P>
+
+<UL>
+  <LI><B>Add</B> - Adds a new post, with no subject, group, or file
+      contents.  This information will need to be supplied by hand.<P></LI>
+
+  <LI><B>Delete</B> - Deletes the selected (highlighted) posts.<P></LI>
+
+  <LI><B>Edit</B> - Calls up the post editor for the selected post.<P></LI>
+
+  <LI><B>Post</B> - Sends the selected (highlighted) posts to the network.
+      This is only available in online mode, and it is a batch operation -
+      all selected posts will be sent.  A status window will appear
+      showing the current progress.<P></LI>
+
+  <LI><B>Select All</B> - Selects all posts in the queue.<P></LI>
+
+  <LI><B>--&gt;</B> - Transfer the selected posts to the archival ("Send
+      Posts") section of the post editor.<P></LI>
+</UL>
+
+Similar buttons are available in the archive section, except that the
+<B>Post</B> and <B>Add</B> commands are not available, and the
+<B>&lt;--</B> button transfers archived posts back to the post queue.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ECmds"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Post Editor Cmds
+<FONT SIZE=+0> </TD>
+<TD>
+
+The post editor allows you to set basic information about the post, such
+as the subject, the group(s), the followup line, the distribution list,
+the sig file that should be appended (if any), and to edit the post's
+text.  If this post was created by following up to another post, a quoted
+version of the original post will already be inserted.<P>
+
+Text may be typed directly into the post window, and the following buttons
+may be used to edit the post:<P>
+
+<TABLE NOFLOW BORDER=0 CELLSPACING=2 CELLPADDING=2>
+  <TR><TH>Button</TH><TH>Description</TH></TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Insert.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=1>
+      </TD>
+      <TD>
+          A file requester appears and a file may be chosen which will be
+          inserted into the current document at the cursor's location.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Save.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=1>
+      </TD>
+      <TD>
+           The text of the current post will be saved to a chosen file.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Cut.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=0>
+      </TD>
+      <TD>
+           The currently selected (highlighted) text will be cut and
+           copied to the system clipboard.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Copy.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=0>
+      </TD>
+      <TD>
+           The currently selected (highlighted) text will be copied to the
+           system clipboard, but remains in the document.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Paste.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=0>
+      </TD>
+      <TD>
+           Text from the system clipboard will be inserted into the
+           current document at the cursor's location.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Undo.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=0>
+      </TD>
+      <TD>
+           The previous change will be undone.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Redo.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=0>
+      </TD>
+      <TD>
+           The previously undone change will be re-done.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Bold.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=0>
+      </TD>
+      <TD>
+           The currently selected (highlighted) text will be converted to
+           bold, or to normal if it was already bold.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Italic.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=0>
+      </TD>
+      <TD>
+           The currently selected (highlighted) text will be converted to
+           italic, or to normal if it was already italic.
+      </TD>
+  </TR>
+  <TR><TD>
+      <IMG SRC="../Graphics/Button-eb_Uline.GIF" WIDTH=44 HEIGHT=44
+           ALIGN=Center BORDER=0>
+      </TD>
+      <TD>
+           The currently selected (highlighted) text will be converted to
+           underlined, or to normal if it was already underlined.
+      </TD>
+  </TR>
+</TABLE><BR><P>
+
+
+<IMG SRC="../Graphics/Button-eb_EditMode.GIF" WIDTH=117 HEIGHT=21
+ ALIGN=Bottom BORDER=0>
+The post editor may be toggled between the "Edit Post" mode, in which the
+post may be edited, and "View Wrapped" mode, which shows the post wrapped
+to the number of characters specified in the
+<A HREF="NR-Tut-Config.html#PostOpts">main configuration window.<A>
+The post will be wrapped when it is posted, but if you have an external
+editor such as GNU emacs that performs this function, you may do it there
+as well.<P>
+
+<IMG SRC="../Graphics/Button-eb_CustHdrs.GIF" WIDTH=125 HEIGHT=16
+ALIGN=Bottom BORDER=0>
+If this gadget is checked, then any custom headers defined in
+the <A HREF="NR-Tut-Config.html#Headers">main configuration window</A>
+will be transmitted along with this post when it is sent to the
+news server.  Otherwise, custom headers are ignored.<P>
+
+Text buttons along the bottom of the window provide these functions:<P>
+
+<UL>
+  <LI><B>Post now</B> - Sends the post in its current form to the network.
+      This is only available in online mode.<P></LI>
+
+  <LI><B>Invoke Editor</B> - Invokes an external editor to edit the post.
+      Any time the editor saves the file, this view will be instantly
+      updated.<P></LI>
+
+  <LI><B>To Queue</B> - Closes this window and puts the post in its
+      current form back into the post queue for later editing or batch
+      posting.  This can be done in either online or offline mode.<P></LI>
+
+  <LI><B>Cancel</B> - Cancels all the edits to the post text that were
+      performed since the post editor was opened, and reverts to the
+      previous version.<P></LI>
+
+  <LI><B>Delete</B> - Deletes this post from the post queue and closes the
+      editor window.  This removes the post entirely.<P></LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Preview"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Preview & Post Wrapping
+<FONT SIZE=+0> </TD>
+<TD>
+
+By default, the lines you type into the post editor are not rewrapped
+until you send the post to the network.  You can change this behavior in
+the the <A HREF="NR-Tut-Config.html#PostOpts">main configuration window</A>, but
+wrapping lines at the last possible moment has the advantage that if you
+edit a post multiple times, you don't have to manually adjust the line
+breaks each time, a problem common to other software.<P>
+
+<IMG SRC="../Graphics/Button-eb_EditModeVR.GIF" WIDTH=117 HEIGHT=21
+ VALIGN=Top ALIGN=Right BORDER=0 HSPACE=10 VSPACE=10>
+
+However, it is desirable to know what your post will look
+like before sending it to the network.
+Toggling The Edit Mode button to <B>View Wrapped</B> will let you see the
+results of line wrapping on your post.  It is wise to always double check
+the formatting of your post before sending it to the network!<P>
+
+There are other options available in this cycle gadget for previewing
+posts.  The available settings are:<P>
+
+<UL>
+  <LI><B>View Wrapped</B> - As described above, this shows you the post
+  body after line wrapping, as it will be sent to the network.</LI><P>
+  <LI><B>View All</B> - Similar to View Wrapped, but shows the complete
+  set of article headers as well.</LI><P>
+  <LI><B>View Encoding</B> - This shows you the post to be transmitted
+  with any
+  <A HREF="#MIME">MIME encoding</A> visible.  You may see the results of
+  quoted-printable encoding in your message body or article headers if
+  your article contains non-ASCII characters and you have selected
+  Quoted-Printable encoding in the <A
+  HREF="NR-Tut-Config.html#PostOpts">configuration window</A>.
+  </LI><P>
+</UL><P>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="MIME"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+MIME & Non-ASCII Encoding
+<FONT SIZE=+0> </TD>
+<TD>
+
+Many aspects of the internet in general, and usenet in particular, were
+originally developed many years ago before it was common to support
+characters from languages other than English in computer software. Thus,
+only 7-bit ASCII data (characters in the range from 0-127) is guaranteed
+to be transmitted cleanly through usenet and many other internet services.<P>
+
+To address this limitation, the MIME standard specifies a quoted-printable
+encoding scheme in which non-ASCII characters are translated into a unique
+sequence of 3 ASCII characters, and the reverse transformation is applied
+when viewing the article at its destination.  This makes it much more
+likely that the article will be transmitted without loss of non-ASCII
+characters.<P>
+
+NewsRog will examine your post before sending it to detect whether it
+contains non-ASCII characters, and if so, it will generate a text/plain
+MIME document using the quoted-printable encoding scheme if you have
+selected Quoted-Printable encoding in the <A
+HREF="NR-Tut-Config.html#PostOpts">configuration window</A>.
+This is <U>only</U> done for documents that contain one or more non-ASCII
+characters.  A great many people read usenet using software that is not
+able to decode quoted-printable encoding.  Quoted-printable encoding is
+"mostly" human readable, but there are limitations which make it
+preferable to avoid when possible.<P>
+
+When posting in quoted-printable format, NewsRog will generate "soft"
+line-breaks for lines who's encoded length exceeds 75 characters, and will
+encode whitespace at the end of lines, non-ASCII characters, and the ASCII
+equal ('=') sign using quoted-printable character encoding, which looks
+like an equals sign followed by two hex digits when viewed without being
+decoded.  For this reason your article may appear less than optimally
+readable for those using non-MIME aware newsreaders.  This is generally
+perfectly fine for non-English newsgroups where most people are
+using MIME aware newsreaders, but should be avoided if possible in English
+language groups.<P>
+
+<B>Note:</B> The presence of non-ASCII characters in a signature file is
+also sufficient to trigger quoted-printable encoding!<P>
+
+When transmitting a MIME text document, NewsRog will include the value of
+the <A HREF="NR-Tut-Config.html#PostOpts">charset</A> that you have
+defined in the main configuration window.  This tells software on the
+reader's computer what codeset your article was created using.  Note that
+the MIME standard requires that <B>only</B> the ISO-8869-X codesets be
+used for transmitting posts.<P>
+
+You may use the <A HREF="#Preview">View Encoding</A> preview mode to see
+the results of quoted-printable encoding if it has been performed on your
+article.<P>
+
+You may also chose 8-bit encoding in the <A
+  HREF="NR-Tut-Config.html#PostOpts">configuration window</A>, although
+this technically violates RFC822 and is not recommended.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Cols"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Displayable Data
+<FONT SIZE=+0> </TD>
+<TD>
+
+The post queue can be set to display any desired information about the
+posts.  (See <A HREF="NR-Tut-Com.html#Lists">this</A> tutorial for more
+information).  The following data may be displayed:<P>
+
+  <TABLE BORDER=2>
+    <TR><TH>Column</TH> <TH>Description</TH></TR>
+
+    <TR><TD VALIGN=Top>Lines</TD>
+        <TD>The number of text lines in the post.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Size</TD>
+        <TD>The size of the post in Kb or Mb.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Subject</TD>
+        <TD>The subject field for the post.  This will be set
+        automatically when following up to another posting.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Groups</TD>
+        <TD>The list of groups to which this article should be posted.  It
+        is generally best to post to an absolute minimum of applicable
+        groups.
+        </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>The difference between the post queue window and the post editor
+      window.
+      </LI>
+  <LI>How to select posts and invoke the post editor.
+      </LI>
+  <LI>How to change a post's subject, group, body text, and other
+      information.
+      </LI>
+  <LI>How to followup to another post or create a new post from the group
+      window.
+      </LI>
+  <LI>How to followup to articles using drag and drop.
+      </LI>
+  <LI>The difference between single and batch posting.
+      </LI>
+  <LI>How to delete a posting you don't want.
+      </LI>
+  <LI>When line wrapping happens, and how to preview your posts before
+      sending them to the network.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,71 @@
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+ODIR       = Obj
+MFILES     = Makefile SCOPTIONS /SCOPTIONS ///SCOPTIONS_OPT
+default: all
+
+
+# ============================================================================
+# -- This data is customizable per-class -------------------------------------
+# ============================================================================
+
+LIBNAME    = NHdrList
+LIBVER     = 1
+LIBREV     = 0
+
+SRCFILES   = C-NHdrList.c
+
+CFILES     = $(SRCFILES)
+
+HFILES     = /Include/Libraries/C-NHdrList.h    \
+             //A-Common/Include/S-RootMethods.h \
+             //Include/S-AttrMaps.h             \
+             //Include/S-Dispatcher.h           \
+             //Include/S-Classes.h              \
+             //Include/S-Lists-MethodCall.h     \
+             //Include/S-Lists-Mthd.h           \
+             //Include/S-Lists-Hooks.h          \
+             //Include/Libraries/S-Lists.h      \
+             C-NHdrList-Mthd.h                  \
+             C-NHdrList-Hooks.h                 \
+             C-NHdrList-I.h                     \
+
+
+OFILES     = $(ODIR)/C-NHdrList.o \
+	     $(ODIR)/L-NHdrList.o \
+
+
+$(ODIR)/C-NHdrList.o:    C-NHdrList.c $(HFILES) $(MFILES)
+$(ODIR)/L-NHdrList.o:    L-NHdrList.c $(HFILES) $(MFILES)
+
+
+# ============================================================================
+# -- This data is read-only --------------------------------------------------
+# ============================================================================
+
+PDIR       = /Include/Proto
+LIBSDIR    = /MUI
+
+PFILES     = $(PDIR)/$(LIBNAME)_protos.h
+LIBSFSPEC  = $(LIBSDIR)/S5697_$(LIBNAME).mcc
+LNKFSPEC   = $(LIBSDIR)/S5697_$(LIBNAME).lnk
+
+DEFINES    = DEFINE=SW_LIBS
+LINKERLIBS = lib:amiga.lib lib:sc.lib
+
+TESTSRC    = test.c
+TESTEXE    = test
+
+
+# ----------------------------------------------------------------------
+# This calls things from smake.def
+# ----------------------------------------------------------------------
+
+all:          $(LIBSFSPEC)
+$(LIBSFSPEC): $(OFILES)
+
+protos:                      $(PDIR)/$(LIBNAME)_protos.h
+$(PDIR)/$(LIBNAME)_protos.h: $(SRCFILES)

@@ -1,0 +1,580 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 12: Selection, Kill, and Highlight Filters</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 12: Selection, Kill, and<BR>Highlight Filters <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Config.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=6 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">     Selection & Kill Filters</A></TD>
+    <TD><A HREF="#Scope">    Filter Scope</A></TD>
+    </TR><TR>
+    <TD><A HREF="#AddRem">   Adding & Removing Filters</A></TD>
+    <TD><A HREF="#Combining">Combining Filters</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Edit">     Editing Filters</A></TD>
+    <TD><A HREF="#Common">   Common Filter Features</A></TD>
+    </TR><TR>
+    <TD><A HREF="#GlobInfo"> Global Filter Data</A></TD>
+    <TD><A HREF="#Stats">    Filter Statistics</A></TD>
+    </TR><TR>
+    <TD><A HREF="#AuthNote"> Author Notes</A></TD>
+    <TD><A HREF="#SvLd">     Saving & Loading Filters</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Summary">  Summary</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+What are Selection, Kill, and Highlight Filters?
+<FONT SIZE=+0> </TD>
+<TD>
+
+Selection, kill, and highlight filters are used to select which articles
+you wish to read (or not to read) when reading a group.  It's possible to
+make these filters group specific, or to apply them to any subset of
+groups, such as "*.binaries.*", or "comp.*".<P>
+
+Selection, kill, and highlight filters all use the same type of filters
+(as opposed to <A HREF="NR-Tut-DspFlt.html"><I>display filters</I></A>,
+which are a different thing altogether).  Selection filters act upon
+articles, returning a "yes" or "no" answer for whether a given article
+matches a given filter.  For example, you might define a filter to match
+all articles that are crossposted to more than 3 groups, or a filter to
+match all articles that are in any thread you've posted to yourself.
+It is also possible to combine filters using <I>and</I> and <I>or</I>
+logic to form more complex queries.<P>
+
+There are several main uses for selection filters:<P>
+
+<UL>
+  <LI><I>Subsetting</I> groups - This allows you to define different
+  <U>views</U> for looking at any group or set of groups.  For example,
+  you might define one view that shows you all the "for sale" articles in
+  a marketplace newsgroup, and another that shows you all the "wanted to
+  buy" posts, and yet a third that shows you articles you have posted and
+  any followups to those articles.  Any of these filters can be toggled on
+  or off to immediately change your view of the group.<P></LI>
+
+  <LI><I>Killing</I> articles.  Kill filters are used to remove various
+  postings permanently.  After articles are killed, you never see them
+  again no matter how you chose to view the group's articles.  This is
+  useful to remove "spam" type posts.  For example, it's extremely
+  unlikely that any post containing "Make Money Fast" or "$$$$" in
+  the title is worth reading.  You can define a kill filter to remove such
+  posts.<P></LI>
+
+  <LI><I>Highlighting</I> articles.  You might make certain articles stand
+  out in the article list, as in this example, in which a filter matching
+  subject lines containing <I>Steinway</I> or <I>Baldwin</I> has been
+  defined:<P>
+   <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-HLight.GIF" WIDTH=383 HEIGHT=150 BORDER=0>
+   </CENTER><BR><P>
+
+  The <A HREF="NR-Tut-Group.html#AL_HLight"> group reader </A> tutorial
+  has more information on highlight filters as well.
+  </LI>
+</UL>
+
+Since selection, kill, and highlight filters are three uses of the same
+types of filter, the general term <I>Selection Filter</I> is used in this
+documentation to describe them.<P>
+
+Proper use of selection filters can greatly increase the signal to noise
+ratio of usenet.  NewsRog provides uncommonly powerful selection and kill
+filter capabilities compared to almost any other newsreader on any
+platform.<P>
+
+This section of the documentation discusses general filter topics.
+The specifics of each different type of filter are covered in the
+<A HREF="../NR-Reference.html">reference section</A> of this
+documentation.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Scope"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Scope
+<FONT SIZE=+0> </TD>
+<TD>
+
+   <A HREF="NR-Tut-Config.html">
+      <IMG SRC="../Graphics/Toolbar-B6.jpg" WIDTH=91 HEIGHT=81
+       BORDER=0 ALIGN=Right HSPACE=10>
+   </A>
+
+Filters can be defined within the context of a particular group, in which
+case they apply <U>only</U> to that group, or they can be defined globally
+to apply to groups matching any particular pattern (set in the <I>Group
+Patt</I> area of the filter list).  Global filters are defined in the <A
+HREF="NR-Tut-Config.html#FltOpts">configuration editor</A> for NewsRog.
+Group specific filters are defined from within the group reader window.
+Generally, if a filter is to apply to more than one group (for example, to
+<I>comp.*</I>) it is best to define it once in the <A
+HREF="NR-Tut-Config.html#FltOpts">configuration editor</A> instead of
+duplicating the filter in each group.<P>
+
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AddRem"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Adding and Deleting Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+In each filter list there is an <B>Add</B> button that, when pressed, will
+display a popup list of available filters.  Filters are <I>plug-ins</I>,
+so the list may change depending on which filters are currently
+installed.  The popup filter list looks like this:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Tut-SelFlt-FAdd.GIF" WIDTH=410 HEIGHT=172 BORDER=0>
+</CENTER><P>
+
+A filter may be added by double clicking on it's name in the popup list,
+or multi-selecting several filters and pressing the <B>Insert Selected</B>
+button.  The list may be closed without adding a filter by clicking the
+<B>Add</B> button again or pressing the <B>Close</B> button in the popup
+list.  You may add multiple filters at once by drag-selecting several and
+clicking the <B>Insert Selected</B> button.  Note that you are not limited
+to one instance of each type of filter.  You might, for example, add
+several <I>Header Match</I> filters for different purposes.<P>
+
+Removing filters is a simple matter of selecting those to be removed and
+using the <B>Delete</B> button.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Combining"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Combining Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+<CENTER>
+<IMG SRC="../Graphics/Window-Cfg-SelFlt.GIF" WIDTH=437 HEIGHT=321 BORDER=0>
+</CENTER><P>
+
+Multiple selection filters defined in a filter list may be combined in
+either <I>Any</I> mode or <I>All</I> mode (which is another way of saying
+<I>Or</I> and <I>And</I> in boolean logic).<P>
+
+The lower right corner of the selection filter lists, such as the one seen
+above, contains a gadget which can be set to:<P>
+
+<UL>
+  <LI><B>Any</B> - An article will be matched if it is matched by
+  <B>any</B> filter in the list.<P>
+
+  <LI><B>All</B> - An article will only be matched if it is matched by
+  <B>all</B> of the filters in the list.<P>
+</UL>
+
+If there is only one filter in the list, the behavior of both options
+is identical.  If there is more than one, you can chose how they are
+to be combined.  You may also create composite filters using any
+boolean logic by using the
+<A HREF="../Reference/NR-Ref-AndOr.html">And/Or</A> filter.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Edit"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Editing Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+Each filter provides a user interface for customizing its operation.  For
+example, a crosspost limiting filter might allow you to edit the maximum
+and minimum number of crossposts allowed in any article it matches.  A
+header match filter might allow you to edit a list of patterns to be
+contained in the headers of articles it matches.<P>
+
+The user interface for any filter may be called up by either double
+clicking on the name of the filter in the filter list, or by using the
+<B>Edit</B> button.  The user interface for each filter is described in
+detail in the <A HREF="../NR-Reference.html">reference section</A> of this
+documentation.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Common"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Common Filter Features
+<FONT SIZE=+0> </TD>
+<TD>
+
+Certain information is available in every type of selection filter.
+Calling up the editor for a particular filter reveals four main click
+tabs:<P>
+
+   <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-SelFlt-FltTabs.GIF" WIDTH=421 HEIGHT=25
+        BORDER=0>
+   </CENTER><P>
+
+ <UL>
+   <LI><A HREF="../NR-Reference.html"><B>Filter Settings</B></A> - This is
+   where you edit information specific to this particular filter.  What
+   appears here will differ depending on the type of filter in question,
+   and the specifics for each filter type is documented in the
+   <A HREF="../NR-Reference.html">reference section</A> of this
+   documentation. <P></LI>
+
+   <LI><A HREF="#GlobInfo"><B>Global Info</B></A> - This area edits data
+    common to all types of filters, such as the filter's
+    description.<P></LI>
+
+   <LI><A HREF="#Stats"><B>Stats</B></A> - This area displays certain
+   statistics pertaining to this particular filter, such as how many
+   articles it has matched. <P></LI>
+
+   <LI><A HREF="#AuthNote"><B>Author Note</B></A> - This area can be used
+   to edit a longer description for this filter, useful for complex
+   filters that you wish to share with other people.  For instance, in
+   an anti-spam filter you might describe its use and the type of spam it
+   filters.<P></LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Expire"></A>
+<A NAME="GlobInfo"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Global Info
+<FONT SIZE=+0> </TD>
+<TD>
+
+The global info area looks like this:<P>
+
+   <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-SelFlt-GlobInfo.GIF" WIDTH=421 HEIGHT=163
+        BORDER=0>
+   </CENTER><P>
+
+The following features are available here:
+
+<UL>
+  <LI>The filter <B>Description</B> is any short string that will remind
+      you of the purpose of this filter.  Filters can be toggled on and
+      off individually to change your view of a particular group, and this
+      name can serve to remind you what a particular filter does.<P></LI>
+
+  <LI>The <B>Thread Mode</B>All selection filters have an option to control their
+    behavior when used to limit the set of articles shown in the article
+    list.  The setting only affects the behavior of
+    the filter when the article list is set to show thread entry points
+    only.  In this case, there are several modes to pick from:<P>
+
+      <UL>
+        <LI><B>Base - </B>A thread is shown only if the basenote of the
+        thread matches the filter.  This was the behavior of earlier
+        verions of NewsRog.<P></LI>
+
+        <LI><B>Any - </B>A thread is shown if any article in the thread
+        matches the filter.<P></LI>
+
+        <LI><B>All - </B>A thread is shown only if all articles in the
+        thread matches the filter.</LI>
+       </UL><P>
+
+     Using this setting allows an easy way to create, for example, a
+     filter which shows new articles, and shows threads which contain any
+     new articles if the article list is in Threads mode.  This setting
+     does not affect other uses such as kill or highlight filters.<P></LI>
+
+  <LI>The <B>Expire Date</B>, if turned on, is a specific date on which
+      this filter will expire and be deleted.  This is handy for creating
+      filters that last a certain fixed period of time (say, one month)
+      and then disappear.<P></LI>
+
+  <LI>The <B>Expire Disuse</B> setting is similar, but will expire filters
+       that have not matched anything in a certain period of time.  For
+       example, let's say you create a filter to kill all posts to a certain
+       thread.  When people stop posting to this thread after some days, weeks
+       or months, it would be annoying to have to manually track and delete
+       the kill filter for that thread.  But with NewsRog, you can have this
+       happen automatically.  By setting this value to, say, 7 days, a filter
+       will disappear automatically if it hasn't matched any articles in the
+       past 7 days.<P></LI>
+
+  <LI>The <B>Enable</B> checkbox toggles this filter on or off.  Filters that
+       are not enabled have no effect; they simply are not used.<P></LI>
+
+  <LI>The <B>Invert</B> checkbox inverts the sense of the filter; all
+       articles it would normally match are not matched, and vice versa.  This
+       way you can easily define filters that match all articles <U>except</U>
+       those specified by the filter criteria.<P></LI>
+
+  <LI>The <B>Toolbar Button</B> option allows you to define a graphic file
+  which will be used to create a toolbar button for this filter.  This
+  toolbar button appears in the <A HREF="NR-Tut-Group.html#FFTB">Group
+  Window</A>, near the article view area, and clicking a filter's icon
+  will toggle that filter on or off and update the list of articles
+  accordingly.<P></LI>
+</UL>
+
+If neither the <B>Expire Date</B> nor the <B>Expire Disuse</B> options in
+this area are selected, then the filter will never expire.<P>
+
+The filter <B>description</B> may also be changed by typing into the name
+box in a filter list when a particular filter is selected.  The
+<B>Enabled</B> and <B>Invert</B> options may be toggled on and off from
+the filter list by clicking in the appropriate column of the list:<P>
+
+   <CENTER>
+      <IMG SRC="../Graphics/Window-Cfg-SelFlt.GIF" WIDTH=437 HEIGHT=321
+           BORDER=0>
+   </CENTER><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Stats"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Stats
+<FONT SIZE=+0> </TD>
+<TD>
+
+Certain information about filters is tracked to enable you to easily see
+how filters are performing.  The statistics area looks like this:<P>
+
+   <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-SelFlt-Stats.GIF" WIDTH=476 HEIGHT=160
+        BORDER=0>
+   </CENTER><P>
+
+The <B>Total History</B> area presents a cumulative count of the number of
+successful and attempted matches for this filter.  For example, if there
+are 100 articles in a group, and a particular filter matches 35 of them,
+then the components of the Total History area will increment by 35 and 100
+respectively each time the filter is used.<P>
+
+The <B>Last Use</B> area is similar, but it resets for each use of the
+filter.  For example, if you perform some operation in the group window's
+user interface that requires re-running filters, the Last Use area
+statistics will reset each time.<P>
+
+The <B>Last Match</B> is the date on which the filter last successfully
+matched any article.  This is used to determine when to expire articles
+that use the <B>Expire Disuse</B> feature.<P>
+
+Pressing the <B>Reset</B> button will reset all the statistics to zero.<P>
+
+Pressing the <B>Update</B> button will update the <B>Last Match</B> date
+to today's date.  This way you can "force" a filter that would have
+otherwise expired to start it's internal clock over, so to speak.<P>
+
+Some other filter statistics such as a percentage match number are
+available from the filter lists.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AuthNote"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Author Notes
+<FONT SIZE=+0> </TD>
+<TD>
+
+When sharing filters with other people, it is often useful to include a
+longer description of the filter so that other people can know what it
+does without having to experiment with it themselves.  This is
+particularly useful for complex filters.  For this reason, NewsRog allows
+you to type some descriptive text into an Author Note:<P>
+
+   <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-SelFlt-AInfo.GIF" WIDTH=476 HEIGHT=160
+        BORDER=0>
+   </CENTER><P>
+
+This text will then be displayed when the filter is loaded by another
+NewsRog user.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="SvLd"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Saving & Loading Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+Filters or groups of filters may be saved or loaded from disk files.
+Pressing the right mouse button above a filter list will produce a popup
+menu with "Save..." and "Load..." a few other options.<P>
+
+By selecting one filter, or multiselecting several filters in the list,
+and chosing the "Save..." menu, a file requester will appear asking for a
+filename to which the selected filters should be saved.  If more than one
+filter is selected, all the filters will be save to the file.  This way
+filters may be saved for future use or for sharing with other NewsRog
+users.<P>
+
+By chosing the "Load..." menu, a file requester will appear asking for a
+filename from which to load previously saved filters.  After chosing a
+file, a list of the filters in the file will be displayed:<P>
+
+<CENTER>
+<IMG SRC="../Graphics/NR-Tut-SelFlt-InsAdd.GIF" WIDTH=387 HEIGHT=268 BORDER=0>
+</CENTER><P>
+
+The list will present all of the filters from the file.  Double clicking
+on a single filter will load that filter.  Multi-selecting a group of
+filters and pressing the "Load" button will load those filters.  If the
+filter has a Author Note, then this will be displayed when the name of the
+filter is clicked in the list.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>What selection, kill, and hilight filters are.
+      </LI>
+  <LI>The difference between selection and kill filters.
+      </LI>
+  <LI>What filter scope refers to, and the difference between global and
+      group specific filters.
+      </LI>
+  <LI>The logic used to combine multiple filters.
+      </LI>
+  <LI>How to add and remove filters.
+      </LI>
+  <LI>How to edit a particular filter's parameters.
+      </LI>
+  <LI>How to change a filter's description.
+      </LI>
+  <LI>How to create auto-expiring filters.
+      </LI>
+  <LI>The difference between a set expire date and expiring after a
+      certain period of disuse.
+      </LI>
+  <LI>How to enable and disable filters.
+      </LI>
+  <LI>How to invert the sense of a filter's comparison.
+      </LI>
+  <LI>How to save and load groups of filters to disk files.
+      </LI>
+  <LI>What statistics are tracked about filters.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+</BODY>
+</HTML>

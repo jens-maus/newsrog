@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog: Known Bugs</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR>
+
+<TH VALIGN=Top>
+    <A HREF="NR-Main.html">
+       <IMG SRC="Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+            ALT="Move Up">
+    </A>
+    <A HREF="NR-Main.html">
+       <IMG SRC="Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+            ALT="Move to Top">
+    </A>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Known Bugs <FONT SIZE=+0>
+</TH> </TR>
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+2>
+Potentially Fatal Bugs
+<FONT SIZE=+0> </TD>
+<TD>
+
+While we have attempted to provide the highest quality software we can,
+there are always bugs in any complex application, and it is best if you
+know about them rather than stumble on them yourself.  This is the
+exhaustive list of known bugs in NewsRog.  We will be addressing them as
+soon as possible, particularly the fatal errors.<P>
+
+Please report new bugs to us: see <A HREF="BN-Contact.html"> Contact</A>
+for more information.<P>
+
+  <TABLE BORDER=1 CELLPADDING=6>
+    <TR><TH>Area</TH> <TH>Description</TH> <TH>Workaround</TH></TD></TR>
+
+    <TR><TD>UUDecode Display Filter</TD>
+        <TD>If an article is displayed using this filter, then the
+            display filter object is deleted, and lastly, memory
+            pressure forces an expunge of the library, it is possible
+            for the system to crash.  This should be a very rare
+            combination of events however.
+        <TD>Avoid</TD>
+    </TR>
+
+  </TABLE>
+
+</TD> </TR>
+
+<!--------------------------------------------------------------------------->
+
+<TR>
+<TD ALIGN=Center VALIGN=Top BGCOLOR=#777799><FONT SIZE=+2>
+Display Glitches & Other Non-Fatal Bugs
+<FONT SIZE=+0> </TD>
+<TD>
+
+These bugs are non-fatal and are chiefly harmless display glitches of
+various types.<P>
+
+  <TABLE BORDER=1 CELLPADDING=6>
+    <TR><TH>Object Class</TH> <TH>Description</TH> <TH>Status</TH></TD></TR>
+
+    <TR><TD>Group Window</TD>
+        <TD>If the group headers are saved while some articles are
+            queued for network download, the queue icon falsely
+            appears next time the group is loaded.</TD>
+        <TD>NewsRog Bug</TD>
+    </TR>
+
+    <TR><TD>Group Window</TD>
+        <TD>At times, articles displayed in the group window are
+            unavailable from the news server.  The expire
+            option in the group window menu can be used to force an
+            expire of old group articles, but at times even this
+            leaves unavailable articles.</TD>
+        <TD>NNTP Specification Issue</TD>
+    </TR>
+
+    <TR><TD>UUDecode Display Filter</TD>
+        <TD>On screens of less than 256 colors, the datatypes display of
+            inline images is often blank.  Workaround: switch to a 256 or
+            truecolor (16 or 24) bit display mode.  NewsRog is designed to
+            run optimally in at least 1024x768x16-bit.</TD>
+        <TD>Datatypes bug.</TD>
+    </TR>
+
+  </TABLE>
+
+</TD> </TR>
+
+<!--------------------------------------------------------------------------->
+
+</TABLE>
+</BODY>
+</HTML>

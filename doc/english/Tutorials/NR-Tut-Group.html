@@ -1,0 +1,1631 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 14: Group Reader</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 14: Group Reader <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-DspFlt.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Previous Tutorial">
+       </A>
+       <A HREF="NR-Tut-FAQMgr.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Next Tutorial">
+       </A>
+   </TD><TD>
+      <B>Contents:</B> <A HREF="#Tabs">Main Group Window Areas</A><BR>
+      <UL>
+         <LI><A HREF="#ReadNews">Read News</A></LI>
+         <UL>
+           <LI><A HREF="#Status">Status Bar & Abort Button</A></LI>
+           <LI><A HREF="#ArtStat">Article Status Icon</A></LI>
+           <LI><A HREF="#Toolbars">Article List Toolbar</A></LI>
+              <UL>
+                <LI><A HREF="#AL_Arrows">Mode Button & Arrows</A></LI>
+                <LI><A HREF="#AL_FAQs">FAQ Manager</A></LI>
+                <LI><A HREF="#AL_HLight">Hilight Filters</A></LI>
+                <LI><A HREF="#AL_Read">Read/Unread Buttons</A></LI>
+                <LI><A HREF="#AL_1Auth">One Author Buttons</A></LI>
+                <LI><A HREF="#AL_Remove">Removing Articles Temporarily</A></LI>
+                <LI><A HREF="#AL_Kill">Killing Articles & Threads</A></LI>
+                <LI><A HREF="#AL_View">Changing the View</A></LI>
+                <LI><A HREF="#AL_Action">User Defined Actions</A></LI>
+              </UL>
+           <LI><A HREF="#Toolbars">Article Viewer Toolbar</A></LI>
+              <UL>
+                <LI><A HREF="#VL_Arrows">Top & Bottom of Article</A></LI>
+                <LI><A HREF="#VL_Post">Post New & Followup</A></LI>
+                <LI><A HREF="#VL_Browse">Article Browsing</A></LI>
+                <LI><A HREF="#VL_Art">Article Movement</A></LI>
+                <LI><A HREF="#VL_Thread">Thread Movement</A></LI>
+                <LI><A HREF="#VL_View">Changing the View (Display Filter)</A></LI>
+                <LI><A HREF="#VL_Srch">Searching in Article Text</A></LI>
+                <LI><A HREF="#VL_Clip">Copying Article Text to the Clipboard</A></LI>
+              </UL>
+         </UL>
+         <LI><A HREF="#SrchBody">Searching in Article Bodies</A></LI>
+         <LI><A HREF="#Flt">Select & Kill Filters</A></LI>
+         <LI><A HREF="#Flt">Display & Action Filters</A></LI>
+         <LI><A HREF="#Config">Group Specific Config Options</A></LI>
+         <LI><A HREF="#Menus">Group Menus</A></LI>
+         <LI><A HREF="#Stats">Group Statistics Window</A></LI>
+         <LI><A HREF="#FFTB">Filter Toolbar</A></LI>
+         <LI><A HREF="#Summary">Summary</A></LI>
+      </UL>
+
+   </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Tabs"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Main Group Window Areas
+<FONT SIZE=+0> </TD>
+<TD>
+
+The basic structure and operation of the group window is covered in an
+ealier tutorial: <A HREF="NR-Tut-Reading.html">Tutorial 5: Newsreading
+Basics.</A> This tutorial covers more advanced features of the Group
+Reader window.<P>
+
+At the top of the window are a set of register tabs which can be used to
+move between the several areas of the group window.<P>
+
+ <CENTER>
+   <TABLE NOFLOW BORDER=0 CELLSPACING=0 CELLPADDING=0>
+   <TR>
+     <TD>
+        <A HREF="#ReadNews">
+        <IMG SRC="../Graphics/NR-Tut-Group-Tabs-RN.GIF" WIDTH=127 HEIGHT=25 BORDER=0>
+        </A>
+     </TD>
+     <TD>
+        <A HREF="#Flt">
+        <IMG SRC="../Graphics/NR-Tut-Group-Tabs-SF.GIF" WIDTH=124 HEIGHT=25 BORDER=0>
+        </A>
+     </TD>
+     <TD>
+        <A HREF="#Flt">
+        <IMG SRC="../Graphics/NR-Tut-Group-Tabs-DA.GIF" WIDTH=124 HEIGHT=25 BORDER=0>
+        </A>
+     </TD>
+     <TD>
+        <A HREF="#Config">
+        <IMG SRC="../Graphics/NR-Tut-Group-Tabs-CF.GIF" WIDTH=124 HEIGHT=25 BORDER=0>
+        </A>
+     </TD>
+   </TR>
+   </TABLE>
+ </CENTER><BR><P>
+
+You can click on one of the tabs to go to the associated section of this
+tutorial.<P>
+
+<UL>
+  <LI><A HREF="#ReadNews"><B>Read News</B></A>
+       - The main news reading area which includes the
+       article list and the article display.<P></LI>
+
+  <LI><A HREF="#Flt"><B>Select Filters</B></A>
+       - The group specific selection and kill filter
+       lists.<P></LI>
+
+  <LI><A HREF="#Flt"><B>Display/Action Filters</B></A>
+       - The group specific display and action filter lists.<P></LI>
+
+  <LI><A HREF="#Config"><B>Group Options</B></A>
+       - Group specific configuration options.<P></LI>
+
+  <LI><A HREF="#Menus"><B>Group Window Menus</B></A>
+       - Menus for the group reader window.<P></LI>
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Status"></A>
+<A NAME="ReadNews"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Status Bar & Abort Button<P>
+<FONT SIZE=+0> </TD>
+<TD>
+
+In the main newsreading area near the top of the window is the status bar,
+which looks like this:<P>
+
+ <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-Group-StatBar.GIF" WIDTH=499 HEIGHT=18 BORDER=0>
+ </CENTER><P>
+
+On the left side of the status bar is a brief message which indicates the
+current action.  It lists states such as <I>Idle</I>, <I>D/L'ing Articles
+(N of M)</I>, etc.<P>
+
+On the right side of the status bar is a bar graph showing the approximate
+percentage completion of the current action.  Some actions such as
+downloading articles only update the status approximately every 100 lines.<P>
+
+On the far right of the status bar is a small stop button which can be
+pressed to halt the current network operation.  For example, if you start
+downloading a very long article by mistake, pressing this will stop that
+operation.  Pressing it during batch downloading of articles will halt
+that operation, and so on.  This button will be ghosted if no operation is
+in progress or if the current operation is not abortable.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ArtStat"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Article Status Icon
+<FONT SIZE=+0> </TD>
+<TD>
+
+On the left side of the article list is a small status icon which displays
+the current state of the listed article.  The exact look of the icons will
+depend on your current MUI preferences:<P>
+
+   <TABLE BORDER=0 CELLSPACING=5 CELLPADDING=5>
+   <TR><TD VALIGN=Top>
+         <IMG SRC="../Graphics/NR-Tut-Group-Broken.GIF" WIDTH=98 HEIGHT=15
+              BORDER=0 ALIGN=Top>
+       </TD><TD>
+           The <I>broken</I> icon is displayed for articles that could not
+           be fetched from the server.   This might be due to any number
+           of causes: the article has expired, it has been cancelled, a
+           connection could not be made to the news server, or an error
+           occurred when attempting to fetch the article from the server.
+       </TD>
+   </TR>
+
+   <TR><TD VALIGN=Top>
+         <IMG SRC="../Graphics/NR-Tut-Group-NW.GIF" WIDTH=98 HEIGHT=15
+              BORDER=0 ALIGN=Top>
+       </TD><TD>
+           The <I>network</I> icon is displayed for articles are in the
+           queue to be downloaded from the network, or are actually being
+           transferred from the network.
+       </TD>
+   </TR>
+
+   <TR><TD VALIGN=Top>
+         <IMG SRC="../Graphics/NR-Tut-Group-Cached.GIF" WIDTH=98 HEIGHT=15
+              BORDER=0 ALIGN=Top>
+       </TD><TD>
+           The <I>cached</I> icon is displayed for articles that have been
+           cached on the local disk.  Since no information needs to be
+           obtained from the news server, these articles may be read in
+           offline mode.  Articles may be explicitly cached by using one
+           of the cache <A HREF="#Menus">menu items.</A>
+           A <A HREF="../Reference/NR-Ref-Cached.html">Cached</A> filter is
+           available to select against cached articles.           
+       </TD>
+   </TR>
+
+   <TR><TD VALIGN=Top>
+         <IMG SRC="../Graphics/NR-Tut-Group-Perm.GIF" WIDTH=98 HEIGHT=15
+              BORDER=0 ALIGN=Top>
+       </TD><TD>
+           The <I>permanent</I> icon is displayed for articles that have
+           been marked as permanent.  Permanent articles are like cached
+           articles, but they do not expire as normal articles do, and
+           will remain in the group until explicitly deleted or marked as
+           non-permanent.
+           A <A HREF="../Reference/NR-Ref-Permanent.html">Permanent</A> filter is
+           available to select against permanent articles.           
+       </TD>
+   </TR>
+
+   <TR><TD VALIGN=Top>
+         <IMG SRC="../Graphics/NR-Tut-Group-New.GIF" WIDTH=98 HEIGHT=15
+              BORDER=0 ALIGN=Top>
+       </TD><TD>
+           The <I>new</I> icon is displayed for articles that have
+           recently been downloaded from the network.  Resetting the new
+           state is controlled by the group preferences; it may be done
+           when the group is closed, when an article is read, or both, or
+           neither.
+           A <A HREF="../Reference/NR-Ref-New.html">New</A> filter is
+           available to select against new articles.           
+       </TD>
+   </TR>
+
+   </TABLE><BR><P>
+
+By clicking in the column that displays the status icon, you can cycle an
+individual article between <B>Normal</B>, <B>Cached</B>, and
+<B>Permanent</B>.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="ToolBars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group Window Toolbars
+<FONT SIZE=+0> </TD>
+<TD>
+
+The article list toolbar looks like this:<P>
+
+  <CENTER>
+
+  <TABLE NOFLOW BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR><TD BGCOLOR="#777799">
+
+  <TABLE NOFLOW BORDER=0 CELLSPACING=2 CELLPADDING=0>
+  <TR>
+    <TD>
+       <A HREF="#AL_Arrows">
+       <IMG SRC="../Graphics/Button-ArrowUp.GIF" WIDTH=18 HEIGHT=16 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_Arrows">
+       <IMG SRC="../Graphics/Button-ArrowDn.GIF" WIDTH=18 HEIGHT=16 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_FAQs">
+       <IMG SRC="../Graphics/Button-FAQ.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_HLight">
+       <IMG SRC="../Graphics/Button-HLight.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_Arrows">
+       <IMG SRC="../Graphics/Button-2Art.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_Read">
+       <IMG SRC="../Graphics/Button-Read.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_Read">
+       <IMG SRC="../Graphics/Button-Unread.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_1Auth">
+       <IMG SRC="../Graphics/Button-1Author.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_Remove">
+       <IMG SRC="../Graphics/Button-Remove.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_Kill">
+       <IMG SRC="../Graphics/Button-Kill.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_View">
+       <IMG SRC="../Graphics/Button-View.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#AL_Action">
+       <IMG SRC="../Graphics/Button-Action.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#SrchBody">
+       <IMG SRC="../Graphics/Button-Search.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="NR-Tut-Com#Sort">
+       <IMG SRC="../Graphics/Button-Sort.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="NR-Tut-Com#ListCol">
+       <IMG SRC="../Graphics/Button-ListCol.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="NR-Tut-Com#Clip">
+       <IMG SRC="../Graphics/Button-Clip.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+  </TR>
+  </TABLE>
+
+  </TD></TR></TABLE>
+
+  </CENTER> <BR><P>
+
+You can click on the buttons to move to the associated section of this
+tutorial.  The article viewer toolbar looks like this:<P>
+
+  <CENTER>
+
+  <TABLE NOFLOW BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR><TD BGCOLOR="#777799">
+
+  <TABLE NOFLOW BORDER=0 CELLSPACING=2 CELLPADDING=0>
+  <TR>
+    <TD>
+       <A HREF="#VL_Arrows">
+       <IMG SRC="../Graphics/Button-ArrowUp.GIF" WIDTH=18 HEIGHT=16 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#VL_Arrows">
+       <IMG SRC="../Graphics/Button-ArrowDn.GIF" WIDTH=18 HEIGHT=16 BORDER=0>
+       </A>
+    </TD>
+    <TD> &nbsp;</TD>
+    <TD>
+       <A HREF="#VL_Browse">
+       <IMG SRC="../Graphics/Button-BrowseR.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#VL_Browse">
+       <IMG SRC="../Graphics/Button-BrowseF.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD> &nbsp;</TD>
+    <TD>
+       <A HREF="#VL_Art">
+       <IMG SRC="../Graphics/Button-ArtBack.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#VL_Art">
+       <IMG SRC="../Graphics/Button-ArtFwd.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD> &nbsp;</TD>
+    <TD>
+       <A HREF="#VL_Thread">
+       <IMG SRC="../Graphics/Button-ThreadBack.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#VL_Thread">
+       <IMG SRC="../Graphics/Button-ThreadFwd.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD> &nbsp;</TD>
+    <TD>
+       <A HREF="#VL_Post">
+       <IMG SRC="../Graphics/Button-PostNew.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#VL_Post">
+       <IMG SRC="../Graphics/Button-PostFup.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD> &nbsp;</TD>
+    <TD>
+       <A HREF="#VL_View">
+       <IMG SRC="../Graphics/Button-View.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#VL_Srch">
+       <IMG SRC="../Graphics/Button-Search.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+    <TD>
+       <A HREF="#VL_Clip">
+       <IMG SRC="../Graphics/Button-Clip.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+    </TD>
+  </TR>
+  </TABLE>
+
+  </TD></TR></TABLE>
+
+  </CENTER> <BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_Arrows"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Mode Changing Arrows<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-ArrowUp.GIF" WIDTH=18 HEIGHT=16 BORDER=0>
+   <IMG SRC="../Graphics/Button-ArrowDn.GIF" WIDTH=18 HEIGHT=16 BORDER=0>
+   <IMG SRC="../Graphics/Button-2Art.GIF"    WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+These buttons move the article list between
+<A HREF="NR-Tut-Reading.html#ArtList"><B>All Articles</B></A>,
+<A HREF="NR-Tut-Reading.html#ArtList"><B>All Threads</B></A>, and
+<A HREF="NR-Tut-Reading.html#ArtList"><B>One Thread</B></A> modes.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_FAQs"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+FAQ Manager<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-FAQ.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This button opens up the group's
+<A HREF="NR-Tut-FAQMgr.html"> FAQ Manager </A>.
+
+The FAQ manager can fetch group FAQ ("Frequently Asked Questions") files
+from a FAQ server and display them locally.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_HLight"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Hilight Filters<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-HLight.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This button opens a list of <I>Hightlight Filters</I>.  Highlight filters
+are simply selection filters which cause an article's subject to be
+highlighted in the
+<A HREF="NR-Tut-Reading.html#ArtList">Article List</A>.  For example, here
+is an example of a hilight filter which matches all articles with
+<I>Steinway</I> or <I>Baldwin</I> in the subject line:<P>
+
+   <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-HLight.GIF" WIDTH=383 HEIGHT=150 BORDER=0>
+   </CENTER><BR><P>
+
+This sort of filter can be used to make particular articles stand out from
+the others.  Any NewsRog selection filter may be used.  The <I>Update</I>
+button will re-highlight all visible articles according to the current set
+of enabled filters.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_Read"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Read/ Unread Toggle<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-Read.GIF"   WIDTH=21 HEIGHT=18 BORDER=0>
+   <IMG SRC="../Graphics/Button-Unread.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+These buttons determine whether read article, unread articles, or both,
+are displayed in the article list.  If neither button or both buttons are
+pushed (depressed), then all articles are displayed.
+
+If the only read button
+(<IMG SRC="../Graphics/Button-Read.GIF"   WIDTH=21 HEIGHT=18 BORDER=0>)
+is pushed, then only read articles are displayed.  If only the unread
+button
+(<IMG SRC="../Graphics/Button-Unread.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+is pushed, then only unread articles are displayed.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_1Auth"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+One Author Button<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-1Author.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+If this button is depressed, then the article list is restricted to
+viewing articles by one particular author.  When this button is pushed,
+the author of the currently article highlighted in the article list is
+remembered, and only articles by this author are displayed.<P>
+
+Note that this is orthogonal to any other restrictions in place.  For
+example, if you are in
+<A HREF="NR-Tut-Reading.html#ArtList"><B>One Thread</B></A>
+mode, only articles by the chosen author in that particular thread are
+displayed.  To display all articles in the current group by a particular
+author, first move to
+<A HREF="NR-Tut-Reading.html#ArtList"><B>All Articles</B></A>
+mode and then use the
+<IMG SRC="../Graphics/Button-1Author.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+button.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_Remove"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Remove Articles Button<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-Remove.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This button is used to remove articles or threads from the article list on
+a temporary basis.  Articles removed in this manner will re-appear the
+next time the group is opened (as long as they haven't been expired or
+killed and meet all the proper criteria for being displayed).  Contrast
+this with the <A HREF="#AL_Kill">Kill</A> button, which removes articles
+for good.<P>
+
+<IMG SRC="../Graphics/Window-Grp-Remove.GIF" WIDTH=172 HEIGHT=79 BORDER=0
+     ALIGN=Right VALIGN=Top HSPACE=10 VSPACE=10>
+
+When this button is pressed, a small popup window appears with several
+choices.  Clicking <B>Remove Selected Articles</B> will cause the
+currently selected articles to be removed from the article list.
+<B>Remove Selected Threads</B> is similar, but all articles in the same
+threads as any currently selected article are removed.  <B>Un-Remove</B>
+restores any removed articles to the article list.<P>
+
+The hotkey 'z' (lower case) invokes the <B>Remove Selected Articles</B>
+function, while 'Z' (upper case) invokes <B>Remove Selected
+Threads</B>.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_Kill"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Kill Button<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-Kill.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This button provide an easy way to create kill files.  A small popup
+window that looks like this will appear:<P>
+
+<CENTER>
+   <IMG SRC="../Graphics/NR-Tut-Group-Kill.GIF" WIDTH=357 HEIGHT=121 BORDER=0>
+</CENTER><BR><P>
+
+The first cycle gadget choses the kill type.  The choices are:<P>
+
+<UL>
+  <LI><B>Kill Selected Articles</B> - This will kill all selected
+       articles.<P></LI>
+  <LI><B>Kill Selected Threads</B> - This will kill all articles in the same
+       thread(s) as the selected article(s).<P></LI>
+  <LI><B>Kill All by Same Author</B> - This will kill all articles written by
+       the same author as the selected article(s).<P></LI>
+</UL><P>
+
+The second cycle gadget selects between:
+<UL>
+  <LI><B>Kill Current Articles</B> - Only articles present now will be killed.
+       This will have no effect on any future articles posted to this group.<P></LI>
+  <LI><B>Kill Current & Future Articles</B> - This will also kill new
+       articles that come along matching the same criteria.  For example,
+       if <B>Kill Selected Threads</B> is chosen, then the next time this
+       group is read, new articles posted to the selected threads will be
+       killed as well.  This will effectively remove all articles that
+       <I>have been posted</I> as well as all articles that <I>will be posted</I>
+       to those threads.  The function in <B>Kill All by Same
+       Author</B> mode is similar: any future articles posted by the
+       selected authors will be killed as well.<P></LI>
+</UL><P>
+
+The <B>Expiration</B> control is only available if <B>Kill Current &
+Future Articles</B> has been selected.  If the checkbox is unset, then the
+kill filter entry that has been created will never expire.  If it is
+checked, however, then the kill filter entry will expire after the
+indicated period of disuse.  For example, if you chose to kill all
+articles in a particular thread now and in the future, then the kill
+filter entry that accomplishes this will disappear after nothing has been
+posted to that thread for the indicated period of time.  This makes it
+easier to manage kill filters.<P>
+
+The <B>Location</B> gadget controls how kill filter entries are created:
+<UL>
+  <LI><B>Kill in This Group</B> - The default mode creates local kill
+     entries  - that is, entries which only apply to this particular
+     group.<P></LI>
+  <LI><B>Kill in All Groups</B> - If this mode is selected, kill filter
+     entries will be created globally for all groups.  This is useful, for
+     example, to kill a particular author's articles no matter which group
+     they are posted to.<P></LI>
+</UL><P>
+
+The results of using this easy front end to kill filters can be changed or
+examined by hand as well.  A group specific kill filter of the type
+<I>HeaderMatch</I> called is created called <I>Thread/Author Kill</I>.
+This filter can be found in the <B>Select Filters</B> tab of the group
+window.  You might want to add, remove, or change various entries by
+hand.<P>
+
+Lastly, pressing the <B>Kill</B> button will kill the indicated articles
+and if required, add to the <I>Thread/Author Kill</I> filter.   Pressing
+the <B>Cancel</B> button will close the window and not do anything else.<P>
+       
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_View"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+View Button<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-View.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+The article list view button allows you to change the currently enabled
+set of selection filters.  In effect, you can define different
+<I>Views</I> onto the current group, and select one or more of them at any
+given time.  Pressing this button yields a small popup window like this:<P>
+
+<CENTER>
+   <IMG SRC="../Graphics/NR-Tut-Group-ALView.GIF" WIDTH=380 HEIGHT=182 BORDER=0>
+</CENTER><BR><P>
+
+This window lists both selection filters defined for this group only, and
+global selection filters defined in the
+<A HREF="NR-Tut-Config.html">configuration</A> area.  Any combination of
+filters can be toggled on or off here, and when the <B>Update</B> button
+is pressed, the popup window will close and the article list will update
+to display articles matched by the newly enabled set of selection filters.<P>
+
+By default, the selection filters are used in <B>Any</B> mode.  That is,
+an article matches will be displayed if it matches any enabled filters.
+But this can be changed in the main selection filter list to <B>All</B>
+mode, in which only articles that match all enabled filters are
+displayed.<P>
+
+The <B>Close</B> button will close the popup window but will not
+immediately update the article list.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="AL_Action"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Action Button<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-Action.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This will pop up a list of defined action filters:<P>
+
+<CENTER>
+   <IMG SRC="../Graphics/NR-Tut-Group-ALAct.GIF" WIDTH=380 HEIGHT=182 BORDER=0>
+</CENTER><BR><P>
+
+Any combination of action filters may be selected, and when the <B>Run</B>
+button is pressed, the action filters will be run against the currently
+selected set of articles.  If necessary, articles may be fetched from the
+network at this time.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VL_Arrows"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Article Viewer Movement<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-ArrowUp.GIF" WIDTH=18 HEIGHT=16 BORDER=0>
+   <IMG SRC="../Graphics/Button-ArrowDn.GIF" WIDTH=18 HEIGHT=16 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+These buttons move the view to the top or bottom of the currently
+displayed article.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VL_Post"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Post New & Followup<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-PostNew.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+   <IMG SRC="../Graphics/Button-PostFup.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+The PostNew button
+ (<IMG SRC="../Graphics/Button-PostNew.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+posts a new article to this group.  The Post Followup button
+ (<IMG SRC="../Graphics/Button-PostFup.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+posts a followup to the article in the article view area, or a new article
+if no article is currently displayed.<P>
+
+Note that the <A HREF="NR-Tut-DspFlt.html#GlobInfo">"Replies" option</A>
+in display filters can be turned on or off to modify the initial text when
+posting followups to articles.  For instance, you might turn this option
+on in a <A HREF="../Reference/NR-Ref-HideSig.html">HideSig</A> filter to
+remove signature blocks automatically.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VL_Browse"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Article Viewer Browsing<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-BrowseF.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+   <IMG SRC="../Graphics/Button-BrowseR.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+
+Pressing the forward browse button
+(<IMG SRC="../Graphics/Button-BrowseF.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+
+or the period/full-stop "." key or the numeric keypad "page down" key will
+page forward in the article displayed in the article list.  When the end
+of the article is reached, the next article in the present thread will be
+fetched and displayed.  When the end of the thread is reached, the first
+article in the next thread will be displayed, and so on until the end of
+the group.  Many times, it is possible to browse news using just by
+pressing the period/full-stop key when you are ready to continue
+reading.<P>
+
+The reverse browse button
+(<IMG SRC="../Graphics/Button-BrowseF.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+
+which is mapped to the "," key or the numeric keypad "page up" key
+performs the same function but in reverse.  It pages back in the present
+article, etc.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VL_Art"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Article Movement<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-ArtBack.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+   <IMG SRC="../Graphics/Button-ArtFwd.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+
+Pressing the forward article button
+(<IMG SRC="../Graphics/Button-ArtFwd.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+
+or the forward bracket "]" key or the numeric keypad "+" key will move to
+and display the next article.  At the end of a thread, the first available
+article in the next thread will be displayed.<P>
+
+The reverse article button
+(<IMG SRC="../Graphics/Button-ArtBack.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+
+which is mapped to the "[" and numeric keypad "-" keys performs the same
+function but in reverse.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VL_Thread"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Thread Movement<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-ThreadBack.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+   <IMG SRC="../Graphics/Button-ThreadFwd.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+
+Pressing the forward thread button
+(<IMG SRC="../Graphics/Button-ThreadFwd.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+
+or the forward paren ")" key will move to and display the next available
+thread, skipping all articles in the current thread.<P>
+
+The reverse thread button
+(<IMG SRC="../Graphics/Button-ThreadBack.GIF" WIDTH=21 HEIGHT=18 BORDER=0>)
+
+which is mapped to the "(" key performs the same function but in
+reverse.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VL_Srch"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Article Text Searching<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-Search.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This button is similar to the list search buttons available elsewhere, but
+instead it searches for the indicated text through the article body of the
+article displayed in the article view area.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="VL_Clip"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Article Text Clipping<P>
+ <CENTER>
+   <IMG SRC="../Graphics/Button-Clip.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+ </CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+This button is similar to the clip buttons available elsewhere, but
+instead it copies the currently selected text from the article viewer into
+the system clipboard.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Flt"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group Specific Filters
+<FONT SIZE=+0> </TD>
+<TD>
+
+The group specific filter areas allow you to define a set of filters that
+apply only to this particular group.  Filters that apply to more than one
+group may be defined in the
+<A HREF="NR-Tut-Config.html">configuration</A> area.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="SrchBody"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Searching in Article Bodies
+<FONT SIZE=+0> </TD>
+<TD>
+
+The article list search window (accessed via the 
+<IMG SRC="../Graphics/Button-Search.GIF" WIDTH=21 HEIGHT=18 BORDER=0 ALIGN=Bottom>
+button) in the group window has a few special features.  The window looks
+like this:<P>
+
+ <CENTER>
+   <IMG SRC="../Graphics/Window-Grp-ALSrch.GIF" WIDTH=495 HEIGHT=119 BORDER=0>
+ </CENTER><BR><P>
+
+The <B>Match Header</B> gadget can be used to select among various header
+that the search will be restricted to.  For example, you can perform a
+<A HREF="NR-Tut-Com.html#Search">Dynamic search</A> only through the
+<B>Subject:</B> headers of posts, or only through the <B>From:</B>
+headers.<P>
+
+There are also several other custom values:<P>
+
+  <TABLE NOFLOW BORDER=2 CELLSPACING=5 CELLPADDING=5>
+    <TR><TH>Value</TH><TH>Description</TH></TR>
+    <TR><TD VALIGN=Top><B>All Headers</B></TD>
+        <TD>
+            The search will find text in any header of an article, as long
+            as it has been loaded.  Remember that the
+            <A HREF="#Config">Use Full Headers</A> option controls whether
+            all the article's headers are loaded from the network.
+        </TD>
+    </TR>
+    <TR><TD VALIGN=Top><B>Cached Bodies</B></TD>
+        <TD>
+            The search will find text in the bodies of articles, as long
+            as those articles have been marked as
+            <A HREF="#ArtStat">Cached</A> or
+            <A HREF="#ArtStat">Permanent</A>.  (Fetching all articles from
+            the network would take too long for acceptable search
+            performance, but you can cache whichever articles you are
+            interested in searching through).<P>
+
+            Note that this action will cause all the article bodies to be
+            retrieved from disk cache until the one is found that matches
+            your query.  Used with the <A
+            HREF="NR-Tut-Com.html#Search">Dynamic search</A> option, this
+            requires a fast machine and disk subsystem for best
+            performance.  The use of a disk cache program also will help
+            improve the speed of searching through article bodies.<P>
+
+            Note that NewsRog makes a distinction between how an article
+            is <I>displayed</I> and how it was <I>posted</I>.  For
+            example, various <A HREF="NR-Tut-DspFlt.html">Display
+            Filters</A> can modify the way an article is displayed.  For
+            this reason, it is possible for this search to find text in an
+            article body that is not actually displayed when you view the
+            article.  For example, it might be text that is part of a
+            <A HREF="../Reference/NR-Ref-HideSig.html">
+            hidden signature block</A>.
+            However, for text in
+            <A HREF="../Reference/NR-Ref-HLQuotes.html">
+            scrolled quote blocks</A>, the scroll region will be
+            automatically changed to view the text.
+        </TD>
+    </TR>
+    <TR><TD VALIGN=Top><B>Hdrs+Cached Bodies</B></TD>
+            This is similar to the <I>Cached Bodies</I> option above, but
+            the search will find text in header fields as well.<P>
+        </TD>
+    </TR>
+  </TABLE><BR><P>
+
+The <B>Update Disp</B> button is only available when one of the article
+body search options has been selected.  It controls whether the article
+view updates each time a match has been found.  Doing this slows the
+search since each article must be formatted for display, but it allows you
+to see the results of the search as you type.<P>
+
+The <B>Search from RAM</B> button is also only available when one of the
+article body search options has been selected.  When selected, all cached
+articles will be loaded into memory, and further searches will happen from
+the versions in memory, which is much faster that searching from disk, but
+can take a considerable amount of memory if there are many or large
+articles.  A status update will be displayed while the articles are being
+loaded; this may take a few moments.  If loading the articles would result
+in less than 4 Mb being available, the operation will not be performed.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Config"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group Config
+<FONT SIZE=+0> </TD>
+<TD>
+
+There are three main areas in the group specific configuration options:<P>
+
+ <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-Group-Cfg-1.GIF" WIDTH=416 HEIGHT=246 BORDER=0>
+ </CENTER><BR><P>
+
+ <UL>
+   <LI><B>Group Description</B> - This string is displayable in the
+        <A HREF="NR-Tut-Groups.html"> Group List</A> window, and can be
+        read from the server by group lists's <B>Read Description</B>
+        command, although it may be manually set to any string here.<P></LI>
+
+   <LI><B>Server</B> - If non-blank, the indicated server will be used to
+   fetch this group instead of using the project's default server.  For
+   example, you might want to read a special programming group available
+   from a different news server than you typically read news from.
+   Pressing the <B>Def</B> button will restore the project's default
+   server.<P></LI>
+
+   <LI><B>Signature File</B> - If non-blank, this will override the
+   default signature file from the
+   <A HREF="NR-Tut-Config.html">configuration</A> area.<P></LI>
+
+   <LI><B>ArticleView Title</B> - If non-blank, this will override the
+   default set in the
+   <A HREF="NR-Tut-Config.html">configuration</A> area.<P></LI>
+
+   <LI><B>Max Articles</B> - When fetching article headers, this is the
+   maximum number to be fetched, according to the
+   <A HREF="NR-Tut-Config.html#NewsOpts">Header Fetch Policy</A>
+   set in the main configuration window.  For example, you may wish to
+   fetch no more than the most recent 200 articles from a group that has
+   4000 articles available on the server.<P></LI>
+        
+   <LI><B>Max to Keep on Exit</B> - This is the number of article headers
+   (not including those for any permanent articles) to be retained when
+   closing this group.  For example, if you want to be able to refer to
+   100 older articles the next time you read this group, you can set this
+   value to 100 (note that these articles must be either cached locally,
+   or still available on your news server in order for you to see them).
+   Set it to a low value if you don't care about reading older
+   articles.<P></LI>
+        
+   <LI><B>Article Font</B> - The default font to use for this group.  If
+   unset, the font from the
+   <A HREF="NR-Tut-Config.html#MiscOpts">main configuration</A>
+   is used.  For example, you may wish to use a proportional font as your
+   default, but override it with a fixed width font for an ASCII pictures
+   or source code group.<P></LI>
+        
+   <LI><B>Article Color</B> - The default text color for this group.  If
+   unset, the color from the
+   <A HREF="NR-Tut-Config.html#MiscOpts">main configuration</A>
+   is used.<P></LI>
+        
+   <LI><B>New Article Marker</B> - Newly fetched article headers are
+   marked with a
+    <IMG SRC="../Graphics/NR-Tut-Group-New.GIF" WIDTH=98 HEIGHT=15
+         BORDER=0 ALIGN=Top>
+   status icon.  This setting controls the policy for resetting this
+   marker.  You may chose to have it reset when you read an article, when
+   you close the group, or only manually from the
+   <A HREF="#Menus">group menu</A> options.<P></LI>
+        
+   <LI><B>Incremental Loading</B> - If checked, then headers will be
+   displayed as they are loaded, so that you can start reading articles
+   even before all the headers are finished transferring.  If unchecked,
+   headers will not be displayed until all of them are done loading from
+   the network, which is more efficient since it avoids extra sorting and
+   threading operations.<P></LI>
+        
+  </UL>
+
+ <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-Group-Cfg-2.GIF" WIDTH=416 HEIGHT=187 BORDER=0>
+ </CENTER><BR><P>
+
+ <UL>
+   <LI><B>Cached Articles</B> - If articles have been cached (which is
+   most often done to support later off-line reading), NewsRog will
+   typically ask whether to keep or delete them when the group is closed.
+   This option may be set to <B>Keep at Exit</B>, <B>Ask at Exit</B>, or
+   <B>Delete at Exit</B> to specify a behavior.<P></LI>
+
+   <LI><B>Mem Cache Articles</B> - When reading news, the last few
+   articles read will be cached in memory to make them quickly available
+   if you go back and re-read an article.  This is the maximum number of
+   articles that will be so cached in memory.<P></LI>
+
+   <LI><B>Mem Cache Size</B> - This is the maximum size of the article
+   memory cache.<P></LI>
+
+   <LI><B>Thread Prefetch</B> - When reading one article of a thread in
+   online mode, the next few articles in the same thread will be fetched
+   while you are still reading the first to speed access for sequential
+   reading.  This is the number of pre-fetched articles.  Note that the
+   articles must fit in the memory cache, so the smaller of this value and 
+   <B>Mem Cache Articles</B> actually determines the prefetch.<P></LI>
+
+   <LI><B>Read & Cache</B> - If enabled, articles read in online mode will
+   be automatically cached as they are read.<P></LI>
+</UL>
+
+ <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-Group-Cfg-3.GIF" WIDTH=416 HEIGHT=118 BORDER=0>
+ </CENTER><BR><P>
+
+ <UL>
+   <LI><B>D/L New on Startup</B> - If set, then new article headers will be
+   downloaded from the news server when the group window is opened and
+   NewsRog is in online mode.  Otherwise, headers are only fetched
+   manually using the <B>Group/Fetch New</B> menu.<P></LI>
+
+   <LI><B>Use Full Headers</B> - When fetching articles, NewsRog usually
+   downloads only a subset of the available headers.  This subset is
+   sufficient for almost all purpose, but leaves out some infrequently
+   used headers such as the <B>Path</B> headers.  Setting this option will
+   cause NewsRog to download all the article's headers instead, which is
+   slightly slower and consumes more room in the header cache.<P></LI>
+
+   <LI><B>Mark Read on Exit</B> - If set, all articles in the group are
+   automatically marked as read when the group window is closed.<P></LI>
+ </UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Menus"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group Window Menus
+<FONT SIZE=+0> </TD>
+<TD>
+
+<B>Group Project</B> menu:<P>
+
+<UL>
+  <LI><B>Save</B> - Saves the headers to the local disk cache.  This
+  includes information such as read/unread articles.<P></LI>
+
+  <LI><B>Close</B> - Save & close the current group.<P></LI>
+
+  <LI><B>Close/NoSave</B> - Close the group window without saving the
+      header cache.  This is not generally the recommended way to close
+      the group window.<P></LI>
+
+  <LI><B>Toggle Windows</B> - Toggles between a single article
+  list/article view window, and separate windows.  This can be configured
+  permanently in the <A HREF="NR-Tut-Config.html#WinOpts">Config
+  Window<A>.<P></LI>
+</UL><P>
+
+<B>Group</B> menu:
+
+<UL>
+  <LI><B>Fetch New</B> - Checks for and downloads new article headers in
+  this group.  Normally in online mode this happens automatically when the
+  group is opened, but new headers can be fetched at any time.<P></LI>
+
+  <LI><B>Post New</B> - Compose a new post to this group.  The new post
+  will not be a followup to any particular article, but will start a new
+  thread.<P></LI>
+
+  <LI><B>Clean Cache</B> - Rebuilds the group's cache information from the
+  cache directory.  Normally this is not required; if for example the
+  computer is rebooted without properly shutting down the program, this
+  will be detected the next time a group is opened and the cache will be
+  cleaned automatically.<P></LI>
+
+  <LI><B>Expire Articles</B> - Force an expire of old articles.  In online
+  mode, all articles older than the oldest available from the server for
+  this group are expired (except for permanent articles, which are never
+  expired).  In offline mode, this information is not available, so only
+  articles over the defined group maximum are expired.<P></LI>
+
+  <LI><B>View FAQ...</B> - Brings up the
+       <A HREF="NR-Tut-FAQMgr.html"> FAQ Manager </A> for this group.
+       <P></LI>
+       
+  <LI><B>Reset Article Pos</B> - This menu item
+    resets the group's last article position.  Normally, when entering a group,
+    NewsRog reads only the new headers since the last time the group
+    headers were fetched.  Using this menu option will reset the last
+    article position, causing all the headers to be re-read the next time
+    a header fetch happens.  Typically this command is not needed.
+       <P></LI>
+
+  <LI><B>Group Stats...</B> - This menu item
+    brings up the <A HREF="#Stats">Group Statistics Window</A>, in which
+    various statistics about the group are displayed such as the number of
+    cached articles, their total size, and so on. <P></LI>
+       
+</UL><P>
+
+<B>Article List</B> menu:
+
+<UL>
+  <LI><B>Select All</B> - Select (highlight) all articles currently shown
+  in the article list.<P></LI>
+
+  <LI><B>Select</B> - Menus for selecting multiple articles from the current set displayed in the article list:</LI>
+     <UL>
+       <LI><B>Read</B> - Select all read articles.</LI>
+       <LI><B>Unread</B> - Select all unread articles.</LI>
+       <LI><B>Marked</B> - Select all marked articles.</LI>
+       <LI><B>Cached</B> - Select all cached (but not permanent) articles.</LI>
+       <LI><B>Uncached</B> - Select all uncached articles.</LI>
+       <LI><B>Permanent</B> - Select all permanent articles.</LI>
+       <LI><B>New</B> - Select all new articles.</LI>
+     </UL>
+  <P></LI>
+
+  <LI><B>Toggle Selected</B> - Toggle the selected state of all articles
+  currently shown in the article list.<P></LI>
+
+  <LI><B>Limit to Selected</B> - All articles except the currently
+  selected ones are removed from the article list.<P></LI>
+
+  <LI><B>Unlimit</B> - Undo the effect of a <B>Limit to Selected</B>
+  operation.<P></LI>
+
+  <LI><B>Remove</B> - Removes articles from the group on a temporary
+  basis, identical to the operation of the <A HREF="#AL_Remove">remove
+  button</A>.<P></LI>
+
+  <LI><B>Search...</B> - The same as pressing the search button
+  (<A HREF="NR-Tut-Com#Search">
+       <IMG SRC="../Graphics/Button-Search.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+   </A>).
+  <P></LI>
+
+  <LI><B>Selected Articles</B></LI>
+  <LI><B>All in Thread</B></LI>
+  <LI><B>All in Group</B> -
+     The following sub-menus are available under each of the preceding three
+     menus.  Their function is identical, differing only in the set of
+     articles operated upon:<BR>
+      <UL>
+        <LI><B>Set Read</B> - Mark the articles or threads as read.</LI>
+      
+        <LI><B>Set Unread</B> - Mark the articles or threads as unread.</LI>
+      
+        <LI><B>Mark</B> - Set a user mark on the selected articles.  Articles
+        marked in this way show up as bold.  This can be used to mark interested
+        articles or threads.</LI>
+      
+        <LI><B>Unmark</B> - Reset the user mark set with <B>Mark</B>.</LI>
+      
+        <LI><B>Cache</B> - Cache the selected articles on the local disk.</LI>
+      
+        <LI><B>Cache Permanent</B> - Make the selected articles permanent.
+        Permanent articles are cached on the local disk but do not expire.</LI>
+             
+        <LI><B>Uncache</B> - Remove cached or permanent articles from the local
+        disk cache.</LI>
+
+        <LI><B>Reset New</B> - The new article marker for these articles
+        is reset.</LI>
+      </UL>
+   </LI>
+</UL><P>
+
+The <B>Viewer Article</B> menu commands operate on the article displayed
+in the article viewer:<P>
+
+<UL>
+  <LI><B>Select All Text</B> - All article text is selected.<P></LI>
+
+  <LI><B>Save Text</B> - Saves selected parts of the article to a file.<BR>
+      <UL>
+        <LI><B>Headers...</B> - The article headers are saved, using any
+        current display filters with the <A
+        HREF="NR-Tut-DspFlt.html#GlobInfo">"Saving" option</A> turned on.</LI>
+        <LI><B>Body...</B> - The article body is saved, using display filters.</LI>
+        <LI><B>Hdrs+Body...</B> - The full article (headers and body) is
+        saved, using display filters.</LI>
+        <LI><B>Raw Headers...</B> - The raw (unfiltered) article headers
+        are saved without using any display filters.</LI>
+        <LI><B>Raw Body...</B> - The raw (unfiltered) article body is saved.</LI>
+        <LI><B>Raw Hdrs+Body...</B> - The full article (headers and body) is
+        saved, without using display filters.</LI>
+      </UL><P>
+  </LI>
+
+  <LI><B>Print</B> - Sends the currently displayed article to the printer
+  device set in the <A HREF="NR-Tut-Config.html#MiscOpts">Config</A> window.<BR>
+      <UL>
+        <LI><B>Headers...</B> - Prints only article headers, using any
+        current display filters with the <A
+        HREF="NR-Tut-DspFlt.html#GlobInfo">"Printing" option</A> turned on.</LI>
+        <LI><B>Body...</B> - The article body is printed, using display filters.</LI>
+        <LI><B>Hdrs+Body...</B> - The full article (headers and body) is
+        printed, using display filters.</LI>
+        <LI><B>Raw Headers...</B> - The raw (unfiltered) article headers
+        are printed without using any display filters.</LI>
+        <LI><B>Raw Body...</B> - The raw (unfiltered) article body is printed.</LI>
+        <LI><B>Raw Hdrs+Body...</B> - The full article (headers and body) is
+        printed, without using display filters.</LI>
+      </UL><P>
+  </LI>
+
+  <LI><B>Clip</B> - Copies selected parts of an article to the system clipboard.<BR>
+      <UL>
+        <LI><B>Subject</B> - The Subject field is copied.</LI>
+        <LI><B>From</B> - The From field is copied.</LI>
+        <LI><B>Message-ID</B> - The Message-ID field is copied.</LI>
+        <LI><B>Date</B> - The Date field is copied.</LI>
+        <LI><B>Groups</B> - The Newsgroups field is copied.</LI>
+        <LI><B>Headers</B> - All headers are copied.</LI>
+        <LI><B>Body</B> - The article body is copied.</LI>
+        <LI><B>Hdrs+Body</B> - The entire article is copied.</LI>
+      </UL><P>
+  </LI>
+
+  <LI><B>Redisplay</B> - Redisplays the article in one of two modes:<BR>
+      <UL>
+        <LI><B>Raw (No Filters)</B> - The raw article is display without
+        using any display filters.</LI>
+        <LI><B>Normal</B> - The article is displayed normally, using the
+        active display filters.</LI>
+  </LI>
+  
+  <LI><B>Post Followup...</B> - Composes a followup to this article,
+  including and quoting the original article text.<P></LI>
+
+  <LI><B>Search...</B> - Identical to pressing the
+       <A HREF="#VL_Srch">
+       <IMG SRC="../Graphics/Button-Search.GIF" WIDTH=21 HEIGHT=18 BORDER=0>
+       </A>
+       button.<P></LI>
+
+  </UL><P>
+</UL><P>
+
+The <B>Partial (Multipart)</B> menu commands include the following operations:<P>
+
+<UL>
+  <LI><B>Select Related Parts</B> - Causes other parts of a multipart
+  article to be selected in the article list.  A warning will be printed
+  if some parts were not found in the current article list.<P></LI>
+
+  <LI><B>Check for Parts...</B> - Checks to see if all parts of the
+  selected article are present.<P></LI>
+
+</UL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Stats"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Group Statistics Window
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/NR-Tut-Group-Stats.GIF" WIDTH=298 HEIGHT=208
+     ALIGN=Right BORDER=0 HSPACE=10>
+
+The group statistics window displays some statistical information about
+this group, such as the number of articles that have been cached, the
+percent of the group's articles that this represents, and the size in Kb
+or Mb of these articles.<P>
+
+Note that the size computation relies on the Bytes: header returned by the
+news server, which may be missing or inaccurate.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="FFTB"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Toolbar
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Window-Grp-FFTB.GIF" WIDTH=187 HEIGHT=286
+  BORDER=0 ALIGN=Right HSPACE=10 VSPACE=10>
+
+Display and selection filters may define a filter function toolbar which
+provides an easy way to access commonly used filters.  For instance, you
+might want a quick way to turn on or off a
+<A HREF="NR-Tut-SelFlt.html">selection filter</A> with a single mouse
+click, and automatically update the article list accordingly.  Or perhaps
+you have an ROT13 <A HREF="NR-Tut-DspFlt.html">display filter</A>
+defined that you would like to have update the displayed article
+immediately.  You can define <A HREF="NR-Tut-SelFlt.html#GlobInfo">toolbar
+buttons</A> for your most commonly used filters.<P>
+
+You may move the filter toolbar, seen here on the left, to the right, top,
+or bottom of the article view area by setting the <A
+HREF="NR-Tut-Config.html#WinOpts">Filter Toolbar Location</A> in the
+Configuration window.  Since vertical screen area is more limited than
+horizontal, the left and right settings are recommended over the top and
+bottom.  You may also display the filters' descriptions as a label
+underneath the toolbar icon, as seen here.  The description will change to
+bold text when the filter is enabled.<P>
+
+The filter toolbar is only updated when a group window is opened.  If you
+add new toolbar icons, you will need to close and re-open the group in
+order to see them.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>How to move between the main group window areas.
+      </LI>
+  <LI>How the status bar operates.
+      </LI>
+  <LI>How to cancel pending network operations.
+      </LI>
+  <LI>What the different article status icons mean.
+      </LI>
+  <LI>What the article list toolbar looks like.
+      </LI>
+  <LI>How to change the article list mode.
+      </LI>
+  <LI>How to view read articles, unread articles, or both.
+      </LI>
+  <LI>How to view articles by a particular author.
+      </LI>
+  <LI>How to create basic kill filters for authors or threads.
+      </LI>
+  <LI>How to change the enabled set of selection filters.
+      </LI>
+  <LI>How to run user defined actions against articles.
+      </LI>
+  <LI>What the article viewer toolbar looks like.
+      </LI>
+  <LI>How to move to the top or bottom of the displayed article.
+      </LI>
+  <LI>How to browse forward and backward.
+      </LI>
+  <LI>How to search for text in an article body.
+      </LI>
+  <LI>How to copy text from an article body to the clipboard.
+      </LI>
+  <LI>How to change the enabled set of display filters.
+      </LI>
+  <LI>What the group specific configuration options do.
+      </LI>
+  <LI>What the group window menus do.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 15: FAQ Manager</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=5>
+
+<TR> <TH WIDTH=100></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 15: Group FAQ Manager <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Group.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Previous Tutorial">
+       </A>
+       <A HREF="NR-Tut-Web.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Next Tutorial">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=3 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#FAQMgr">  The FAQ Manager</A></TD>
+    <TD><A HREF="#UI">      User Interface</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Server">   FAQ Servers</A></TD>
+    <TD><A HREF="#Problems"> Common Problems</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Summary"> Summary</A></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="FAQMgr"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+The FAQ Manager
+<FONT SIZE=+0> </TD>
+<TD>
+
+NewsRog has the ability to download newsgroup <I>FAQs</I> (Frequently
+Asked Question files) from an FTP server, display them locally, and cache
+them for future reference.  FAQ files are usually maintained by active
+participants in a particular newsgroup.  It is important to note that:<P>
+
+<UL>
+  <LI>Not every newsgroup has a FAQ.  Many dont, particularly less
+      active groups, or those in the <I>alt.*</I> hierarchy.<P></LI>
+  <LI>Some newsgroups have more than one FAQ.</LI>
+</UL><BR><P>
+
+The FAQ Manager window looks like this:<P>
+
+ <CENTER>
+   <IMG SRC="../Graphics/Window-FAQMgr.GIF" WIDTH=406 HEIGHT=172 BORDER=0>
+ </CENTER><BR><P>
+
+The example above is for the <I>comp.graphics.algorithms</I> group.  This
+group contains three FAQs.  The cache marker next to the
+"colorspace-faq..." FAQ indicates that this FAQ is cached locally, and may
+be viewed in either online or offline mode.  The other FAQs may only be
+viewed in online mode, but viewing a FAQ in online mode automatically
+caches it for future use.<P>
+
+The first time the FAQ manager for a group is opened, the list of FAQs is
+fetched from the FAQ server if NewsRog is in online mode.  Otherwise, the
+list of FAQs is fetched from the local disk (it must have been previously
+fetched in online mode for this to work).  The list may be updated using
+the <A HREF="#UI">user interface</A> described below.<P>
+
+The FAQ manager for a given group may be opened by using the FAQ button
+(<IMG SRC="../Graphics/Button-FAQ.GIF" WIDTH=21 HEIGHT=18 BORDER=0>) in
+either the <A HREF="NR-Tut-Group.html">Newsgroup Reader Window</A> or the
+<A HREF="NR-Tut-Groups.html">Group List Window</A>.<P>
+
+FAQs are often a valuable resource for learning more about a particular
+topic, and they often have pointers to other resources for futher
+exploration.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+The FAQ Manager User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The FAQ window shown above has a list of available FAQs, and a selection
+of buttons for performing operations on these FAQs:<P>
+
+  <CENTER>
+  <TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=5>
+   <TR><TH>Button</TH><TH>Description</TH></TR>
+   <TR>
+      <TD><B>View FAQ</B></TD>
+      <TD>
+          Display the active (hilighted) FAQ using multiview.  Double
+          clicking on a FAQ also performs this action.  In order for this
+          to function properly, the <I>multiview</I> command must be in
+          the search path.
+      </TD>
+   </TR>
+   <TR>
+      <TD><B>Update List</B></TD>
+      <TD>
+          Fetch the list of FAQs from the FAQ server.  This operation can
+          only be performed in Online mode.
+      </TD>
+   </TR>
+   <TR>
+      <TD><B>Delete FAQ</B></TD>
+      <TD>
+          Removes a cached FAQ from the local disk.  The FAQ remains in
+          the list and can still be fetched from the FAQ server.  All
+          selected FAQs are uncached.
+      </TD>
+   </TR>
+   <TR>
+      <TD><B>Select All</B></TD>
+      <TD>
+          Select all FAQs in the list.
+      </TD>
+   </TR>
+   <TR>
+      <TD><B>Abort</B></TD>
+      <TD>
+          Abort a pending transfer, either of the FAQ list, or of a FAQ
+          file.
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=Top><B>Action...</B></TD>
+      <TD>
+          Perform a <A "HREF=NR-Tut-MM.html">multimedia action</A> on a
+          FAQ file.  FAQ files have a predefined multimedia type of
+          <B>application/X-FAQ</B>.  Using NewsRog's <A
+          "HREF=NR-Tut-MM.html">multimedia system</A>, it is possible to
+          set up any number of actions for FAQ files.  For example, to
+          define two additional actions for FAQ files, one to save the FAQ
+          to <I>RAM:</I>, and the other view it using a custom viewer
+          called "myviewer", one might do this:<P>
+
+          <TABLE NOFLOW BORDER=2 CELLSPACING=2 CELLPADDING=2>
+          <TR><TH ALIGN=left>Media Type</TH><TH ALIGN=left>Action Name</TH><TH ALIGN=left>Command</TH><TH ALIGN=left>Args</TH></TR>
+          <TR><TD>application/X-FAQ</TD><TD>SaveRAM</TD><TD>copy</TD><TD>${FAQFile} RAM:{GroupAbbrev}-FAQ</TD></TR>
+          <TR><TD>application/X-FAQ</TD><TD>View</TD><TD>myviewer</TD><TD>${FAQFile}</TD></TR>
+          </TABLE><BR><P>
+
+          To perform a multimedia action on a given FAQ, highlight that
+          FAQ in the list by single-clicking on its name.  Then click the
+          <I>Actions...</I> button and double click on a multimedia
+          action.
+      </TD>
+   </TR>
+  </TABLE>
+  </CENTER><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Server"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+FAQ Servers
+<FONT SIZE=+0> </TD>
+<TD>
+
+A <I>FAQ Server</I> is an FTP server which provides FAQ files for usenet
+newsgroups.  The default FAQ sever is <B>rtfm.mit.edu</B>, but any FAQ
+server may be defined in the
+<A HREF="NR-Tut-Config.html">configuration</A> area of NewsRog.  FAQ servers
+<U>must</U> be defined with a type of <B>FTP</B>, not NNTP.<P>
+
+In order to find the FAQ files on the FAQ server, NewsRog must be given a
+rule to transform a newsgroup name into a directory name on the FAQ
+Server.  The default for this is:<P>
+
+<UL><B>/pub/usenet-by-group/${GroupName}</B></UL><P>
+
+However, any name may be used.  This is also defined in the 
+<A HREF="NR-Tut-Config.html">configuration</A> area of NewsRog.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Problems"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+Problems with FAQs
+<FONT SIZE=+0> </TD>
+<TD>
+
+Here are several common problems with using the FAQ manager:<P>
+
+ <UL>
+   <LI>The FAQ server may be busy or unreachable.  Connections to the
+       server time out.  The only solution is to try again later.<P></LI>
+
+   <LI>The group you are interested in does not have a FAQ, or the FAQ
+       server you have chosen does not list a FAQ for this group.<P></LI>
+
+   <LI>FAQ server systems are typically busy, and connections to them are
+       often somewhat unreliable.  It is not unknown for the FTP
+       connection to a FAQ server to abort in the middle of a transfer.
+       In this case, the operation may be tried again.</LI>
+  </UL><P>
+
+For questions on the contents of the FAQ files themselves, please contact
+the author of the FAQ file directly.  ShadowWorks Software cannot provide
+any assistance either for missing FAQs or about the contents of any
+particular FAQ.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=100 BGCOLOR=#777799><FONT SIZE=+1>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>What a FAQ file is and how NewsRog manages them.
+      </LI>
+  <LI>How to operate the NewsRog FAQ manager.
+      </LI>
+  <LI>What a FAQ server is and how to set one up.
+      </LI>
+  <LI>Several common problems encountered when using the FAQ manager.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

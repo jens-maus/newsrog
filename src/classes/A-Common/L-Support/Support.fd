@@ -1,0 +1,139 @@
+##base _SWSupportBase
+##bias 30
+##public
+*
+* Library functions
+*
+SWOpenLibs(v,lp)(d0,a0)
+SWCloseLibs(v,lp)(d0,a0)
+SWInit()()
+SWExit()()
+SWGetVal(o,a)(a2,d1)
+*
+* Debug functions
+*
+SWDebugOpen(f,l,c)(a0,d0,d1)
+SWDebugSet(f,c)(d0,d1)
+SWDebugClose()()
+SWDebugEnter(f,c,n)(d0,d1,a0)
+SWDebugExit(f,c,n)(d0,d1,a0)
+SWDebugPrint(f,c,fm,dat)(d0,d1,a0,a1)
+*
+* Attribute map functions
+*
+SWGetAttr(m,i,t,r)(a0,a1,d0,a2)
+SWSetAttr(m,i,t,d)(a0,a1,d0,d1)
+SWInitAttrs(m,i,o)(a0,a1,a2)
+SWFreeAttrs(m,i)(a0,a1)
+SWGenTagList(m,i,t)(a0,a1,a2)
+SWCmpAttrs(m,i,i2)(a0,a1,a2)
+SWWriteAttrs(m,i,fp,ct)(a0,a1,d1,a3)
+SWReadAttrs(m,i,fp,o)(a0,a1,d1,a2)
+SWAttrUI(m,ms,hm,o)(a0,a1,a2,a3)
+SWKillAttrUI(m,ui,o)(a0,a1,a2)
+*
+* Locale functions
+*
+SWLocalizeNewMenu(c,cs,nm)(a0,a1,a2)
+SWLocalizeStringArray(c,ms,sa)(a0,a1,a2)
+*
+* Subtask functions
+*
+SWSendSubTaskMsg(st,c,p)(a0,d0,d1)
+SWSpawnSubTask(n,f,d,p)(a0,a1,d0,d1)
+SWKillSubTask(st)(a0)
+SWExitSubTask(st,stm,l)(a0,a1,a2)
+SWInitSubTask()()
+*
+* Custom Classes
+*
+SWTimesliderClass()()
+SWObjStringClass()()
+SWObjListClass()()
+*
+* Memory Pool fns
+*
+SWPoolAV(p,s)(a0,d0)
+SWPoolFV(p,m)(a0,a1)
+SWPoolRV(p,s,m)(a0,d0,a1)
+SWPoolNullStr()()
+SWPoolStrDup(p,str)(a0,a1)
+SWPoolCreate(t,a,b,tl)(d0,a0,a1,a2)
+SWPoolDelete(p)(a0)
+*
+* Formatting functions
+*
+SWFmtSize(val,str,d)(d0,a1,d1)
+*
+* Command line utilities
+*
+SWBoolVal(sv)(a0)
+SWGetCmdLine(ttypes)(a0)
+SWFreeCmdLine(cl)(a0)
+*
+* UI Functions
+*
+SWUI_FrameText(s,v,tb,title)(a0,d0,a1,a2)
+SWUI_Button(s,h)(a0,a1)
+SWUI_ImageBt(im,cc,img,hlp,fr)(a0,d0,a1,a2,d1)
+*
+* Directory fns
+*
+SWMakePath(p)(a0)
+SWDirExists(p)(a0)
+SWFileExists(p)(a0)
+*
+* Clipboard Fns
+*
+SWOpenClipWrite(u)(d0)
+SWCloseClipWrite(i)(a0)
+SWOpenClipRead(u)(d0)
+SWCloseClipRead(u)(a0)
+SWTextToClip(i,s)(a0,a1)
+SWClipToText(i,s)(a0,a1)
+*
+* Pattern fns
+*
+SWPB_Start(pb,p,c,w,ee)(a0,a1,d0,d1,a2)
+SWPB_Find(s,pb,st,en,l)(a0,a1,a2,a3,d1)
+SWPB_End(pb)(a0)
+*
+* More Custom Classes
+*
+SWKbsliderClass()()
+*
+* Decoding fns for UUencode, Base64Decode, QuotedPrintable
+*
+SWUUIsBegin(s)(a0)
+SWUUIsEnd(s)(a0)
+SWUUFileName(s)(a0)
+SWUUSize(s)(a0)
+SWUUDecodeLine(bp,Data,OutPos,Err)(a0,a1,d0,a2)
+SWUUDecode(Buff,BuffLen,Size,Lines,Err,Out)(a0,d0,a1,a2,a3,a5)
+SWBase64Decode(Buff,BuffLen,Size,Lines,Err,Out)(a0,d0,a1,a2,a3,a5)
+SWQPDecode(Buff,BuffLen,Size,Lines,Err,Out)(a0,d0,a1,a2,a3,a5)
+SWMimeDecode(Buff,BuffLen,Size,Lines,Err,MimeEnc)(a0,d0,a1,a2,a3,a5)
+SWCountLines(Buff)(a0)
+SWDecodeErrStr(Err)(d0)
+*
+* Misc Utility Fns
+*
+SWReadFileContents(FSpec,Size,Err)(a0,a1,a2)
+SWWriteFileContents(FSpec,Buff,Size)(a0,a1,d0)
+SWWriteFileString(FSpec,Buff,Strlen)(a0,a1,d0)
+SWDeleteFile(FSpec)(a0)
+SWOpenAppend(FSpec)(a0)
+*
+* Rexx Cmds
+*
+SWSendRexxCmd(Port,Cmd,ReplyPort,Result,MaxResultLen)(a0,a1,a2,a3,d0)
+*
+* more en/decoding functions
+*
+SWQPEncodeStr(InStr,OutBuff)(a0,a1)
+*
+* Test fns
+*
+SWDumpObj(o,attr1)(a0,d0)
+*
+##end

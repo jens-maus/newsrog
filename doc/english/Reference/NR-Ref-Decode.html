@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Reference: Action Filters: Decode</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120>
+</TH>
+
+<TH ALIGN=center>
+<FONT SIZE=+4> Reference: Action Filters: Decode <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="NR-Ref-ActFlt.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Ref-SaveTxt.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0>
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=1 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">          Filter Overview</A></TD>
+    <TD><A HREF="#UI">            User Interface & Options</A></TD>
+    <TD><A HREF="#Vars">          Variables</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Filter Overview
+<FONT SIZE=+0> </TD>
+<TD>
+
+This filter will decode MIME or UUEncoded binary data in an article body
+and save the results to a disk file.  Multiple encoded data segments
+within one article body are supported, and the saved filename can be
+extracted from the MIME or uuencode filename.
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="UI"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+User Interface
+<FONT SIZE=+0> </TD>
+<TD>
+
+The user interface for this filter looks like this:<P>
+
+<CENTER>
+<IMG ALIGN=Center SRC="../Graphics/NR-Ref-Decode-UI.GIF" WIDTH=317 HEIGHT=126>
+</CENTER><P>
+
+The available configuration options are:<P>
+
+<UL>
+  <LI><B>Filename</B> - This is the file to which the binary data should
+     be saved.  The variable <B>${File}</B> will expand to the filename
+     extracted from the MIME or uuencoded data.
+      <P></LI>
+
+   <LI><B>Save Mode</B> - One of:<P>
+     <UL>
+       <LI><B>Overwrite</B> - Any old file with the same filename is
+       silently overwritten with the new data.</LI><P>
+       <LI><B>Skip</B> - No data is saved if a file with the same filename
+       already exists.</LI><P>
+       <LI><B>Suffix</B> - If a file with the same filename already
+       exists, a four digit numeric suffix is appended to the filename of
+       the saved data.</LI><P>
+     </UL><P></LI>
+
+    <LI><B>Create Dirs</B> - If selected and the directory of the saved
+    file does not already exist, it will be created.<P></LI>
+</UL>
+
+<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Vars"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Variables
+<FONT SIZE=+0> </TD>
+<TD>
+
+The following variables, in addition to the standard group, article, and
+project variables, are available to this filter:<P>
+
+<CENTER>
+   <TABLE NOFLOW BORDER=2 CELLSPACING=4 CELLPADDING=4>
+     <TR><TH>Variable Name</TH><TH>Description</TH></TR>
+
+     <TR><TD>File</TD>
+         <TD>This is set to the filename of the data as obtained from the
+         MIME or UUEncoded data segment.  MS-DOS pathnames with backwards
+         slashes will be transparently removed.
+         </TD></TR>
+    </TABLE>
+</CENTER>
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 8: The Network Connection List</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+
+<TR> <TH WIDTH=120></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 8: The Network Connection List <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Servers.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-Posts.html">
+          <IMG SRC="../Graphics/ArrowRight.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=1 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Info">    Network Overview</A></TD>
+    <TD><A HREF="#Abort">   Aborting Network IO</A></TD>
+    <TD><A HREF="#Cols">    Displayable Info</A></TD>
+    <TD><A HREF="#Summary"> Summary</A></TD>
+    <TD></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Info"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Network Overview<P>
+<CENTER>
+<IMG SRC="../Graphics/Toolbar-B3.jpg" WIDTH=86 HEIGHT=81 BORDER=0>
+</CENTER>
+<FONT SIZE=+0> </TD>
+<TD>
+
+NewsRog can manage multiple simultaneous connections to a news server (or
+even to multiple news servers).  For example, batch downloading articles
+from one group while browsing another might use two network connections.
+NewsRog is generally smart about reusing idle network connections, so the
+minimum number needed is created at any given time.<P>
+
+Unlike most other lists in NewsRog, items are not manually added to the
+Network Connection list.  NewsRog adds them itself when connections are
+created.  You can neither create nor delete them yourself.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Abort"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Network Connection Commands
+<FONT SIZE=+0> </TD>
+<TD>
+
+  <CENTER>
+  <IMG SRC="../Graphics/Window-Network.GIF" WIDTH=518 HEIGHT=102
+       ALIGN=Center BORDER=0>
+  </CENTER><P>
+
+The network list window looks like this.  The button icons at the top have
+been explained in a <A HREF="NR-Tut-Com.html#Lists">previous tutorial</A>.
+As you can see in the above window, NewsRog is capable of high transfer
+speeds over standard modems if modem compression is used to it's maximum
+effectiveness.  Speeds of over 11 Kb/sec are attainable in some cases with
+a standard 56 Kb/s modem.<P>
+
+Other commands available here are:<P>
+
+<UL>
+  <LI><B>Disconnect</B> - Disconnects the selected network connections.
+      Any operations that started those connections will be aborted.<P></LI>
+
+  <LI><B>Disconnect All</B> - Disconnects all the open network
+      connections, and aborts the operations that started them..<P></LI>
+</UL>
+
+Note that most operations that start network connections provide their own
+abort feature local to that command.  For example, in the group window,
+the abort button will abort group specific network connections for that
+particular group.<P>o
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Cols"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Displayable Data
+<FONT SIZE=+0> </TD>
+<TD>
+
+The network connection list can be set to display any desired information
+about a server.  (See <A HREF="NR-Tut-Com.html#Lists">this</A> tutorial
+for more information).  The following data may be displayed:<P>
+
+  <TABLE BORDER=2>
+    <TR><TH>Column</TH> <TH>Description</TH></TR>
+
+    <TR><TD VALIGN=Top>Nodename</TD>
+        <TD>Displays the nodename of the server to which this connection
+            has been created.<P>
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Description</TD>
+        <TD>A description of the NewsRog event that caused this connection
+        to be created, or <I>Idle</I> if this connection is currently unused.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>TCP Status</TD>
+        <TD>The status of the TCP connection.  This might be:
+            <I>Connecting</I>, <I>Connected</I>, <I>Disconnected</I>,
+            <I>Sending</I>, <I>Receiving</I>, <I>Finding Host</I>, or
+            <I>Error</I>.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Speed</TD>
+        <TD>The average speed in Kb/sec that has been attained so far over
+        the course of this paticular network operation.  This will reset
+        when a different action in NewsRog causes the connection to be
+        used for something else.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>In Bytes %</TD>
+        <TD>The number of bytes (or more commonly, Kb or Mb) transferred
+        so far for this operation.  This will also reset for each logical
+        operation.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>In Lines</TD>
+        <TD>The number of logical lines send by the server so far for this
+        connection.
+        </TD></TR>
+
+    <TR><TD VALIGN=Top>Hostname</TD>
+        <TD>The hostname component of the server's nodename for this
+        connection.  This is shorter than the nodename.
+        </TD></TR>
+
+   </TABLE><BR><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>When NewsRog starts multiple network connections.
+      </LI>
+  <LI>How to abort network connections, and what effect this has on the
+      operations that started them.
+      </LI>
+  <LI>What all of the buttons in the network connection window do.
+      </LI>
+  <LI>What the different columns available for display mean.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

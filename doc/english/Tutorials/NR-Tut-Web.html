@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+<HTML> <HEAD>
+<TITLE>NewsRog Tutorial 16: Web Interface</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" LINK="#000050" VLINK="#000080" ALINK="#000080"
+      BACKGROUND="../Graphics/Background.GIF" BGCOLOR="#bbbbbb">
+
+<A NAME="Top"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=5>
+
+<TR> <TH WIDTH=100></TH> <TH ALIGN=center>
+<FONT SIZE=+4> Tutorial 16: Web Interface <FONT SIZE=+0>
+</TH> </TR>
+
+  <TR><TD VALIGN=Top>
+       <A HREF="../NR-Tutorial.html">
+          <IMG SRC="../Graphics/ArrowUp.jpg"  WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move Up">
+       </A>
+       <A HREF="../NR-Main.html">
+          <IMG SRC="../Graphics/ArrowTop.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Top">
+       </A>
+       <A HREF="NR-Tut-FAQMgr.html">
+          <IMG SRC="../Graphics/ArrowLeft.jpg" WIDTH=25 HEIGHT=25 BORDER=0
+               ALT="Move to Previous Tutorial">
+       </A>
+    </TD><TD>
+    <TABLE CELLPADDING=5>
+    <TR>
+    <TD ROWSPAN=3 VALIGN=Top><B>Contents:</B></TD>
+    <TD><A HREF="#Intro">    Introduction</A></TD>
+    <TD><A HREF="#MultiSel"> Multiselecting Text</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Config">   Configuring Web Searches</A></TD>
+    <TD><A HREF="#Using">    Performing Web Searches</A></TD>
+    </TR><TR>
+    <TD><A HREF="#Other">    Interfacing to Other Software</A></TD>
+    <TD><A HREF="#Summary">  Summary</A></TD>
+    </TR>
+    </TABLE>
+  </TD></TR>
+</TABLE>
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Intro"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Connecting NewsRog to Search Engines
+<FONT SIZE=+0> </TD>
+<TD>
+
+NewsRog has the ability to automatically interface with web based search
+engines to allow you to easily perform searches for information you see in
+usenet articles.<P>
+
+An example will make this more clear.  Suppose you read an article in the
+group sci.space.news with the following text:<P>
+
+ <CENTER>
+   <IMG SRC="../Graphics/NR-Tut-Web-MSel.GIF" WIDTH=386 HEIGHT=61 BORDER=0>
+ </CENTER><BR><P>
+
+Perhaps you are interested in finding out more about NASA's Space Shuttle
+mission to deploy the Chandra satellite, but there are no URLs contained
+in the article.  You may multi-select several short words or phrases, and
+then use a pop-up menu to automatically send these to your favorite web
+search engine, such as Yahoo or Altavista.  You do not have to actually
+enter any text into the web based search engine; NewsRog can automatically
+generate and submit a query for you - you just see the results!<P>
+
+In this case, if you use the Yahoo search engine, you will a link for the
+"STS-93: Chandra X-Ray Observatory Deployment Mission" web page.<P>
+
+For more information on how to set up and use this feature, read the
+following sections in this tutorial.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="MultiSel"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Multi Selecting Text
+<FONT SIZE=+0> </TD>
+<TD>
+
+To select multiple words or phrases in an article body, hold down either
+alt key while selecting text.  The text you select this way will be added
+to any other currently selected text, and will remain hilighted even if
+you have the <A HREF="NR-Tut-Config.html#MiscOpts">AutoClip</A> setting
+enabled.<P>
+
+An easy way to multiselect several words is to alt-doubleclick on them.
+You may also alt-doubleclick and drag over several words to select a short
+phrase.<P>
+
+You can see the results of multiselecting text in the section above.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Config"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Predefined Queries
+<FONT SIZE=+0> </TD>
+<TD>
+
+By default, NewsRog has no predefined web queries loaded, but several are
+supplied with NewsRog that you can load and use in your own NewsRog
+projects.  You may also define your own.<P>
+
+There is a small amount of setup necessary to tell NewsRog how to properly
+interface with your web browser.  Follow these steps to load and configure
+the pre-defined web based queries:<P>
+
+<OL>
+  <LI>Open the NewsRog <A HREF="NR-Tut-MM.html">Multimedia Editor</A>.<P></LI>
+
+  <LI>Click on the Multimedia Actions tab at the top.<P></LI>
+
+  <LI>Click on the <I>Insert...</I> button.<P></LI>
+
+  <LI>Double click one of the supplied MMAction.Search files, such as
+  MMAction.Search-Yahoo.  This will load the indicated multimedia action
+  into NewsRog's multimedia action list.   You may load several this way;
+  there are also supplied interfaces to the Google web search engine and
+  the Deja usenet search engine.<P>
+
+  <LI>If your web browser is not Work:IBrowse/IBrowse, then you must
+  define a NewsRog <A HREF="NR-Tut-Config.html#VarEdit">variable</A> named
+  <B>Browser</B> which contains the filename of your web browser.  Most
+  web browsers such as IBrowse and Voyager accept the URL parameter to
+  open a new URL; if yours takes a different command line argument to open
+  a URL, you may have to edit the supplied multimedia action
+  accordingly.  See your web browser's documentation for more information
+  on its command line parameters.<P>
+   
+</OL><P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Using"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Using Web Queries
+<FONT SIZE=+0> </TD>
+<TD>
+
+To use the interface to web based search engines, just select some text in
+an article body as described <A HREF="#MultiSel">above</A>.  Now press the
+right mouse button over the article text, and you will see a popup menu
+containing the multimedia actions you have loaded or defined.  Select
+one, and NewsRog will automatically formulate a query for that search
+engine using the text you have selected, open your web browser, and
+display the results of your query!<P>
+
+If you multi-select two adjacent words separately, then a search will be
+submitted that requires both words to be present, but not necessariliy
+next to each other.  If you select both words together in NewsRog as one
+unit, then query will require the words to appear together in the search
+results.  For example, selecting "Space" and "Shuttle" separately might
+return a match on "The <B>Shuttle</B> is a reusable platform for routine access
+to <B>space</B>...", while if you select the phrase "Space Shuttle" as a
+unit, then those two words must appear together.  The exact manner in
+which the search is performed depends on the web search engine you
+chose.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Other"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Other Uses
+<FONT SIZE=+0> </TD>
+<TD>
+
+You may also use this feature to interface NewsRog to other applications
+such as spell checkers or language translation tools.  Any short word or
+phrase may be passed to another application this way.  Selected text has
+the multimedia type <B>application/X-Text</B>, so any multimedia action
+can be defined on this type.<P>
+
+You may use the NewsRog <A
+HREF="../Reference/NR-Ref-Vars.html#MM">variable</A> ${SelTxt} to return the
+currently selected text.  There are several optional parameters to control
+how the text is returned; please see the <A
+HREF="../Reference/NR-Ref-Vars.html#MM">variable reference</A> documentation
+for more information.<P>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+
+<!--------------------------------------------------------------------------->
+
+<A NAME="Summary"></A>
+<TABLE NOFLOW BORDER=0 CELLSPACING=5 CELLPADDING=10>
+<TR>
+<TD ALIGN=Center VALIGN=Top WIDTH=120 BGCOLOR=#777799><FONT SIZE=+2>
+Summary
+<FONT SIZE=+0> </TD>
+<TD>
+
+<IMG SRC="../Graphics/Question.jpg" WIDTH=25 HEIGHT=25 ALIGN=Bottom>
+By this point in the tutorial you should understand:<P>
+
+<UL>
+  <LI>The way in which NewsRog allows you to select article text and use
+  this to perform queries with various web based search engines.
+  </LI>
+  <LI>How to multi-select words or phrases in NewsRog.
+      </LI>
+  <LI>How to configure web search multimedia actions by loading the
+   default ones supplied with NewsRog and setting up a web browser
+   appropriately.
+      </LI>
+  <LI>How to use the web search engine feature when reading news
+  articles.
+      </LI>
+  <LI>How to interface NewsRog to other programs in the same manner.
+      </LI>
+</UL>
+
+<A HREF="#Top">Back to Top</A>
+</TD> </TR>
+</TABLE>
+
+</BODY>
+</HTML>

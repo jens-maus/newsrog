@@ -1,0 +1,86 @@
+;;----------------------------------------------------------------------------
+;;
+;; Remove-NewsRog - NewsRog removal script for Installer
+;;
+;; Copyright © 1998 ShadowWorks Software, All Right reserved.
+;;
+;; Use following Icon tooltypes / Command line options:
+;; APPNAME=NewsRog
+;; MINUSER=AVERAGE
+;;----------------------------------------------------------------------------
+
+(complete 0)
+
+(set locale 0)
+
+(set #welcome           (cat "Welcome to the " @app-name " removal process."))
+(set #removing          (cat "Removing " @app-name " files..."))
+(set #notfound          (cat "Unable to find install directory."))
+(set #userstop          (cat "User stopped removal."))
+(set #danger            (cat "WARNING: This process will remove " @app-name
+                             " from your system.  Do you wish to proceed?\n\n"
+                             "NOTE: Please save your keyfile, since this "
+                             "script will remove the entire NewsRog program "
+                             "from your system.\n\n"
+                             "NOTE: If you have NewsRog drawers open in "
+                             "workbench or otherwise locked, this script "
+                             "will not be able to remove them."))
+
+(set #delenv            (cat "Deleting NewsRog from env: and envarc:"))
+(set #deldir            (cat "Deleting %s directory."))
+
+;=============================================================================
+; Removal procedure
+;=============================================================================
+
+(welcome #welcome)
+
+; -- select our install dir --------------------------------------------------
+
+(set LastDir "")
+(set NR-Dir  "")
+
+(if (exists "ENV:NewsRog/NR-Dir")
+    ((set LastDir (getenv "NewsRog/NR-Dir"))
+     (if (not (exists (tackon LastDir "NewsRog/NewsRog")))
+         (set LastDir ""))))
+
+(complete 10)
+(set Reuse 0)
+(if (= LastDir "") (abort #notfound))
+
+(set NR-Dir (tackon LastDir "NewsRog"))
+
+(if (not (exists (tackon NR-Dir "NewsRog")))
+    (abort #notfound))
+
+
+; -- ask user whether to stop ------------------------------------------------
+
+(complete 20)
+
+(if (not (askbool (prompt #danger)
+                  (help @askbool-help)
+                  (default 1)))
+    (abort #userstop))
+
+
+; -- really remove stuff -----------------------------------------------------
+
+(set @execute-dir "ram:")
+
+(run (prompt (#deldir NR-Dir))
+     (help @run-help)
+     (confirm)
+     "c:delete" ">nil:" NR-Dir (cat NR-Dir ".info") "ALL")
+
+(complete 80)
+
+(run (prompt #delenv)
+     (help @run-help)
+     (confirm)
+     "c:delete" ">nil:" "ENV:NewsRog" "ENVARC:NewsRog" "ALL")
+
+(complete 100)
+
+(exit)
